@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>1. Linked_List(2) | jskim_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="whatever4" />
+  
+  
+  
+  
+  <meta name="description" content="Linked list 배열의 단점을 보완 배열의 단점 : 미리 연결된 공간을 예약해놓고 거기서 데이터 쓰고 읽음(추가&#x2F;제거가 어려움) 링크드 리스트 : 미리 예약x. 필요할 때마다 데이터를 추가 제거 할 수 있는 구조   링크드 리스트 기본 구조와 용어 노드(Node): 데이터 저장 단위 (데이터값, 포인터) 로 구성 포인터(pointer): 각 노드 안에">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1. Linked_List(2)">
+<meta property="og:url" content="http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/index.html">
+<meta property="og:site_name" content="jskim_blog">
+<meta property="og:description" content="Linked list 배열의 단점을 보완 배열의 단점 : 미리 연결된 공간을 예약해놓고 거기서 데이터 쓰고 읽음(추가&#x2F;제거가 어려움) 링크드 리스트 : 미리 예약x. 필요할 때마다 데이터를 추가 제거 할 수 있는 구조   링크드 리스트 기본 구조와 용어 노드(Node): 데이터 저장 단위 (데이터값, 포인터) 로 구성 포인터(pointer): 각 노드 안에">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.fun-coding.org/00_Images/linkedlist.png">
+<meta property="og:image" content="http://example.com/img/output_2_0_2-1.png">
+<meta property="og:image" content="https://www.fun-coding.org/00_Images/doublelinkedlist.png">
+<meta property="og:image" content="http://example.com/img/output_12_0_2-2.png">
+<meta property="og:image" content="http://example.com/img/output_13_0_2-3.png">
+<meta property="article:published_time" content="2020-07-02T05:09:36.000Z">
+<meta property="article:modified_time" content="2020-07-02T05:51:57.037Z">
+<meta property="article:author" content="js Kim">
+<meta property="article:tag" content="datastructure">
+<meta property="article:tag" content="linked-list">
+<meta property="article:tag" content="double-linked-list">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.fun-coding.org/00_Images/linkedlist.png">
+  
+    <link rel="alternate" href="/atom.xml" title="jskim_blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+// <link rel="stylesheet" type="text/css" href="">
+// 
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+	
+// 
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+// 
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="https://hexo.io/logo.svg">
+              </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">whatever</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2.Data_structure _ Linked_List_2" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      1. Linked_List(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/02/2.Data_structure%20_%20Linked_List_2/" class="article-date">
+	  <time datetime="2020-07-02T05:09:36.000Z" itemprop="datePublished">July 2, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linked-list"><a href="#Linked-list" class="headerlink" title="Linked list"></a>Linked list</h1><ul>
+<li>배열의 단점을 보완</li>
+<li>배열의 단점 : 미리 연결된 공간을 예약해놓고 거기서 데이터 쓰고 읽음(추가/제거가 어려움)</li>
+<li>링크드 리스트 : 미리 예약x. 필요할 때마다 데이터를 추가 제거 할 수 있는 구조</li>
+</ul>
+<ul>
+<li>링크드 리스트 기본 구조와 용어<ul>
+<li>노드(Node): 데이터 저장 단위 (데이터값, 포인터) 로 구성</li>
+<li>포인터(pointer): 각 노드 안에서, 다음이나 이전의 노드와의 연결 정보를 가지고 있는 공간</li>
+</ul>
+</li>
+</ul>
+<br>
+* 일반적인 링크드 리스트 형태
+
+<img src="https://www.fun-coding.org/00_Images/linkedlist.png" />
+(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
+
+<ul>
+<li>장점<ul>
+<li>미리 데이터 공간을 미리 할당하지 않아도 됨<ul>
+<li>배열은 <strong>미리 데이터 공간을 할당</strong> 해야 함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>연결을 위한 별도 데이터 공간이 필요하므로, 저장공간 효율이 높지 않음</li>
+<li>연결 정보를 찾는 시간이 필요하므로 접근 속도가 느림</li>
+<li>중간 데이터 삭제시, 앞뒤 데이터의 연결을 재구성해야 하는 부가적인 작업 필요</li>
+</ul>
+</li>
+</ul>
+<h1 id="6-특정-노드를-삭제"><a href="#6-특정-노드를-삭제" class="headerlink" title="6. 특정 노드를 삭제"></a>6. 특정 노드를 삭제</h1><ul>
+<li>head노드 삭제 (경우 1)</li>
+<li>마지막노드 삭제 (경우 2)</li>
+<li>중간노드 삭제 (경우 3)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/Github upload/0.Algorithms_daily/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;Linked_List 필기1.PNG&quot;</span>, width=<span class="number">500</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_2_0_2-1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line"><span class="comment"># 객체 추가, 순회출력 기능</span></span><br><span class="line"><span class="comment"># 자체적으로 첫 노드를 설정하도록 해야함. 이를 위해 Node 클래스를 활용</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manage</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.head = Node(data)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">desc</span>(<span class="params">self</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            print(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        print(node.data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        <span class="comment"># 헤드가 삭제할 노드라면</span></span><br><span class="line">        <span class="keyword">if</span> self.head.data == data:</span><br><span class="line">            <span class="comment"># 1) 헤드 변경</span></span><br><span class="line">            temp = self.head</span><br><span class="line">            self.head = self.head.<span class="built_in">next</span>  <span class="comment">#헤드 = 다음노드로 지정</span></span><br><span class="line">            <span class="comment"># 2) 노드 삭제</span></span><br><span class="line">            <span class="keyword">del</span> temp</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 중간, 마지막 노드가 삭제할 노드라면</span></span><br><span class="line">        <span class="comment"># 중간 노드 삭제 시 : 삭제할 노드의 앞 노드 next가 다음 노드를 가리키고</span></span><br><span class="line">        <span class="comment"># 마지막 노드 삭제 시 : 앞 노드의 next가 None값이 되어야함</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = self.head</span><br><span class="line">            <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">                <span class="comment"># 중간, 마지막 노드가 삭제할 노드라면,</span></span><br><span class="line">                <span class="keyword">if</span> node.<span class="built_in">next</span>.data == data:</span><br><span class="line">                    <span class="comment"># 1) 연결 변환</span></span><br><span class="line">                    temp = node.<span class="built_in">next</span></span><br><span class="line">                    node.<span class="built_in">next</span> = node.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">                    <span class="comment"># 2) 노드 삭제</span></span><br><span class="line">                    <span class="keyword">del</span> temp</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 헤드노드 생성해 확인</span></span><br><span class="line"></span><br><span class="line">testnode_1 = Manage(<span class="number">0</span>)</span><br><span class="line">testnode_1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># head를 삭제 (경우 1)</span></span><br><span class="line"></span><br><span class="line">testnode_1.delete(<span class="number">0</span>)</span><br><span class="line">testnode_1.head</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 다시 노드 생성</span></span><br><span class="line"></span><br><span class="line">testnode_2 = Manage(<span class="number">0</span>)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 여러개의 노드 생성</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    testnode_2.add(i)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 중간 노드를 삭제 (경우 2)</span></span><br><span class="line">testnode_2.delete(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+2
+3
+5
+6
+7
+8
+9</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 마지막 노드를 삭제 (경우 3)</span></span><br><span class="line">testnode_2.delete(<span class="number">9</span>)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+2
+3
+5
+6
+7
+8</code></pre>
+<h1 id="7-Double-Linked-List"><a href="#7-Double-Linked-List" class="headerlink" title="7. Double Linked List"></a>7. Double Linked List</h1><ul>
+<li>더블 링크드 리스트(Doubly linked list) 기본 구조 <ul>
+<li>이중 연결 리스트라고도 함</li>
+<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<br>
+<img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" />
+(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
+
+
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/0. 데이터사이언스 스쿨/Study/0.Algorithms/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;DoubleLL_1.PNG&quot;</span>, width=<span class="number">500</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_12_0_2-2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/0. 데이터사이언스 스쿨/Study/0.Algorithms/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;DoubleLL_2.PNG&quot;</span>, width=<span class="number">1000</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_13_0_2-3.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a></li></ul>
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jskim-0406';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/03/5.Data_structure_Hash-table/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          3. Hash-table
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/02/4.Data_structure_time%20complexity/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2. 시간복잡도</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linked-list"><span class="nav-number">1.</span> <span class="nav-text">Linked list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%ED%8A%B9%EC%A0%95-%EB%85%B8%EB%93%9C%EB%A5%BC-%EC%82%AD%EC%A0%9C"><span class="nav-number">2.</span> <span class="nav-text">6. 특정 노드를 삭제</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-Double-Linked-List"><span class="nav-number">3.</span> <span class="nav-text">7. Double Linked List</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 jskim_blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
