@@ -118,6 +118,364 @@
         
           <section id="main">
   
+    <article id="post-[programmers] sort_3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/" class="article-date">
+	  <time datetime="2020-11-04T10:30:42.823Z" itemprop="datePublished">November 4, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="3-H-index"><a href="#3-H-index" class="headerlink" title="3. H-index"></a>3. H-index</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42747">문제</a></p>
+<h3 id="1-1차-입력"><a href="#1-1차-입력" class="headerlink" title="1) 1차 입력"></a>1) 1차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">citations</span>):</span></span><br><span class="line">    sorted_cite = <span class="built_in">sorted</span>(citations, reverse=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    answer = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    print(sorted_cite)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sorted_cite)):</span><br><span class="line">        <span class="keyword">if</span> sorted_cite[i] &lt; i+<span class="number">1</span>:</span><br><span class="line">            answer = i</span><br><span class="line">            <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[6, 5, 3, 1, 0]
+
+
+
+
+
+3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[25, 8, 5, 3, 3]
+
+
+
+
+
+3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[25, 8, 5, 4, 3]
+
+
+
+
+
+4</code></pre>
+<h3 id="결과-fail"><a href="#결과-fail" class="headerlink" title="결과 : fail"></a>결과 : fail</h3><ul>
+<li>9번 case 실패</li>
+</ul>
+<h3 id="2-2차-입력"><a href="#2-2차-입력" class="headerlink" title="2) 2차 입력"></a>2) 2차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">citations</span>):</span></span><br><span class="line">    answer, max_idx = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    sorted_cite = <span class="built_in">sorted</span>(citations, reverse=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sorted_cite)):</span><br><span class="line">        <span class="keyword">if</span> sorted_cite[i] &gt;= i+<span class="number">1</span>:</span><br><span class="line">            max_idx = i+<span class="number">1</span></span><br><span class="line">    answer = max_idx</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>4</code></pre>
+<h3 id="결과-성공"><a href="#결과-성공" class="headerlink" title="결과 : 성공"></a>결과 : 성공</h3>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-[programmers] sort_2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/04/%5Bprogrammers%5D%20sort_2/">2. [프로그래머스 문제풀이] 2. 가장 큰 수</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/04/%5Bprogrammers%5D%20sort_2/" class="article-date">
+	  <time datetime="2020-11-04T10:30:30.000Z" itemprop="datePublished">November 4, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2-가장-큰-수"><a href="#2-가장-큰-수" class="headerlink" title="2. 가장 큰 수"></a>2. 가장 큰 수</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42746">문제</a></p>
+<h3 id="1-1차-입력"><a href="#1-1차-입력" class="headerlink" title="1) 1차 입력"></a>1) 1차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>], reverse=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">6</span>,<span class="number">10</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;6210&#39;</code></pre>
+<h4 id="입력결과-fail"><a href="#입력결과-fail" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">기댓값 &gt; <span class="string">&quot;9534330&quot;</span></span><br><span class="line">실행 결과 &gt; 실행한 결괏값 <span class="string">&quot;9533034&quot;</span>이(가) 기댓값 <span class="string">&quot;9534330&quot;</span>와(과) 다릅니다.</span><br></pre></td></tr></table></figure>
+
+<h4 id="틀린-이유"><a href="#틀린-이유" class="headerlink" title="틀린 이유"></a>틀린 이유</h4><p>일의 자리 외의 자릿수가 같은 경우 등을 고려하지 못함</p>
+<h3 id="2-2차-입력"><a href="#2-2차-입력" class="headerlink" title="2) 2차 입력"></a>2) 2차 입력</h3><p>다중조건을 적용해,</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 가장 앞자리 비교해 내림차순 ex) 10 20 -&gt; 20 10</span><br><span class="line">    - key ==&gt;&gt; lambda x: int(x[0])</span><br><span class="line"></span><br><span class="line">2. 가장 앞자리가 같은데 단위가 다르다면, 낮은 단위의 숫자 먼저 ex) 60 6 -&gt; 6 60 / 120 12 -&gt; 12 120</span><br><span class="line">    - key ==&gt;&gt; lambda x: -len(x)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 가장 앞자리가 같은데 단위가 같다면, 숫자 그대로 비교</span><br><span class="line">    - key ==&gt;&gt; lambda x: x</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>참고</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dailyheumsi.tistory.com/67">lambda 다중조건</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    b = <span class="built_in">sorted</span>(a, key=<span class="keyword">lambda</span> x: (<span class="built_in">int</span>(x[<span class="number">0</span>]), -<span class="built_in">len</span>(x), x), reverse=<span class="literal">True</span>)</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;9&#39;, &#39;5&#39;, &#39;3&#39;, &#39;34&#39;, &#39;30&#39;]</code></pre>
+<h4 id="입력결과-fail-1"><a href="#입력결과-fail-1" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p><strong>solution([3, 30, 34, 5, 9]) 케이스 통과 X</strong></p>
+<ul>
+<li>출력값 : 9 5 3 34 30 </li>
+<li>기대값 : 9 5 34 3 30</li>
+</ul>
+<p>3과 34의 정렬기준 충족 못함</p>
+<h3 id="3-3차-입력"><a href="#3-3차-입력" class="headerlink" title="3) 3차 입력"></a>3) 3차 입력</h3><p>결국엔..<br>참고..</p>
+<p><a target="_blank" rel="noopener" href="https://eda-ai-lab.tistory.com/467">참고한 블로그</a></p>
+<p><a target="_blank" rel="noopener" href="https://blackinkgj.github.io/python-custom-comparator/">참고한 블로그 2</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_func</span>(<span class="params">num1,num2</span>):</span></span><br><span class="line">    a = num1 + num2</span><br><span class="line">    b = num2 + num1</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>(a) &gt; <span class="built_in">int</span>(b):  <span class="comment"># 원래 순서대로 정렬</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">int</span>(a) == <span class="built_in">int</span>(b):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=functools.cmp_to_key(compare_func), reverse=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;9534330&#39;</code></pre>
+<h4 id="입력결과-fail-2"><a href="#입력결과-fail-2" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p>test case 11 실패</p>
+<h3 id="4-4차-입력"><a href="#4-4차-입력" class="headerlink" title="4) 4차 입력"></a>4) 4차 입력</h3><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/questions/7482">테스트 케이스 질문 글 참고</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[test case <span class="number">11</span>]</span><br><span class="line">0, 0, 0, 0 -&gt; 0 이 되어야 함 (하지만, &#x27;0000&#x27;이 출력됨)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[test case <span class="number">11</span>을 통해 알아낸 <span class="string">&#x27;틀린 원인&#x27;</span>]</span><br><span class="line">숫자를 string으로 변환하는 이유는 정답(출력)크기 때문.</span><br><span class="line">결국 형식은 string이지만, 숫자를 출력해야하는 것.</span><br><span class="line">따라서,</span><br><span class="line"></span><br><span class="line">1. 정렬 -&gt; string 상태에서 진행 # str( ) &lt;- line 15</span><br><span class="line">2. 정답 -&gt; 정렬 결과를 int로 변환 # int( ) &lt;- line 16</span><br><span class="line">3. 출력 -&gt; 다시 string으로 변환 # str( ) &lt;- line 16</span><br><span class="line"></span><br><span class="line">을 거쳐야 하는 것</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_func</span>(<span class="params">num1,num2</span>):</span></span><br><span class="line">    a = num1 + num2</span><br><span class="line">    b = num2 + num1</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>(a) &gt; <span class="built_in">int</span>(b): </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>   <span class="comment"># 1 : sorted 시, num1이 더 큰 것임을 sorted에 전달 (먼저 전달 받은 것이 큼)</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">int</span>(a) == <span class="built_in">int</span>(b):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>   <span class="comment"># 0 : sorted 시, num1 과 num2 가 같음을 sorted에 전달</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>   <span class="comment"># -1 : sorted 시, num2가 더 큰 것임을 sorted에 전달</span></span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="built_in">str</span>(<span class="built_in">int</span>(<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=functools.cmp_to_key(compare_func), reverse=<span class="literal">True</span>))))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;0&#39;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;9534330&#39;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">6</span>,<span class="number">60</span>,<span class="number">67</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;67660&#39;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key_ex.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_24_0_1.jpeg" alt="jpeg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_25_0_1.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-[programmers] sort_1"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/04/%5Bprogrammers%5D%20sort_1/">2. [프로그래머스 문제풀이] 1. k번째수</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/04/%5Bprogrammers%5D%20sort_1/" class="article-date">
+	  <time datetime="2020-11-04T10:30:22.816Z" itemprop="datePublished">November 4, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-k번째-수"><a href="#1-k번째-수" class="headerlink" title="1. k번째 수"></a>1. k번째 수</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42748?language=python3">문제</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">array, commands</span>):</span></span><br><span class="line">    answer = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(commands)):</span><br><span class="line">        stand = commands.pop(<span class="number">0</span>)</span><br><span class="line">        sorted_array = <span class="built_in">sorted</span>(array[stand[<span class="number">0</span>]<span class="number">-1</span>:stand[<span class="number">1</span>]])</span><br><span class="line">        answer.append(sorted_array[stand[<span class="number">2</span>]<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Part3_ch6_5_functools.cmp_to_key( func_name )"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/">6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/" class="article-date">
+	  <time datetime="2020-11-04T10:29:56.000Z" itemprop="datePublished">November 4, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-from-functools-import-cmp-to-key"><a href="#1-from-functools-import-cmp-to-key" class="headerlink" title="1. from functools import cmp_to_key"></a>1. from functools import cmp_to_key</h1><p><strong>정렬(sorted)시, 비교함수의 커스터마이징( key = functools.cmp_to_key( 커스텀비교함수 ) )</strong></p>
+<p><a target="_blank" rel="noopener" href="https://velog.io/@sparkbosing/python-%EB%82%B4-%EB%A7%88%EC%9D%8C%EB%8C%80%EB%A1%9C-%EC%A0%95%EB%A0%ACsort">참고</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_3_0_5_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key_ex.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_4_0_5_1.jpeg" alt="jpeg"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Part3_ch6_3_Counter class"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -710,825 +1068,11 @@ abc</code></pre>
 <!-- Table of Contents -->
 
   
-    <article id="post-Part3_ch6_"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/11/03/Part3_ch6_/">2. Part3_ch6 &#34;string manipulation&#34; leet-code 문제풀이</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/11/03/Part3_ch6_/" class="article-date">
-	  <time datetime="2020-11-03T06:26:57.845Z" itemprop="datePublished">November 3, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="문제-1-유효한-팰린드롬"><a href="#문제-1-유효한-팰린드롬" class="headerlink" title="문제 1. 유효한 팰린드롬"></a>문제 1. 유효한 팰린드롬</h1><ul>
-<li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/">https://leetcode.com/problems/valid-palindrome/</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</span><br><span class="line"></span><br><span class="line">Note: For the purpose of this problem, we define empty string as valid palindrome.</span><br><span class="line"></span><br><span class="line">&lt;Example 1&gt;</span><br><span class="line"></span><br><span class="line">Input: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">&lt;Example 2&gt;</span><br><span class="line"></span><br><span class="line">Input: &quot;race a car&quot;</span><br><span class="line">Output: false</span><br><span class="line"> </span><br><span class="line">Constraints: s consists only of printable ASCII characters.</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>리스트 활용</th>
-<th>슬라이싱(re)</th>
-<th>슬라이싱(isalnum())</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>284ms</td>
-<td>36ms</td>
-<td>48ms</td>
-</tr>
-</tbody></table>
-<p>[참고사항]</p>
-<ol>
-<li><p><strong>문자열을 변환해 리스트에 저장하는 시간이 많이 걸림.</strong></p>
-<pre><code> 따라서, 문자열을 리스트에 넣지 않고, 그대로 slicing해 비교하는 방법이 시간단축에 좋음( a == a[::-1] )</code></pre>
-</li>
-<li><p><strong>그 외, 필터링 및 전처리에 ‘re, char.isalnum(), char.lower() 등 활용’</strong></p>
-</li>
-</ol>
-<h4 id="1-1-char-isalnum-문자열-중-숫자-문자인-경우만-True로-반환하는-함수"><a href="#1-1-char-isalnum-문자열-중-숫자-문자인-경우만-True로-반환하는-함수" class="headerlink" title="1-1) char.isalnum() : 문자열 중 숫자 + 문자인 경우만 True로 반환하는 함수"></a>1-1) char.isalnum() : 문자열 중 숫자 + 문자인 경우만 True로 반환하는 함수</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot; A 23n&quot;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">    print(char.isalnum(),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>False True False True True True </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        strs = []</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 제약조건 상, 문자만 판단하니, 모두 문자인 경우만 선별(True)</span></span><br><span class="line">            <span class="keyword">if</span> char.isalnum():</span><br><span class="line">                <span class="comment"># 제약조건 상, 대/소문자 구분이 없으므로, 모두 소문자로 전처리</span></span><br><span class="line">                <span class="comment">## 여기서 시간이 많이 걸림!</span></span><br><span class="line">                strs.append(char.lower())</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(strs) &gt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> strs.pop(<span class="number">0</span>) != strs.pop():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;cac&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h2 id="2-슬라이싱-활용"><a href="#2-슬라이싱-활용" class="headerlink" title="2) 슬라이싱 활용"></a>2) 슬라이싱 활용</h2><ul>
-<li>슬라이싱 : 매우 속도가 빠름</li>
-<li>문자열을 리스트 등으로 변환하면, 연산 시간이 많이 소요되므로, 문자열 그대로 슬라이싱 해 푸는 것이 바람직</li>
-</ul>
-<h4 id="2-1-re-정규식-활용한-필터링"><a href="#2-1-re-정규식-활용한-필터링" class="headerlink" title="2-1) re 정규식 활용한 필터링"></a>2-1) re 정규식 활용한 필터링</h4><ul>
-<li>leetcode의 기본 라이브러리로 import re 있음(다른 플랫폼에선 확인해봐야함)</li>
-<li>36ms</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        <span class="comment"># 소문자로 전처리</span></span><br><span class="line">        s = s.lower()</span><br><span class="line">        <span class="comment"># 정규식으로 불필요한 문자 필터링</span></span><br><span class="line">        s = re.sub(<span class="string">&#x27;[^a-z0-9]&#x27;</span>,<span class="string">&#x27;&#x27;</span>,s)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> s == s[::<span class="number">-1</span>] <span class="comment"># 슬라이싱</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.isPalindrome(<span class="string">&quot;cac&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h4 id="2-2-isalnum-lower-전처리-슬라이싱"><a href="#2-2-isalnum-lower-전처리-슬라이싱" class="headerlink" title="2-2) isalnum(), lower() 전처리 + 슬라이싱"></a>2-2) isalnum(), lower() 전처리 + 슬라이싱</h4><ul>
-<li>leetcode의 기본 라이브러리로 import re 있음(다른 플랫폼에선 확인해봐야함)</li>
-<li>48ms</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        strs = []</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 제약조건 상, 문자만 판단하니, 모두 문자인 경우만 선별(True)</span></span><br><span class="line">            <span class="keyword">if</span> char.isalnum():</span><br><span class="line">                <span class="comment"># 제약조건 상, 대/소문자 구분이 없으므로, 모두 소문자로 전처리</span></span><br><span class="line">                strs.append(char.lower())</span><br><span class="line">        <span class="keyword">if</span> strs != strs[::<span class="number">-1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h1 id="문제-2-문자열-뒤집기"><a href="#문제-2-문자열-뒤집기" class="headerlink" title="문제 2. 문자열 뒤집기"></a>문제 2. 문자열 뒤집기</h1><ul>
-<li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-string/">https://leetcode.com/problems/reverse-string/</a></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>투포인터 스왑</th>
-<th>list.reverse()</th>
-<th>슬라이싱(새 변수 할당X)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>208ms</td>
-<td>196ms</td>
-<td>208ms</td>
-</tr>
-</tbody></table>
-<p>[참고사항]</p>
-<ol>
-<li><p><strong>리스트 자료형 내장함수(list.reverse()등)가 역시나 가장 시간복잡도가 낮다</strong></p>
-</li>
-<li><p><strong>문자열 뒤집기 시, in-place방법 : swap식 처리 / [:] = [::-1] / list.reverse()</strong></p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Write a function that reverses a string. The input string is given as an array of characters char[].</span><br><span class="line"></span><br><span class="line">Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</span><br><span class="line"></span><br><span class="line">You may assume all the characters consist of printable ascii characters.</span><br><span class="line"> </span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input: [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">Output: [&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br><span class="line"></span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input: [&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">Output: [&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-투-포인터를-이용한-스왑"><a href="#1-투-포인터를-이용한-스왑" class="headerlink" title="1) 투 포인터를 이용한 스왑"></a>1) 투 포인터를 이용한 스왑</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    </span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(list_string)<span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        list_string[left], list_string[right] = list_string[right], list_string[left]</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</code></pre>
-<h3 id="2-pythonic"><a href="#2-pythonic" class="headerlink" title="2) pythonic"></a>2) pythonic</h3><ul>
-<li>list.reverse()</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    list_string.reverse()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]</code></pre>
-<h3 id="3-slicing"><a href="#3-slicing" class="headerlink" title="3) slicing"></a>3) slicing</h3><ul>
-<li>문제에서, 공간복잡도를 O(1)로 주어 변수 할당에 제약이 있음<ul>
-<li>즉, 주어진 리스트 s를 새로운 변수로 할당해 공간을 만들지 말라는 말!<ul>
-<li>이러면, 다음과 같은 슬라이싱은 할 수 없음 (새로운 변수가 할당되기 때문)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = s[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>이럴 때, 변수를 새로 할당하지 않으면서 슬라이싱을 통한 inplace 트릭이 있음<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s[:] = s[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>이러면, 새로운 공간을 할당하지 않고, inplace가능</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    list_string[:] = list_string[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]</code></pre>
-<h1 id="문제-3-가장-흔한-단어"><a href="#문제-3-가장-흔한-단어" class="headerlink" title="문제 3. 가장 흔한 단어"></a>문제 3. 가장 흔한 단어</h1><ul>
-<li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/most-common-word">https://leetcode.com/problems/most-common-word</a></li>
-</ul>
-<p>Given a paragraph and a list of banned words, return the most frequent word that is not in the list of banned words.  It is guaranteed there is at least one word that isn’t banned, and that the answer is unique.</p>
-<p>Words in the list of banned words are given in lowercase, and free of punctuation.  Words in the paragraph are not case sensitive.  The answer is in lowercase.</p>
-<p>Example:</p>
-<p>Input:<br>paragraph = “Bob hit a ball, the hit BALL flew far after it was hit.”<br>banned = [“hit”]<br>Output: “ball”<br>Explanation:<br>“hit” occurs 3 times, but it is a banned word.<br>“ball” occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph.<br>Note that words in the paragraph are not case sensitive,<br>that punctuation is ignored (even if adjacent to words, such as “ball,”),<br>and that “hit” isn’t the answer even though it occurs more because it is banned.</p>
-<p>Note:</p>
-<p>1 &lt;= paragraph.length &lt;= 1000.<br>0 &lt;= banned.length &lt;= 100.<br>1 &lt;= banned[i].length &lt;= 10.<br>The answer is unique, and written in lowercase (even if its occurrences in paragraph may have uppercase symbols, and even if it is a proper noun.)<br>paragraph only consists of letters, spaces, or the punctuation symbols !?’,;.<br>There are no hyphens or hyphenated words.<br>Words only consist of letters, never apostrophes or other punctuation symbols.</p>
-<h3 id="로직정리"><a href="#로직정리" class="headerlink" title="로직정리"></a>로직정리</h3><ul>
-<li>collections.Counter 활용해 각 string별 빈도수 체크</li>
-<li>Counter().most_common(1)[0][0] 으로 가장 빈도수 높은 string(key)를 얻어낼 것</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mostCommonWord</span>(<span class="params">self, paragraph: <span class="built_in">str</span>, banned</span>):</span></span><br><span class="line">        <span class="comment"># words는 banned아닌 단어들을 split해서 element가 string인 list로 만들 것</span></span><br><span class="line">        <span class="comment"># 데이터 클렌징(전처리) 실시</span></span><br><span class="line">            <span class="comment"># 1. paragraph에서 단어만 뽑아내기 위해, &#x27;,&#x27;등은 공백으로 치환</span></span><br><span class="line">            <span class="comment"># 2. 공백 기준으로 단어 split</span></span><br><span class="line">            <span class="comment"># 3. 대소문자 구분 없으므로 모두 소문자로 통일</span></span><br><span class="line">        words = [word <span class="keyword">for</span> word <span class="keyword">in</span> re.sub(<span class="string">r&#x27;[^a-zA-Z0-9]+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,paragraph).lower().split() <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> banned]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># words에서 Counter를 활용해 빈도 수 체크할 것</span></span><br><span class="line">        counts = Counter(words)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 가장 높은 빈도수의 단어 뽑아낼 것</span></span><br><span class="line">        <span class="keyword">return</span> counts.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.mostCommonWord(<span class="string">&quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;</span>,[<span class="string">&quot;hit&quot;</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;ball&#39;</code></pre>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Part2_python"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/11/03/Part2_python/">1. Part2_python</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/11/03/Part2_python/" class="article-date">
-	  <time datetime="2020-11-03T06:26:50.715Z" itemprop="datePublished">November 3, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-type-hint"><a href="#1-type-hint" class="headerlink" title="1. type hint"></a>1. type hint</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: <span class="built_in">str</span> = <span class="string">&quot;1&quot;</span></span><br><span class="line">b: <span class="built_in">int</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;1&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>1</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력은 int type</span></span><br><span class="line"><span class="comment"># return은 bool type</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>1
-
-
-
-
-
-True</code></pre>
-<h3 id="2-List-comprehension"><a href="#2-List-comprehension" class="headerlink" title="2. List comprehension"></a>2. List comprehension</h3><h4 id="map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic"><a href="#map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic" class="headerlink" title="map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic"></a>map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> data : data+<span class="number">10</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[11, 12, 13]</code></pre>
-<h4 id="list-comprehension을-활용"><a href="#list-comprehension을-활용" class="headerlink" title="list-comprehension을 활용"></a>list-comprehension을 활용</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = [data + <span class="number">10</span> <span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[11, 12, 13]</code></pre>
-<h4 id="list-comprehension-연습-홀수만-2를-곱해-출력"><a href="#list-comprehension-연습-홀수만-2를-곱해-출력" class="headerlink" title="list-comprehension 연습 : 홀수만 2를 곱해 출력"></a>list-comprehension 연습 : 홀수만 2를 곱해 출력</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = [num*<span class="number">2</span> <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> num%<span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[2, 6, 10, 14, 18]</code></pre>
-<h4 id="dictionary-타입도-list-comprehension-가능"><a href="#dictionary-타입도-list-comprehension-가능" class="headerlink" title="dictionary 타입도 list-comprehension 가능"></a>dictionary 타입도 list-comprehension 가능</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin = &#123;<span class="string">&#x27;first&#x27;</span> : <span class="number">1</span>,<span class="string">&#x27;sec&#x27;</span> : <span class="number">2</span>,<span class="string">&#x27;third&#x27;</span> : <span class="number">3</span>&#125;</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.items()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_items([(&#39;first&#39;, 1), (&#39;sec&#39;, 2), (&#39;third&#39;, 3)])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.values()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_values([1, 2, 3])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.keys()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_keys([&#39;first&#39;, &#39;sec&#39;, &#39;third&#39;])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;key: value <span class="keyword">for</span> key, value <span class="keyword">in</span> origin.items()&#125;</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;</code></pre>
-<h3 id="3-generator"><a href="#3-generator" class="headerlink" title="3. generator"></a>3. generator</h3><pre><code>- 기존의 함수는 return에서 값 리턴 후 함수 종료
-- yield는 generator가 여기까지 실행 중이던 값을 내보낸다는 의미(함수는 종료되지 않고, 맨 끝에 도달할 때까지 실행됨)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_number</span>():</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        <span class="keyword">yield</span> n</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gen = get_number()</span><br><span class="line">gen</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;generator object get_number at 0x1a22432ad0&gt;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>1 2 3 4 5 6 7 8 9 10 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>11 12 13 14 15 16 17 18 19 20 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>21 22 23 24 25 26 27 28 29 30 </code></pre>
-<h3 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4. enumerate"></a>4. enumerate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(a):</span><br><span class="line">    print(index, value)</span><br></pre></td></tr></table></figure>
-
-<pre><code>0 11
-1 12
-2 13
-3 14
-4 15</code></pre>
-<h3 id="5-divmod"><a href="#5-divmod" class="headerlink" title="5. divmod"></a>5. divmod</h3><ul>
-<li>몫, 나머지를 튜플로 함께 반환</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">divmod</span>(<span class="number">10</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(3, 1)</code></pre>
-<h3 id="6-f-string"><a href="#6-f-string" class="headerlink" title="6. f-string"></a>6. f-string</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line">fruit = <span class="string">&#x27;apple&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;idx+<span class="number">1</span>&#125;</span> : <span class="subst">&#123;fruit&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>2 : apple</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;&#123;&#125; : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span>,fruit))</span><br></pre></td></tr></table></figure>
-
-<pre><code>2 : apple</code></pre>
-<h3 id="7-pythonic-way"><a href="#7-pythonic-way" class="headerlink" title="7. pythonic way"></a>7. pythonic way</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
-
-<pre><code>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre>
-<h3 id="8-big-O-표기법"><a href="#8-big-O-표기법" class="headerlink" title="8. big-O 표기법"></a>8. big-O 표기법</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">big-O는 주어진(최선&#x2F;최악&#x2F;평균) 경우의 수행 시간의 상한을 나타낸다.</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="9-List-자료형-이해"><a href="#9-List-자료형-이해" class="headerlink" title="9. List 자료형 이해"></a>9. List 자료형 이해</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">list</span>()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 3, 4, 5]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="number">6</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 3, 4, 5, 6]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.insert(<span class="number">2</span>,<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="string">&#x27;안녕&#x27;</span>)</span><br><span class="line">a.append(<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a[<span class="number">2</span>],a[<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>2.5 True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> a[<span class="number">1</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.remove(<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.pop(<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;안녕&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 3, 4, 5, 6, True]</code></pre>
-<h3 id="10-Dictionary-자료형-이해"><a href="#10-Dictionary-자료형-이해" class="headerlink" title="10. Dictionary 자료형 이해"></a>10. Dictionary 자료형 이해</h3><h4 id="Dictionary-module-1-defaultdict-객체"><a href="#Dictionary-module-1-defaultdict-객체" class="headerlink" title="Dictionary module 1) defaultdict 객체"></a>Dictionary module 1) defaultdict 객체</h4><ul>
-<li>없는 key값을 조회 시, 에러메시지 출력 대신 디폴트값을 기준으로 해당 키에 아이템 할당해줌</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">a = collections.defaultdict(<span class="built_in">int</span>)</span><br><span class="line">a[<span class="string">&#x27;A&#x27;</span>] = <span class="number">5</span></span><br><span class="line">a[<span class="string">&#x27;B&#x27;</span>] = <span class="number">4</span></span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4&#125;)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="string">&#x27;C&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4, &#39;C&#39;: 0&#125;)</code></pre>
-<h4 id="Dictionary-module-2-Counter-객체"><a href="#Dictionary-module-2-Counter-객체" class="headerlink" title="Dictionary module 2) Counter 객체"></a>Dictionary module 2) Counter 객체</h4><ul>
-<li>아이템 갯수를 계산 -&gt; 딕셔너리로 리턴함</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>]</span><br><span class="line">b = collections.Counter(a)</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>Counter(&#123;1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 2&#125;)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(b)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>collections.Counter</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b.most_common(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[(5, 2), (6, 2)]</code></pre>
-<h4 id="Dictionary-module-2-OrderedDict-객체"><a href="#Dictionary-module-2-OrderedDict-객체" class="headerlink" title="Dictionary module 2) OrderedDict 객체"></a>Dictionary module 2) OrderedDict 객체</h4><ul>
-<li>입력순서가 유지되는 자료형</li>
-<li>3.7 이상에선 자동으로 지원하지만, 그 이전에는 dictionary자체에서 입력순서 유지 X. OrderedDict 객체에서만 입력순서 유지되었음</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">collections.OrderedDict(&#123;<span class="string">&#x27;banana&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;apple&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;pear&#x27;</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>OrderedDict([(&#39;banana&#39;, 1), (&#39;apple&#39;, 2), (&#39;pear&#39;, 1)])</code></pre>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-journal_1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/29/journal_1/">새로운 시작을 앞두고, 태도에 관하여</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/07/29/journal_1/" class="article-date">
-	  <time datetime="2020-07-29T06:38:36.000Z" itemprop="datePublished">July 29, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/journal/">journal</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>퇴사 후 약 7개월 간의 공부. 이제 대학원과 함께 새로운 시작을 앞두고 있다.<br>익숙했던 문과를 벗어나, 공학을 깊이있게 공부해보기로 마음먹었다. 새로운 막을 앞두고 있다.</p>
-<p>몸을 바쁘게 움직이면 통 잡히지 않던 마음이 차분해지곤 한다.<br>싱숭생숭한 마음을 정리하고자 책장, 옷장, 방을 정리했다.</p>
-<p>구석에서 잊혀져있던 책 몇 권을 다시 꺼내어왔다. 주로 ‘삶의 태도’에 관한 에세이 였다.</p>
-<p>새로운 시작을 앞두고, 그때 절절히 공감 했던 것들을 다시 새겨보자! 동력을 잃지 않게..<br>하루 뒤, 2년 뒤, 10년 뒤, 20년 뒤에도 이 문장들에 공감하며 가슴이 뛸 수 있길 바라며!</p>
-<h3 id="1-온전히-나답게-한수희"><a href="#1-온전히-나답게-한수희" class="headerlink" title="1. 온전히 나답게 (한수희)"></a>1. 온전히 나답게 (한수희)</h3><blockquote>
-<p>모든 사람이 가슴속에 가난을 품고 있었으면 좋겠다. 그렇다면 우리는 좀 더 다정해지고 좀 더 담백해질 수 있을 것이다. 다시 말해 좀 더 인간적인 사람이 될 수도 있을 것이다. (33p)</p>
-</blockquote>
-<blockquote>
-<p>… 부장은 지금 어두운 고속도로에서 차를 몰고 있다. 그런데 헤드라이트 불빛에 도로 한가운데 멍청히 서있는 고라니 한 마리가 보인다. 부장은 비키라며 클랙슨을 울리지만 고라니는 비킬 생각을 하지 않는다. 부장은 억울해 죽겠다는 표정으로 “왜 하필 내 앞에!”하고 소리를 지른다. 이제 부장이 할 수 있는 일은 고라니를 그대로 치고 지나가는 것 뿐이다. 이수인은 자신이 그 고라니라고 생각한다. 우리도 살아가면서 부장처럼 고속도로 위의 고라니를 만나게 될 날이 있을 것이다. 우리는 “왜 하필 내앞에!”라고 소리치며 그 고라니를 쳐버릴 수 있을까. 그게 아니라면 어떻게 해야할까. 핸들을 틀어 옆에서 달리는 다른 운전자들을 다 죽여버릴 수도 있는데. 차라리 고라니 한 마리를 치는 게 낫지 않을까. 살면서 몇 번, 나의 사소한 이익을 위해 남몰래 얍삽해진 적이 있다. 고라니까지는 쳐보지 못했지만, 토끼나 쥐 정도는 치고 지나간 적이 분명 있었다. 그때의 결과는 이상하리만치 좋지 않았다. 이익도 못 얻고 인심도 못 얻었는데, 죄책감과 자괴감만 선물 받은 심정이었다. (중략) 살아가면서 사람이 사람에게 해서는 안 되는 짓 만은 하지 말자고 다짐한다. 사람이 사람에게 해서는 안 되는 짓을 하고 있는 누군가가 있다면, 그 사람을 적극적으로 미워해 주자고 다짐한다. 고라니의 등 뒤에 선 수많은 고라니들 중의 하나가 되어 주자고 다짐한다. 다짐만 하는 요즘이다.<br>(87p ‘우리는 고라니를 칠 수 있는 사람들일까’)</p>
-</blockquote>
-<blockquote>
-<p>모두가 나를 사랑할 수는 없는 일이지만, 당신은 나를 사랑하지 않을 수 없을 거라는 눈빛을 보낼 수 있었으면 좋겠다. 완벽한 미모가 아니라도 자신감이 있었으면 좋겠다. 자신이 갖지 못한 것이 아니라 자신이 가진 것을 볼 수 있었으면 좋겠다. (261p)</p>
-</blockquote>
-<h3 id="2-집에-다녀오겠습니다-김이현"><a href="#2-집에-다녀오겠습니다-김이현" class="headerlink" title="2. 집에 다녀오겠습니다 (김이현)"></a>2. 집에 다녀오겠습니다 (김이현)</h3><blockquote>
-<p>뭔가를 정확히 짚어 내는 능력을 맞닥드릴 때가 있다. 그 능력은 상대에게 문득 깨달음을 주거나 예상치 못한 위로를 건네기도 한다. 갖고 싶긴 하지만, 급하게 쌓이는 것은 싫고 그래도 또 갖고 싶은, 바로 ‘연륜’이다. (41p)</p>
-</blockquote>
-<blockquote>
-<p>목소리 톤을 높이지 마라.<br>어디서든 ‘해야 하는데 안 하고 있는 것.’ 그것을 찾아라.<br>한 박자 쉬고 말씀드려도 늦지 않다.<br>보여 주는 게 아니다.<br>우러나는 티백을 생각해라. (127p)</p>
-</blockquote>
-<blockquote>
-<p>내가 무엇을 힘들어하고 언제 힘든지.<br>내가 언제 행복하고 안정을 느끼는지.<br>어느 정도의 긴장감을 재미있다고 느끼는지.<br>내게 지금 갈급한 것이 무엇인지.<br>내가 현재 어디에 있는지. 어느 상태인지.<br>내가 왜 고민하는지. (226p)</p>
-</blockquote>
-<h3 id="3-태도에-관하여-임경선"><a href="#3-태도에-관하여-임경선" class="headerlink" title="3. 태도에 관하여 (임경선)"></a>3. 태도에 관하여 (임경선)</h3><blockquote>
-<p>[나를 살아가게 하는 가치들]<br>자발성, 하지 않으면 아무것도 시작하지 않는다.<br>관대함, 나의 마음을 이해하는 만큼 상대의 마음도 이해한다.<br>정직함, 그 누구보다도 나에게 솔직하고 싶다.<br>성실함, 누구나 원한다고 꿈을 이룰 수 있는 것은 아니다.<br>공정함, 너와 나의 개인성을 인정한다.</p>
-</blockquote>
-<blockquote>
-<p>내가 먼저 마음을 담지 않으면, 내가 먼저 발을 푹 담그지 않으면, 그 어떤 일이라도 계속 내 주변에서 겉돌기만 한다. … 나는 일을 사랑해. 라고 말하지 않으면 일도 나를 사랑하지 않는다. (29p)</p>
-</blockquote>
-<blockquote>
-<p>사람이 있는 곳은 어디에나 지옥도 있고 짠한 감동도 있다. 사람들끼리 미워하고 시기하며 갈등을 겪기도 하지만 동시에 부딪히면서 자극받고 배우며 성장해나가기도 한다. … 새롭게 길을 선택해도 언젠가는 객관적인 평가와 만날 수 밖에 없는데, 그것이 두렵거나 싫다고 한다면, 자존심을 다치면서까지 현실을 직시하고 싶지는 않다면, 애초에 답이 없는 것이다. (31p)</p>
-</blockquote>
-<blockquote>
-<p>파도가 저만치에서 밀려올 때는 휩쓸리기보다 내 힘이 닿는 한까지 그 파도를 일단 넘겨보는 시도를 해야한다. 그 파도를 넘을 때마다 자신의 일에 대한 태도는 흔들림 없이 더욱 단단해진다. 그리고 조직생활에서 한계까지 애써본 경험은 내가 원하던 자유를 구현하는 데 어떤 형태로도 도움을 줄 것이다. … 어떤 일을 어디서 하더라도 일의 본질은 같다. 최선을 다해야 하고, 사람들과 조율할 줄 알아야 하고. 규칙을 따라야 하며 스스로를 통제할 줄 알아야 한다. 내가 그토록 벗어나고 싶었던 조직 생활도 나의 지울 수 없는 과거이자 지금의 내가 만들어진 데에 지대한 영향을 미친 곳임을 인정한다. 변화 이전의 모습이 ‘악’이고 변화 이후의 모습이 반드시 ‘선’은 아니다. (155p)</p>
-</blockquote>
-<blockquote>
-<p>나를 쉽게 위로하지 않을 것</p>
-</blockquote>
-<blockquote>
-<p>일은 성실하게<br>인간관계는 자기 마음에 정직하게<br>세상과의 관계에 있어서는 최대한 객관적이고 공정하게</p>
-</blockquote>
-<blockquote>
-<p>그럼에도 불구하고, 최대한 자기 자신을 객관적으로 보는 것. 공정함.<br>자신의 좋은 점과 부족한 점을 있는 그대로 받아들일 수 있는 사람.<br>자기 자신에 대해서도, 남에 대해서도 공정하게 페어플레이 할 수 있는 사람.</p>
-</blockquote>
-<h3 id="4-태도의-말들-엄지혜"><a href="#4-태도의-말들-엄지혜" class="headerlink" title="4. 태도의 말들 (엄지혜)"></a>4. 태도의 말들 (엄지혜)</h3><blockquote>
-<p>중요한 것은 진심보다 태도. … 어떻게 진심보다 중요한 것이 있을 수 있느냐고 누군가 반문한다면 할 말이 많다. 그래서 이 책을 쓰기로 했다. 그동안 인터뷰하며 들었던 한마디, 책에서 발견한 문장을 모았다. 혼자 듣고 흘려버리긴 아까운 말들이었다. … 언제나 사소한 것이 더 중요하다고 생각한다. 일상의 감각이 합해져 한 사람의 태도를 만들고 언어를 탄생시키니까. 누군가를 추억할 때 떠오르는 건 실력이 아니고 태도의 말들이었다. “말 안해도 알지?”, “내 진심 알잖아”라는 말은 더 이상 듣고 싶지도 하고 싶지도 않다. 우리는 서로의 진심을 모른다. 태도로 읽을 뿐이다. 존중받고 싶어서 나는 태도를 바꾸고, 존중하고 싶어서 그들의 태도를 읽는다. 문제는 존중이니까. (11p)</p>
-</blockquote>
-<blockquote>
-<p>“성격은 생존본능과 연결되어 있다.” (정신과 전문의 김병수)<br>사람의 성격은 자신과 다른 사람을 행복하게 해 주는 방향으로 형성된 게 아니라, 그 사람의 생존에 가장 적합하게 구성되었습니다. … 누군가와 소통이 되지 않아 답답할 때마다 종종 이 말을 떠올린다. 상대가 세상에서 살아남기 위해 갖게 된 성격을 두고 내가 너무 무리한 요구를 하는 건 아닌지, 상대에게 변화를 요구할 타당한 이유가 있는지, 곰곰 생각한다. (17p)</p>
-</blockquote>
-<blockquote>
-<p>“행복은 소유의 양이 아니라, 관계 맺음의 질에 있다.” (사회학자, 작가 정수복)</p>
-</blockquote>
-<blockquote>
-<p>매일매일 ‘진심보다 태도’를 장착하고 사람을 마주하려 애쓴다. ‘내 마음 알지? 알잖아?’ 속으로 외치지 않고 행동으로 보여주기. 아무 말 하지 않고 어정쩡한 눈빛으로 누군가 자신의 마음을 알아채길 바라는 사람만큼 미련한 사람이 없다. 사람은 행동으로 진심을 보여줘야 한다. 행동은 곧 태도일 것이고. (107p)</p>
-</blockquote>
-<blockquote>
-<p>“한번 써 본 마음은 남죠” (소설가 김금희)<br>한 사람이 주말 내내 마음에 걸렸다. 내게 서운해하는 느낌이 너무 분명해 나도 덩달아 서운해졌다. 어떻게 내게 서운해할 수 가 있지? 그간 내가 보여 준 성의, 배려는 금세 잊었나? 달라진 말투, 바로 오지 않는 회신을 눈치챈 나는 이틀을 꼬박 불편한 마음으로 보냈다. 왜 내게 서운해하느냐 물어보고 싶은 마음을 꾹 누르던 찰나, 소설 속 문장이 시선을 낚아챘다. “한번 써 본 마음은 남죠.”<br>그가 내게 준 첫 마음이 떠올랐다. 그를 생각하면, 지금의 서운함이 상쇄될 만한 고마운 기억이 많았다. 우리는 때때로 오해했지만 서로의 진심을 읽는 사이였다. 나는 그와 좋은 관계를 유지하고 싶고 그도 다르지 않다는 믿음이 있었다. … 서로를 향한 한결같은 마음이란 건 존재하지 않는다. 변하기 마련인 마음을 붙잡고 서로를 토닥거리며 끌어당길 때, 우리의 첫 마음은 흩어지지 않는다. 내가 알듯 그도 안다. 우리는 서로에게 마음을 써봤으니까. (109p)</p>
-</blockquote>
-<blockquote>
-<p>“가끔 휘청거리면서도 좋은 균형 감각으로 중심을 찾으며 남과 나 사이를 오래 걷고 싶다.” (작가 이슬아)<br>타인의 평가에 자주 흔들리는 사람은 인생의 노선을 자주 바꾼다. 같은 일을 오래하지 못한다. 자꾸만 옆길로 새다가 본질을 놓친다. 20대 때 나의 인생 주제는 선택과 집중이었고, 30대는 태도와 균형이다. 항상 귀를 활짝 열되, 적절히 닫을 줄 아는 슬기가 있길 바란다. (169 p)</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/journal/">journal</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/journal/" rel="tag">journal</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-7.Data_structure_Heap"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/08/7.Data_structure_Heap/">5. Heap</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/07/08/7.Data_structure_Heap/" class="article-date">
-	  <time datetime="2020-07-08T10:35:25.923Z" itemprop="datePublished">July 8, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-힙"><a href="#1-힙" class="headerlink" title="1. 힙"></a>1. 힙</h1><h3 id="1-힙-Heap-이란"><a href="#1-힙-Heap-이란" class="headerlink" title="1. 힙 (Heap) 이란?"></a>1. 힙 (Heap) 이란?</h3><ul>
-<li>힙: 데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree)<ul>
-<li>완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리</li>
-</ul>
-</li>
-</ul>
-<img src="https://www.fun-coding.org/00_Images/completebinarytree.png" width=300>
-
-<ul>
-<li>힙을 사용하는 이유<ul>
-<li>배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림</li>
-<li>이에 반해, 힙에 데이터를 넣고, 최대값과 최소값을 찾으면, $ O(log n) $ 이 걸림</li>
-<li>우선순위 큐와 같이 최대값 또는 최소값을 빠르게 찾아야 하는 자료구조 및 알고리즘 구현 등에 활용됨</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-힙-Heap-구조"><a href="#2-힙-Heap-구조" class="headerlink" title="2. 힙 (Heap) 구조"></a>2. 힙 (Heap) 구조</h3><ul>
-<li>힙은 최대값을 구하기 위한 구조 (최대 힙, Max Heap) 와, 최소값을 구하기 위한 구조 (최소 힙, Min Heap) 로 분류할 수 있음</li>
-<li>힙은 다음과 같이 두 가지 조건을 가지고 있는 자료구조임<ol>
-<li>각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 같다. (최대 힙의 경우)<ul>
-<li>최소 힙의 경우는 각 노드의 값은 해당 노드의 자식 노드가 가진 값보다 크거나 작음</li>
-</ul>
-</li>
-<li>완전 이진 트리 형태를 가짐</li>
-</ol>
-</li>
-</ul>
-<h3 id="힙과-이진-탐색-트리의-공통점과-차이점"><a href="#힙과-이진-탐색-트리의-공통점과-차이점" class="headerlink" title="힙과 이진 탐색 트리의 공통점과 차이점"></a>힙과 이진 탐색 트리의 공통점과 차이점</h3><ul>
-<li>공통점: 힙과 이진 탐색 트리는 모두 이진 트리임</li>
-<li>차이점: <ul>
-<li>힙은 각 노드의 값이 자식 노드보다 크거나 같음(Max Heap의 경우)</li>
-<li>이진 탐색 트리는 왼쪽 자식 노드의 값이 가장 작고, 그 다음 부모 노드, 그 다음 오른쪽 자식 노드 값이 가장 큼</li>
-<li>힙은 이진 탐색 트리의 조건인 자식 노드에서 작은 값은 왼쪽, 큰 값은 오른쪽이라는 조건은 없음<ul>
-<li>힙의 왼쪽 및 오른쪽 자식 노드의 값은 오른쪽이 클 수도 있고, 왼쪽이 클 수도 있음</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>이진 탐색 트리는 탐색을 위한 구조, 힙은 최대/최소값 검색을 위한 구조 중 하나로 이해하면 됨  <img src="https://www.fun-coding.org/00_Images/completebinarytree_bst.png" width="800" />
-
-
-</li>
-</ul>
-<h3 id="힙에-데이터-삽입-구현-Max-Heap-예"><a href="#힙에-데이터-삽입-구현-Max-Heap-예" class="headerlink" title="힙에 데이터 삽입 구현 (Max Heap 예)"></a>힙에 데이터 삽입 구현 (Max Heap 예)</h3><ul>
-<li><p>힙 클래스 구현</p>
-<ol>
-<li>리스트 구현</li>
-<li>인덱스 0 -&gt; None 삽입</li>
-<li>인덱스 1에 append</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array = <span class="built_in">list</span>()</span><br><span class="line">        self.heap_array.append(<span class="literal">None</span>)</span><br><span class="line">        self.heap_array.append(data)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">1</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 1]</code></pre>
-<ul>
-<li><p>힙 클래스 구현2 - insert1</p>
-<ul>
-<li><p>인덱스 번호는 1번부터 시작하도록 변경</p>
-<ol>
-<li>insert, 최하단 왼쪽에 삽입</li>
-<li>swap, to be max heap</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>힙 클래스 구현3 - pop</p>
-<ol>
-<li>root 제거</li>
-<li>last를 root로 move</li>
-<li>swap<ul>
-<li>move_down function 통해 내려갈지 말지 True/False return 시켜 활용</li>
-<li>왼쪽 자식노드도 없을 때</li>
-<li>왼쪽 자식노드만 있을 때</li>
-<li>둘 다 자식노드 있을 때</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array = <span class="built_in">list</span>()</span><br><span class="line">        self.heap_array.append(<span class="literal">None</span>)</span><br><span class="line">        self.heap_array.append(data)</span><br><span class="line">         </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move_up</span>(<span class="params">self,index_inserted</span>):</span>   <span class="comment"># 올라가야 하는 지 판단하는 함수</span></span><br><span class="line">        <span class="comment"># 여기서 틀림. 재귀용법일 땐, stop을 걸어줘야함을 잊지 말 것.</span></span><br><span class="line">        <span class="comment"># index가 1이면, None을 가리키고 있는 것. 따라서, 더이상 move_up while문 돌아가게 하면 안됨 -&gt; while문에서 오류날 것</span></span><br><span class="line">        <span class="comment"># heap.heap_array[0] = None, 따라서, 그냥 시행하면, int 와 None 간에는 &#x27;&gt;&#x27; 연산 안 된다는 error message!</span></span><br><span class="line">        <span class="keyword">if</span> index_inserted &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.heap_array[index_inserted] &gt; self.heap_array[index_inserted//<span class="number">2</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array.append(data)</span><br><span class="line">        </span><br><span class="line">        index_inserted = <span class="built_in">len</span>(self.heap_array)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> self.move_up(index_inserted):</span><br><span class="line">            <span class="comment"># 부모와 자식 노드 교체, 인덱스 갱신</span></span><br><span class="line">            self.heap_array[index_inserted], self.heap_array[index_inserted//<span class="number">2</span>] = self.heap_array[index_inserted//<span class="number">2</span>], self.heap_array[index_inserted]</span><br><span class="line">            index_inserted = index_inserted//<span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move_down</span>(<span class="params">self,index_popped</span>):</span></span><br><span class="line">        <span class="keyword">if</span> index_popped &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 왼쪽 자식노드도 없을 때</span></span><br><span class="line">        <span class="keyword">if</span> index_popped*<span class="number">2</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 왼쪽 노드만 있을 때</span></span><br><span class="line">        <span class="keyword">elif</span> index_popped*<span class="number">2</span>+<span class="number">1</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 두 노드 다 있을 때</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(self.heap_array) &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        returned_data = self.heap_array[<span class="number">1</span>]</span><br><span class="line">        self.heap_array[<span class="number">1</span>] = self.heap_array[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.heap_array[<span class="number">-1</span>]</span><br><span class="line">        </span><br><span class="line">        index_popped = <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> self.move_down(index_popped):</span><br><span class="line">            <span class="comment"># 왼쪽 자식노드도 없을 때</span></span><br><span class="line">            <span class="keyword">if</span> index_popped*<span class="number">2</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="comment"># 왼쪽 노드만 있을 때</span></span><br><span class="line">            <span class="keyword">elif</span> index_popped*<span class="number">2</span>+<span class="number">1</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">                    index_popped = index_popped*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="comment"># 두 노드 다 있을 때</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]:</span><br><span class="line">                    <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                        self.heap_array[index_popped*<span class="number">2</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>]</span><br><span class="line">                        index_popped = index_popped*<span class="number">2</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                        self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">                        index_popped = index_popped*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">return</span> returned_data</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">15</span>)</span><br><span class="line">heap.insert(<span class="number">10</span>)</span><br><span class="line">heap.insert(<span class="number">8</span>)</span><br><span class="line">heap.insert(<span class="number">5</span>)</span><br><span class="line">heap.insert(<span class="number">4</span>)</span><br><span class="line">heap.insert(<span class="number">20</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 20, 10, 15, 5, 4, 8]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">15</span>)</span><br><span class="line">heap.insert(<span class="number">10</span>)</span><br><span class="line">heap.insert(<span class="number">8</span>)</span><br><span class="line">heap.insert(<span class="number">5</span>)</span><br><span class="line">heap.insert(<span class="number">4</span>)</span><br><span class="line">heap.insert(<span class="number">20</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 20, 10, 15, 5, 4, 8]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.pop()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>20</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 15, 10, 8, 5, 4]</code></pre>
-<h3 id="힙-Heap-시간-복잡도"><a href="#힙-Heap-시간-복잡도" class="headerlink" title="힙 (Heap) 시간 복잡도"></a>힙 (Heap) 시간 복잡도</h3><ul>
-<li>depth (트리의 높이) 를 h라고 표기한다면,</li>
-<li>n개의 노드를 가지는 heap 에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $ <ul>
-<li>참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2입니다.</li>
-<li>한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%의 실행시간을 단축시킬 수 있다는 것을 의미함</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next</a>
   </nav>
 
 </section>
@@ -1621,6 +1165,54 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a></h6>
+              <span>November 4, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_2/">2. [프로그래머스 문제풀이] 2. 가장 큰 수</a></h6>
+              <span>November 4, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_1/">2. [프로그래머스 문제풀이] 1. k번째수</a></h6>
+              <span>November 4, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/">6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)</a></h6>
+              <span>November 4, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_3_Counter%20class/">5. Part3_ch6 보충3_갯수 셀 때(Collections모듈-Counter클래스)</a></h6>
               <span>November 3, 2020</span>
             </div>
@@ -1639,54 +1231,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/1.%20Sorting(100)/">1. 정렬 알고리즘 test 및 시간복잡도 비교 (정렬 대상 갯수 = 100)</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/1.%20Sorting(1000)/">1. 정렬 알고리즘 test 및 시간복잡도 비교 (정렬 대상 갯수 = 1,000)</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_2_re%20package/">4. Part3_ch6 보충2_re 패키지</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_1_python%20built-in%20function/">3. Part3_ch6 보충1_python built-in function 정리</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1696,7 +1240,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1706,7 +1250,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1716,7 +1260,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithms/" style="font-size: 16.67px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 18.33px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/math/" style="font-size: 18.33px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a>
+      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
     </div>
   </div>
 
@@ -1726,7 +1270,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
