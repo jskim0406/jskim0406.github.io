@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2. Linear Algebra_7. Practice(3) | jskim_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="whatever4" />
+  
+  
+  
+  
+  <meta name="description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]])  1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2. Linear Algebra_7. Practice(3)">
+<meta property="og:url" content="http://example.com/2020/07/08/2.%20Linear%20Algebra_7.%20Practice(3)/index.html">
+<meta property="og:site_name" content="jskim_blog">
+<meta property="og:description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]])  1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/output_11_0_1.png">
+<meta property="article:published_time" content="2020-07-08T04:10:40.000Z">
+<meta property="article:modified_time" content="2020-07-08T04:12:19.603Z">
+<meta property="article:author" content="js Kim">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="linear algebra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/output_11_0_1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="jskim_blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+//  <link rel="stylesheet" href="/css/bootstrap.css" >
+//  <link rel="stylesheet" href="/css/fashion.css" >
+//  <link rel="stylesheet" href="/css/glyphs.css" >
+
+  <link rel="stylesheet" type="text/css" href="">
+  
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+	
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="https://hexo.io/logo.svg">
+              </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">whatever</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2. Linear Algebra_7. Practice(3)" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      2. Linear Algebra_7. Practice(3)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/08/2.%20Linear%20Algebra_7.%20Practice(3)/" class="article-date">
+	  <time datetime="2020-07-08T04:10:40.000Z" itemprop="datePublished">July 8, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-벡터-간-거리-유클리드-거리-vs-코사인-거리"><a href="#1-벡터-간-거리-유클리드-거리-vs-코사인-거리" class="headerlink" title="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리"></a>1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">4</span>],[<span class="number">5</span>],[<span class="number">2</span>],[<span class="number">2</span>]])</span><br><span class="line">b = np.array([[<span class="number">4</span>],[<span class="number">0</span>],[<span class="number">2</span>],[<span class="number">0</span>]])</span><br><span class="line">c = np.array([[<span class="number">2</span>],[<span class="number">2</span>],[<span class="number">0</span>],[<span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-유클리드-거리"><a href="#1-1-유클리드-거리" class="headerlink" title="1-1) 유클리드 거리"></a>1-1) 유클리드 거리</h3><ul>
+<li>피타고라스 정리에 따른 벡터 간 기하학적 거리</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 유클리드 거리</span></span><br><span class="line"><span class="comment"># a-b</span></span><br><span class="line">a_b = np.linalg.norm(a)**<span class="number">2</span> + np.linalg.norm(b)**<span class="number">2</span> - <span class="number">2</span>*a.T@b</span><br><span class="line"></span><br><span class="line"><span class="comment"># b-c</span></span><br><span class="line">b_c = np.linalg.norm(b)**<span class="number">2</span> + np.linalg.norm(c)**<span class="number">2</span> - <span class="number">2</span>*b.T@c</span><br><span class="line"></span><br><span class="line"><span class="comment"># a-c</span></span><br><span class="line">a_c = np.linalg.norm(a)**<span class="number">2</span> + np.linalg.norm(c)**<span class="number">2</span> - <span class="number">2</span>*a.T@c</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;a와 b 사이 : &#123;&#125;, b와 c 상 : &#123;&#125;, c와 a 사이 : &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a_b[<span class="number">0</span>][<span class="number">0</span>],b_c[<span class="number">0</span>][<span class="number">0</span>],a_c[<span class="number">0</span>][<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>a와 b 사이 : 29.0, b와 c 상 : 13.000000000000004, c와 a 사이 : 18.0</code></pre>
+<h3 id="1-2-코사인-거리"><a href="#1-2-코사인-거리" class="headerlink" title="1-2) 코사인 거리"></a>1-2) 코사인 거리</h3><ul>
+<li>방향이 유사한 벡터의 코사인 거리가 작음</li>
+<li>코사인 거리 = 1 - 코사인 유사도</li>
+<li>코사인 유사도 최대값 : 1</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 코사인 거리</span></span><br><span class="line">a_b_simil = (a.T@b) / (np.linalg.norm(a)*np.linalg.norm(b))</span><br><span class="line">b_c_simil = (b.T@c) / (np.linalg.norm(b)*np.linalg.norm(c))</span><br><span class="line">c_a_simil = (c.T@a) / (np.linalg.norm(c)*np.linalg.norm(a))</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a_b = <span class="number">1</span> - a_b_simil</span><br><span class="line">b_c = <span class="number">1</span> - b_c_simil</span><br><span class="line">c_a = <span class="number">1</span> - c_a_simil</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;a와 b 사이 : &#123;&#125;, b와 c 상 : &#123;&#125;, c와 a 사이 : &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a_b[<span class="number">0</span>][<span class="number">0</span>],b_c[<span class="number">0</span>][<span class="number">0</span>],c_a[<span class="number">0</span>][<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>a와 b 사이 : 0.36112343500006017, b와 c 상 : 0.40371520600005606, c와 a 사이 : 0.04761904761904767</code></pre>
+<h3 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h3><ul>
+<li>유클리드 거리 기준 가장 가까운 벡터 : b 와 c</li>
+<li>코사인 거리 기준 가장 가까운 벡터 : a 와 c</li>
+</ul>
+<h3 id="2-Transformation-Matrix-Image-transformation"><a href="#2-Transformation-Matrix-Image-transformation" class="headerlink" title="2. Transformation Matrix : Image transformation"></a>2. Transformation Matrix : Image transformation</h3><ul>
+<li>scipy.ndimage 패키지의 affine_transform() 명령을 사용</li>
+<li><strong>이미지 픽셀 값을 새로운 좌표로 이동시킴</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">import</span> scipy.misc</span><br><span class="line"><span class="keyword">import</span> scipy.ndimage</span><br><span class="line"></span><br><span class="line">f = sp.misc.face(gray=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">e1 = np.array([<span class="number">0</span>, <span class="number">1</span>]) <span class="comment"># matplotlib의 이미지 좌표규약으로 부호변경 </span></span><br><span class="line">e2 = np.array([<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">E = np.vstack([e1, e2]).T</span><br><span class="line">g1 = np.array([<span class="number">1</span>, <span class="number">1</span>]) / np.sqrt(<span class="number">2</span>)</span><br><span class="line">g2 = np.array([<span class="number">-1</span>, <span class="number">1</span>]) / np.sqrt(<span class="number">2</span>)</span><br><span class="line">A = np.vstack([g1, g2]).T</span><br><span class="line">gc1 = E @ g1</span><br><span class="line">gc2 = E @ g2</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(f, cmap=mpl.cm.bone, alpha=<span class="number">0.9</span>)</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;black&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$e_1$&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=<span class="number">500</span>*e1 + [<span class="number">-100</span>,<span class="number">0</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;black&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$e_2$&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=<span class="number">500</span>*e2 + [<span class="number">0</span>, <span class="number">-50</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*gc1, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_1$&#x27;</span>, xy=<span class="number">500</span>*gc1, xytext=<span class="number">500</span>*gc1 + [<span class="number">50</span>, <span class="number">-50</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*gc2, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_2$&#x27;</span>, xy=<span class="number">500</span>*gc2, xytext=<span class="number">500</span>*gc2 + [<span class="number">50</span>, <span class="number">0</span>])</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.xlim(<span class="number">-200</span>, <span class="number">1000</span>)</span><br><span class="line">plt.ylim(<span class="number">800</span>, <span class="number">-500</span>)</span><br><span class="line">plt.title(<span class="string">&quot;before transformation&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 기존 이미지(표준기저벡터 E 기준)를 A기준으로 기저변환해 저장하는 메서드 sp.ndimage.affine_transform()</span></span><br><span class="line">f1 = sp.ndimage.affine_transform(f, A) </span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(f1, cmap=mpl.cm.bone, alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_1$&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=<span class="number">500</span>*e1 + [<span class="number">-100</span>,<span class="number">0</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_2$&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=<span class="number">500</span>*e2 + [<span class="number">0</span>, <span class="number">-50</span>])</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.xlim(<span class="number">-200</span>, <span class="number">1000</span>)</span><br><span class="line">plt.ylim(<span class="number">800</span>, <span class="number">-500</span>)</span><br><span class="line">plt.title(<span class="string">&quot;after transformation&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_11_0_1.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jskim-0406';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/08/7.Data_structure_Heap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          5. Heap
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/6.Data_structure_Binary_search_Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">4. Binary_search_Tree</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%EB%B2%A1%ED%84%B0-%EA%B0%84-%EA%B1%B0%EB%A6%AC-%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%EA%B1%B0%EB%A6%AC-vs-%EC%BD%94%EC%82%AC%EC%9D%B8-%EA%B1%B0%EB%A6%AC"><span class="nav-number">1.</span> <span class="nav-text">1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%EA%B1%B0%EB%A6%AC"><span class="nav-number">2.</span> <span class="nav-text">1-1) 유클리드 거리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%EC%BD%94%EC%82%AC%EC%9D%B8-%EA%B1%B0%EB%A6%AC"><span class="nav-number">3.</span> <span class="nav-text">1-2) 코사인 거리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B2%B0%EA%B3%BC"><span class="nav-number">4.</span> <span class="nav-text">결과</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Transformation-Matrix-Image-transformation"><span class="nav-number">5.</span> <span class="nav-text">2. Transformation Matrix : Image transformation</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 jskim_blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
