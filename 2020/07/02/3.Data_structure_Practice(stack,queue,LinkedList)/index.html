@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>1. Practice | jskim_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="whatever4" />
+  
+  
+  
+  
+  <meta name="description" content="1. 배열123# 2차원 배열: 리스트로 구현시data_list &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]data_list     [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  연습1: 위의 2차원 배열에서 9, 8, 7 을 순서대로 출력해보기    1data_list[2][::-1]     [9, 8, 7] 12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1. Practice">
+<meta property="og:url" content="http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/index.html">
+<meta property="og:site_name" content="jskim_blog">
+<meta property="og:description" content="1. 배열123# 2차원 배열: 리스트로 구현시data_list &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]data_list     [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  연습1: 위의 2차원 배열에서 9, 8, 7 을 순서대로 출력해보기    1data_list[2][::-1]     [9, 8, 7] 12345">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-02T04:51:21.449Z">
+<meta property="article:modified_time" content="2020-07-02T06:16:33.159Z">
+<meta property="article:author" content="js Kim">
+<meta property="article:tag" content="datastructure">
+<meta property="article:tag" content="linked-list">
+<meta property="article:tag" content="double-linked-list">
+<meta property="article:tag" content="array">
+<meta property="article:tag" content="stack">
+<meta property="article:tag" content="queue">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="jskim_blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+//  <link rel="stylesheet" href="/css/bootstrap.css" >
+//  <link rel="stylesheet" href="/css/fashion.css" >
+//  <link rel="stylesheet" href="/css/glyphs.css" >
+
+  <link rel="stylesheet" type="text/css" href="">
+  
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+	
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="https://hexo.io/logo.svg">
+              </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">whatever</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-3.Data_structure_Practice(stack,queue,LinkedList)" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      1. Practice
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/" class="article-date">
+	  <time datetime="2020-07-02T04:51:21.449Z" itemprop="datePublished">July 2, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-배열"><a href="#1-배열" class="headerlink" title="1. 배열"></a>1. 배열</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열: 리스트로 구현시</span></span><br><span class="line">data_list = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">data_list</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code></pre>
+<div class="alert alert-block alert-warning">
+<strong><font color="blue" size="3em">연습1: 위의 2차원 배열에서 9, 8, 7 을 순서대로 출력해보기</font></strong><br>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_list[<span class="number">2</span>][::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[9, 8, 7]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">dataset = [<span class="string">&#x27;Braund, Mr. Owen Harris&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Cumings, Mrs. John Bradley (Florence Briggs Thayer)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Heikkinen, Miss. Laina&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Futrelle, Mrs. Jacques Heath (Lily May Peel)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Allen, Mr. William Henry&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Moran, Mr. James&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;McCarthy, Mr. Timothy J&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Palsson, Master. Gosta Leonard&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Nasser, Mrs. Nicholas (Adele Achem)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Sandstrom, Miss. Marguerite Rut&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Bonnell, Miss. Elizabeth&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Saundercock, Mr. William Henry&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Andersson, Mr. Anders Johan&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Vestrom, Miss. Hulda Amanda Adolfina&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Hewlett, Mrs. (Mary D Kingcome) &#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Rice, Master. Eugene&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Williams, Mr. Charles Eugene&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Masselmani, Mrs. Fatima&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Fynney, Mr. Joseph J&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Beesley, Mr. Lawrence&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;McGowan, Miss. Anna &quot;Annie&quot;&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Sloper, Mr. William Thompson&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Palsson, Miss. Torborg Danira&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Emir, Mr. Farred Chehab&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Fortune, Mr. Charles Alexander&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Dwyer, Miss. Ellen &quot;Nellie&quot;&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Todoroff, Mr. Lalio&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<div class="alert alert-block alert-warning">
+<strong><font color="blue" size="3em">연습2: 위의 dataset 리스트에서 전체 이름 안에 M 은 몇 번 나왔는지 빈도수 출력하기</font></div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataset:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        <span class="keyword">if</span> data[i] == <span class="string">&#x27;M&#x27;</span>:</span><br><span class="line">            cnt+=<span class="number">1</span></span><br><span class="line">print(cnt)</span><br></pre></td></tr></table></figure>
+
+<pre><code>38</code></pre>
+<h1 id="2-큐"><a href="#2-큐" class="headerlink" title="2. 큐"></a>2. 큐</h1><h3 id="1-큐-Lifo큐-Prority큐-객체-구현"><a href="#1-큐-Lifo큐-Prority큐-객체-구현" class="headerlink" title="1) 큐, Lifo큐, Prority큐 객체 구현"></a>1) 큐, Lifo큐, Prority큐 객체 구현</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">d_queue = queue.Queue()</span><br><span class="line">l_queue = queue.LifoQueue()</span><br><span class="line">p_queue = queue.PriorityQueue()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    d_queue.put(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>):</span><br><span class="line">    d_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d_queue.qsize()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>8</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>3</code></pre>
+<p>Lifo queue</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    l_queue.put(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>):</span><br><span class="line">    l_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l_queue.qsize()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>8</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>8</code></pre>
+<p>priority queue</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">    p_queue.put((i+<span class="number">1</span>,<span class="number">10</span>-i))</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_queue.qsize()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>10</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">3</span>):</span><br><span class="line">    p_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_queue.qsize()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>7</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(4, 7)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(5, 6)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p_queue.get()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(6, 5)</code></pre>
+<div class="alert alert-block alert-warning">
+<strong><font color="blue" size="3em">연습1: 리스트 변수로 큐를 다루는 enqueue, dequeue 기능 구현해보기</font></strong>
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">qlist = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue</span>(<span class="params">data</span>):</span></span><br><span class="line">    qlist.append(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dequeue</span>():</span></span><br><span class="line">    out = qlist[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">del</span> qlist[<span class="number">0</span>]</span><br><span class="line">    print(out)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    enqueue(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    dequeue()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qlist</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[4, 5, 6, 7, 8, 9, 10]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    dequeue()</span><br></pre></td></tr></table></figure>
+
+<pre><code>4
+5
+6</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qlist</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[7, 8, 9, 10]</code></pre>
+<h1 id="3-스택"><a href="#3-스택" class="headerlink" title="3. 스택"></a>3. 스택</h1><div class="alert alert-block alert-warning">
+<strong><font color="blue" size="3em">연습1: 리스트 변수로 스택을 다루는 pop, push 기능 구현해보기 (pop, push 함수 사용하지 않고 직접 구현해보기)</font></strong><br>
+
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">stack = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">push_</span>(<span class="params">data</span>):</span></span><br><span class="line">    stack.append(data)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pop_</span>():</span></span><br><span class="line">    out = stack[<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">del</span> stack[<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> out</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">    push_(i)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    pop_()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[1, 2, 3]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pop_()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pop_()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2</code></pre>
+<h1 id="4-링크드리스트"><a href="#4-링크드리스트" class="headerlink" title="4. 링크드리스트"></a>4. 링크드리스트</h1><h3 id="1-Linked-List-객체-생성"><a href="#1-Linked-List-객체-생성" class="headerlink" title="1) Linked List 객체 생성"></a>1) Linked List 객체 생성</h3><pre><code>- class 생성 해 객체지향적 접근</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = Node(<span class="number">2</span>)</span><br><span class="line">data.data</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(data.<span class="built_in">next</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>None</code></pre>
+<h3 id="2-Linked-List-객체-간-연결"><a href="#2-Linked-List-객체-간-연결" class="headerlink" title="2) Linked List 객체 간 연결"></a>2) Linked List 객체 간 연결</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">node2 = Node(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(node1.<span class="built_in">next</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>None</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.<span class="built_in">next</span> = node2</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(node1.<span class="built_in">next</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;__main__.Node object at 0x1a1f912490&gt;</code></pre>
+<h3 id="3-Linked-List-객체-추가"><a href="#3-Linked-List-객체-추가" class="headerlink" title="3) Linked List 객체 추가"></a>3) Linked List 객체 추가</h3><pre><code>- add 함수를 구현 (node 객체 추가 기능)
+- 마지막 node에 추가해보기</code></pre>
+<h3 id="5-종합"><a href="#5-종합" class="headerlink" title="5) 종합"></a>5) 종합</h3><ul>
+<li>클래스 1 : 객체 생성</li>
+<li>클래스 2 : 추가, 사이 객체 추가, 순회출력 기능</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mgmt</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.head = Node(data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_mid</span>(<span class="params">self,data,before</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">if</span> node.data == before:</span><br><span class="line">                node_after = node.<span class="built_in">next</span></span><br><span class="line">                node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">                node.<span class="built_in">next</span>.<span class="built_in">next</span> = node_after</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br><span class="line">                </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">desc</span>(<span class="params">self</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            print(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        print(node.data)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        <span class="comment"># 헤드 노드 삭제</span></span><br><span class="line">        <span class="keyword">if</span> data == self.head:</span><br><span class="line">            temp = self.head</span><br><span class="line">            self.head = self.head.<span class="built_in">next</span></span><br><span class="line">            <span class="keyword">del</span> temp</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 중간 혹은 마지막 노드 삭제    </span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = self.head</span><br><span class="line">            <span class="keyword">while</span> node.<span class="built_in">next</span>: </span><br><span class="line">                <span class="keyword">if</span> data == node.<span class="built_in">next</span>.data:</span><br><span class="line">                    temp = node.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">                    node.<span class="built_in">next</span> = node.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">                    <span class="keyword">del</span> temp</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1 = Mgmt(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">11</span>):</span><br><span class="line">    node1.add(i)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.add(<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node1.add_mid(<span class="number">3.5</span>,<span class="number">3</span>)</span><br><span class="line">node1.add_mid(<span class="number">4.5</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3
+3.5
+4
+4.5
+5
+6
+7
+8
+9
+10
+11</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node1.delete(<span class="number">7</span>)</span><br><span class="line">node1.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3
+3.5
+4
+4.5
+5
+6
+8
+9
+10
+11</code></pre>
+<h3 id="7-Double-Linked-List"><a href="#7-Double-Linked-List" class="headerlink" title="7) Double Linked List"></a>7) Double Linked List</h3><pre><code>- Class Node, Class Mgmt(생성자, 인서트, 인서트_비포어, 인서트_에프터, 순회출력, 서치프롬테일) 구현</code></pre>
+<div class="alert alert-block alert-warning">
+<strong><font color="blue" size="3em">연습3: 위 코드에서 노드 데이터가 특정 숫자인 노드 앞에 데이터를 추가하는 함수를 만들고, 테스트해보기</font></strong><br>
+- 더블 링크드 리스트의 tail 에서부터 뒤로 이동하며, 특정 숫자인 노드를 찾는 방식으로 함수를 구현하기<br>
+- 테스트: 임의로 0 ~ 9까지 데이터를 링크드 리스트에 넣어보고, 데이터 값이 2인 노드 앞에 1.5 데이터 값을 가진 노드를 추가해보기
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span>,prev=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">        self.prev = prev</span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mgmt</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.head = Node(data)</span><br><span class="line">        self.tail = self.head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        new = Node(data)</span><br><span class="line">        node.<span class="built_in">next</span> = new</span><br><span class="line">        new.prev = node</span><br><span class="line">        self.tail = new</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_before</span>(<span class="params">self,data,before</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">if</span> node.data == before:</span><br><span class="line">                after = node.<span class="built_in">next</span></span><br><span class="line">                new = Node(data)</span><br><span class="line">                node.<span class="built_in">next</span> = new</span><br><span class="line">                new.prev = node</span><br><span class="line">                new.<span class="built_in">next</span> = after</span><br><span class="line">                after.prev = new</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_after</span>(<span class="params">self,data,after</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">if</span> node.data == after:</span><br><span class="line">                before = node.prev</span><br><span class="line">                new = Node(data)</span><br><span class="line">                before.<span class="built_in">next</span> = new</span><br><span class="line">                new.prev = before</span><br><span class="line">                new.<span class="built_in">next</span> = node</span><br><span class="line">                node.prev = new</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">desc</span>(<span class="params">self</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            print(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        print(node.data)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search_from_tail</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.tail</span><br><span class="line">        <span class="keyword">while</span> node.prev:</span><br><span class="line">            <span class="keyword">if</span> node.data == data:</span><br><span class="line">                <span class="keyword">return</span> node</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = node.prev</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search_from_head</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">if</span> node.data == data:</span><br><span class="line">                <span class="keyword">return</span> node</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = node.prev</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double_linked_list = Mgmt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    double_linked_list.insert(data)</span><br><span class="line">double_linked_list.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_3 = double_linked_list.search_from_tail(<span class="number">3</span>)</span><br><span class="line">node_3.data</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>3</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double_linked_list.insert_before(<span class="number">1.5</span>, <span class="number">1</span>)</span><br><span class="line">double_linked_list.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+1.5
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_3 = double_linked_list.search_from_tail(<span class="number">1.5</span>)</span><br><span class="line">node_3.data</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>1.5</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">node_mgmt = Mgmt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    node_mgmt.insert(data)</span><br><span class="line"></span><br><span class="line">node_mgmt.desc()</span><br><span class="line"></span><br><span class="line">node_mgmt.insert_after(<span class="number">1.5</span>, <span class="number">2</span>)</span><br><span class="line">node_mgmt.desc()</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+1.5
+2
+3
+4
+5
+6
+7
+8
+9</code></pre>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/" rel="tag">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stack/" rel="tag">stack</a></li></ul>
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jskim_0406';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/02/4.Data_structure_time%20complexity/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2. 시간복잡도
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/02/1.Data_structure%20_%20Linked_List_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">1. Linked_List</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%EB%B0%B0%EC%97%B4"><span class="nav-number">1.</span> <span class="nav-text">1. 배열</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%ED%81%90"><span class="nav-number">2.</span> <span class="nav-text">2. 큐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%ED%81%90-Lifo%ED%81%90-Prority%ED%81%90-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%ED%98%84"><span class="nav-number">2.0.1.</span> <span class="nav-text">1) 큐, Lifo큐, Prority큐 객체 구현</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%EC%8A%A4%ED%83%9D"><span class="nav-number">3.</span> <span class="nav-text">3. 스택</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="nav-number">4.</span> <span class="nav-text">4. 링크드리스트</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="nav-number">4.0.1.</span> <span class="nav-text">1) Linked List 객체 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Linked-List-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%EC%97%B0%EA%B2%B0"><span class="nav-number">4.0.2.</span> <span class="nav-text">2) Linked List 객체 간 연결</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%B6%94%EA%B0%80"><span class="nav-number">4.0.3.</span> <span class="nav-text">3) Linked List 객체 추가</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%EC%A2%85%ED%95%A9"><span class="nav-number">4.0.4.</span> <span class="nav-text">5) 종합</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Double-Linked-List"><span class="nav-number">4.0.5.</span> <span class="nav-text">7) Double Linked List</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 jskim_blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

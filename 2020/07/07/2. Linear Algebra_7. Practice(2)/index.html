@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2. Linear Algebra_7. Practice(2) | jskim_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="whatever4" />
+  
+  
+  
+  
+  <meta name="description" content="2. Matrix Calculation123451. A, B, C 세 회사의 주식은 각각 100만원, 80만원, 50만원이다. 이 주식을 각각 3주, 4주, 5주를 매수할 때 필요한 금액을 구하고자 한다.(1) 주식의 가격과 수량을 각각  𝑝  벡터,  𝑛  벡터로 표시하고 넘파이로 코딩한다.(2) 주식을 매수할 때 필요한 금액을 곱셈으로 표시하고 넘파">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2. Linear Algebra_7. Practice(2)">
+<meta property="og:url" content="http://example.com/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(2)/index.html">
+<meta property="og:site_name" content="jskim_blog">
+<meta property="og:description" content="2. Matrix Calculation123451. A, B, C 세 회사의 주식은 각각 100만원, 80만원, 50만원이다. 이 주식을 각각 3주, 4주, 5주를 매수할 때 필요한 금액을 구하고자 한다.(1) 주식의 가격과 수량을 각각  𝑝  벡터,  𝑛  벡터로 표시하고 넘파이로 코딩한다.(2) 주식을 매수할 때 필요한 금액을 곱셈으로 표시하고 넘파">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/output_5_02.jpeg">
+<meta property="og:image" content="http://example.com/img/output_7_02.jpeg">
+<meta property="og:image" content="http://example.com/img/output_14_02.png">
+<meta property="og:image" content="http://example.com/img/output_17_12.png">
+<meta property="og:image" content="http://example.com/img/output_18_12.png">
+<meta property="og:image" content="http://example.com/img/output_19_12.png">
+<meta property="og:image" content="http://example.com/img/output_29_02.png">
+<meta property="og:image" content="http://example.com/img/output_30_02.png">
+<meta property="og:image" content="http://example.com/img/output_32_02.png">
+<meta property="og:image" content="http://example.com/img/output_33_02.png">
+<meta property="article:published_time" content="2020-07-07T04:12:42.000Z">
+<meta property="article:modified_time" content="2020-07-07T04:21:09.641Z">
+<meta property="article:author" content="js Kim">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="linear algebra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/output_5_02.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="jskim_blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+//  <link rel="stylesheet" href="/css/bootstrap.css" >
+//  <link rel="stylesheet" href="/css/fashion.css" >
+//  <link rel="stylesheet" href="/css/glyphs.css" >
+
+  <link rel="stylesheet" type="text/css" href="">
+  
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+	
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="124px" height="124px" alt="Hike News" src="https://hexo.io/logo.svg">
+              </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">whatever</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2. Linear Algebra_7. Practice(2)" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      2. Linear Algebra_7. Practice(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(2)/" class="article-date">
+	  <time datetime="2020-07-07T04:12:42.000Z" itemprop="datePublished">July 7, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2-Matrix-Calculation"><a href="#2-Matrix-Calculation" class="headerlink" title="2. Matrix Calculation"></a>2. Matrix Calculation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. A, B, C 세 회사의 주식은 각각 100만원, 80만원, 50만원이다. 이 주식을 각각 3주, 4주, 5주를 매수할 때 필요한 금액을 구하고자 한다.</span><br><span class="line"></span><br><span class="line">(1) 주식의 가격과 수량을 각각  𝑝  벡터,  𝑛  벡터로 표시하고 넘파이로 코딩한다.</span><br><span class="line"></span><br><span class="line">(2) 주식을 매수할 때 필요한 금액을 곱셈으로 표시하고 넘파이 연산으로 그 값을 계산한다.</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.(1) 가격과 수량을 벡터로 표현</span></span><br><span class="line"></span><br><span class="line">p = np.array([<span class="number">100</span>,<span class="number">80</span>,<span class="number">50</span>])</span><br><span class="line">n = np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.(2) 주식 매수 금액을 곱셈으로 표현 + 넘파이 연산으로 매수금액 계산</span></span><br><span class="line"><span class="comment"># 결과 : 총 필요 매수금액 : 870만원</span></span><br><span class="line"></span><br><span class="line">payment = p.T@n</span><br><span class="line">payment</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>870</code></pre>
+<ol start="2">
+<li>벡터  𝑥 의 평균 제거 벡터는 다음과 같이 계산함을 증명하라.</li>
+</ol>
+<p>$$<br>\begin{align}<br>x - \dfrac{1}{N}\mathbf{1}_N^Tx \mathbf{1}^{}_N<br>\end{align}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Math/2. MML_code/image_김도형 연습문제 풀이/IMG_A8ABD7B550B6-1.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_5_02.jpeg" alt="jpeg"></p>
+<ol start="3">
+<li>다음 코드를 실행하면 MNIST 숫자 이미지 전체 데이터를 모두 벡터로 변환하여 하나의 넘파이 행렬 <code>X</code>를 만든다.<br>이 행렬을 이용하여 다음 문제를 풀어라.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.datasets import load_digits</span><br><span class="line">X &#x3D; load_digits().data</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>(1) 내적을 이용하여 첫 번째 이미지와 10번째 이미지의 유사도를 구하라.</p>
+<p>(2) 내적을 이용하여 모든 이미지의 조합에 대해 유사도를 구하라. 어떻게 구현하는 것이 효율적일까? (힌트 : 이 문제는 뒤에서 배울 행렬과 행렬의 곱셈을 이용한다.)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Math/2. MML_code/image_김도형 연습문제 풀이/IMG_DD121B697835-1.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_7_02.jpeg" alt="jpeg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br><span class="line">X = load_digits().data</span><br><span class="line">img = load_digits()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 1 행벡터로 이미지 1,797개가 현재 X에 들어있음</span></span><br><span class="line"></span><br><span class="line">X.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(1797, 64)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (1) 내적을 이용하여 첫 번째 이미지와 10번째 이미지의 유사도를 구하라.</span></span><br><span class="line"></span><br><span class="line">X[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.,  0.,  0., 13., 15., 10.,
+       15.,  5.,  0.,  0.,  3., 15.,  2.,  0., 11.,  8.,  0.,  0.,  4.,
+       12.,  0.,  0.,  8.,  8.,  0.,  0.,  5.,  8.,  0.,  0.,  9.,  8.,
+        0.,  0.,  4., 11.,  0.,  1., 12.,  7.,  0.,  0.,  2., 14.,  5.,
+       10., 12.,  0.,  0.,  0.,  0.,  6., 13., 10.,  0.,  0.,  0.])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X[<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 0.,  0., 11., 12.,  0.,  0.,  0.,  0.,  0.,  2., 16., 16., 16.,
+       13.,  0.,  0.,  0.,  3., 16., 12., 10., 14.,  0.,  0.,  0.,  1.,
+       16.,  1., 12., 15.,  0.,  0.,  0.,  0., 13., 16.,  9., 15.,  2.,
+        0.,  0.,  0.,  0.,  3.,  0.,  9., 11.,  0.,  0.,  0.,  0.,  0.,
+        9., 15.,  4.,  0.,  0.,  0.,  9., 12., 13.,  3.,  0.,  0.])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X[<span class="number">0</span>].T@X[<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2807.0</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (2) 내적을 이용하여 모든 이미지의 조합에 대해 유사도를 구하라. </span></span><br><span class="line"><span class="comment"># 어떻게 구현하는 것이 효율적일까? : X@X.T</span></span><br><span class="line"></span><br><span class="line">simil = X@X.T</span><br><span class="line">simil</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[3070., 1866., 2264., ..., 2812., 3006., 2898.],
+       [1866., 4209., 3432., ..., 3906., 3083., 3307.],
+       [2264., 3432., 4388., ..., 4005., 3063., 3697.],
+       ...,
+       [2812., 3906., 4005., ..., 5092., 3729., 4598.],
+       [3006., 3083., 3063., ..., 3729., 4316., 3850.],
+       [2898., 3307., 3697., ..., 4598., 3850., 4938.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.heatmap(X@X.T)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_14_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># simil[0]의 내적값 탐색시작</span></span><br><span class="line"><span class="comment"># 만약 max값과 맞다면, 그때의 index출력 -&gt; index+1 이미지가 가장 내적값이 높은 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(simil[<span class="number">0</span>])):</span><br><span class="line">    <span class="keyword">if</span> simil[<span class="number">0</span>][i] == simil[<span class="number">0</span>].<span class="built_in">max</span>():</span><br><span class="line">        print(<span class="string">&quot;&#123;&#125;번째 image가 가장 1번째 이미지와 코사인유사도가 높다.&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>161번째 image가 가장 1번째 이미지와 코사인유사도가 높다.</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 내적값이 높은 데이터 간 유사한가? 0 vs 8, 0 vs 1 의 내적값 비교를 통해 확인</span></span><br><span class="line"><span class="comment"># 만약, 내적 값에 따라 유사한지를 판단할 수 있으려면, 0 vs 8 내적값이 0 vs 1 내적값 보다는 커야할 것</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a2447f5d0&gt;</code></pre>
+<p><img src="/img/output_17_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">1</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a225e9490&gt;</code></pre>
+<p><img src="/img/output_18_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">8</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a24614390&gt;</code></pre>
+<p><img src="/img/output_19_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_0 = img.images[<span class="number">0</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br><span class="line">_1 = img.images[<span class="number">1</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br><span class="line">_8 = img.images[<span class="number">8</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_0.T@_1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1866.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과, 1보다는 8과의 0의 내적값이 큰 것으로 보아, 어느정도 내적값을 통한 코사인유사도 근사가 일단은 유의미하게는 보임</span></span><br><span class="line"></span><br><span class="line">_0.T@_8</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[2783.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 코사인 유사도 계산 결과, 0은 1보다는 8과 유사한 것을 확인할 수 있음</span></span><br><span class="line"></span><br><span class="line">((_0.T@_1)/(np.linalg.norm(_0)*np.linalg.norm(_1)))[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.5191023426414686</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((_0.T@_8)/(np.linalg.norm(_0)*np.linalg.norm(_8)))[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.7515122122359871</code></pre>
+<ol start="4">
+<li><p>벡터의 선형조합 : 두 이미지를 섞어놓는 morphing 효과 가능</p>
+<ul>
+<li>olivetti faces data 활용 </li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_olivetti_faces</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = fetch_olivetti_faces()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 64 image로 400장 존재</span></span><br><span class="line"></span><br><span class="line">img.images.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(400, 64, 64)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;&#123;&#125; images&quot;</span>.<span class="built_in">format</span>(<span class="number">1</span>),fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_29_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">10</span>],cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;&#123;&#125; images&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>),fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_30_02.png" alt="png"></p>
+<ul>
+<li>morphing : 선형 조합을 통한 새로운 face image 조합<br>$$ 0.5image1 + 0.5image2$$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new_f = <span class="number">0.5</span>*img.images[<span class="number">0</span>] + <span class="number">0.5</span>*img.images[<span class="number">10</span>]</span><br><span class="line">plt.imshow(new_f,cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;$ 0.5image1 + 0.5image2$&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_32_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">f, ax = plt.subplots(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">ax[<span class="number">0</span>].imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">0</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_xticks([]);ax[<span class="number">0</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&quot;1 images&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">ax[<span class="number">1</span>].imshow(img.images[<span class="number">10</span>],cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">1</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_xticks([]);ax[<span class="number">1</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&quot;2 images&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">new_f = <span class="number">0.5</span>*img.images[<span class="number">0</span>] + <span class="number">0.5</span>*img.images[<span class="number">10</span>]</span><br><span class="line">ax[<span class="number">2</span>].imshow(new_f,cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">2</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">2</span>].set_xticks([]);ax[<span class="number">2</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">2</span>].set_title(<span class="string">&quot;$ 0.5image1 + 0.5image2$&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_33_02.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jskim_0406';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/6.Data_structure_Binary_search_Tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          4. Binary_search_Tree
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2. Linear Algebra_7. Practice(1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Matrix-Calculation"><span class="nav-number">1.</span> <span class="nav-text">2. Matrix Calculation</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 jskim_blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
