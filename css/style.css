@@ -589,7 +589,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.6em 0;
-  font-family: 'Montserrat', "NanumSquareRound", "Malgun Gothic", "맑은 고딕", "돋움", dotum, sans-serif;
+  font-family: -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -830,7 +830,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px 'Montserrat', "NanumSquareRound", "Malgun Gothic", "맑은 고딕", "돋움", dotum, sans-serif;
+  font: 14px -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   padding: 0 15px;
   color: #333;
   outline: none;
@@ -1253,7 +1253,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: "Nanum Gothic Coding", "NanumSquareRound", Consolas, monospace;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
   background: rgba(208,211,248,0.2);
@@ -1326,7 +1326,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: "Nanum Gothic Coding", "NanumSquareRound", Consolas, monospace;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -1349,7 +1349,7 @@ figure.highlight::-webkit-scrollbar-track {
 .article-entry .gist .gist-file .gist-meta {
   background: #f8f8f8;
   color: #8e908c;
-  font: 0.85em 'Montserrat', "NanumSquareRound", "Malgun Gothic", "맑은 고딕", "돋움", dotum, sans-serif;
+  font: 0.85em -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
