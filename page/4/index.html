@@ -118,6 +118,82 @@
         
           <section id="main">
   
+    <article id="post-2. Linear Algebra_1. Vectors"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/06/21/2.%20Linear%20Algebra_1.%20Vectors/">2. Linear Algebra_1. Vectors</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/06/21/2.%20Linear%20Algebra_1.%20Vectors/" class="article-date">
+	  <time datetime="2020-06-21T11:08:36.000Z" itemprop="datePublished">June 21, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linear Algebra가 다루는 Vector는 우리가 익숙한 geometric vector와 크게 다르지 않습니다. </p>
+<p>geometric vector는 데카르트 좌표계에서, direction과 magnitude를 갖는 arrow로 흔히 표현되곤 합니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">X = [<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">xx = np.arange(<span class="number">-2</span>,<span class="number">4</span>)</span><br><span class="line">yy = xx</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line">plt.plot(xx,yy)</span><br><span class="line">plt.annotate(<span class="string">&#x27;Geometric vector&#x27;</span>,xy=(X[<span class="number">0</span>],X[<span class="number">1</span>]),xytext=(<span class="number">-0.6</span>,<span class="number">0</span>),arrowprops=&#123;<span class="string">&#x27;color&#x27;</span>:<span class="string">&#x27;red&#x27;</span>&#125;)</span><br><span class="line">plt.title(<span class="string">&quot;Geometric vector contains &#x27;direction&#x27; and &#x27;magnitude&#x27;&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_2_0_1.png" alt="png"></p>
+<p>Machine Learning(이하 “ML”)은 데이터를 다루는 CS적 관점을 갖고 있습니다.<br>따라서, 같은 대상(Vector)을 바라보는 관점도 살짝 다르게 접근할 수 있습니다.<br>Computer Science에선, computer langauge가 array라는 자료구조와 이를 처리하는 알고리즘을 갖고 있습니다.</p>
+<p>Linear Algebra for ML 은 역시, 위와 같은 관점에서 <strong>Vector를 array로 구현</strong>해 접근합니다.<br>사실 본질적인 내용은 다른 것이 없고, 단지 array구조의 객체를 활용해 선형대수를 computer 연산 한다고 보면 될 것 같습니다.<br>    (python의 패키지인 Numpy를 활용해 연산, 구현하겠습니다.)</p>
+<h3 id="1-Array-for-Vectors"><a href="#1-Array-for-Vectors" class="headerlink" title="1) Array for Vectors"></a>1) Array for Vectors</h3><p>array = tuples of n real number<br>= n-dimensional real coordiante space(n차원의 실수좌표공간)를 구성 </p>
+<p>예를 들어 $a$ 라는 Vector가 아래와 같다면</p>
+<p>$$<br>\begin{align}<br>a=<br>\begin{bmatrix}<br>1 \<br>2 \<br>3 \<br>4 \<br>\end{bmatrix}<br>\end{align}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([1, 2, 3, 4, 5])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">3</span>]])</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1],
+       [2],
+       [3]])</code></pre>
+<p>이와 같이 $a$ 벡터를 array로 표현할 수 있다.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2_0. Linear Algebra"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -266,6 +342,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a></h6>
+              <span>November 5, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a></h6>
               <span>November 4, 2020</span>
             </div>
@@ -320,18 +408,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_4_Counter,%20most_common()/">6. Part3_ch6 보충4_최대빈도 값 찾기(Counter, most_common())</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -341,7 +417,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -351,7 +427,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -361,7 +437,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
+      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
     </div>
   </div>
 
@@ -371,7 +447,7 @@
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 

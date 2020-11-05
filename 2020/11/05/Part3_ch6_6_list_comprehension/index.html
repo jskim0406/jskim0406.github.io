@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>2. [프로그래머스 문제풀이] 3. H-index | jskim_blog</title>
+  <title>6. Part3_ch6 보충6_list comprehension | jskim_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="whatever4" />
@@ -11,19 +11,19 @@
   
   
   
-  <meta name="description" content="3. H-index문제 1) 1차 입력1234567891011def solution(citations):    sorted_cite &#x3D; sorted(citations, reverse&#x3D;True)        answer &#x3D; 0        print(sorted_cite)        for i in range(len(sorted_cite)):">
+  <meta name="description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if  복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2. [프로그래머스 문제풀이] 3. H-index">
-<meta property="og:url" content="http://example.com/2020/11/04/[programmers]%20sort_3/index.html">
+<meta property="og:title" content="6. Part3_ch6 보충6_list comprehension">
+<meta property="og:url" content="http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="3. H-index문제 1) 1차 입력1234567891011def solution(citations):    sorted_cite &#x3D; sorted(citations, reverse&#x3D;True)        answer &#x3D; 0        print(sorted_cite)        for i in range(len(sorted_cite)):">
+<meta property="og:description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if  복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-04T10:30:42.823Z">
-<meta property="article:modified_time" content="2020-11-04T10:39:14.493Z">
+<meta property="article:published_time" content="2020-11-05T07:27:30.851Z">
+<meta property="article:modified_time" content="2020-11-05T07:28:21.159Z">
 <meta property="article:author" content="js Kim">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Algorithms">
-<meta property="article:tag" content="프로그래머스">
+<meta property="article:tag" content="list comprehension">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="jskim_blog" type="application/atom+xml">
@@ -120,7 +120,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-[programmers] sort_3" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Part3_ch6_6_list_comprehension" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -128,7 +128,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      2. [프로그래머스 문제풀이] 3. H-index
+      6. Part3_ch6 보충6_list comprehension
     </h1>
   
 
@@ -136,13 +136,13 @@
     
     <div class="article-meta">
       
-	<a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/" class="article-date">
-	  <time datetime="2020-11-04T10:30:42.823Z" itemprop="datePublished">November 4, 2020</time>
+	<a href="/2020/11/05/Part3_ch6_6_list_comprehension/" class="article-date">
+	  <time datetime="2020-11-05T07:27:30.851Z" itemprop="datePublished">November 5, 2020</time>
 	</a>
 
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
  
       
 	<span id="busuanzi_container_page_pv">
@@ -152,72 +152,66 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="3-H-index"><a href="#3-H-index" class="headerlink" title="3. H-index"></a>3. H-index</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42747">문제</a></p>
-<h3 id="1-1차-입력"><a href="#1-1차-입력" class="headerlink" title="1) 1차 입력"></a>1) 1차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">citations</span>):</span></span><br><span class="line">    sorted_cite = <span class="built_in">sorted</span>(citations, reverse=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    answer = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    print(sorted_cite)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sorted_cite)):</span><br><span class="line">        <span class="keyword">if</span> sorted_cite[i] &lt; i+<span class="number">1</span>:</span><br><span class="line">            answer = i</span><br><span class="line">            <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>[6, 5, 3, 1, 0]
-
-
-
-
-
-3</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>[25, 8, 5, 3, 3]
-
-
-
-
-
-3</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>[25, 8, 5, 4, 3]
-
-
-
-
-
-4</code></pre>
-<h3 id="결과-fail"><a href="#결과-fail" class="headerlink" title="결과 : fail"></a>결과 : fail</h3><ul>
-<li>9번 case 실패</li>
+        <h1 id="1-list-comprehension"><a href="#1-list-comprehension" class="headerlink" title="1. list comprehension"></a>1. list comprehension</h1><ul>
+<li>map, filter + lambda보단 list-comprehension이 더욱 pythonic</li>
 </ul>
-<h3 id="2-2차-입력"><a href="#2-2차-입력" class="headerlink" title="2) 2차 입력"></a>2) 2차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">citations</span>):</span></span><br><span class="line">    answer, max_idx = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    sorted_cite = <span class="built_in">sorted</span>(citations, reverse=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(sorted_cite)):</span><br><span class="line">        <span class="keyword">if</span> sorted_cite[i] &gt;= i+<span class="number">1</span>:</span><br><span class="line">            max_idx = i+<span class="number">1</span></span><br><span class="line">    answer = max_idx</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+<p>[반복]</p>
+<ul>
+<li>단일 반복 : for loop</li>
+<li>다중 반복 : milti for loop</li>
+</ul>
+<p>[조건]</p>
+<ul>
+<li><p>단일 조건 : 표현1 for loop if</p>
+</li>
+<li><p>복수 조건 : 표현1 if 조건1 else 표현2 for loop</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay08_ListComprehension.md">참고 1</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wikidocs.net/46742">참고 2</a></p>
+</li>
+</ul>
+<h3 id="1-단일-반복-for-loop"><a href="#1-단일-반복-for-loop" class="headerlink" title="1) 단일 반복 : for loop"></a>1) 단일 반복 : for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x+<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>[11, 12, 13]</code></pre>
+<h3 id="2-다중-반복-multi-for-loop"><a href="#2-다중-반복-multi-for-loop" class="headerlink" title="2) 다중 반복 :  multi for loop"></a>2) 다중 반복 :  multi for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>]]</span><br><span class="line">array</span><br></pre></td></tr></table></figure>
 
 
 
 
-<pre><code>3</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 8]]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [1,2,3,4,5,6,7,8,9] 로 만들기</span></span><br><span class="line"><span class="comment"># [ for문1 for문2 ]처럼, 다중 for문일 때, 순서는 for문1 -&gt; for문2 로 간다. </span></span><br><span class="line">a = [x <span class="keyword">for</span> row <span class="keyword">in</span> array <span class="keyword">for</span> x <span class="keyword">in</span> row]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
 
 
 
 
-<pre><code>3</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">25</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 8]</code></pre>
+<h3 id="3-단일-조건-표현1-for-loop-if"><a href="#3-단일-조건-표현1-for-loop-if" class="headerlink" title="3) 단일 조건 : 표현1 for loop if"></a>3) 단일 조건 : 표현1 for loop if</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> x%<span class="number">2</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
 
 
 
 
-<pre><code>4</code></pre>
-<h3 id="결과-성공"><a href="#결과-성공" class="headerlink" title="결과 : 성공"></a>결과 : 성공</h3>
+<pre><code>[1, 9, 25, 49, 81]</code></pre>
+<h3 id="4-복수-조건-표현1-if-조건1-else-표현2-for-loop"><a href="#4-복수-조건-표현1-if-조건1-else-표현2-for-loop" class="headerlink" title="4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop"></a>4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">if</span> x%<span class="number">2</span> <span class="keyword">else</span> x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[1, 2, 9, 4, 25, 6, 49, 8, 81, 10]</code></pre>
+
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
       
         
@@ -255,19 +249,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/05/Part3_ch6_6_list_comprehension/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          6. Part3_ch6 보충6_list comprehension
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/04/%5Bprogrammers%5D%20sort_2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">2. [프로그래머스 문제풀이] 2. 가장 큰 수</div>
+      <div class="article-nav-title">2. [프로그래머스 문제풀이] 3. H-index</div>
     </a>
   
 </nav>
@@ -281,7 +266,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-H-index"><span class="nav-number">1.</span> <span class="nav-text">3. H-index</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%EC%B0%A8-%EC%9E%85%EB%A0%A5"><span class="nav-number">1.0.1.</span> <span class="nav-text">1) 1차 입력</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B2%B0%EA%B3%BC-fail"><span class="nav-number">1.0.2.</span> <span class="nav-text">결과 : fail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%EC%B0%A8-%EC%9E%85%EB%A0%A5"><span class="nav-number">1.0.3.</span> <span class="nav-text">2) 2차 입력</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B2%B0%EA%B3%BC-%EC%84%B1%EA%B3%B5"><span class="nav-number">1.0.4.</span> <span class="nav-text">결과 : 성공</span></a></li></ol></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-list-comprehension"><span class="nav-number">1.</span> <span class="nav-text">1. list comprehension</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%EB%8B%A8%EC%9D%BC-%EB%B0%98%EB%B3%B5-for-loop"><span class="nav-number">1.0.1.</span> <span class="nav-text">1) 단일 반복 : for loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%EB%8B%A4%EC%A4%91-%EB%B0%98%EB%B3%B5-multi-for-loop"><span class="nav-number">1.0.2.</span> <span class="nav-text">2) 다중 반복 :  multi for loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%EB%8B%A8%EC%9D%BC-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-for-loop-if"><span class="nav-number">1.0.3.</span> <span class="nav-text">3) 단일 조건 : 표현1 for loop if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%EB%B3%B5%EC%88%98-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-if-%EC%A1%B0%EA%B1%B41-else-%ED%91%9C%ED%98%842-for-loop"><span class="nav-number">1.0.4.</span> <span class="nav-text">4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</span></a></li></ol></li></ol></li></ol>
     
     </div>
   </aside>

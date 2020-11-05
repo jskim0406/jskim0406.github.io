@@ -118,6 +118,105 @@
         
           <section id="main">
   
+    <article id="post-Part3_ch6_6_list_comprehension"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/05/Part3_ch6_6_list_comprehension/" class="article-date">
+	  <time datetime="2020-11-05T07:27:30.851Z" itemprop="datePublished">November 5, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-list-comprehension"><a href="#1-list-comprehension" class="headerlink" title="1. list comprehension"></a>1. list comprehension</h1><ul>
+<li>map, filter + lambda보단 list-comprehension이 더욱 pythonic</li>
+</ul>
+<p>[반복]</p>
+<ul>
+<li>단일 반복 : for loop</li>
+<li>다중 반복 : milti for loop</li>
+</ul>
+<p>[조건]</p>
+<ul>
+<li><p>단일 조건 : 표현1 for loop if</p>
+</li>
+<li><p>복수 조건 : 표현1 if 조건1 else 표현2 for loop</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay08_ListComprehension.md">참고 1</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wikidocs.net/46742">참고 2</a></p>
+</li>
+</ul>
+<h3 id="1-단일-반복-for-loop"><a href="#1-단일-반복-for-loop" class="headerlink" title="1) 단일 반복 : for loop"></a>1) 단일 반복 : for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x+<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[11, 12, 13]</code></pre>
+<h3 id="2-다중-반복-multi-for-loop"><a href="#2-다중-반복-multi-for-loop" class="headerlink" title="2) 다중 반복 :  multi for loop"></a>2) 다중 반복 :  multi for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>]]</span><br><span class="line">array</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 8]]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [1,2,3,4,5,6,7,8,9] 로 만들기</span></span><br><span class="line"><span class="comment"># [ for문1 for문2 ]처럼, 다중 for문일 때, 순서는 for문1 -&gt; for문2 로 간다. </span></span><br><span class="line">a = [x <span class="keyword">for</span> row <span class="keyword">in</span> array <span class="keyword">for</span> x <span class="keyword">in</span> row]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 8]</code></pre>
+<h3 id="3-단일-조건-표현1-for-loop-if"><a href="#3-단일-조건-표현1-for-loop-if" class="headerlink" title="3) 단일 조건 : 표현1 for loop if"></a>3) 단일 조건 : 표현1 for loop if</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> x%<span class="number">2</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[1, 9, 25, 49, 81]</code></pre>
+<h3 id="4-복수-조건-표현1-if-조건1-else-표현2-for-loop"><a href="#4-복수-조건-표현1-if-조건1-else-표현2-for-loop" class="headerlink" title="4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop"></a>4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">if</span> x%<span class="number">2</span> <span class="keyword">else</span> x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[1, 2, 9, 4, 25, 6, 49, 8, 81, 10]</code></pre>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-[programmers] sort_3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -972,101 +1071,6 @@ abc</code></pre>
 <!-- Table of Contents -->
 
   
-    <article id="post-Part3_ch6_1_python built-in function"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/11/03/Part3_ch6_1_python%20built-in%20function/">3. Part3_ch6 보충1_python built-in function 정리</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/11/03/Part3_ch6_1_python%20built-in%20function/" class="article-date">
-	  <time datetime="2020-11-03T06:27:04.000Z" itemprop="datePublished">November 3, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-python-내장"><a href="#1-python-내장" class="headerlink" title="1. python 내장"></a>1. python 내장</h1><p>[참고]</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.python.org/ko/3/library/functions.html#id">공식문서</a></li>
-</ul>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://wikidocs.net/32#id">점프투파이썬</a></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/2.Python/7. Python_algorithm_interview/참고자료/python_내장함수.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/img/output_3_0_3.png" alt="png"></p>
-<h1 id="2-list-내장"><a href="#2-list-내장" class="headerlink" title="2. list 내장"></a>2. list 내장</h1><p>[참고]</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://rfriend.tistory.com/330">블로그</a></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/2.Python/7. Python_algorithm_interview/참고자료/python_list_내장함수.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/img/output_6_0_3.png" alt="png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">del a[index] : a 리스트의 0항목 삭제</span><br><span class="line">a.remove(&#39;요소&#39;) : a 리스트에서 &#39;요소&#39;를 삭제</span><br><span class="line">a.pop(index) : a 리스트에서 a[index]를 반환한 뒤, 삭제</span><br><span class="line">a.pop() : a 리스트에서 가장 마지막 요소 pop *리스트는 기본적으로 stack구조를 모방</span><br><span class="line">a.count(&#39;요소&#39;) : a 리스트에 &#39;요소&#39;의 갯수 반환</span><br><span class="line">a.sort() : 정렬(in-place)</span><br><span class="line">a.sorted() : 정렬 복사본 반환(in-place X)</span><br><span class="line">a.copy() : a 리스트의 요소만 복사한 &#39;새로운&#39; 컨테이너 생성</span><br><span class="line">&#39;요소&#39; in a : a 리스트에 &#39;요소&#39;가 있으면 True</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-dict-내장"><a href="#3-dict-내장" class="headerlink" title="3. dict 내장"></a>3. dict 내장</h1><p>[참고]</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://rfriend.tistory.com/334">블로그</a></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/2.Python/7. Python_algorithm_interview/참고자료/python_dict_내장함수.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/img/output_10_0_3.png" alt="png"></p>
-<h1 id="4-string-내장"><a href="#4-string-내장" class="headerlink" title="4. string 내장"></a>4. string 내장</h1><p>[참고]</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://allhpy35.tistory.com/7">블로그1</a></li>
-</ul>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://rottk.tistory.com/entry/%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%B4%EC%9E%A5%ED%95%A8%EC%88%98-String-built-in-functions">블로그2</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">str.lower() : 소문자로 변환 (in-place X)</span><br><span class="line">str.upper() : 대문자로 변환 (in-place X)</span><br><span class="line"></span><br><span class="line">str.split() : 공백 기준 str 쪼개기</span><br><span class="line">str.split(&#39;a&#39;) : &#39;a&#39;를 기준으로 str 쪼개기 *(&#39;a&#39;는 제거됨)</span><br><span class="line">str.replace(&#39;a&#39;,&#39;b&#39;) : &#39;a&#39;를 &#39;b&#39;로 변환 (in-place 됨)</span><br><span class="line">str.find(&#39;a&#39;) : &#39;a&#39;의 index 반환</span><br><span class="line">str.rfind(&#39;a&#39;) : &#39;a&#39;의 index 반환(뒤에서 부터 탐색)</span><br><span class="line">str.capitalize() : 문장열 중에서 첫번째 단어만 대문자로 바꾼다</span><br><span class="line"></span><br><span class="line">str.join() : 두 문자열의 결합  ex) &quot; &quot;.join(&quot;abc&quot;) &#x3D;&gt; a b c</span><br><span class="line">str.join([str1, str2]) : 문자열을 요소로 갖는 리스트를 새로운 결합된 문자열로 변환   ex) &quot;, &quot;.join([&#39;a&#39;,&#39;b&#39;]) &#x3D;&gt; a, b</span><br><span class="line">&quot;&quot;.join(reversed(str)) : 문자열을 뒤집어 반환  ex) &quot;&quot;.join(reversed(&quot;abc&quot;)) &#x3D;&gt; cba</span><br><span class="line">str.title() : 문자 열중 각각의 단어의 첫 부분만 대문자로 바꾼다.</span><br><span class="line">str.swapcase() : 문자열중 소문자는 대문자로 , 대문자는 소문자로 바꾼다. </span><br><span class="line">str.count() : arg 가 문자열 중에서 몇 번 들어가는지 세어서 반환한다.</span><br><span class="line">str.center(10) : 문자열을 차지하는 공간(10)에서 문자열들을 중앙에 배치한다.</span><br><span class="line">str.ljust(10) : 문자열을 차지하는 공간(10)에서 문자열을 좌측으로 정렬한다.</span><br><span class="line">str.rjust(10) : 문자열을 차지하는 공간(10)에서 문자열을 우측으로 정렬한다.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">len(str) : 문자열 길이 반환</span><br><span class="line"></span><br><span class="line">[boolean]</span><br><span class="line">    str.isalnum()	문자열은 영문자와 숫자로만 구성되어 있는가? (no symbols)</span><br><span class="line">    str.isalpha()	문자열이 영문자로만 이루어져 있는가? (no symbols)</span><br><span class="line">    str.islower()	문자열에 포함된 영문자가 모두 소문자인가?</span><br><span class="line">    str.isnumeric()	문자열이 숫자로만 구성되어 있는가?</span><br><span class="line">    str.isspace()	문자열이 공백문자(white space)로만 구성되어 있는가?</span><br><span class="line">    str.istitle()	문자열이 제목 형식(단어의 첫문자가 대문자)에 있는가?</span><br><span class="line">    str.isupper()	문자열에 포함된 영문자가 모두 대문자인가?</span><br><span class="line">    str.startswith(&#39;arg&#39;) : arg(인자)가 문자열 내에서 처음으로 나오면 True 아니면 False </span><br><span class="line">    str.endswith(&#39;arg&#39;) : arg(인자) 가 문자열 내에서 마지막으로 나오면 True 아니면 False</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -1164,6 +1168,18 @@ abc</code></pre>
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a></h6>
+              <span>November 5, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a></h6>
               <span>November 4, 2020</span>
             </div>
@@ -1218,18 +1234,6 @@ abc</code></pre>
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_4_Counter,%20most_common()/">6. Part3_ch6 보충4_최대빈도 값 찾기(Counter, most_common())</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1239,7 +1243,7 @@ abc</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1249,7 +1253,7 @@ abc</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1259,7 +1263,7 @@ abc</code></pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
+      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
     </div>
   </div>
 
@@ -1269,7 +1273,7 @@ abc</code></pre>
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
