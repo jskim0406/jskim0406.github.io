@@ -118,6 +118,229 @@
         
           <section id="main">
   
+    <article id="post-5.Data_structure_Hash-table"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/07/03/5.Data_structure_Hash-table/">3. Hash-table</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/03/5.Data_structure_Hash-table/" class="article-date">
+	  <time datetime="2020-07-03T06:07:33.097Z" itemprop="datePublished">July 3, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="5-해쉬-테이블"><a href="#5-해쉬-테이블" class="headerlink" title="5. 해쉬 테이블"></a>5. 해쉬 테이블</h1><h3 id="해쉬-구조"><a href="#해쉬-구조" class="headerlink" title="해쉬 구조"></a>해쉬 구조</h3><ul>
+<li>Hash Table: 키(Key)에 데이터(Value)를 저장하는 데이터 구조<ul>
+<li>Key를 통해 바로 데이터를 받아올 수 있으므로, 속도가 획기적으로 빨라짐</li>
+<li>파이썬 딕셔너리(Dictionary) 타입이 해쉬 테이블의 예: Key를 가지고 바로 데이터(Value)를 꺼냄</li>
+<li>보통 배열로 미리 Hash Table 사이즈만큼 생성 후에 사용 (공간과 탐색 시간을 맞바꾸는 기법)</li>
+<li><font color='#BF360C'>단, 파이썬에서는 해쉬를 별도 구현할 이유가 없음 - 딕셔너리 타입을 사용하면 됨</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="알아둘-용어"><a href="#알아둘-용어" class="headerlink" title="알아둘 용어"></a>알아둘 용어</h3><ul>
+<li>해쉬(Hash): 임의 값을 고정 길이로 변환하는 것</li>
+<li>해쉬 테이블(Hash Table): 키 값의 연산에 의해 직접 접근이 가능한 데이터 구조</li>
+<li>해싱 함수(Hashing Function): Key에 대해 산술 연산을 이용해 데이터 위치를 찾을 수 있는 함수</li>
+<li>해쉬 값(Hash Value) 또는 해쉬 주소(Hash Address): Key를 해싱 함수로 연산해서, 해쉬 값을 알아내고, 이를 기반으로 해쉬 테이블에서 해당 Key에 대한 데이터 위치를 일관성있게 찾을 수 있음</li>
+<li>슬롯(Slot): 한 개의 데이터를 저장할 수 있는 공간</li>
+<li>저장할 데이터에 대해 Key를 추출할 수 있는 별도 함수도 존재할 수 있음<img src="https://www.fun-coding.org/00_Images/hash.png" width=400 />
+
+</li>
+</ul>
+<h3 id="자료-구조-해쉬-테이블의-장단점과-주요-용도"><a href="#자료-구조-해쉬-테이블의-장단점과-주요-용도" class="headerlink" title="자료 구조 해쉬 테이블의 장단점과 주요 용도"></a>자료 구조 해쉬 테이블의 장단점과 주요 용도</h3><ul>
+<li>장점<ul>
+<li>데이터 저장/읽기 속도가 빠르다. (검색 속도가 빠르다.)</li>
+<li>해쉬는 키에 대한 데이터가 있는지(중복) 확인이 쉬움</li>
+</ul>
+</li>
+<li>단점 <ul>
+<li>일반적으로 저장공간이 좀더 많이 필요하다.</li>
+<li><strong>여러 키에 해당하는 주소가 동일할 경우 충돌을 해결하기 위한 별도 자료구조가 필요함</strong></li>
+</ul>
+</li>
+<li>주요 용도<ul>
+<li>검색이 많이 필요한 경우</li>
+<li>저장, 삭제, 읽기가 빈번한 경우</li>
+<li>캐쉬 구현시 (중복 확인이 쉽기 때문)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-hash-table-만들기"><a href="#1-hash-table-만들기" class="headerlink" title="1) hash table 만들기"></a>1) hash table 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
+<h3 id="2-hash-function-만들기"><a href="#2-hash-function-만들기" class="headerlink" title="2) hash function 만들기"></a>2) hash function 만들기</h3><ul>
+<li>다양한 해쉬 함수 고안 기법이 있음 </li>
+<li>가장 간단한 방식이 Division 법 (나누기를 통한 나머지 값을 사용하는 기법)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hash function 역할 : key -&gt; hash value(address = key%5)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-hash-table에-값-저장-및-호출"><a href="#3-hash-table에-값-저장-및-호출" class="headerlink" title="3) hash table에 값 저장 및 호출"></a>3) hash table에 값 저장 및 호출</h3><h4 id="3-1-key-생성-key-generating-function-활용"><a href="#3-1-key-생성-key-generating-function-활용" class="headerlink" title="3-1) key 생성 : key-generating function 활용"></a>3-1) key 생성 : key-generating function 활용</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data1 = <span class="string">&#x27;Andy&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;Dave&#x27;</span></span><br><span class="line">data3 = <span class="string">&#x27;Trumph&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각 data(문자)자체를 key로 쓰지 않고, 각각을 특정한 함수를 적용, 변환해 key로 생성</span></span><br><span class="line"><span class="comment"># 문자이기 때문에, ASCII코드로 변환해 key로 사용할 것</span></span><br><span class="line"></span><br><span class="line">key1 = <span class="built_in">ord</span>(data1[<span class="number">0</span>])</span><br><span class="line">key1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>65</code></pre>
+<h4 id="3-2-데이터-저장-data-gt-key-gt-function-gt-hash-value-address-생성-gt-address에-value를-저장"><a href="#3-2-데이터-저장-data-gt-key-gt-function-gt-hash-value-address-생성-gt-address에-value를-저장" class="headerlink" title="3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장"></a>3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">    address = hash_function(key)</span><br><span class="line">    hash_table[address] = value</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">store_data(<span class="string">&#x27;Andy&#x27;</span>, <span class="string">&#x27;01055553333&#x27;</span>)</span><br><span class="line">store_data(<span class="string">&#x27;Dave&#x27;</span>, <span class="string">&#x27;01044443333&#x27;</span>)</span><br><span class="line">store_data(<span class="string">&#x27;Trump&#x27;</span>, <span class="string">&#x27;01022223333&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-데이터-호출"><a href="#3-3-데이터-호출" class="headerlink" title="3-3) 데이터 호출"></a>3-3) 데이터 호출</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_value</span>(<span class="params">data</span>):</span></span><br><span class="line">    key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">    address = hash_function(key)</span><br><span class="line">    print(hash_table[address])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call_value(<span class="string">&#x27;Andy&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>01055553333</code></pre>
+<h3 id="4-Practice"><a href="#4-Practice" class="headerlink" title="4) Practice"></a>4) Practice</h3><ol>
+<li>해쉬 키 생성: hash(data)</li>
+<li>해쉬 함수: key % 8</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
+<h4 id="4-1-key-생성함수-및-hash-function-정의"><a href="#4-1-key-생성함수-및-hash-function-정의" class="headerlink" title="4-1) key 생성함수 및 hash_function 정의"></a>4-1) key 생성함수 및 hash_function 정의</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get_key(<span class="string">&#x27;dave&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>5265506647170875031</code></pre>
+<h4 id="4-2-저장-및-호출-함수-구현"><a href="#4-2-저장-및-호출-함수-구현" class="headerlink" title="4-2) 저장 및 호출 함수 구현"></a>4-2) 저장 및 호출 함수 구현</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_to_slot</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    address = hash_function(get_key(data))</span><br><span class="line">    hash_table[address] = value</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_slot</span>(<span class="params">data</span>):</span></span><br><span class="line">    address = hash_function(get_key(data))</span><br><span class="line">    <span class="keyword">return</span> hash_table[address]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-Test"><a href="#4-3-Test" class="headerlink" title="4-3) Test"></a>4-3) Test</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">store_to_slot(<span class="string">&#x27;dave&#x27;</span>,<span class="number">12345</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;spring&#x27;</span>,<span class="number">21053</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;fall&#x27;</span>,<span class="number">32345</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;summer&#x27;</span>,<span class="number">42345</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_from_slot(<span class="string">&#x27;dave&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>12345</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[0, 21053, 42345, 0, 0, 32345, 0, 12345, 0, 0]</code></pre>
+<h3 id="5-충돌-collision-을-고려한-해쉬-알고리즘"><a href="#5-충돌-collision-을-고려한-해쉬-알고리즘" class="headerlink" title="5) 충돌(collision)을 고려한 해쉬 알고리즘"></a>5) 충돌(collision)을 고려한 해쉬 알고리즘</h3><ul>
+<li>충돌(collision) : address가 같아 저장 내용이 서로 ‘충돌’하는 것</li>
+</ul>
+<ul>
+<li><strong>다른 저장 공간을 찾아줘야 함</strong></li>
+</ul>
+<pre><code>    1. 수평적 방향 (chaining 기법, open hasing) : hash_table의 뒤에 추가로 리스트(링크드 리스트) 연결시켜 공간 창출
+    2. 수직적 방향 (linear probing 기법, close hasing) : 기존 hash_table 내 빈 공간에 저장</code></pre>
+<h4 id="5-1-Chaining-기법"><a href="#5-1-Chaining-기법" class="headerlink" title="5-1) Chaining 기법"></a>5-1) Chaining 기법</h4><ul>
+<li>수평적 방향 (chaining 기법, open hasing) : hash_table의 뒤에 추가로 리스트(링크드 리스트) 연결시켜 공간 창출</li>
+</ul>
+<p><strong>hash_table생성, key생성, hash_function 정의, 저장 def, read def</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 충돌 방지를 위해 수평적 공간 추가해주기</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 만약 같은 key인 slot이 있다면, update해주기</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(hash_table[address])):</span><br><span class="line">            <span class="keyword">if</span> hash_table[address][i][<span class="number">0</span>] == index_key:</span><br><span class="line">                hash_table[address][i][<span class="number">1</span>] = value</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 같은 키 slot이 없다면, 추가로 공간 할당 + 저장해주기</span></span><br><span class="line">            hash_table[address].append([index_key,value])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 바로 채우기</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hash_table[address] = [[index_key,value]]</span><br><span class="line">         </span><br><span class="line">            </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 수평적 탐색하며 key가 같으면 value반환, 없다면 none 반환</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(hash_table[address])):</span><br><span class="line">            <span class="keyword">if</span> hash_table[address][i][<span class="number">0</span>] == index_key:</span><br><span class="line">                <span class="keyword">return</span> hash_table[address][i][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 없다는 것이니까 none 반환</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;dk&#x27;</span>) % <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;ddf&#x27;</span>) % <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>6
+6</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_data(<span class="string">&#x27;dk&#x27;</span>, <span class="string">&#x27;01200123123&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;3333333333&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;ddf&#x27;</span>, <span class="string">&#x27;4333433334&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;dk&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;01200123123&#39;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;ddf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;4333433334&#39;</code></pre>
+<p><strong>‘dk’와 ‘ddf’는 address가 같아, 충돌이 예상되지만, chaining 기법으로 이를 해결해냈음을 확인할 수 있다</strong></p>
+<h4 id="5-2-Linear-probing-기법"><a href="#5-2-Linear-probing-기법" class="headerlink" title="5-2) Linear probing 기법"></a>5-2) Linear probing 기법</h4><ul>
+<li>수직적 방향 (linear probing 기법, close hasing) : 기존 hash_table 내 빈 공간에 저장</li>
+</ul>
+<p><strong>hash_table생성, key생성, hash_function 정의, 저장 def, read def</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 충돌 방지를 위해 수직적 탐색하며 빈 slot에 저장하기</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 만약 같은 key인 slot이 있다면, update해주기</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(address,<span class="built_in">len</span>(hash_table)):</span><br><span class="line">            <span class="keyword">if</span> hash_table[i] != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> hash_table[i][<span class="number">0</span>] == index_key:</span><br><span class="line">                    hash_table[i][<span class="number">1</span>] = value</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                </span><br><span class="line">        <span class="comment"># 같은 키 slot이 없다면, 기존의 공간 중 빈 공간에 저장해주기</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                hash_table[i] = [index_key,value]</span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 그대로 저장</span></span><br><span class="line">    <span class="keyword">else</span>:            </span><br><span class="line">        hash_table[address] = [index_key,value]</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 수직적 탐색하며 key가 같으면 value반환, 없다면 none 반환</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(address,<span class="built_in">len</span>(hash_table)):</span><br><span class="line">            <span class="keyword">if</span> hash_table[i][<span class="number">0</span>] == index_key:</span><br><span class="line">                <span class="keyword">return</span> hash_table[i][<span class="number">1</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">elif</span> hash_table[i][<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 없다는 것이니까 none 반환</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;dk&#x27;</span>) % <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;ddf&#x27;</span>) % <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>6
+6</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_data(<span class="string">&#x27;dk&#x27;</span>, <span class="string">&#x27;01200123123&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;3333333333&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;ddf&#x27;</span>, <span class="string">&#x27;4333433334&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;dk&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;01200123123&#39;</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;ddf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#39;4333433334&#39;</code></pre>
+<p><strong>‘dk’와 ‘ddf’는 address가 같아, 충돌이 예상되지만, linear probing 기법으로 이를 해결해냈음을 확인할 수 있다</strong></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-structure/">Data_structure</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2.Data_structure _ Linked_List_2"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1720,84 +1943,6 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 <!-- Table of Contents -->
 
   
-    <article id="post-2. Linear Algebra_2. Systems of Linear Equations"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/06/21/2.%20Linear%20Algebra_2.%20Systems%20of%20Linear%20Equations/">2. Linear Algebra_2. Systems of Linear Equations</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/06/21/2.%20Linear%20Algebra_2.%20Systems%20of%20Linear%20Equations/" class="article-date">
-	  <time datetime="2020-06-21T11:08:44.574Z" itemprop="datePublished">June 21, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linear Algebra는 Linear Equations problem을 Vector를 이용해 해결하는 것에 관한 학문으로 이해할 수 있습니다.</p>
-<p>따라서, Linear Equation과 이의 조합인 Systems of Linear Equations(선형 연립방정식) 또한 Vector, Matrix로 표현이 가능합니다.</p>
-<p>예를 들어, 다음과 같은 선형 연립방정식을 행렬 $A$, 벡터 $x$, $b$ 를 이용해 간단히 표현할 수 있습니다.</p>
-<p>$$ x_{1} + x_{2} + x_{3} = 3 $$<br>$$ x_{1} - x_{2} + 2x_{3} = 2 $$<br>$$         x_{2} + x_{3} = 2 $$</p>
-<p>$$<br>\begin{align}<br>A=<br>\begin{bmatrix}<br>1&amp;1&amp;1\<br>1&amp;-1&amp;2\<br>0&amp;1&amp;1<br>\end{bmatrix}<br>,;;<br>x=<br>\begin{bmatrix}<br>x1\<br>x2\<br>x3<br>\end{bmatrix}<br>,;;<br>b=<br>\begin{bmatrix}<br>3\<br>2\<br>2<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$Ax = b$$<br>$$x = A^{-1}b$$</p>
-<p>그리고, 이러한 Systems of Linear equations의 solution ( 벡터 $x$ ) 을 쉽게 찾을 수 있다.<br>이때, 역행렬을 구하기 위해 Numpy패키지의 np.linalg.inv() method를 활용한다</p>
-<p><strong>참고 : @ 기호는 dotproduct(내적)연산을 수행한다. 기본 행렬곱인 element-wise 연산을 수행하기 위해선, 아래와 같이 @를 통해 행렬과 벡터의 연산을 수행한다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">-1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]])</span><br><span class="line">b = np.array([[<span class="number">3</span>],[<span class="number">2</span>],[<span class="number">2</span>]])</span><br><span class="line">x = np.linalg.inv(A)@b</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[1.],
-       [1.],
-       [1.]])</code></pre>
-<p>이와 같은 선형연립방정식을 풀 때, 위와 같이 역행렬을 직접 구해 solution을 구해줄 수 있지만, Numpy의 ‘lstsq()’ 명령을 활용해 구할 수도 있다.</p>
-<p><code>lstsq()</code> 명령은 향후 자세히 보게 될 solution, RSS, rank, Singular vlaue 를 각각 반환한다. <code>lstsq()</code> 명령은 이후 보게될 ‘Ordinary Least Square Problem’을 풀기위한 연산 명령이다.</p>
-<p>위와 같이 미지수의 갯수 $=$ 방정식의 갯수 (A가 Square Matrix)인 경우, OLS와 Inverse Matrix의 solution이 같기 때문에*, <code>lstsq()</code> 명령을  사용해도 동일한 답을 얻을 수 있다.</p>
-<p>*미지수의 갯수 $=$ 방정식의 갯수인 경우, unique solution을 갖기 때문에</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x, resid, rank, s = np.linalg.lstsq(A, b)</span><br><span class="line">x</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[1.],
-       [1.],
-       [1.]])</code></pre>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -1895,6 +2040,18 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/06/Part3_ch6_7_ASCII,%20UNICODE,%20UTF-8%20and%20Python/">7. Part3_ch6 보충7_ASCII, UNICODE, UTF-8 그리고 Python</a></h6>
+              <span>November 6, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a></h6>
               <span>November 5, 2020</span>
             </div>
@@ -1949,18 +2106,6 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/03/Part3_ch6_3_Counter%20class/">5. Part3_ch6 보충3_갯수 셀 때(Collections모듈-Counter클래스)</a></h6>
-              <span>November 3, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1970,7 +2115,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1980,7 +2125,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1990,7 +2135,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
+      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
     </div>
   </div>
 
@@ -2000,7 +2145,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
