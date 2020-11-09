@@ -118,6 +118,867 @@
         
           <section id="main">
   
+    <article id="post-2. Linear Algebra_7. Practice(2)"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(2)/">2. Linear Algebra_7. Practice(2)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(2)/" class="article-date">
+	  <time datetime="2020-07-07T04:12:42.000Z" itemprop="datePublished">July 7, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2-Matrix-Calculation"><a href="#2-Matrix-Calculation" class="headerlink" title="2. Matrix Calculation"></a>2. Matrix Calculation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. A, B, C 세 회사의 주식은 각각 100만원, 80만원, 50만원이다. 이 주식을 각각 3주, 4주, 5주를 매수할 때 필요한 금액을 구하고자 한다.</span><br><span class="line"></span><br><span class="line">(1) 주식의 가격과 수량을 각각  𝑝  벡터,  𝑛  벡터로 표시하고 넘파이로 코딩한다.</span><br><span class="line"></span><br><span class="line">(2) 주식을 매수할 때 필요한 금액을 곱셈으로 표시하고 넘파이 연산으로 그 값을 계산한다.</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.(1) 가격과 수량을 벡터로 표현</span></span><br><span class="line"></span><br><span class="line">p = np.array([<span class="number">100</span>,<span class="number">80</span>,<span class="number">50</span>])</span><br><span class="line">n = np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.(2) 주식 매수 금액을 곱셈으로 표현 + 넘파이 연산으로 매수금액 계산</span></span><br><span class="line"><span class="comment"># 결과 : 총 필요 매수금액 : 870만원</span></span><br><span class="line"></span><br><span class="line">payment = p.T@n</span><br><span class="line">payment</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>870</code></pre>
+<ol start="2">
+<li>벡터  𝑥 의 평균 제거 벡터는 다음과 같이 계산함을 증명하라.</li>
+</ol>
+<p>$$<br>\begin{align}<br>x - \dfrac{1}{N}\mathbf{1}_N^Tx \mathbf{1}^{}_N<br>\end{align}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Math/2. MML_code/image_김도형 연습문제 풀이/IMG_A8ABD7B550B6-1.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_5_02.jpeg" alt="jpeg"></p>
+<ol start="3">
+<li>다음 코드를 실행하면 MNIST 숫자 이미지 전체 데이터를 모두 벡터로 변환하여 하나의 넘파이 행렬 <code>X</code>를 만든다.<br>이 행렬을 이용하여 다음 문제를 풀어라.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.datasets import load_digits</span><br><span class="line">X &#x3D; load_digits().data</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>(1) 내적을 이용하여 첫 번째 이미지와 10번째 이미지의 유사도를 구하라.</p>
+<p>(2) 내적을 이용하여 모든 이미지의 조합에 대해 유사도를 구하라. 어떻게 구현하는 것이 효율적일까? (힌트 : 이 문제는 뒤에서 배울 행렬과 행렬의 곱셈을 이용한다.)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Math/2. MML_code/image_김도형 연습문제 풀이/IMG_DD121B697835-1.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><img src="/img/output_7_02.jpeg" alt="jpeg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br><span class="line">X = load_digits().data</span><br><span class="line">img = load_digits()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 1 행벡터로 이미지 1,797개가 현재 X에 들어있음</span></span><br><span class="line"></span><br><span class="line">X.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(1797, 64)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (1) 내적을 이용하여 첫 번째 이미지와 10번째 이미지의 유사도를 구하라.</span></span><br><span class="line"></span><br><span class="line">X[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.,  0.,  0., 13., 15., 10.,
+       15.,  5.,  0.,  0.,  3., 15.,  2.,  0., 11.,  8.,  0.,  0.,  4.,
+       12.,  0.,  0.,  8.,  8.,  0.,  0.,  5.,  8.,  0.,  0.,  9.,  8.,
+        0.,  0.,  4., 11.,  0.,  1., 12.,  7.,  0.,  0.,  2., 14.,  5.,
+       10., 12.,  0.,  0.,  0.,  0.,  6., 13., 10.,  0.,  0.,  0.])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X[<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 0.,  0., 11., 12.,  0.,  0.,  0.,  0.,  0.,  2., 16., 16., 16.,
+       13.,  0.,  0.,  0.,  3., 16., 12., 10., 14.,  0.,  0.,  0.,  1.,
+       16.,  1., 12., 15.,  0.,  0.,  0.,  0., 13., 16.,  9., 15.,  2.,
+        0.,  0.,  0.,  0.,  3.,  0.,  9., 11.,  0.,  0.,  0.,  0.,  0.,
+        9., 15.,  4.,  0.,  0.,  0.,  9., 12., 13.,  3.,  0.,  0.])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X[<span class="number">0</span>].T@X[<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>2807.0</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (2) 내적을 이용하여 모든 이미지의 조합에 대해 유사도를 구하라. </span></span><br><span class="line"><span class="comment"># 어떻게 구현하는 것이 효율적일까? : X@X.T</span></span><br><span class="line"></span><br><span class="line">simil = X@X.T</span><br><span class="line">simil</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[3070., 1866., 2264., ..., 2812., 3006., 2898.],
+       [1866., 4209., 3432., ..., 3906., 3083., 3307.],
+       [2264., 3432., 4388., ..., 4005., 3063., 3697.],
+       ...,
+       [2812., 3906., 4005., ..., 5092., 3729., 4598.],
+       [3006., 3083., 3063., ..., 3729., 4316., 3850.],
+       [2898., 3307., 3697., ..., 4598., 3850., 4938.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.heatmap(X@X.T)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_14_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># simil[0]의 내적값 탐색시작</span></span><br><span class="line"><span class="comment"># 만약 max값과 맞다면, 그때의 index출력 -&gt; index+1 이미지가 가장 내적값이 높은 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(simil[<span class="number">0</span>])):</span><br><span class="line">    <span class="keyword">if</span> simil[<span class="number">0</span>][i] == simil[<span class="number">0</span>].<span class="built_in">max</span>():</span><br><span class="line">        print(<span class="string">&quot;&#123;&#125;번째 image가 가장 1번째 이미지와 코사인유사도가 높다.&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>161번째 image가 가장 1번째 이미지와 코사인유사도가 높다.</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 내적값이 높은 데이터 간 유사한가? 0 vs 8, 0 vs 1 의 내적값 비교를 통해 확인</span></span><br><span class="line"><span class="comment"># 만약, 내적 값에 따라 유사한지를 판단할 수 있으려면, 0 vs 8 내적값이 0 vs 1 내적값 보다는 커야할 것</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a2447f5d0&gt;</code></pre>
+<p><img src="/img/output_17_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">1</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a225e9490&gt;</code></pre>
+<p><img src="/img/output_18_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">8</span>],cmap=plt.cm.bone_r)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.image.AxesImage at 0x1a24614390&gt;</code></pre>
+<p><img src="/img/output_19_12.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_0 = img.images[<span class="number">0</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br><span class="line">_1 = img.images[<span class="number">1</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br><span class="line">_8 = img.images[<span class="number">8</span>].reshape(<span class="number">64</span>,<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_0.T@_1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1866.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 결과, 1보다는 8과의 0의 내적값이 큰 것으로 보아, 어느정도 내적값을 통한 코사인유사도 근사가 일단은 유의미하게는 보임</span></span><br><span class="line"></span><br><span class="line">_0.T@_8</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[2783.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 코사인 유사도 계산 결과, 0은 1보다는 8과 유사한 것을 확인할 수 있음</span></span><br><span class="line"></span><br><span class="line">((_0.T@_1)/(np.linalg.norm(_0)*np.linalg.norm(_1)))[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.5191023426414686</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((_0.T@_8)/(np.linalg.norm(_0)*np.linalg.norm(_8)))[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.7515122122359871</code></pre>
+<ol start="4">
+<li><p>벡터의 선형조합 : 두 이미지를 섞어놓는 morphing 효과 가능</p>
+<ul>
+<li>olivetti faces data 활용 </li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_olivetti_faces</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = fetch_olivetti_faces()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 64 image로 400장 존재</span></span><br><span class="line"></span><br><span class="line">img.images.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(400, 64, 64)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;&#123;&#125; images&quot;</span>.<span class="built_in">format</span>(<span class="number">1</span>),fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_29_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(img.images[<span class="number">10</span>],cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;&#123;&#125; images&quot;</span>.<span class="built_in">format</span>(<span class="number">2</span>),fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_30_02.png" alt="png"></p>
+<ul>
+<li>morphing : 선형 조합을 통한 새로운 face image 조합<br>$$ 0.5image1 + 0.5image2$$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new_f = <span class="number">0.5</span>*img.images[<span class="number">0</span>] + <span class="number">0.5</span>*img.images[<span class="number">10</span>]</span><br><span class="line">plt.imshow(new_f,cmap=plt.cm.bone)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([]);plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;$ 0.5image1 + 0.5image2$&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_32_02.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">f, ax = plt.subplots(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">ax[<span class="number">0</span>].imshow(img.images[<span class="number">0</span>],cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">0</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_xticks([]);ax[<span class="number">0</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&quot;1 images&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">ax[<span class="number">1</span>].imshow(img.images[<span class="number">10</span>],cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">1</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">1</span>].set_xticks([]);ax[<span class="number">1</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&quot;2 images&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">new_f = <span class="number">0.5</span>*img.images[<span class="number">0</span>] + <span class="number">0.5</span>*img.images[<span class="number">10</span>]</span><br><span class="line">ax[<span class="number">2</span>].imshow(new_f,cmap=plt.cm.bone)</span><br><span class="line">ax[<span class="number">2</span>].grid(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">2</span>].set_xticks([]);ax[<span class="number">2</span>].set_yticks([])</span><br><span class="line">ax[<span class="number">2</span>].set_title(<span class="string">&quot;$ 0.5image1 + 0.5image2$&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_33_02.png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-2. Linear Algebra_7. Practice(1)"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(1)/">2. Linear Algebra_7. Practice(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(1)/" class="article-date">
+	  <time datetime="2020-07-07T04:02:38.000Z" itemprop="datePublished">July 7, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Data-representation"><a href="#1-Data-representation" class="headerlink" title="1. Data representation"></a>1. Data representation</h2><h3 id="1-1-Data-representation-using-numpy"><a href="#1-1-Data-representation-using-numpy" class="headerlink" title="1.1 Data representation using numpy"></a>1.1 Data representation using numpy</h3><ol>
+<li>scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 추출</span></span><br><span class="line"></span><br><span class="line">data = load_iris()</span><br><span class="line">data.data[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[5.1, 3.5, 1.4, 0.2],
+       [4.9, 3. , 1.4, 0.2],
+       [4.7, 3.2, 1.3, 0.2],
+       [4.6, 3.1, 1.5, 0.2],
+       [5. , 3.6, 1.4, 0.2]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># print(data.DESCR)</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.feature_names</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[&#39;sepal length (cm)&#39;,
+ &#39;sepal width (cm)&#39;,
+ &#39;petal length (cm)&#39;,
+ &#39;petal width (cm)&#39;]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.target_names</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 붓꽃 데이터 파악을 위한 임시적인 데이터프레임 생성</span></span><br><span class="line">_ = pd.DataFrame(data.data,columns=data.feature_names)</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 4 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인</span></span><br><span class="line"></span><br><span class="line">_.describe()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.057333</td>
+      <td>3.758000</td>
+      <td>1.199333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.435866</td>
+      <td>1.765298</td>
+      <td>0.762238</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인 (왜도)</span></span><br><span class="line"><span class="comment"># 확인 결과 : 심하진 않지만, 우측으로 비대칭임을 확인할 수 있음</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;petal width (cm)&#x27;</span>].skew()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>-0.10296674764898116</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인 (첨도)</span></span><br><span class="line"><span class="comment"># 확인 결과 : 심하진 않지만, 정규분포 보다 모멘트 중심으로 쏠려있는 것을 확인</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;petal width (cm)&#x27;</span>].kurtosis()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>-1.340603996612646</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특징 벡터로 변환하기 위한 reshape 진행</span></span><br><span class="line"></span><br><span class="line">x2 = data.data[:,<span class="number">3</span>]</span><br><span class="line">x2 = x2.reshape(<span class="number">-1</span>,<span class="number">150</span>)</span><br><span class="line">x2.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(1, 150)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram 시각화를 위한 Series로 저장(because : 기존의 2차원 이상의 array데이터는 plt.hist()로 시각화 불가능)</span></span><br><span class="line"></span><br><span class="line">x2_series = pd.Series(x2[<span class="number">0</span>])</span><br><span class="line">x2_series</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0      0.2
+1      0.2
+2      0.2
+3      0.2
+4      0.2
+      ... 
+145    2.3
+146    1.9
+147    2.0
+148    2.3
+149    1.8
+Length: 150, dtype: float64</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram으로 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.hist(x2_series)</span><br><span class="line">plt.title(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;number of object&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_14_0(1).png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kernel distritubion 시각화</span></span><br><span class="line"></span><br><span class="line">sns.distplot(x2_series)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a200e3a90&gt;</code></pre>
+<p><img src="/img/output_15_1(1).png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.kdeplot(x2_series)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a20535c10&gt;</code></pre>
+<p><img src="/img/output_16_1(1).png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iris 데이터 전체 분포 확인</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># species 데이터 추가 위한 전처리</span></span><br><span class="line"><span class="comment"># 1. series로 species 실수형 데이터 가져오기 (category 타입)</span></span><br><span class="line"><span class="comment"># 2. 실수 category -&gt; 문자 category로 변환 ( .cat.rename_catories([ ]))</span></span><br><span class="line"></span><br><span class="line">species = pd.Series(data.target, dtype=<span class="string">&#x27;category&#x27;</span>)</span><br><span class="line">species = species.cat.rename_categories(data.target_names)</span><br><span class="line">species</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0         setosa
+1         setosa
+2         setosa
+3         setosa
+4         setosa
+         ...    
+145    virginica
+146    virginica
+147    virginica
+148    virginica
+149    virginica
+Length: 150, dtype: category
+Categories (3, object): [setosa, versicolor, virginica]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># species 데이터 추가</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;species&#x27;</span>] = species</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>virginica</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(_,hue = <span class="string">&#x27;species&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1a2203b110&gt;</code></pre>
+<p><img src="/img/output_19_1(1).png" alt="png"></p>
+<ol start="2">
+<li><p>MNIST digit images(숫자 이미지) 추출 및 특징벡터화 작업</p>
+<ul>
+<li>본래 2차원 이미지 데이터(8 by 8)를 1차원 특징벡터화(64 by 1)</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">digit = load_digits()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(digit.DESCR)</span><br></pre></td></tr></table></figure>
+
+<pre><code>.. _digits_dataset:
+
+Optical recognition of handwritten digits dataset
+--------------------------------------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 5620
+    :Number of Attributes: 64
+    :Attribute Information: 8x8 image of integer pixels in the range 0..16.
+    :Missing Attribute Values: None
+    :Creator: E. Alpaydin (alpaydin &#39;@&#39; boun.edu.tr)
+    :Date: July; 1998
+
+This is a copy of the test set of the UCI ML hand-written digits datasets
+https://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits
+
+The data set contains images of hand-written digits: 10 classes where
+each class refers to a digit.
+
+Preprocessing programs made available by NIST were used to extract
+normalized bitmaps of handwritten digits from a preprinted form. From a
+total of 43 people, 30 contributed to the training set and different 13
+to the test set. 32x32 bitmaps are divided into nonoverlapping blocks of
+4x4 and the number of on pixels are counted in each block. This generates
+an input matrix of 8x8 where each element is an integer in the range
+0..16. This reduces dimensionality and gives invariance to small
+distortions.
+
+For info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.
+T. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.
+L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
+1994.
+
+.. topic:: References
+
+  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their
+    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of
+    Graduate Studies in Science and Engineering, Bogazici University.
+  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.
+  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.
+    Linear dimensionalityreduction using relevance weighted LDA. School of
+    Electrical and Electronic Engineering Nanyang Technological University.
+    2005.
+  - Claudio Gentile. A New Approximate Maximal Margin Classification
+    Algorithm. NIPS. 2000.</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">digit.data[<span class="number">1</span>].shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(64,)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># image 데이터 shape 확인 : 8 by 8, 1797개의 이미지</span></span><br><span class="line"></span><br><span class="line">digit.images.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(1797, 8, 8)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 확인 : 8 by 8 이미지 데이터(1개 이미지 당)</span></span><br><span class="line"></span><br><span class="line">digit.images[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.],
+       [ 0.,  0., 13., 15., 10., 15.,  5.,  0.],
+       [ 0.,  3., 15.,  2.,  0., 11.,  8.,  0.],
+       [ 0.,  4., 12.,  0.,  0.,  8.,  8.,  0.],
+       [ 0.,  5.,  8.,  0.,  0.,  9.,  8.,  0.],
+       [ 0.,  4., 11.,  0.,  1., 12.,  7.,  0.],
+       [ 0.,  2., 14.,  5., 10., 12.,  0.,  0.],
+       [ 0.,  0.,  6., 13., 10.,  0.,  0.,  0.]])</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 reshape 전처리 : 특징벡터 저장 위함</span></span><br><span class="line"><span class="comment"># &#x27;d&#x27;라는 리스트 타입에 64,1 이미지 데이터 저장</span></span><br><span class="line"></span><br><span class="line">d = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    d.append(digit.images[i].reshape(<span class="number">64</span>,<span class="number">-1</span>))</span><br><span class="line"><span class="built_in">len</span>(d[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>64</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 8 by 8 이미지 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">10</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(digit.images[i],cmap=plt.cm.bone_r)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;image &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_28_0(1).png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 1 특징벡터 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">10</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(d[i],cmap=plt.cm.bone_r)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;image &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_29_0(1).png" alt="png"></p>
+<ol start="3">
+<li><p>3차원 텐서의 이미지 데이터 표현 </p>
+<ul>
+<li>2차원 행렬의 이미지 + 컬러 데이터(채널) 추가 = 3차원 데이터</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> misc</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img_rgb = misc.face()  <span class="comment"># 컬러 이미지 로드</span></span><br><span class="line">img_rgb.shape  <span class="comment"># 데이터의 모양 : 각 이미지 당 3개의 채널(컬러) + 2차원 이미지 데이터(768 by 1024)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(768, 1024, 3)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1채널의 이미지 데이터</span></span><br><span class="line"></span><br><span class="line">img_rgb[:,:,<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[121, 138, 153, ..., 119, 131, 139],
+       [ 89, 110, 130, ..., 118, 134, 146],
+       [ 73,  94, 115, ..., 117, 133, 144],
+       ...,
+       [ 87,  94, 107, ..., 120, 119, 119],
+       [ 85,  95, 112, ..., 121, 120, 120],
+       [ 85,  97, 111, ..., 120, 119, 118]], dtype=uint8)</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># original 이미지 시각화</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">4</span>))</span><br><span class="line">plt.imshow(img_rgb,cmap=plt.cm.gray)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([])</span><br><span class="line">plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;original image data&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_34_0(1).png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각 채널 별(RGB값, 컬러) 이미지 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">3</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(img_rgb[:,:,i],cmap=plt.cm.gray)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;&#123;&#125; channel&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_35_0(1).png" alt="png"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-5.Data_structure_Hash-table"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1487,462 +2348,6 @@ None</code></pre>
 <!-- Table of Contents -->
 
   
-    <article id="post-2. Linear Algebra_3_2. Solving Systems of Linear Equations"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/06/24/2.%20Linear%20Algebra_3_2.%20Solving%20Systems%20of%20Linear%20Equations/">2. Linear Algebra_3_2. Solving Systems of Linear Equations</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/06/24/2.%20Linear%20Algebra_3_2.%20Solving%20Systems%20of%20Linear%20Equations/" class="article-date">
-	  <time datetime="2020-06-24T14:26:08.577Z" itemprop="datePublished">June 24, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-선형-연립방정식을-활용한-예측모델"><a href="#1-선형-연립방정식을-활용한-예측모델" class="headerlink" title="1. 선형 연립방정식을 활용한 예측모델"></a>1. 선형 연립방정식을 활용한 예측모델</h2><p>선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다.</p>
-<p>$$<br>\begin{align}<br>\begin{matrix}<br>x_{11} w_1 &amp; + ;&amp; x_{12} w_2   &amp;; + \cdots + ;&amp; x_{1N} w_N &amp;; = ;&amp; y_1 \<br>x_{21} w_1 &amp; + ;&amp; x_{22} w_2   &amp;; + \cdots + ;&amp; x_{2N} w_N &amp;; = ;&amp; y_2 \<br>\vdots;;; &amp;   &amp; \vdots;;; &amp;                &amp; \vdots;;; &amp;     &amp; ;\vdots \<br>x_{N1} w_1 &amp; + ;&amp; x_{N2} w_2   &amp;; + \cdots + ;&amp; x_{NN} w_N &amp;; = ;&amp; y_N \<br>\end{matrix}<br>\end{align}<br>$$</p>
-<p>위의 식은 선형 연립방정식입니다. 이는 N개의 목표값(y)을 출력하는 함수의 집합으로도 볼 수 있습니다. </p>
-<p>여기서 x는 목표값을 예측하는 데 활용될 데이터를 나타냅니다. 여기서 필요한 것은, x라는 데이터(input)을 받으면 합리적인 목표값(y)를 출력해내는 함수를 만들어내는 것입니다. </p>
-<p>그리고 결국, 이 함수는 아래와 같은 행렬과 벡터의 연산으로 나타낼 수 있습니다.</p>
-<p>$$<br>\begin{align}<br>Xw = y<br>\end{align}<br>$$</p>
-<p>input(x, 데이터)과 output(y, 예측값)을 이어주는 관계를 나타내는 모델을 찾아야 합니다. 이를 위해 우리가 찾아야 하는 것은 최적의 $w$ 입니다.</p>
-<p>$w$는 특징행렬(X)의 역행렬을 통해 다음과 같이 구할 수 있습니다.</p>
-<p>$$<br>\begin{align}<br>w = X^{-1} y<br>\end{align}<br>$$</p>
-<h2 id="2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성"><a href="#2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성" class="headerlink" title="2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)"></a>2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)</h2><p>Python의 패키지 중 하나인 scikit-learn 패키지는 머신러닝을 공부하다보면 적어도 한 번쯤은 들어보셨을만큼, 유명하고, 또 그 만큼 유용한 패키지입니다. scikit-learn은 다양한 데이터셋을 제공하기도 하는 데, 그 중 보스턴 집값과 다양한 feature를 묶어놓은 데이터셋을 제공합니다.</p>
-<p>앞에서 간단히 살펴본 선형 연립방정식을 활용해, 보스턴 집값을 예측하는 모델을 만들어보려 합니다.</p>
-<p>보스턴 집값 문제를 선형 예측모델 $Ax=\hat{b}$ 로 놓고, 가중치 벡터 $x$ 를 구해, 예측모델을 완성해보겠습니다.</p>
-<p>문제를 간단히 하기 위해, 입력 데이터를 범죄율(CRIM), 공기 오염도(NOX), 방의 개수(RM), 오래된 정도(AGE)의 4종류로 제한해서 진행해보겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line">boston = load_boston()</span><br><span class="line">X = boston.data</span><br><span class="line">y = boston.target</span><br><span class="line">print(boston.DESCR)</span><br></pre></td></tr></table></figure>
-
-<pre><code>.. _boston_dataset:
-
-Boston house prices dataset
----------------------------
-
-**Data Set Characteristics:**  
-
-    :Number of Instances: 506 
-
-    :Number of Attributes: 13 numeric/categorical predictive. Median Value (attribute 14) is usually the target.
-
-    :Attribute Information (in order):
-        - CRIM     per capita crime rate by town
-        - ZN       proportion of residential land zoned for lots over 25,000 sq.ft.
-        - INDUS    proportion of non-retail business acres per town
-        - CHAS     Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
-        - NOX      nitric oxides concentration (parts per 10 million)
-        - RM       average number of rooms per dwelling
-        - AGE      proportion of owner-occupied units built prior to 1940
-        - DIS      weighted distances to five Boston employment centres
-        - RAD      index of accessibility to radial highways
-        - TAX      full-value property-tax rate per $10,000
-        - PTRATIO  pupil-teacher ratio by town
-        - B        1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
-        - LSTAT    % lower status of the population
-        - MEDV     Median value of owner-occupied homes in $1000&#39;s
-
-    :Missing Attribute Values: None
-
-    :Creator: Harrison, D. and Rubinfeld, D.L.
-
-This is a copy of UCI ML housing dataset.
-https://archive.ics.uci.edu/ml/machine-learning-databases/housing/
-
-
-This dataset was taken from the StatLib library which is maintained at Carnegie Mellon University.
-
-The Boston house-price data of Harrison, D. and Rubinfeld, D.L. &#39;Hedonic
-prices and the demand for clean air&#39;, J. Environ. Economics &amp; Management,
-vol.5, 81-102, 1978.   Used in Belsley, Kuh &amp; Welsch, &#39;Regression diagnostics
-...&#39;, Wiley, 1980.   N.B. Various transformations are used in the table on
-pages 244-261 of the latter.
-
-The Boston house-price data has been used in many machine learning papers that address regression
-problems.   
-
-.. topic:: References
-
-   - Belsley, Kuh &amp; Welsch, &#39;Regression diagnostics: Identifying Influential Data and Sources of Collinearity&#39;, Wiley, 1980. 244-261.
-   - Quinlan,R. (1993). Combining Instance-Based and Model-Based Learning. In Proceedings on the Tenth International Conference of Machine Learning, 236-243, University of Massachusetts, Amherst. Morgan Kaufmann.</code></pre>
-<p>보스턴 집값 데이터의 간략한 소개입니다. 카네기 멜론 대학교로부터 데이터가 수집되었다고 하네요. </p>
-<p>데이터는 실수형 / 범주형(categorical) 데이터가 섞여있습니다. 데이터의 index는 506개라고 하네요. Missing value는 없다고 합니다. :)</p>
-<p>그럼 데이터를 실제로 출력해서 살펴보겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506, 13)</code></pre>
-<p>역시, 데이터는 13개의 feature를 대상으로 506개의 index를 갖고 있습니다. 저희는 이 중 4개의 feature만을 대상으로 간략히 조사해보려 하기에, 이를 따로 추출해내야 합니다.</p>
-<p>“범죄율(CRIM) : 0, 공기 오염도(NOX) : 4, 방의 개수(RM) : 5, 오래된 정도(AGE) : 6” 이 4가지를 추출해서 특징행렬 $A$ 를 구성하겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = X[:,[<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특징행렬 A를 시각적으로 표현하기 위해 A_라는 별도의 객체를 만들어 데이터프레임으로 나타낸 것입니다.</span></span><br><span class="line"></span><br><span class="line">A_ = pd.DataFrame(A,columns = [<span class="string">&#x27;crim&#x27;</span>,<span class="string">&#x27;nox&#x27;</span>,<span class="string">&#x27;rm&#x27;</span>,<span class="string">&#x27;age&#x27;</span>])</span><br><span class="line">A_.describe()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>crim</th>
-      <th>nox</th>
-      <th>rm</th>
-      <th>age</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>506.000000</td>
-      <td>506.000000</td>
-      <td>506.000000</td>
-      <td>506.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>3.613524</td>
-      <td>0.554695</td>
-      <td>6.284634</td>
-      <td>68.574901</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>8.601545</td>
-      <td>0.115878</td>
-      <td>0.702617</td>
-      <td>28.148861</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.006320</td>
-      <td>0.385000</td>
-      <td>3.561000</td>
-      <td>2.900000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.082045</td>
-      <td>0.449000</td>
-      <td>5.885500</td>
-      <td>45.025000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.256510</td>
-      <td>0.538000</td>
-      <td>6.208500</td>
-      <td>77.500000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>3.677083</td>
-      <td>0.624000</td>
-      <td>6.623500</td>
-      <td>94.075000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>88.976200</td>
-      <td>0.871000</td>
-      <td>8.780000</td>
-      <td>100.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<p>다음은 저희의 목표값인 집값 데이터를 벡터 b로 구성하겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = boston.target</span><br><span class="line">b.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506,)</code></pre>
-<p>그럼 이제 $Ax=\hat{b}$ 의 x(가중치 벡터)를 구하기 위해, 선형 연립방정식을 풀어보겠습니다. 저희는 $A$ 와 $b$를 구했으니까요!</p>
-<p>다만,,, 저희는 지금 sqaure matrix가 아닌 A를 보고 있습니다. 따라서, <strong>A의 역행렬을 구할 수 없습니다.</strong><br>역행렬은 기본적으로 square matrix인 경우에만 정확히 구할 수 있기 때문이죠! (물론, approximate approach로 psuedo inverse 가 있기는 하지만, 이후에 다시 살펴보겠습니다.)</p>
-<p>따라서, 아직 살펴보진 않았지만, 최소자승문제를 활용한 풀이를 먼저 진행하고 다시 역행렬을 활용해 가중치 벡터($x$)를 찾는 연습을 다시 해보겠습니다.</p>
-<p>아직 살펴보진 않았지만, 최소자승문제(Least square problem)의 해결은 지금과 같이 정확한 solution(가중치 벡터 $x$)을 찾을 수 없을 때 활용하는 가장 대표적인 방법입니다. 가장 $x$와 <strong>가까운</strong> solution set을 찾아보자는 접근입니다. 보다 자세히는 추후에 다시 살펴보기로 하겠습니다! : )</p>
-<h3 id="2-1-Least-square-problem"><a href="#2-1-Least-square-problem" class="headerlink" title="2_1. Least square problem"></a>2_1. Least square problem</h3><p>Least square problem 해결은 Numpy에서 제공하는 메서드를 활용하겠습니다.</p>
-<p><code>lstsq()</code> 메서드는 Least square problem 해결을 위한 코드입니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x, resid, rank, s = np.linalg.lstsq(A, b)</span><br></pre></td></tr></table></figure>
-
-<p>자 그럼, 우리가 찾고자 했던 solution(x, 가중치벡터)가 어떻게 나왔는지 살펴보겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">&quot;&#123;&#125;의 가중치 : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(A_.columns[i],x[i]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>crim의 가중치 : -0.1839836056341421
-nox의 가중치 : -19.396230746735444
-rm의 가중치 : 5.673593152217298
-age의 가중치 : -0.022788798368235375</code></pre>
-<p>음… 간단히 해석해보자면,</p>
-<p>범죄율, 공기오염도, 연식이 높을 수록 집값은 떨어지는 반비례 관계를 갖는 다는 것을 확인할 수 있습니다. 반면, 방의 갯수는 많을 수록 집값이 높다는 것 을 볼 수 있네요!</p>
-<p>보통의 상식과 부합하는 결과입니다! :) 아마도 Least square method가 문제를 어느정도 맞게 해결해낸 것 같습니다!</p>
-<h3 id="2-2-Solve-the-systems-of-linear-equations-using-inverse-matrix"><a href="#2-2-Solve-the-systems-of-linear-equations-using-inverse-matrix" class="headerlink" title="2_2. Solve the systems of linear equations using inverse matrix"></a>2_2. Solve the systems of linear equations using inverse matrix</h3><p>이번에는 역행렬을 통해 solution(x, 가중치벡터)를 구해보겠습니다!<br>저희가 정의했던 문제는 바로 $Ax=\hat{b}$ 였었죠.</p>
-<p>그런데, 문제가 있습니다. 역행렬은 square matrix에서만 존재합니다. 따라서, 저희는 A를 바꿔줘야 합니다. 바로, 정방행렬(square matrix)로 말이죠!</p>
-<p>앞에서 최소자승법으로 풀때의 행렬 A는 row가 column에 비해 매우 긴 skinny matrix였죠!</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506, 4)</code></pre>
-<p>이제 저희는 A를 다시 square matrix로 변환해주겠습니다 !</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = A[:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(4, 4)</code></pre>
-<p>그리고 b도 마찬가지로 4개의 component로 변환하겠습니다. 그래야 $(4 by 4) @ (4 by 1) = (4 by 1)$ 이 될테니까요!</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = b[:<span class="number">4</span>]</span><br><span class="line">b.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(4,)</code></pre>
-<p>그리고 이제 $x = A^{-1}b$ 를 풀기 위해, A의 역행렬을 구하고 x를 구해보겠습니다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A_inv = np.linalg.inv(A)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = A_inv@b</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">&quot;&#123;&#125;의 가중치 : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(A_.columns[i],x[i]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>crim의 가중치 : -312.710043270391
-nox의 가중치 : -115.19394234554954
-rm의 가중치 : 14.4996465318047
-age의 가중치 : -0.1132593173503273</code></pre>
-<p>음.. 앞에서 506개의 데이터를 대상으로 찾아낸 가중치와 조금 다릅니다.<br>물론 비례/반비례 관계는 같지만… 가중치의 값이 매우 큽니다. 아무래도 506개의 데이터를 대상으로 찾은 모델보다는 다소 부정확하고, 매우 경직된(?)것이라 생각해볼 수 있을 것 같습니다!</p>
-<p>[506개 데이터 대상 예측 모델]<br>$$ y = -0.18CRIM + (-19.4)NOX + 5.67RM + (-0.02)AGE $$</p>
-<p>[4개 데이터 대상 예측 모델]<br>$$ y = -312CRIM + (-115)NOX + 14RM + (-0.11)AGE $$</p>
-<p>상수항도 없는 다소 부정확한 예측모델이지만, 개념 상 이해를 돕기 위해 한번 시도해보았습니다! :)</p>
-<p>저희는 Least square method, inverse matrix를 통해 가중치벡터를 찾아보았습니다. 머신러닝과 딥러닝은 이러한 연립방정식의 가중치를 찾는 다양한 방법들의 집합입니다. 앞으로 기회가 된다면, 이러한 다양한 방법들을 함께 본다면 좋겠네요! :)</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-2. Linear Algebra_3. Matrix"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/06/21/2.%20Linear%20Algebra_3.%20Matrix/">2. Linear Algebra_3. Matrix</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/06/21/2.%20Linear%20Algebra_3.%20Matrix/" class="article-date">
-	  <time datetime="2020-06-21T11:08:50.915Z" itemprop="datePublished">June 21, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Matrix는 Systems of Linear Equation을 compact하게 표현해주는 것 뿐만 아니라, Linear functions(Linear mapping)의 역할도 수행하는 중요한 개념이다.</p>
-<p>Matrix는 연산 시, element-wise 연산을 기본적으로 수행한다. vector와 matrix간 연산도 마찬가지이다.</p>
-<p>단, 연산 시 행과 열의 갯수에 주의해야 한다. 벡터 혹은 행렬의 연산은 서로 행과 열의 갯수가 서로 맞물려야 연산이 가능하기 때문이다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]])</span><br><span class="line">v = np.array([[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">3</span>]])</span><br><span class="line">B = np.array([[<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],[<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>],[<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>]])</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[220, 280, 340],
-       [400, 520, 640],
-       [580, 760, 940]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[220, 280, 340],
-       [400, 520, 640],
-       [580, 760, 940]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@v</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[14],
-       [26],
-       [38]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 연산 시, 행과 열의 숫자가 맞지 않아 오류가 난 경우이다.</span></span><br><span class="line"><span class="comment"># v = (3,1), A = (3,3) 이므로 v@A는 연산수행이 불가능하다.</span></span><br><span class="line"></span><br><span class="line">v@A</span><br></pre></td></tr></table></figure>
-
-
-<pre><code>---------------------------------------------------------------------------
-
-ValueError                                Traceback (most recent call last)
-
-&lt;ipython-input-8-359c27e4c8c3&gt; in &lt;module&gt;
-      2 # v = (3,1), A = (3,3) 이므로 v@A는 연산수행이 불가능하다.
-      3 
-----&gt; 4 v@A
-
-
-ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 3 is different from 1)</code></pre>
-<p>Matrix는 Associativity(결합법칙), Distributivity(분배법칙)이 성립한다. 단, <strong>교환법칙은 성립하지 않는다.</strong></p>
-<p>행렬의 곱셈은 곱하는 행렬의 순서를 바꾸는 교환 법칙이 성립하지 않는다. 그러나 덧셈에 대한 분배 법칙은 성립한다. </p>
-<p>$$<br>\begin{align}<br>AB \neq BA<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>A(B + C) = AB + AC<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>(A + B)C = AC + BC<br>\end{align}<br>$$</p>
-<p>$A$, $B$, $C$가 다음과 같을 때 위 법칙을 넘파이로 살펴보자.</p>
-<p>$$<br>\begin{align}<br>A = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>B = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>C = \begin{bmatrix} 9 &amp; 8 \ 7 &amp; 6 \end{bmatrix}<br>\end{align}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">B = np.array([[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line">C = np.array([[<span class="number">9</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
-
-<p>$AB$ 와 $BA$의 값은 다음처럼 다른 값이 나오므로 교환법칙이 성립하지 않음을 알 수 있다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[19, 22],
-       [43, 50]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[23, 34],
-       [31, 46]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B == B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[False, False],
-       [False, False]])</code></pre>
-<p>분배법칙은 다음과 같이 성립한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A @ (B + C) == A@B + A@C</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[ True,  True],
-       [ True,  True]])</code></pre>
-<p>Identity Matrix(항등행렬)도 존재한다. Identity Matrix는 “N x N matrix which contains ‘1’ on the diagonal and ‘0’ everywhere else” 로 정의된다.</p>
-<p>Numpy의 eye 메소드를 통해 구현 가능하다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.eye(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[1., 0., 0.],
-       [0., 1., 0.],
-       [0., 0., 1.]])</code></pre>
-<p>이러한 identity matrix는 역행렬을 정의하는 데 활용된다.</p>
-<p>$$ AB = BA = I, B = A^{-1}$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[1, 2],
-       [3, 4]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A_inverse = np.linalg.inv(A)</span><br><span class="line">A_inverse</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[-2. ,  1. ],
-       [ 1.5, -0.5]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@A_inverse</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([[1.00000000e+00, 1.11022302e-16],
-       [0.00000000e+00, 1.00000000e+00]])</code></pre>
-<p>이 밖에도 대칭행렬 등 다양한 행렬이 존재하며, 이후 행렬연산을 통한 Linear Equation problem 해결 및 problem solving 을 수행할 수 있다.</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -2040,6 +2445,30 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/09/%5Bprogrammers%5D%20stack,queue_2/">3. [프로그래머스 문제풀이] 2. 기능개발</a></h6>
+              <span>November 9, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2020/11/09/%5Bprogrammers%5D%20stack,queue_1/">3. [프로그래머스 문제풀이] 1. 주식가격</a></h6>
+              <span>November 9, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/06/Part3_ch6_7_ASCII,%20UNICODE,%20UTF-8%20and%20Python/">7. Part3_ch6 보충7_ASCII, UNICODE, UTF-8 그리고 Python</a></h6>
               <span>November 6, 2020</span>
             </div>
@@ -2082,30 +2511,6 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_1/">2. [프로그래머스 문제풀이] 1. k번째수</a></h6>
-              <span>November 4, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/">6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)</a></h6>
-              <span>November 4, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -2115,7 +2520,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -2125,7 +2530,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">3</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -2135,7 +2540,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.33px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.67px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.67px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.67px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 16.67px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 13.33px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 16.67px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.67px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.67px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.67px;">select sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 13.33px;">프로그래머스</a>
+      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.57px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.43px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15.71px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.43px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.43px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 17.14px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 12.86px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 17.14px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.43px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 12.86px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.43px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.43px;">select sort</a> <a href="/tags/stack/" style="font-size: 12.86px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 14.29px;">프로그래머스</a>
     </div>
   </div>
 
@@ -2145,7 +2550,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
