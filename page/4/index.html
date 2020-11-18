@@ -118,6 +118,98 @@
         
           <section id="main">
   
+    <article id="post-2. Linear Algebra_5. Linear Independece"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/">2. Linear Algebra_5. Linear Independence</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/" class="article-date">
+	  <time datetime="2020-06-25T11:19:38.000Z" itemprop="datePublished">June 25, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>이번에는 선형대수에서 매우 중요한 개념인 “Linear Indepencence(선형독립)” 개념에 대해 살펴보겠습니다.</p>
+<h3 id="1-Linear-Combination"><a href="#1-Linear-Combination" class="headerlink" title="1. Linear Combination"></a>1. Linear Combination</h3><p>먼저, Linear combination(선형조합) 개념에 대해 알아야 합니다. 선형독립의 정의가 선형조합을 바탕으로 하고 있기 때문이죠!</p>
+<p>선형조합은 말그대로 Linear하게 조합한 것 입니다. MML에 따르면,</p>
+<p><strong>Linear combination이란, “$V(v, +, \cdot)$ 내 vector(v)들의 Addition, Multiplication by scalar 연산으로 얻어낸 조합”</strong></p>
+<p>라고 합니다!</p>
+<p>즉, 아래와 같이 벡터들의 선형결합연산으로 조합해낸 상태를 말하는 것이죠!</p>
+<p>$$<br>\begin{align}<br>v = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N<br>\end{align}<br>$$</p>
+<p>여기서, $v$는 $x$벡터들의 선형조합으로 만들어낸 것이라고 볼 수 있습니다. 당연하게도, $x$와 $v$는 같은 벡터공간 안에 있겠죠!? </p>
+<h3 id="2-Linear-Independence"><a href="#2-Linear-Independence" class="headerlink" title="2. Linear Independence"></a>2. Linear Independence</h3><p>선형독립의 정의는 위에서 본 선형조합의 식을 활용합니다.</p>
+<p>$$<br>\begin{align}<br>0 = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N<br>\end{align}<br>\tag{식 1}<br>$$</p>
+<p><strong>식(1)과 같은 벡터들의 선형조합(Linear combination)이 zero-vector가</strong></p>
+<p><strong>계수가 모두 0일 때$(“c_{1} = … = c_{n} = 0”)$ “만” 가능하다면, 벡터$(x_{1} … x_{n})$ 가 서로 Linearly independent 하다고 정의합니다.</strong></p>
+<p>예를 들어, 다음 벡터 $x_1, x_2$는 선형독립입니다.</p>
+<p>$$<br>\begin{align}<br>x_1 = \begin{bmatrix} 1 \ 2 \end{bmatrix}, ;;<br>x_2 = \begin{bmatrix} 3 \ 3 \end{bmatrix}<br>\tag{3.2.4}<br>\end{align}<br>$$</p>
+<p>벡터 $x_1$은 두 원소의 크기가 다른데, 벡터 $x_2$는 두 원소의 크기가 같기 때문에 어떤 계수를 사용해도 $c_1x_1 + c_2x_2 = 0$을 만들 수 없습니다.</p>
+<p>하지만, 다음 벡터 $x_1, x_2, x_3$는 선형종속입니다.</p>
+<p>$$<br>\begin{align}<br>x_1 = \begin{bmatrix} 1 \ 2 \end{bmatrix}, ;;<br>x_2 = \begin{bmatrix} 3 \ 3 \end{bmatrix}, ;;<br>x_3 = \begin{bmatrix} 5 \ 7 \end{bmatrix}<br>\tag{3.2.5}<br>\end{align}<br>$$</p>
+<p>이는 다음과 같은 식으로 증명할 수 있습니다.</p>
+<p>$$<br>\begin{align}<br>2x_1  + x_2 - x_3 = 0<br>\tag{3.2.6}<br>\end{align}<br>$$</p>
+<p>파이썬으로 계산한 결과도 영벡터입니다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x1 = np.array([<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">x2 = np.array([<span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line">x3 = np.array([<span class="number">10</span>, <span class="number">14</span>])</span><br><span class="line"><span class="number">2</span> * x1 + x2 - <span class="number">0.5</span> * x3</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([0., 0.])</code></pre>
+<h3 id="3-Linear-dependence"><a href="#3-Linear-dependence" class="headerlink" title="3. Linear dependence"></a>3. Linear dependence</h3><p>선형 종속인 경우는 도대체 어떤 경우인 걸까요? 선형 종속을 이해하면, 선형 독립인 경우를 이해하는 데 도움이 되지 않을까 합니다.</p>
+<p>선형 종속인 경우, 선형 독립이 아니기 때문에 벡터는 다른 벡터들의 선형조합(Linear combination)으로 생성이 가능합니다!</p>
+<p>$$<br>\begin{align}<br>v = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N<br>\end{align}<br>$$</p>
+<p>위와 같은 상황이 되는 것이죠!</p>
+<p>예를 들어,<br>$$ x_{1} - 3x_{2} + x_{3} = 0$$<br>이라는 방정식이 있다면, 이 때의 $x_{1}, x_{2}, x_{3}$ 은 서로 선형 독립일까요?</p>
+<p>아닙니다. 선형 종속입니다!</p>
+<p>왜냐하면, 위의 식을 조금만 변형해보면,</p>
+<p>$$ x_{1} = + 3x_{2} - x_{3}$$</p>
+<p>로 변형이 가능하고, $x_{1}$ 벡터는 다른 벡터들의 조합으로 표현이 가능하다는 것이니까요!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line">plt.plot(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;kP&#x27;</span>, ms=<span class="number">10</span>)</span><br><span class="line">plt.text(<span class="number">0.1</span>,<span class="number">-0.3</span>,<span class="string">&quot;Origin, zero-vector&quot;</span>,fontsize = <span class="number">15</span>)</span><br><span class="line">w = np.array([<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">x1 = np.array([<span class="number">1</span>, <span class="number">2</span>]) * <span class="number">2</span></span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=x1, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=w, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;blue&#x27;</span>))</span><br><span class="line">plt.text(<span class="number">0.1</span>, <span class="number">0.9</span>, <span class="string">&quot;$x_&#123;1&#125;$&quot;</span>,fontsize = <span class="number">15</span>)</span><br><span class="line">plt.text(<span class="number">1.5</span>, <span class="number">2.4</span>, <span class="string">&quot;$2x_&#123;1&#125; = x_&#123;2&#125;$&quot;</span>,fontsize = <span class="number">15</span>)</span><br><span class="line">plt.xticks(np.arange(<span class="number">-3</span>, <span class="number">15</span>))</span><br><span class="line">plt.yticks(np.arange(<span class="number">-1</span>, <span class="number">5</span>))</span><br><span class="line">plt.xlim(<span class="number">-1</span>, <span class="number">4</span>)</span><br><span class="line">plt.ylim(<span class="number">-1</span>, <span class="number">5</span>)</span><br><span class="line">plt.title(<span class="string">&quot;$x_&#123;1&#125;, x_&#123;2&#125;$ is linearly dependent&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_13_0_5.png" alt="png"></p>
+<p>위의 그림처럼, $x_{2}$는 $x_{1}$의 2배로 표현이 가능합니다. 2배를 스케일링하면 표현이 가능한 것이죠! 바로 선형결합 연산으로 표현이 가능하다는 바로 그것입니다! 고로, $x_{1}, x{2}$는 서로 선형 종속입니다!</p>
+<p>도표에 벡터를 시각화해서 보니… 이해에 도움이 되셨지 않을까 싶습니다! 두 벡터 모두 하나의 선(line)에서 벗어나지 못하고 갇혀(종속)있는 것이죠. 두 벡터를 아무리 더하고 빼고, 스케일링해서 더하고 해줘도… 저 선을 벗어날 수 없습니다. 예를 들면, [3,3] 같은 벡터는 저 2개의 벡터로 표현할 수 없는 것이죠! 저 직선 위의 벡터만 표현이 가능합니다. 말 그대로 2개의 벡터는 선에 ‘종속’되어버린 것이죠..!</p>
+<p>오늘은 간단하게 선형독립과, 선형종속의 의미에 대해 살펴보았습니다. 물론 더 많은 이야기 파생될 수 있는 개념이지만, 일단 오늘은 간단하게 개념에 대해서만 살펴보았습니다. 이후의 포스트에서 더 다양한 개념들을 살펴보면 좋겠네요! :)</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2. Linear Algebra_4. Vector Spaces"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -964,6 +1056,18 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/">3. [프로그래머스 문제풀이] 3. 다리를 지나는 트럭</a></h6>
+              <span>November 18, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/12/%5Bprogrammers%5D%20stack,queue_4/">3. [프로그래머스 문제풀이] 4. 프린터</a></h6>
               <span>November 12, 2020</span>
             </div>
@@ -1018,18 +1122,6 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a></h6>
-              <span>November 4, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1039,7 +1131,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1049,7 +1141,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -1059,7 +1151,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.75px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.25px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 16.25px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.25px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.25px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 17.5px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 12.5px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 17.5px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.25px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 13.75px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.25px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.25px;">select sort</a> <a href="/tags/stack/" style="font-size: 13.75px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 15px;">프로그래머스</a>
+      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.57px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.43px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15.71px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.43px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.43px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 17.14px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 12.86px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 17.14px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.43px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 14.29px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.43px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.43px;">select sort</a> <a href="/tags/stack/" style="font-size: 14.29px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 15.71px;">프로그래머스</a>
     </div>
   </div>
 
@@ -1069,7 +1161,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 

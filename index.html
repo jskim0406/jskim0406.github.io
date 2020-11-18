@@ -118,6 +118,119 @@
         
           <section id="main">
   
+    <article id="post-[programmers] stack,queue_3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/">3. [프로그래머스 문제풀이] 3. 다리를 지나는 트럭</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/" class="article-date">
+	  <time datetime="2020-11-18T10:19:50.824Z" itemprop="datePublished">November 18, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="3-다리를-지나는-트럭"><a href="#3-다리를-지나는-트럭" class="headerlink" title="3. 다리를 지나는 트럭"></a>3. 다리를 지나는 트럭</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42583">문제</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">bridge_length, weight, left</span>):</span></span><br><span class="line">    num_of_cars = <span class="built_in">len</span>(left)</span><br><span class="line">    done, doing = [], []</span><br><span class="line">    total_sec = <span class="number">0</span></span><br><span class="line">    doing_sec = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(done) &lt;= num_of_cars:</span><br><span class="line">        total_sec += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left != []:</span><br><span class="line">            <span class="comment"># left에서 doing으로 append시 (다리를 건널 때)</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>(doing) + left[<span class="number">0</span>] &lt;= weight:</span><br><span class="line">                move_doing = left.pop(<span class="number">0</span>)</span><br><span class="line">                doing.append(move_doing)</span><br><span class="line">                doing_sec.append([move_doing,<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= <span class="number">2</span>:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line"></span><br><span class="line">            print(<span class="string">f&#x27;done : <span class="subst">&#123;done&#125;</span>, doing : <span class="subst">&#123;doing&#125;</span>, doing_sec : <span class="subst">&#123;doing_sec&#125;</span>, left : <span class="subst">&#123;left&#125;</span>, \&#x27;a&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> left == [] <span class="keyword">and</span> doing != []:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= bridge_length:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line"></span><br><span class="line">            print(<span class="string">f&#x27;done : <span class="subst">&#123;done&#125;</span>, doing : <span class="subst">&#123;doing&#125;</span>, doing_sec : <span class="subst">&#123;doing_sec&#125;</span>, left : <span class="subst">&#123;left&#125;</span>, \&#x27;b&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> total_sec</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">2</span>,<span class="number">10</span>,[<span class="number">7</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[] [7] [[7, 1]] [4, 5, 6]
+[] [7] [[7, 1]] [4, 5, 6] a
+[] [7] [[7, 2]] [4, 5, 6]
+[7] [] [] [4, 5, 6] a
+[7] [4] [[4, 1]] [5, 6]
+[7] [4] [[4, 1]] [5, 6] a
+[7] [4, 5] [[4, 2], [5, 1]] [6]
+[7, 4] [5] [[5, 1]] [6] a
+[7, 4] [5] [[5, 2]] [6]
+[7, 4, 5] [] [] [6] a
+[7, 4, 5] [6] [[6, 1]] []
+[7, 4, 5] [6] [[6, 1]] [] a
+[7, 4, 5, 6] [] [] [] b
+
+
+
+
+
+8</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">bridge_length, weight, left</span>):</span></span><br><span class="line">    num_of_cars = <span class="built_in">len</span>(left)</span><br><span class="line">    done, doing = [], []</span><br><span class="line">    total_sec = <span class="number">0</span></span><br><span class="line">    doing_sec = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(done) &lt;= num_of_cars:</span><br><span class="line">        total_sec += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left != []:</span><br><span class="line">            <span class="comment"># left에서 doing으로 append시 (다리를 건널 때)</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>(doing) + left[<span class="number">0</span>] &lt;= weight:</span><br><span class="line">                move_doing = left.pop(<span class="number">0</span>)</span><br><span class="line">                doing.append(move_doing)</span><br><span class="line">                doing_sec.append([move_doing,<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= <span class="number">2</span>:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> left == [] <span class="keyword">and</span> doing != []:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= <span class="number">2</span>:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> total_sec</span><br></pre></td></tr></table></figure>
+
+<p><strong>실행 결과</strong></p>
+<ul>
+<li>fail</li>
+<li>3개 케이스 중 2개 케이스 fail</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[틀린 케이스]</span><br><span class="line"></span><br><span class="line">입력값 〉	100, 100, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]</span><br><span class="line">기댓값 〉	110</span><br><span class="line">실행 결과 〉	실행한 결괏값 12이(가) 기댓값 110와(과) 다릅니다.</span><br></pre></td></tr></table></figure>
+
+<p><strong>디버깅</strong></p>
+<ul>
+<li>line 32 에서 doing_sec &lt;= 2로 비교해서 코드 작성</li>
+<li>line 32 정정 : doing_sec &lt;= bridge_length</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">bridge_length, weight, left</span>):</span></span><br><span class="line">    num_of_cars = <span class="built_in">len</span>(left)</span><br><span class="line">    done, doing = [], []</span><br><span class="line">    total_sec = <span class="number">0</span></span><br><span class="line">    doing_sec = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(done) &lt;= num_of_cars:</span><br><span class="line">        total_sec += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> left != []:</span><br><span class="line">            <span class="comment"># left에서 doing으로 append시 (다리를 건널 때)</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>(doing) + left[<span class="number">0</span>] &lt;= weight:</span><br><span class="line">                move_doing = left.pop(<span class="number">0</span>)</span><br><span class="line">                doing.append(move_doing)</span><br><span class="line">                doing_sec.append([move_doing,<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= <span class="number">2</span>:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> left == [] <span class="keyword">and</span> doing != []:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># doing -&gt; done or not</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= bridge_length:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> total_sec</span><br></pre></td></tr></table></figure>
+
+<p><strong>실행 결과</strong></p>
+<ul>
+<li>fail</li>
+<li>14개 케이스 중 11개 fail</li>
+</ul>
+<p><strong>디버깅</strong></p>
+<ul>
+<li>line 21 에서 doing_sec &lt;= 2로 비교해서 코드 작성</li>
+<li>line 21 정정 : doing_sec &lt;= bridge_length</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution(<span class="number">100</span>,<span class="number">100</span>,[<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>101</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">bridge_length, weight, left</span>):</span></span><br><span class="line">    num_of_cars = <span class="built_in">len</span>(left)</span><br><span class="line">    done, doing = [], []</span><br><span class="line">    total_sec = <span class="number">0</span></span><br><span class="line">    doing_sec = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(done) &lt;= num_of_cars:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># done &lt;- doing &lt;- left 구조로 트럭 이동시키며, 소요시간을 return할 계획</span></span><br><span class="line">        <span class="comment"># 각 done, doing, left는 큐 구조를 활용해 FIFO 원리를 활용할 것</span></span><br><span class="line">        </span><br><span class="line">        total_sec += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 대기하는 트럭이 남아있다면</span></span><br><span class="line">        <span class="keyword">if</span> left != []:</span><br><span class="line">            <span class="comment"># Q1. doing &lt;- left 넘길 것인가? (고려사항 : 무게)</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>(doing) + left[<span class="number">0</span>] &lt;= weight:</span><br><span class="line">                move_doing = left.pop(<span class="number">0</span>)  <span class="comment"># FIFO 큐 구조 활용</span></span><br><span class="line">                doing.append(move_doing)  <span class="comment"># 큐 put</span></span><br><span class="line">                doing_sec.append([move_doing,<span class="number">0</span>])  <span class="comment"># 큐 put</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># Q2. done &lt;- doing 넘길 것인가? (고려사항 : 다리길이(=다리 지나는 시간))</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= bridge_length:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 대기하는 트럭은 없고, 모두 다리 위에만 있다면</span></span><br><span class="line">        <span class="keyword">elif</span> left == [] <span class="keyword">and</span> doing != []:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(doing_sec)):</span><br><span class="line">                    doing_sec[i][<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">            <span class="comment"># Q2. done &lt;- doing 넘길 것인가? (고려사항 : 다리길이(=다리 지나는 시간))</span></span><br><span class="line">            <span class="keyword">if</span> doing_sec[<span class="number">0</span>][<span class="number">1</span>] &gt;= bridge_length:</span><br><span class="line">                move_done = doing.pop(<span class="number">0</span>)</span><br><span class="line">                doing_sec.pop(<span class="number">0</span>)</span><br><span class="line">                done.append(move_done)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 대기도, 다리 위에도 트럭이 없다면 (= 모두 다리를 지났다면)</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> total_sec</span><br></pre></td></tr></table></figure>
+
+<p><strong>실행 결과</strong></p>
+<ul>
+<li>성공</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Algorithms/">Algorithms</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stack/" rel="tag">stack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-[programmers] stack,queue_4"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1006,57 +1119,6 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
 <!-- Table of Contents -->
 
   
-    <article id="post-Part3_ch6_3_Counter class"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/11/03/Part3_ch6_3_Counter%20class/">5. Part3_ch6 보충3_갯수 셀 때(Collections모듈-Counter클래스)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/11/03/Part3_ch6_3_Counter%20class/" class="article-date">
-	  <time datetime="2020-11-03T06:51:42.512Z" itemprop="datePublished">November 3, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://nbviewer.jupyter.org/github/jskim0406/Study/blob/master/1.Study/2.%20with%20computer/4.Programming/1.Algorithms/3.Algorithms_study/0.%20%EA%B8%B0%ED%83%80%20%EC%A0%95%EB%A6%AC%28%22%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EC%9D%B8%ED%84%B0%EB%B7%B0%28%EB%B0%95%EC%83%81%EA%B8%B8%29%22%29/Part3_ch6_%EB%B3%B4%EC%B6%A93_%EA%B0%AF%EC%88%98%20%EC%85%80%20%EB%95%8C%28Collections%EB%AA%A8%EB%93%88-Counter%ED%81%B4%EB%9E%98%EC%8A%A4%29.ipynb">github url</a></p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -1154,6 +1216,18 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/">3. [프로그래머스 문제풀이] 3. 다리를 지나는 트럭</a></h6>
+              <span>November 18, 2020</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/12/%5Bprogrammers%5D%20stack,queue_4/">3. [프로그래머스 문제풀이] 4. 프린터</a></h6>
               <span>November 12, 2020</span>
             </div>
@@ -1208,18 +1282,6 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/04/%5Bprogrammers%5D%20sort_3/">2. [프로그래머스 문제풀이] 3. H-index</a></h6>
-              <span>November 4, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1229,7 +1291,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1239,7 +1301,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -1249,7 +1311,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.75px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.25px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 16.25px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.25px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.25px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 17.5px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 12.5px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 17.5px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.25px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 13.75px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.25px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.25px;">select sort</a> <a href="/tags/stack/" style="font-size: 13.75px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 15px;">프로그래머스</a>
+      <a href="/tags/ASCII/" style="font-size: 10px;">ASCII</a> <a href="/tags/Algorithms/" style="font-size: 18.57px;">Algorithms</a> <a href="/tags/UNICODE/" style="font-size: 10px;">UNICODE</a> <a href="/tags/UTF-8/" style="font-size: 10px;">UTF-8</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bubble-sort/" style="font-size: 11.43px;">bubble sort</a> <a href="/tags/datastructure/" style="font-size: 15.71px;">datastructure</a> <a href="/tags/double-linked-list/" style="font-size: 11.43px;">double-linked-list</a> <a href="/tags/insertion-sort/" style="font-size: 11.43px;">insertion sort</a> <a href="/tags/journal/" style="font-size: 10px;">journal</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/linear-algebra/" style="font-size: 17.14px;">linear algebra</a> <a href="/tags/linked-list/" style="font-size: 12.86px;">linked-list</a> <a href="/tags/list-comprehension/" style="font-size: 10px;">list comprehension</a> <a href="/tags/math/" style="font-size: 17.14px;">math</a> <a href="/tags/merge-sort/" style="font-size: 11.43px;">merge sort</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/queue/" style="font-size: 14.29px;">queue</a> <a href="/tags/quick-sort/" style="font-size: 11.43px;">quick sort</a> <a href="/tags/select-sort/" style="font-size: 11.43px;">select sort</a> <a href="/tags/stack/" style="font-size: 14.29px;">stack</a> <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" style="font-size: 15.71px;">프로그래머스</a>
     </div>
   </div>
 
@@ -1259,7 +1321,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
