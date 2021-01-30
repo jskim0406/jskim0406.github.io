@@ -118,6 +118,163 @@
         
           <section id="main">
   
+    <article id="post-Interlacing of eigen value"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/01/30/Interlacing%20of%20eigen%20value/">Interlacing of eigen-value</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/01/30/Interlacing%20of%20eigen%20value/" class="article-date">
+	  <time datetime="2021-01-30T08:26:30.000Z" itemprop="datePublished">January 30, 2021</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="행렬-A가-변하면-그-고유값은-어떻게-될까"><a href="#행렬-A가-변하면-그-고유값은-어떻게-될까" class="headerlink" title="행렬 A가 변하면, 그 고유값은 어떻게 될까?"></a>행렬 A가 변하면, 그 고유값은 어떻게 될까?</h1><p>단도 직입적으로, 이에 대한 답을 엿볼 수 있는 개념이 **’고유값의 interlacing’**이다.</p>
+<h2 id="고유값의-interlacing"><a href="#고유값의-interlacing" class="headerlink" title="고유값의 interlacing"></a>고유값의 interlacing</h2><h3 id="정의"><a href="#정의" class="headerlink" title="정의"></a>정의</h3><p><strong>[‘고유값의 interlacing’ 정의]</strong></p>
+<p><strong>$S + uu^{T}$의 각 고유값 $z_{i}$는 $\lambda_{i}$이상이고 $\lambda_{i-1}$이하이다. 따라서, $\lambda$들과 $z$들이 서로 엇갈린다(interlaced). 각각의 $z_{2}, …, z_{n}$은 두 개의 $\lambda$ 사이에 있다.</strong> ($S$ = 대칭행렬, $uu^{T}$ = rank-1 행렬, $\lambda$ = $S$의 고유값)</p>
+<p><strong>$$z_{1} \geq \lambda_{1} \geq z_{2} \geq \lambda_{2} \geq  … \geq  z_{n} \geq \lambda_{n}$$</strong></p>
+<p>풀어보자면, 대칭행렬 S에 ‘특정한 변화’가 주어지면, 고유값은 변화 이전과 이후의 것들이 <strong>서로 엇갈리게 된다</strong>는 것이다.</p>
+<p>이번 포스팅은 ‘고유값의 interlacing’을 엄밀한 수학적 정의로 풀어내기 보다, <strong>보다 직관적으로 이해하는 데 목표</strong>를 두고자 한다.</p>
+<h3 id="rank-1-행렬의-특징"><a href="#rank-1-행렬의-특징" class="headerlink" title="rank-1 행렬의 특징"></a>rank-1 행렬의 특징</h3><p>이 주어진 ‘변화’에 조금 더 주목할 필요가 있다. 몇가지 더 살펴보자.</p>
+<p><strong>1. $uu^{T}$는 왜 rank-1 행렬인가?</strong></p>
+<p>S에 주어진 ‘특정한 변화($uu^{T}$)’는 rank-1 행렬로 주어졌고, 이는 대칭행렬이 된다. 왜 rank-1 행렬이 대칭행렬이 될까? 이는 간단한 예로 바로 확인할 수 있다.</p>
+<p>\begin{aligned}u=\begin{bmatrix}<br>1 \<br>0<br>\end{bmatrix}일 때, uu^{T}=\begin{bmatrix}<br>1 \<br>0<br>\end{bmatrix}\begin{bmatrix}<br>1 &amp; 0<br>\end{bmatrix}=\begin{bmatrix}<br>1\cdot 1 &amp; 0\cdot 1 \<br>1\cdot 0 &amp; 0\cdot 0<br>\end{bmatrix}<br>=\begin{bmatrix}<br>1 &amp; 0 \<br>0 &amp; 0<br>\end{bmatrix}\end{aligned}</p>
+<p>이와 같이, $uu^{T}$는 랭크가 1인 행렬이 된다. </p>
+<p><strong>2. “왜 ‘rank-1 행렬’이 더해졌는 가?</strong></p>
+<p>처음 공부하며 가장 의아했던 부분이다. 생각해보면 간단하다. 행렬의 각 요소에 특정한 값을 가감해주려면, ‘변화’는 당연하게도 같은 shape의 행렬이 되어야 하고, 가장 간단하고 심플한 rank-1 행렬이 가감되는 상황을 이야기하고 있다.</p>
+<p><strong>3. rank-1 행렬 = 대칭행렬 = 양의 준정부호</strong></p>
+<p>rank-1 행렬은 대칭행렬이다. 대칭행렬은 양의 준정부호를 갖는다. 이 부분에서 가장 중요한 점을 볼 수 있다. 행렬 $S$에 <strong>주어진 변화가 바로 ‘양의 준정부호’**라는 점이다. 즉, **기존의 행렬에 0 혹은 + 의 변화를 준 것이다. 그렇다면 기존 행렬의 고유값은 늘어날까? 줄어들까?</strong></p>
+<h2 id="‘양의-준정부호’-변화의-의미-function-값의-scaling"><a href="#‘양의-준정부호’-변화의-의미-function-값의-scaling" class="headerlink" title="‘양의 준정부호’ 변화의 의미 = function 값의 scaling"></a>‘양의 준정부호’ 변화의 의미 = function 값의 scaling</h2><p>주어진 변화가 0 혹은 + 이다. 하지만, 행렬에 주어진 변화가 0 혹은 + 라는 점과 행렬이 부호를 갖는 다는 게 조금 생소할 수 있다. 이해를 돕기 위해, 먼저 ‘함수’의 관점에서 이를 살펴보자.</p>
+<p>결국, 행렬이란 선형인 함수와 같기 때문에, 이러한 이해가 도움이 될 수 있을 것이다.</p>
+<p>$$f_{1}=x^{2}+1, f_{2}=x^{2}$$<br>$$f_{3}=f_{1}+f_{2}=2x^{2}+1$$</p>
+<p>위와 같은 함수를 생각해보자. $f_{2}$는 입력 값($x$)이 무엇이든, 출력 값은 항상 0 혹은 양수이다. 즉, 이 함수의 ‘부호’는 양의 준정부호이다. </p>
+<p>$f_{3}$이라는 함수는 $f_{1}$에 ‘양의 준정부호’ $f_{2}$를 더해준 것이다.</p>
+<p>즉, 인터레이싱에서 다루는 변화를 간단한 함수로 재현한 것과 같다. 과연, $f_{3}$는 $f_{1}$에 비해 어떻게 변해있을 까? 그래프를 그려 확인해보자</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span>+<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f3</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> func1(x)+func2(x)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(f1(<span class="number">-2</span>),f2(<span class="number">-2</span>),f3(<span class="number">-2</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>5 4 9</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line">pre_image = np.linspace(<span class="number">-3</span>,<span class="number">3</span>,num=<span class="number">100</span>)</span><br><span class="line">image_1 = f1(pre_image)</span><br><span class="line">image_2 = f2(pre_image)</span><br><span class="line">image_3 = f3(pre_image)</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">1</span>,<span class="number">3</span>,figsize=(<span class="number">15</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">axes[<span class="number">0</span>].plot(pre_image, image_1, label=<span class="string">&#x27;f 1&#x27;</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(pre_image, image_2, label=<span class="string">&#x27;f 2&#x27;</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(pre_image, image_3, label=<span class="string">&#x27;f 3&#x27;</span>)</span><br><span class="line">axes[<span class="number">1</span>].plot(pre_image, image_1, label=<span class="string">&#x27;f 1&#x27;</span>,color=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">axes[<span class="number">2</span>].plot(pre_image, image_2, label=<span class="string">&#x27;f 2&#x27;</span>,color=<span class="string">&#x27;g&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    axes[i].set_xlabel(<span class="string">&quot;x&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">    axes[i].set_ylabel(<span class="string">&quot;y&quot;</span>, fontsize=<span class="number">20</span>, rotation=<span class="number">0</span>)</span><br><span class="line">    axes[i].set_title(<span class="string">&quot;f &quot;</span>+<span class="built_in">str</span>(i), fontsize=<span class="number">20</span>)</span><br><span class="line">    axes[i].set_ylim(<span class="number">0</span>,<span class="number">15</span>)</span><br><span class="line">    axes[i].set_xlim(<span class="number">-3</span>,<span class="number">1</span>)</span><br><span class="line">    axes[i].legend(fontsize=<span class="number">20</span>)</span><br><span class="line">    axes[i].tick_params(labelsize=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].set_title(<span class="string">&quot;f 3 = f 1 + f 2&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">axes[<span class="number">1</span>].plot(<span class="number">-2</span>,f1(<span class="number">-2</span>),<span class="string">&#x27;bo&#x27;</span>, ms=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">2</span>].plot(<span class="number">-2</span>,f2(<span class="number">-2</span>),<span class="string">&#x27;go&#x27;</span>, ms=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(<span class="number">-2</span>,f1(<span class="number">-2</span>),<span class="string">&#x27;bo&#x27;</span>, ms=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(<span class="number">-2</span>,f2(<span class="number">-2</span>),<span class="string">&#x27;go&#x27;</span>, ms=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(<span class="number">-2</span>,f3(<span class="number">-2</span>),<span class="string">&#x27;ro&#x27;</span>, ms=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">-1.8</span>,f1(<span class="number">-2</span>),<span class="string">&quot;(-2,5)&quot;</span>,fontsize=<span class="number">18</span>)</span><br><span class="line">axes[<span class="number">2</span>].text(<span class="number">-1.8</span>,f2(<span class="number">-2</span>),<span class="string">&quot;(-2,4)&quot;</span>,fontsize=<span class="number">18</span>)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">-1.8</span>,f1(<span class="number">-2</span>),<span class="string">&quot;(-2,5)&quot;</span>,fontsize=<span class="number">18</span>)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">-1.8</span>,f2(<span class="number">-2</span>),<span class="string">&quot;(-2,4)&quot;</span>,fontsize=<span class="number">18</span>)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">-1.8</span>,f3(<span class="number">-2</span>),<span class="string">&quot;(-2,9)&quot;</span>,fontsize=<span class="number">18</span>)</span><br><span class="line">axes[<span class="number">0</span>].axvline(x=<span class="number">-2</span>, linestyle=<span class="string">&quot;:&quot;</span>, color=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.style.use(<span class="string">&quot;seaborn&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_14_0_eig.png" alt="png"></p>
+<p>위의 그래프를 보면, $f_{2}$를 더해주는 것이 어떤 의미를 갖는 지 새삼 다시 확인할 수 있다. </p>
+<p>$x=2$ 일 때의 값을 보자. 양의 준정부호인 $f_{2}$를 더해줌으로써, function값이 더 늘어났음을 볼 수 있다.<br>$f_{3}$그래프(빨간색)을 보면, $f_{1}$값(초록색)에 비해 커졌음을 알 수 있다.</p>
+<p><strong>즉, $f_{2}$(양의 준정부호 값)를 더해줌으로써 $f_{1}$값이 positive하게 scaling 된 것이다.</strong></p>
+<p>이것을 통해 <strong>양의 준정부호 변화</strong>가 주어졌을 때의 효과를 매우 단편적이지만 엿볼 수 있다.</p>
+<h2 id="행렬-linear-mapping-function"><a href="#행렬-linear-mapping-function" class="headerlink" title="행렬 = linear mapping = function"></a>행렬 = linear mapping = function</h2><p>행렬이란 linear mapping의 과정이다. 그리고 이는 function이다.<br>linear mapping 이란 다음과 같이 이해할 수 있다.</p>
+<p>$$\forall x,y \in V, \forall a,b \in \mathbb{R}, f : V \rightarrow W$$</p>
+<p>$$f(ax+by) = af(x) + bf(y)$$</p>
+<p>위를 만족할 경우, $f$ 는 linear mapping이고, 이는 자연스럽게 function의 역할을 하게 된다.<br>그리고 이 <strong>funciton $f$는 벡터공간 V와 W사이의 transformation이고, 이는 행렬의 역할과 동일</strong>하다. 즉, 행렬은 linear mapping의 역할을 하는 일종의 function인 것이다.</p>
+<h2 id="‘양의-준정부호’-변화의-의미-행렬-mapping-효과의-scaling"><a href="#‘양의-준정부호’-변화의-의미-행렬-mapping-효과의-scaling" class="headerlink" title="‘양의 준정부호’ 변화의 의미 = 행렬 mapping 효과의 scaling"></a>‘양의 준정부호’ 변화의 의미 = 행렬 mapping 효과의 scaling</h2><p>함수에서 살펴본 변화가 행렬에도 동일하게 적용된다. </p>
+<p><strong>함수에서는 function값이 늘어났다면, 행렬에선 mapping의 scaler인 ‘고유값’이 변하게 되는 것이다.</strong></p>
+<p>이를 데카르트 좌표계에서 직접 확인해보자</p>
+<p>아래와 같이, 가장 간단한 행렬 A를 놓고 살펴보자.</p>
+<p>$A = \left[ \begin{array}{cc} 2&amp;0 \ 0&amp;2 \end{array} \right]$<br>(identity matrix, 대칭행렬)</p>
+<p>A에 양의 준정부호 변화가 더해지면, A의 고유값은 어떻게 될까?</p>
+<p>먼저, 변화가 더해지기 전의 행렬 A를 살펴보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[<span class="number">1</span>],[<span class="number">1</span>]])</span><br><span class="line">A = np.array([[<span class="number">2</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">2</span>]])</span><br><span class="line">y = np.matmul(A,x)</span><br><span class="line">eig_val, eig_vec = np.linalg.eig(A)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f&quot;x : \n<span class="subst">&#123;x&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;A : \n<span class="subst">&#123;A&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;y = Ax : \n<span class="subst">&#123;y&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen value of A : \n<span class="subst">&#123;[eig_val[<span class="number">0</span>], eig_val[<span class="number">1</span>]]&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen vector of A : \n<span class="subst">&#123;eig_vec&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>x : 
+[[1]
+ [1]]
+A : 
+[[2 0]
+ [0 2]]
+y = Ax : 
+[[2]
+ [2]]
+eigen value of A : 
+[2.0, 2.0]
+eigen vector of A : 
+[[1. 0.]
+ [0. 1.]]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">1</span>,<span class="number">1</span>,figsize=(<span class="number">7</span>,<span class="number">7</span>))</span><br><span class="line"></span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=y, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;gray&quot;</span>&#125;)</span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">2</span>,<span class="number">1</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">1</span>,<span class="number">2</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes.plot(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes.plot(<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes.text(<span class="number">0.8</span>, <span class="number">0.7</span>, <span class="string">&quot;x (1,1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes.text(<span class="number">1.9</span>, <span class="number">1.7</span>, <span class="string">&quot;Ax (2,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes.text(<span class="number">2</span>, <span class="number">1</span>, <span class="string">&quot;eigen vector 1 ($\lambda_&#123;1&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">20</span>&#125;)</span><br><span class="line">axes.text(<span class="number">0.5</span>, <span class="number">2.1</span>, <span class="string">&quot;eigen vector 2 ($\lambda_&#123;2&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">15</span>&#125;)</span><br><span class="line">axes.set_xticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes.set_yticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes.set_title(<span class="string">&quot;mapping A&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">axes.grid(<span class="literal">True</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_25_0_eig.png" alt="png"></p>
+<p>만약, A에 다음과 같은 변화가 생긴다면?</p>
+<p>$$A + uu^{t} = \tilde{A}$$</p>
+<p>$$A+uu^{T}=\begin{bmatrix} 2 &amp; 0 \ 0 &amp; 2 \end{bmatrix}+\begin{bmatrix} 1 &amp; 0 \ 0 &amp; 0 \end{bmatrix}=\begin{bmatrix} 3 &amp; 0 \ 0 &amp; 2 \end{bmatrix} = \tilde{A}$$</p>
+<p>기존의 행렬 $A$에 랭크-1행렬을 추가해주었다. 이로써 새로운 행렬 $\tilde{A}$를 얻었다. 랭크-1행렬은 대칭행렬이다. 대칭행렬은 positive semidefinite이다. 즉, 랭크-1행렬은 pos-semidef이고, 고유값은 모두 0보다 크거나 같다.</p>
+<p>기존의 행렬에 0 혹은 +의 변화를 주었다. 그렇다면, 기존 행렬의 고유값은 늘어났을까 줄어들었을까?</p>
+<p>직관적으로 생각해보면, 새로운 행렬 $\tilde{A}$의 고유값이 기존보다 늘어났을 것 같다.<br>왜냐하면 기존 행렬에 양부호의 값을 더해주었으니, scaler인 고유값도 더 늘어났을 것 같기 때문이다.<br>실제로 그런지 살펴보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">y_tilde = np.matmul(A_tilde,x)</span><br><span class="line"></span><br><span class="line">eig_val, eig_vec = np.linalg.eig(A_tilde)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f&quot;x : \n<span class="subst">&#123;x&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;A_tilde : \n<span class="subst">&#123;A_tilde&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;y_tilde : \n<span class="subst">&#123;y_tilde&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen value of A_tilde : \n<span class="subst">&#123;[eig_val[<span class="number">0</span>], eig_val[<span class="number">1</span>]]&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen vector of A_tildes : \n<span class="subst">&#123;eig_vec&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>x : 
+[[1]
+ [1]]
+A_tilde : 
+[[3 0]
+ [0 2]]
+y_tilde : 
+[[3]
+ [2]]
+eigen value of A_tilde : 
+[3.0, 2.0]
+eigen vector of A_tildes : 
+[[1. 0.]
+ [0. 1.]]</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">1</span>,<span class="number">1</span>,figsize=(<span class="number">7</span>,<span class="number">7</span>))</span><br><span class="line"></span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=y_tilde, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;red&quot;</span>&#125;)</span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=y, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;gray&quot;</span>&#125;)</span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">3</span>,<span class="number">1</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes.annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">1</span>,<span class="number">2</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes.plot(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes.plot(<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes.text(<span class="number">0.8</span>, <span class="number">0.7</span>, <span class="string">&quot;x (1,1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes.text(<span class="number">1.8</span>, <span class="number">2.1</span>, <span class="string">&quot;Ax (2,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes.text(<span class="number">2.8</span>, <span class="number">2.1</span>, <span class="string">&quot;$\\tilde&#123;A&#125;x$ = (3,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes.text(<span class="number">3</span>, <span class="number">1</span>, <span class="string">&quot;eigen vector 1 ($\lambda_&#123;1&#125;$ = 2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">20</span>&#125;)</span><br><span class="line">axes.text(<span class="number">0.5</span>, <span class="number">2.1</span>, <span class="string">&quot;eigen vector 2 ($\lambda_&#123;2&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">15</span>&#125;)</span><br><span class="line">axes.set_xticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes.set_yticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes.tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes.tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes.set_title(<span class="string">&quot;mapping A&quot;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">axes.grid(<span class="literal">True</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_28_0_eig.png" alt="png"></p>
+<p>위와 같이, $\tilde{A}$를 곱해주면 그 결과는 달라진다. 달라지는 이유는 $\lambda_{1}$에서 찾을 수 있다. </p>
+<p>직접 비교하기 위해 두 그래프를 함께 보자</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">20</span>,<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">axes[<span class="number">0</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=y, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;gray&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">2</span>,<span class="number">1</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">1</span>,<span class="number">2</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].plot(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">0.8</span>, <span class="number">0.7</span>, <span class="string">&quot;x (1,1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">1.9</span>, <span class="number">1.7</span>, <span class="string">&quot;Ax (2,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">2</span>, <span class="number">1</span>, <span class="string">&quot;eigen vector 1 ($\lambda_&#123;1&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>,<span class="string">&quot;color&quot;</span>:<span class="string">&quot;r&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].text(<span class="number">0.5</span>, <span class="number">2.1</span>, <span class="string">&quot;eigen vector 2 ($\lambda_&#123;2&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">25</span>&#125;)</span><br><span class="line">axes[<span class="number">0</span>].set_xticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes[<span class="number">0</span>].set_yticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes[<span class="number">0</span>].tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">0</span>].set_title(<span class="string">&quot;mapping A&quot;</span>, fontsize=<span class="number">40</span>)</span><br><span class="line">axes[<span class="number">0</span>].grid(<span class="literal">True</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line"></span><br><span class="line">axes[<span class="number">1</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=y_tilde, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;red&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=y, xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;gray&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">3</span>,<span class="number">1</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].annotate(<span class="string">&#x27;x&#x27;</span>, xy=(<span class="number">1</span>,<span class="number">2</span>), xytext=x, arrowprops=&#123;<span class="string">&quot;facecolor&quot;</span>:<span class="string">&quot;black&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].plot(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes[<span class="number">1</span>].plot(<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;ro&#x27;</span>,ms=<span class="number">10</span>)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">0.8</span>, <span class="number">0.7</span>, <span class="string">&quot;x (1,1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">1.8</span>, <span class="number">2.1</span>, <span class="string">&quot;Ax (2,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">2.8</span>, <span class="number">2.1</span>, <span class="string">&quot;$\\tilde&#123;A&#125;x$ = (3,2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">3</span>, <span class="number">1</span>, <span class="string">&quot;eigen vector 1 ($\lambda_&#123;1&#125;$ = 2)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">30</span>,<span class="string">&quot;color&quot;</span>:<span class="string">&quot;r&quot;</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].text(<span class="number">0.5</span>, <span class="number">2.1</span>, <span class="string">&quot;eigen vector 2 ($\lambda_&#123;2&#125;$ = 1)&quot;</span>, fontdict=&#123;<span class="string">&quot;size&quot;</span>:<span class="number">25</span>&#125;)</span><br><span class="line">axes[<span class="number">1</span>].set_xticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes[<span class="number">1</span>].set_yticks(np.arange(<span class="number">1</span>,<span class="number">4</span>))</span><br><span class="line">axes[<span class="number">1</span>].tick_params(axis=<span class="string">&#x27;x&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">1</span>].tick_params(axis=<span class="string">&#x27;y&#x27;</span>, labelsize=<span class="number">15</span>)</span><br><span class="line">axes[<span class="number">1</span>].set_title(<span class="string">&quot;mapping $\\tilde&#123;A&#125;$&quot;</span>, fontsize=<span class="number">40</span>)</span><br><span class="line">axes[<span class="number">1</span>].grid(<span class="literal">True</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/img/output_30_0_eig.png" alt="png"></p>
+<p>고유값 중 가장 큰 고유값인 $\lambda_{1}$의 값이 2배가 되면서 대응하는 첫 고유벡터의 방향으로 mapping 결과가 기울어진 것을 볼 수 있다.</p>
+<p>이를 요약하면 아래와 같다.</p>
+<p>$$\tilde{\lambda_{1}} \geq \lambda_{1} \geq \tilde{\lambda_{2}} \geq \lambda_{2}$$</p>
+<h2 id="Interlacing"><a href="#Interlacing" class="headerlink" title="Interlacing"></a>Interlacing</h2><p>그리고 이를 위와 같은 2x2 행렬이 아닌, nxn행렬로 확장해 일반화한 것이 바로 ‘interlacing’이다.</p>
+<p>마지막으로 처음에 봤던 정의를 다시 보아보자.</p>
+<p><strong>[‘고유값의 interlacing’ 정의]</strong></p>
+<p><strong>$S + uu^{T}$의 각 고유값 $z_{i}$는 $\lambda_{i}$이상이고 $\lambda_{i-1}$이하이다. 따라서, $\lambda$들과 $z$들이 서로 엇갈린다(interlaced). 각각의 $z_{2}, …, z_{n}$은 두 개의 $\lambda$ 사이에 있다.</strong> ($S$ = 대칭행렬, $uu^{T}$ = rank-1 행렬, $\lambda$ = $S$의 고유값)</p>
+<p><strong>$$z_{1} \geq \lambda_{1} \geq z_{2} \geq \lambda_{2} \geq  … \geq  z_{n} \geq \lambda_{n}$$</strong></p>
+<p>$z_{i} = \tilde{\lambda_{i}}$로 치환하면, 우리가 보았던 결과와 같게 된다.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-[programmers] stack,queue_3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1053,72 +1210,6 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
 <!-- Table of Contents -->
 
   
-    <article id="post-Part3_ch6_5_functools.cmp_to_key( func_name )"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/">6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/" class="article-date">
-	  <time datetime="2020-11-04T10:29:56.000Z" itemprop="datePublished">November 4, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-from-functools-import-cmp-to-key"><a href="#1-from-functools-import-cmp-to-key" class="headerlink" title="1. from functools import cmp_to_key"></a>1. from functools import cmp_to_key</h1><p><strong>정렬(sorted)시, 비교함수의 커스터마이징( key = functools.cmp_to_key( 커스텀비교함수 ) )</strong></p>
-<p><a target="_blank" rel="noopener" href="https://velog.io/@sparkbosing/python-%EB%82%B4-%EB%A7%88%EC%9D%8C%EB%8C%80%EB%A1%9C-%EC%A0%95%EB%A0%ACsort">참고</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/img/output_3_0_5_2.png" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key_ex.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><img src="/img/output_4_0_5_1.jpeg" alt="jpeg"></p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
@@ -1216,6 +1307,18 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/01/30/Interlacing%20of%20eigen%20value/">Interlacing of eigen-value</a></h6>
+              <span>January 30, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/">3. [프로그래머스 문제풀이] 3. 다리를 지나는 트럭</a></h6>
               <span>November 18, 2020</span>
             </div>
@@ -1270,18 +1373,6 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a></h6>
-              <span>November 5, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1291,7 +1382,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1301,7 +1392,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -1321,7 +1412,7 @@ days_list : [9], temp : 70, idx : 0, cnt : 1
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 

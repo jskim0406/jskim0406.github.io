@@ -118,6 +118,80 @@
         
           <section id="main">
   
+    <article id="post-2. Linear Algebra_6. Basis, Rank"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/">2. Linear Algebra_6. Basis and Rank</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/" class="article-date">
+	  <time datetime="2020-06-25T11:19:41.814Z" itemprop="datePublished">June 25, 2020</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>오늘은 Basis와 Rank라는 개념에 대해 살펴보겠습니다.</p>
+<p>처음 접했을 때는 무언가 복잡하고 어려워보이던 Rank… 이름만으로도 무언가 되게 본질적이고 어려워 보였습니다.<br>하지만, 찬찬히 곱씹어보면, 그리 어렵지 않은 개념이더라구요! 오늘 간단하게 개념을 살펴보겠습니다. </p>
+<p>basis라는 개념을 살펴보기 전에, Span과 Generating sets라는 개념에 대해 살펴보고 가겠습니다!</p>
+<h3 id="1-Span"><a href="#1-Span" class="headerlink" title="1. Span"></a>1. Span</h3><p>Span이란, 쉽게 생각하면 벡터들을 선형조합(Linear Combination)해주는 과정이라 생각할 수 있습니다. 선형조합은 앞에서 살펴보았듯이, 선형결합 연산을 해주는 것이죠!(Addition, Multiplication by scalar)</p>
+<p>아래와 같이, 행렬 A가 3개의 컬럼으로 이뤄져있다고 할 때 이 컬럼들은 A라는 하나의 Vector space 혹은 Vector subspace를 이루고 있다고 볼 수 있습니다.</p>
+<p>그리고, 이 컬럼(벡터)들을 하나씩 떼어내 선형조합을 한 것을 바로 span of A라고 볼 수 있습니다.</p>
+<p><strong>Span of A : 벡터(부분)공간”A”의 벡터(columns)들을 선형조합한 set</strong></p>
+<p>위와 같이 정의가 될 수 있습니다.</p>
+<p>결국, 아래와 같이 행렬 내에서 Span을 할 경우, columns space(열공간)을 얻어낼 수 있습니다!</p>
+<p>$$<br>\begin{align}<br>A<br>=<br>\begin{bmatrix}<br>10 &amp; 11 &amp; 12\<br>11 &amp; 12 &amp; 13\<br>12 &amp; 13 &amp; 14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>span(A)<br>=<br>c_{1}<br>\begin{bmatrix}<br>10\<br>11\<br>12\<br>\end{bmatrix}<br>+<br>c_{2}<br>\begin{bmatrix}<br>11\<br>12\<br>13\<br>\end{bmatrix}<br>+<br>c_{3}<br>\begin{bmatrix}<br>12\<br>13\<br>14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
+<h3 id="2-Generating-sets"><a href="#2-Generating-sets" class="headerlink" title="2. Generating sets"></a>2. Generating sets</h3><p>Generating sets이란 <strong>“Sets of Vectors that span vector space or vector subspace”라고 정의됩니다.(from MML)</strong></p>
+<p>즉, 벡터공간을 Span해주는 벡터들의 집합(set)이 바로 Generating sets라는 것이죠. 위의 행렬을 참고하자면, 아래처럼 3개의 벡터가 곧 “Generating sets”이 될 것입니다!</p>
+<p>$$<br>\begin{align}<br>\begin{bmatrix}<br>10\<br>11\<br>12\<br>\end{bmatrix},<br>\begin{bmatrix}<br>11\<br>12\<br>13\<br>\end{bmatrix},<br>\begin{bmatrix}<br>12\<br>13\<br>14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
+<h3 id="3-Basis"><a href="#3-Basis" class="headerlink" title="3. Basis"></a>3. Basis</h3><p>Basis란 <strong>“Minimal generating set and a maximal linearly independent set of vectors”라고 합니다.(from MML)</strong></p>
+<p>그대로 직역하자면,<br>    - 벡터(부분)공간을 구성하는 generating sets중 가장 minimal 한 단위이자<br>    - 가장 Maximal 한 선형독립인 벡터 집합(set)</p>
+<p>이 곧 basis 입니다.</p>
+<p>즉 **”minimal generating sets == maximal independent sets of vectors”**라는 것이죠.</p>
+<p>한 공간을 구성하는 벡터집합(vector sets)이 곧 선형독립인 것들로만 채워져야 위의 Basis 정의가 들어맞습니다.</p>
+<p>곧, Basis는 벡터(부분)공간을 구성하는 선형독립인 벡터 set으로 볼 수 있는 것입니다!</p>
+<h3 id="4-Rank"><a href="#4-Rank" class="headerlink" title="4. Rank"></a>4. Rank</h3><p>Rank란 <strong>“The number of Column vector or row vector which is linearly indepdent”</strong> 입니다.</p>
+<p>직역하자면, Rank란 <strong>“선형독립인 열 혹은 행벡터의 갯수”</strong> 인 것이지요!</p>
+<p>생각보다 간단한 개념입니다.</p>
+<p>오늘은 Basis와 Rank라는 개념에 대해 살펴보았습니다. 간단히 글로만 살펴보았지만, 앞으로의 많은 개념, 연산, 예시에서 이 개념들을 활용할 예정입니다. 앞으로 다양한 예시와 개념들과 함께 지속적으로 다시 살펴보며 이해를 더해나가겠습니다 :)</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Math-python/">Math_python</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2. Linear Algebra_5. Linear Independece"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -1056,6 +1130,18 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2021/01/30/Interlacing%20of%20eigen%20value/">Interlacing of eigen-value</a></h6>
+              <span>January 30, 2021</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/">3. [프로그래머스 문제풀이] 3. 다리를 지나는 트럭</a></h6>
               <span>November 18, 2020</span>
             </div>
@@ -1110,18 +1196,6 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/11/05/Part3_ch6_6_list_comprehension/">6. Part3_ch6 보충6_list comprehension</a></h6>
-              <span>November 5, 2020</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1131,7 +1205,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms-python-algorithms-interview/">Algorithms("python_algorithms_interview")</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-structure/">Data_structure</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math-python/">Math_python</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/journal/">journal</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1141,7 +1215,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASCII/" rel="tag">ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithms/" rel="tag">Algorithms</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE/" rel="tag">UNICODE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UTF-8/" rel="tag">UTF-8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/" rel="tag">array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bubble-sort/" rel="tag">bubble sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/" rel="tag">datastructure</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/double-linked-list/" rel="tag">double-linked-list</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/insertion-sort/" rel="tag">insertion sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/journal/" rel="tag">journal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linear-algebra/" rel="tag">linear algebra</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/" rel="tag">linked-list</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-comprehension/" rel="tag">list comprehension</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/merge-sort/" rel="tag">merge sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quick-sort/" rel="tag">quick sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select-sort/" rel="tag">select sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stack/" rel="tag">stack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" rel="tag">프로그래머스</a><span class="tag-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -1161,7 +1235,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
