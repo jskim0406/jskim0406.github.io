@@ -55,8 +55,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -67,11 +66,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -168,15 +167,64 @@
 <p><strong>Span of A : 벡터(부분)공간”A”의 벡터(columns)들을 선형조합한 set</strong></p>
 <p>위와 같이 정의가 될 수 있습니다.</p>
 <p>결국, 아래와 같이 행렬 내에서 Span을 할 경우, columns space(열공간)을 얻어낼 수 있습니다!</p>
-<p>$$<br>\begin{align}<br>A<br>=<br>\begin{bmatrix}<br>10 &amp; 11 &amp; 12\<br>11 &amp; 12 &amp; 13\<br>12 &amp; 13 &amp; 14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>span(A)<br>=<br>c_{1}<br>\begin{bmatrix}<br>10\<br>11\<br>12\<br>\end{bmatrix}<br>+<br>c_{2}<br>\begin{bmatrix}<br>11\<br>12\<br>13\<br>\end{bmatrix}<br>+<br>c_{3}<br>\begin{bmatrix}<br>12\<br>13\<br>14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<h3 id="2-Generating-sets"><a href="#2-Generating-sets" class="headerlink" title="2. Generating sets"></a>2. Generating sets</h3><p>Generating sets이란 <strong>“Sets of Vectors that span vector space or vector subspace”라고 정의됩니다.(from MML)</strong></p>
+<script type="math/tex; mode=display">
+\begin{align}
+A
+=
+\begin{bmatrix}
+10 & 11 & 12\\
+11 & 12 & 13\\
+12 & 13 & 14\\
+\end{bmatrix}
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+span(A)
+=
+c_{1}
+\begin{bmatrix}
+10\\
+11\\
+12\\
+\end{bmatrix}
++
+c_{2}
+\begin{bmatrix}
+11\\
+12\\
+13\\
+\end{bmatrix}
++
+c_{3}
+\begin{bmatrix}
+12\\
+13\\
+14\\
+\end{bmatrix}
+\end{align}</script><h3 id="2-Generating-sets"><a href="#2-Generating-sets" class="headerlink" title="2. Generating sets"></a>2. Generating sets</h3><p>Generating sets이란 <strong>“Sets of Vectors that span vector space or vector subspace”라고 정의됩니다.(from MML)</strong></p>
 <p>즉, 벡터공간을 Span해주는 벡터들의 집합(set)이 바로 Generating sets라는 것이죠. 위의 행렬을 참고하자면, 아래처럼 3개의 벡터가 곧 “Generating sets”이 될 것입니다!</p>
-<p>$$<br>\begin{align}<br>\begin{bmatrix}<br>10\<br>11\<br>12\<br>\end{bmatrix},<br>\begin{bmatrix}<br>11\<br>12\<br>13\<br>\end{bmatrix},<br>\begin{bmatrix}<br>12\<br>13\<br>14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<h3 id="3-Basis"><a href="#3-Basis" class="headerlink" title="3. Basis"></a>3. Basis</h3><p>Basis란 <strong>“Minimal generating set and a maximal linearly independent set of vectors”라고 합니다.(from MML)</strong></p>
-<p>그대로 직역하자면,<br>    - 벡터(부분)공간을 구성하는 generating sets중 가장 minimal 한 단위이자<br>    - 가장 Maximal 한 선형독립인 벡터 집합(set)</p>
-<p>이 곧 basis 입니다.</p>
-<p>즉 **”minimal generating sets == maximal independent sets of vectors”**라는 것이죠.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{bmatrix}
+10\\
+11\\
+12\\
+\end{bmatrix},
+\begin{bmatrix}
+11\\
+12\\
+13\\
+\end{bmatrix},
+\begin{bmatrix}
+12\\
+13\\
+14\\
+\end{bmatrix}
+\end{align}</script><h3 id="3-Basis"><a href="#3-Basis" class="headerlink" title="3. Basis"></a>3. Basis</h3><p>Basis란 <strong>“Minimal generating set and a maximal linearly independent set of vectors”라고 합니다.(from MML)</strong></p>
+<p>그대로 직역하자면, </p>
+<pre><code>- 벡터(부분)공간을 구성하는 generating sets중 가장 minimal 한 단위이자 
+- 가장 Maximal 한 선형독립인 벡터 집합(set)
+</code></pre><p>이 곧 basis 입니다.</p>
+<p>즉 <strong>“minimal generating sets == maximal independent sets of vectors”</strong>라는 것이죠.</p>
 <p>한 공간을 구성하는 벡터집합(vector sets)이 곧 선형독립인 것들로만 채워져야 위의 Basis 정의가 들어맞습니다.</p>
 <p>곧, Basis는 벡터(부분)공간을 구성하는 선형독립인 벡터 set으로 볼 수 있는 것입니다!</p>
 <h3 id="4-Rank"><a href="#4-Rank" class="headerlink" title="4. Rank"></a>4. Rank</h3><p>Rank란 <strong>“The number of Column vector or row vector which is linearly indepdent”</strong> 입니다.</p>
@@ -186,6 +234,12 @@
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -198,11 +252,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -244,7 +298,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -253,11 +307,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -320,6 +374,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

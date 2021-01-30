@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. 힙1. 힙 (Heap) 이란? 힙: 데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree) 완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리       힙을 사용하는 이유 배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림 이에 반해, 힙에 데이터를 넣">
+    <meta name="description" content="1. 힙1. 힙 (Heap) 이란? 힙: 데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree) 완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리      힙을 사용하는 이유 배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림 이에 반해, 힙에 데이터를 넣고">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5. Heap">
 <meta property="og:url" content="http://example.com/2020/07/08/7.Data_structure_Heap/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. 힙1. 힙 (Heap) 이란? 힙: 데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree) 완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리       힙을 사용하는 이유 배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림 이에 반해, 힙에 데이터를 넣">
+<meta property="og:description" content="1. 힙1. 힙 (Heap) 이란? 힙: 데이터에서 최대값과 최소값을 빠르게 찾기 위해 고안된 완전 이진 트리(Complete Binary Tree) 완전 이진 트리: 노드를 삽입할 때 최하단 왼쪽 노드부터 차례대로 삽입하는 트리      힙을 사용하는 이유 배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림 이에 반해, 힙에 데이터를 넣고">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.fun-coding.org/00_Images/completebinarytree.png">
 <meta property="og:image" content="https://www.fun-coding.org/00_Images/completebinarytree_bst.png">
@@ -56,8 +56,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -68,11 +67,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -166,8 +165,7 @@
 </ul>
 </li>
 </ul>
-<img src="https://www.fun-coding.org/00_Images/completebinarytree.png" width=300>
-
+<p><img src="https://www.fun-coding.org/00_Images/completebinarytree.png" width=300></p>
 <ul>
 <li>힙을 사용하는 이유<ul>
 <li>배열에 데이터를 넣고, 최대값과 최소값을 찾으려면 O(n) 이 걸림</li>
@@ -198,10 +196,7 @@
 </li>
 </ul>
 </li>
-<li>이진 탐색 트리는 탐색을 위한 구조, 힙은 최대/최소값 검색을 위한 구조 중 하나로 이해하면 됨  <img src="https://www.fun-coding.org/00_Images/completebinarytree_bst.png" width="800" />
-
-
-</li>
+<li>이진 탐색 트리는 탐색을 위한 구조, 힙은 최대/최소값 검색을 위한 구조 중 하나로 이해하면 됨<br><img src="https://www.fun-coding.org/00_Images/completebinarytree_bst.png" width="800" /></li>
 </ul>
 <h3 id="힙에-데이터-삽입-구현-Max-Heap-예"><a href="#힙에-데이터-삽입-구현-Max-Heap-예" class="headerlink" title="힙에 데이터 삽입 구현 (Max Heap 예)"></a>힙에 데이터 삽입 구현 (Max Heap 예)</h3><ul>
 <li><p>힙 클래스 구현</p>
@@ -213,15 +208,9 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array = <span class="built_in">list</span>()</span><br><span class="line">        self.heap_array.append(<span class="literal">None</span>)</span><br><span class="line">        self.heap_array.append(data)</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">1</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 1]</code></pre>
-<ul>
+<pre><code>[None, 1]
+</code></pre><ul>
 <li><p>힙 클래스 구현2 - insert1</p>
 <ul>
 <li><p>인덱스 번호는 1번부터 시작하도록 변경</p>
@@ -247,33 +236,15 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array = <span class="built_in">list</span>()</span><br><span class="line">        self.heap_array.append(<span class="literal">None</span>)</span><br><span class="line">        self.heap_array.append(data)</span><br><span class="line">         </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move_up</span>(<span class="params">self,index_inserted</span>):</span>   <span class="comment"># 올라가야 하는 지 판단하는 함수</span></span><br><span class="line">        <span class="comment"># 여기서 틀림. 재귀용법일 땐, stop을 걸어줘야함을 잊지 말 것.</span></span><br><span class="line">        <span class="comment"># index가 1이면, None을 가리키고 있는 것. 따라서, 더이상 move_up while문 돌아가게 하면 안됨 -&gt; while문에서 오류날 것</span></span><br><span class="line">        <span class="comment"># heap.heap_array[0] = None, 따라서, 그냥 시행하면, int 와 None 간에는 &#x27;&gt;&#x27; 연산 안 된다는 error message!</span></span><br><span class="line">        <span class="keyword">if</span> index_inserted &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.heap_array[index_inserted] &gt; self.heap_array[index_inserted//<span class="number">2</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.heap_array.append(data)</span><br><span class="line">        </span><br><span class="line">        index_inserted = <span class="built_in">len</span>(self.heap_array)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> self.move_up(index_inserted):</span><br><span class="line">            <span class="comment"># 부모와 자식 노드 교체, 인덱스 갱신</span></span><br><span class="line">            self.heap_array[index_inserted], self.heap_array[index_inserted//<span class="number">2</span>] = self.heap_array[index_inserted//<span class="number">2</span>], self.heap_array[index_inserted]</span><br><span class="line">            index_inserted = index_inserted//<span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move_down</span>(<span class="params">self,index_popped</span>):</span></span><br><span class="line">        <span class="keyword">if</span> index_popped &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 왼쪽 자식노드도 없을 때</span></span><br><span class="line">        <span class="keyword">if</span> index_popped*<span class="number">2</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 왼쪽 노드만 있을 때</span></span><br><span class="line">        <span class="keyword">elif</span> index_popped*<span class="number">2</span>+<span class="number">1</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">            <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 두 노드 다 있을 때</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(self.heap_array) &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        returned_data = self.heap_array[<span class="number">1</span>]</span><br><span class="line">        self.heap_array[<span class="number">1</span>] = self.heap_array[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">del</span> self.heap_array[<span class="number">-1</span>]</span><br><span class="line">        </span><br><span class="line">        index_popped = <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> self.move_down(index_popped):</span><br><span class="line">            <span class="comment"># 왼쪽 자식노드도 없을 때</span></span><br><span class="line">            <span class="keyword">if</span> index_popped*<span class="number">2</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="comment"># 왼쪽 노드만 있을 때</span></span><br><span class="line">            <span class="keyword">elif</span> index_popped*<span class="number">2</span>+<span class="number">1</span> &gt;= <span class="built_in">len</span>(self.heap_array):</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                    self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">                    index_popped = index_popped*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="comment"># 두 노드 다 있을 때</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]:</span><br><span class="line">                    <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                        self.heap_array[index_popped*<span class="number">2</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>]</span><br><span class="line">                        index_popped = index_popped*<span class="number">2</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>] &gt; self.heap_array[index_popped]:</span><br><span class="line">                        self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>], self.heap_array[index_popped] = self.heap_array[index_popped], self.heap_array[index_popped*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">                        index_popped = index_popped*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">return</span> returned_data</span><br><span class="line">            </span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">15</span>)</span><br><span class="line">heap.insert(<span class="number">10</span>)</span><br><span class="line">heap.insert(<span class="number">8</span>)</span><br><span class="line">heap.insert(<span class="number">5</span>)</span><br><span class="line">heap.insert(<span class="number">4</span>)</span><br><span class="line">heap.insert(<span class="number">20</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 20, 10, 15, 5, 4, 8]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">15</span>)</span><br><span class="line">heap.insert(<span class="number">10</span>)</span><br><span class="line">heap.insert(<span class="number">8</span>)</span><br><span class="line">heap.insert(<span class="number">5</span>)</span><br><span class="line">heap.insert(<span class="number">4</span>)</span><br><span class="line">heap.insert(<span class="number">20</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 20, 10, 15, 5, 4, 8]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.pop()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>20</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[None, 15, 10, 8, 5, 4]</code></pre>
-<h3 id="힙-Heap-시간-복잡도"><a href="#힙-Heap-시간-복잡도" class="headerlink" title="힙 (Heap) 시간 복잡도"></a>힙 (Heap) 시간 복잡도</h3><ul>
+<pre><code>[None, 20, 10, 15, 5, 4, 8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">heap = Heap(<span class="number">15</span>)</span><br><span class="line">heap.insert(<span class="number">10</span>)</span><br><span class="line">heap.insert(<span class="number">8</span>)</span><br><span class="line">heap.insert(<span class="number">5</span>)</span><br><span class="line">heap.insert(<span class="number">4</span>)</span><br><span class="line">heap.insert(<span class="number">20</span>)</span><br><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
+<pre><code>[None, 20, 10, 15, 5, 4, 8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.pop()</span><br></pre></td></tr></table></figure>
+<pre><code>20
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap.heap_array</span><br></pre></td></tr></table></figure>
+<pre><code>[None, 15, 10, 8, 5, 4]
+</code></pre><h3 id="힙-Heap-시간-복잡도"><a href="#힙-Heap-시간-복잡도" class="headerlink" title="힙 (Heap) 시간 복잡도"></a>힙 (Heap) 시간 복잡도</h3><ul>
 <li>depth (트리의 높이) 를 h라고 표기한다면,</li>
 <li>n개의 노드를 가지는 heap 에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $ <ul>
 <li>참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2입니다.</li>
@@ -284,6 +255,12 @@
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -296,11 +273,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -342,7 +319,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -351,11 +328,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -418,6 +395,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

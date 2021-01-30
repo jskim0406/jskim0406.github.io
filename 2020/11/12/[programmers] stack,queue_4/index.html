@@ -57,8 +57,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -69,11 +68,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -170,28 +169,24 @@
 </ul>
 </li>
 <li>따라서, <strong>리스트를 활용해 우선순위 큐를 구현</strong>해 활용하기로 함.</li>
-<li>리스트에 **튜플로 (우선순위, 값)**을 저장</li>
+<li>리스트에 <strong>튜플로 (우선순위, 값)</strong>을 저장</li>
 <li>list.pop(0)으로, 가장 앞의 task를 뽑아내고</li>
 <li>list[i][0]으로 우선순위에 접근 (list[i] = (우선순위, 값))</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">priorities, location</span>):</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">## 새로 사용한 공간</span></span><br><span class="line">    <span class="comment"># tasks[] : 최초로 주어진 task목록((우선순위, 값) 형식)</span></span><br><span class="line">    <span class="comment"># task_final[] : 정렬 후 최종적인 task목록</span></span><br><span class="line">    </span><br><span class="line">    tasks, task_final = [], []</span><br><span class="line">    <span class="keyword">for</span> task_name, priority <span class="keyword">in</span> <span class="built_in">enumerate</span>(priorities):</span><br><span class="line">        tasks.append((priority,task_name))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> tasks:</span><br><span class="line">        temp = <span class="literal">True</span></span><br><span class="line">        first = tasks.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="comment"># 나머지 중 하나라도 더 중요한 게 있다면, temp = False / first가 제일 중요하다면, temp = True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(tasks)):</span><br><span class="line">            <span class="keyword">if</span> first[<span class="number">0</span>] &lt; tasks[i][<span class="number">0</span>]:</span><br><span class="line">                temp=<span class="literal">False</span> <span class="comment"># 제일 먼저 가면 안된다.</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 가장 중요하다면(temp=True), 바로 최종 인쇄 순서에 차례로 넣는다.</span></span><br><span class="line">        <span class="keyword">if</span> temp == <span class="literal">True</span>:</span><br><span class="line">            task_final.append(first)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 나머지에 더 중요한게 있다면(temp=False), 기존 tasks의 맨 뒤로 다시 넣는다.</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tasks.append(first)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> idx, task <span class="keyword">in</span> <span class="built_in">enumerate</span>(task_final):</span><br><span class="line">        <span class="keyword">if</span> task[<span class="number">1</span>] == location:</span><br><span class="line">            <span class="keyword">return</span> idx+<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">1</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>5</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>],<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>1</code></pre>
-
+<pre><code>5
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>],<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre>
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -204,11 +199,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -250,7 +245,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -259,11 +254,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -326,6 +321,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

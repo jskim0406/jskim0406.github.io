@@ -59,8 +59,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -71,11 +70,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -187,9 +186,6 @@
 <li>즉, 1byte에는 $2^{8}$개가 아닌 $2^{7}$개(128)의 정보를 담을 수 있다.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/ASCII.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="/img/output_3_0_1.png" alt="png"></p>
 <p>[출처] : <a target="_blank" rel="noopener" href="https://whatisthenext.tistory.com/103">URL</a></p>
 <p><strong>한계</strong> : $2^{7}$로는 영어 외 다른 언어 문자를 표현하기에 어려움</p>
@@ -197,8 +193,7 @@
 <li>전세계 언어 문자를 모두 담을 수 있는 통일된 인코딩 체계로 만들어진 것이 ‘UNICODE’</li>
 </ul>
 <h3 id="2-UNICODE"><a href="#2-UNICODE" class="headerlink" title="2) UNICODE"></a>2) UNICODE</h3><ul>
-<li><p>한글 : 자음(21개) + 모음(19개) 조합만 해도 128개를 초과(단순 조합 수 계산 시, $_{40}C_2$ 개의 조합이 가능)</p>
-</li>
+<li>한글 : 자음(21개) + 모음(19개) 조합만 해도 128개를 초과(단순 조합 수 계산 시, $_{40}C_2$ 개의 조합이 가능)</li>
 <li><p>중국어 : 한자의 갯수는 128개를 초과</p>
 <ul>
 <li>따라서, ASCII코드(1byte 단위)로는 한글, 중국어 문자를 담아낼 수 없다</li>
@@ -208,14 +203,10 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/ASCII vs UNICODE.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_7_0_1.jpeg" alt="jpeg"></p>
 <p><strong>한계</strong> : 유니코드는 공간이 ‘고정길이’를 갖는 <strong>‘고정길이 인코딩’이다. 따라서, 공간 효율성이 낮다.</strong></p>
 <p>​    ex) 영문은 ASCII 문자 체계에 해당해, 예전과 같이 1 byte에 담을 수 있지만 UNICODE에 따르면 무조건 2byte를 할당해야 하는 것이다.</p>
-<p>고정길이 인코딩에서 벗어나 <strong>가변길이 인코딩</strong>으로 공간 효율성을 높인 인코딩 방식이 **’UTF-8’**이다.</p>
+<p>고정길이 인코딩에서 벗어나 <strong>가변길이 인코딩</strong>으로 공간 효율성을 높인 인코딩 방식이 <strong>‘UTF-8’</strong>이다.</p>
 <h3 id="3-UTF-8"><a href="#3-UTF-8" class="headerlink" title="3) UTF-8"></a>3) UTF-8</h3><ul>
 <li>유니코드 값에 따라 <strong>가변적으로</strong> 할당할 Byte 크기를 결정해 인코딩하는 방식 (8bit 단위로 결정하기 때문에 ‘UTF-8’이다. UTF-16도 있음)</li>
 </ul>
@@ -233,6 +224,12 @@
   </div>
 </article>
 
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
 
 
         
@@ -244,11 +241,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -290,7 +287,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -299,11 +296,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -366,6 +363,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

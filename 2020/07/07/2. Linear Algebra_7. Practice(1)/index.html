@@ -6,21 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. Data representation1.1 Data representation using numpy scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기  1from sklearn.datasets import load_iris   1234# 데이터 추출data &#x3D; loa">
+    <meta name="description" content="1. Data representation1.1 Data representation using numpy scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기  1from sklearn.datasets import load_iris 1234# 데이터 추출data &#x3D; load_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_7. Practice(1)">
 <meta property="og:url" content="http://example.com/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(1)/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. Data representation1.1 Data representation using numpy scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기  1from sklearn.datasets import load_iris   1234# 데이터 추출data &#x3D; loa">
+<meta property="og:description" content="1. Data representation1.1 Data representation using numpy scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기  1from sklearn.datasets import load_iris 1234# 데이터 추출data &#x3D; load_">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/output_14_0(1).png">
-<meta property="og:image" content="http://example.com/img/output_15_1(1).png">
-<meta property="og:image" content="http://example.com/img/output_16_1(1).png">
-<meta property="og:image" content="http://example.com/img/output_19_1(1).png">
-<meta property="og:image" content="http://example.com/img/output_28_0(1).png">
-<meta property="og:image" content="http://example.com/img/output_29_0(1).png">
-<meta property="og:image" content="http://example.com/img/output_34_0(1).png">
-<meta property="og:image" content="http://example.com/img/output_35_0(1).png">
+<meta property="og:image" content="http://example.com/img/output_14_0(1">
+<meta property="og:image" content="http://example.com/img/output_15_1(1">
+<meta property="og:image" content="http://example.com/img/output_16_1(1">
+<meta property="og:image" content="http://example.com/img/output_19_1(1">
+<meta property="og:image" content="http://example.com/img/output_28_0(1">
+<meta property="og:image" content="http://example.com/img/output_29_0(1">
+<meta property="og:image" content="http://example.com/img/output_34_0(1">
+<meta property="og:image" content="http://example.com/img/output_35_0(1">
 <meta property="article:published_time" content="2020-07-07T04:02:38.000Z">
 <meta property="article:modified_time" content="2020-07-07T04:08:31.517Z">
 <meta property="article:author" content="js Kim">
@@ -28,7 +28,7 @@
 <meta property="article:tag" content="math">
 <meta property="article:tag" content="linear algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/output_14_0(1).png">
+<meta name="twitter:image" content="http://example.com/img/output_14_0(1">
     
     
       
@@ -64,8 +64,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -76,11 +75,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -172,55 +171,35 @@
 <li>scikit-learn dataset 중 붓꽃(petal) 데이터 $x_{2}$(petal width)에 대한 벡터 변수 x2 를 만들기</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 추출</span></span><br><span class="line"></span><br><span class="line">data = load_iris()</span><br><span class="line">data.data[:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>array([[5.1, 3.5, 1.4, 0.2],
        [4.9, 3. , 1.4, 0.2],
        [4.7, 3.2, 1.3, 0.2],
        [4.6, 3.1, 1.5, 0.2],
-       [5. , 3.6, 1.4, 0.2]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># print(data.DESCR)</span></span><br></pre></td></tr></table></figure>
-
-
+       [5. , 3.6, 1.4, 0.2]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># print(data.DESCR)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.feature_names</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>[&#39;sepal length (cm)&#39;,
  &#39;sepal width (cm)&#39;,
  &#39;petal length (cm)&#39;,
- &#39;petal width (cm)&#39;]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.target_names</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 붓꽃 데이터 파악을 위한 임시적인 데이터프레임 생성</span></span><br><span class="line">_ = pd.DataFrame(data.data,columns=data.feature_names)</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
-
-
-
-
+ &#39;petal width (cm)&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.target_names</span><br></pre></td></tr></table></figure>
+<pre><code>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 붓꽃 데이터 파악을 위한 임시적인 데이터프레임 생성</span></span><br><span class="line">_ = pd.DataFrame(data.data,columns=data.feature_names)</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -318,24 +297,20 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인</span></span><br><span class="line"></span><br><span class="line">_.describe()</span><br></pre></td></tr></table></figure>
-
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -411,28 +386,12 @@
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인 (왜도)</span></span><br><span class="line"><span class="comment"># 확인 결과 : 심하진 않지만, 우측으로 비대칭임을 확인할 수 있음</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;petal width (cm)&#x27;</span>].skew()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>-0.10296674764898116</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인 (첨도)</span></span><br><span class="line"><span class="comment"># 확인 결과 : 심하진 않지만, 정규분포 보다 모멘트 중심으로 쏠려있는 것을 확인</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;petal width (cm)&#x27;</span>].kurtosis()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>-1.340603996612646</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특징 벡터로 변환하기 위한 reshape 진행</span></span><br><span class="line"></span><br><span class="line">x2 = data.data[:,<span class="number">3</span>]</span><br><span class="line">x2 = x2.reshape(<span class="number">-1</span>,<span class="number">150</span>)</span><br><span class="line">x2.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(1, 150)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram 시각화를 위한 Series로 저장(because : 기존의 2차원 이상의 array데이터는 plt.hist()로 시각화 불가능)</span></span><br><span class="line"></span><br><span class="line">x2_series = pd.Series(x2[<span class="number">0</span>])</span><br><span class="line">x2_series</span><br></pre></td></tr></table></figure>
-
-
-
-
+<pre><code>-0.10296674764898116
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터의 기초통계량 확인 (첨도)</span></span><br><span class="line"><span class="comment"># 확인 결과 : 심하진 않지만, 정규분포 보다 모멘트 중심으로 쏠려있는 것을 확인</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;petal width (cm)&#x27;</span>].kurtosis()</span><br></pre></td></tr></table></figure>
+<pre><code>-1.340603996612646
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특징 벡터로 변환하기 위한 reshape 진행</span></span><br><span class="line"></span><br><span class="line">x2 = data.data[:,<span class="number">3</span>]</span><br><span class="line">x2 = x2.reshape(<span class="number">-1</span>,<span class="number">150</span>)</span><br><span class="line">x2.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(1, 150)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram 시각화를 위한 Series로 저장(because : 기존의 2차원 이상의 array데이터는 plt.hist()로 시각화 불가능)</span></span><br><span class="line"></span><br><span class="line">x2_series = pd.Series(x2[<span class="number">0</span>])</span><br><span class="line">x2_series</span><br></pre></td></tr></table></figure>
 <pre><code>0      0.2
 1      0.2
 2      0.2
@@ -444,30 +403,16 @@
 147    2.0
 148    2.3
 149    1.8
-Length: 150, dtype: float64</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram으로 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.hist(x2_series)</span><br><span class="line">plt.title(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;number of object&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/img/output_14_0(1).png" alt="png"></p>
+Length: 150, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># histogram으로 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.hist(x2_series)</span><br><span class="line">plt.title(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;petal width(cm)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;number of object&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/img/output_14_0(1" alt="png">.png)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kernel distritubion 시각화</span></span><br><span class="line"></span><br><span class="line">sns.distplot(x2_series)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a200e3a90&gt;</code></pre>
-<p><img src="/img/output_15_1(1).png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a200e3a90&gt;
+</code></pre><p><img src="/img/output_15_1(1" alt="png">.png)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.kdeplot(x2_series)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a20535c10&gt;</code></pre>
-<p><img src="/img/output_16_1(1).png" alt="png"></p>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a20535c10&gt;
+</code></pre><p><img src="/img/output_16_1(1" alt="png">.png)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iris 데이터 전체 분포 확인</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># species 데이터 추가 위한 전처리</span></span><br><span class="line"><span class="comment"># 1. series로 species 실수형 데이터 가져오기 (category 타입)</span></span><br><span class="line"><span class="comment"># 2. 실수 category -&gt; 문자 category로 변환 ( .cat.rename_catories([ ]))</span></span><br><span class="line"></span><br><span class="line">species = pd.Series(data.target, dtype=<span class="string">&#x27;category&#x27;</span>)</span><br><span class="line">species = species.cat.rename_categories(data.target_names)</span><br><span class="line">species</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>0         setosa
 1         setosa
 2         setosa
@@ -480,26 +425,22 @@ Length: 150, dtype: float64</code></pre>
 148    virginica
 149    virginica
 Length: 150, dtype: category
-Categories (3, object): [setosa, versicolor, virginica]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># species 데이터 추가</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;species&#x27;</span>] = species</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
-
-
-
-
+Categories (3, object): [setosa, versicolor, virginica]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># species 데이터 추가</span></span><br><span class="line"></span><br><span class="line">_[<span class="string">&#x27;species&#x27;</span>] = species</span><br><span class="line">_</span><br></pre></td></tr></table></figure>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -609,13 +550,9 @@ Categories (3, object): [setosa, versicolor, virginica]</code></pre>
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(_,hue = <span class="string">&#x27;species&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1a2203b110&gt;</code></pre>
-<p><img src="/img/output_19_1(1).png" alt="png"></p>
-<ol start="2">
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1a2203b110&gt;
+</code></pre><p><img src="/img/output_19_1(1" alt="png">.png)</p>
+<ol>
 <li><p>MNIST digit images(숫자 이미지) 추출 및 특징벡터화 작업</p>
 <ul>
 <li>본래 2차원 이미지 데이터(8 by 8)를 1차원 특징벡터화(64 by 1)</li>
@@ -623,13 +560,8 @@ Categories (3, object): [setosa, versicolor, virginica]</code></pre>
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">digit = load_digits()</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(digit.DESCR)</span><br></pre></td></tr></table></figure>
-
 <pre><code>.. _digits_dataset:
 
 Optical recognition of handwritten digits dataset
@@ -675,24 +607,12 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
     Electrical and Electronic Engineering Nanyang Technological University.
     2005.
   - Claudio Gentile. A New Approximate Maximal Margin Classification
-    Algorithm. NIPS. 2000.</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">digit.data[<span class="number">1</span>].shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(64,)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># image 데이터 shape 확인 : 8 by 8, 1797개의 이미지</span></span><br><span class="line"></span><br><span class="line">digit.images.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(1797, 8, 8)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 확인 : 8 by 8 이미지 데이터(1개 이미지 당)</span></span><br><span class="line"></span><br><span class="line">digit.images[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
+    Algorithm. NIPS. 2000.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">digit.data[<span class="number">1</span>].shape</span><br></pre></td></tr></table></figure>
+<pre><code>(64,)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># image 데이터 shape 확인 : 8 by 8, 1797개의 이미지</span></span><br><span class="line"></span><br><span class="line">digit.images.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(1797, 8, 8)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실제 확인 : 8 by 8 이미지 데이터(1개 이미지 당)</span></span><br><span class="line"></span><br><span class="line">digit.images[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <pre><code>array([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.],
        [ 0.,  0., 13., 15., 10., 15.,  5.,  0.],
        [ 0.,  3., 15.,  2.,  0., 11.,  8.,  0.],
@@ -700,22 +620,14 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
        [ 0.,  5.,  8.,  0.,  0.,  9.,  8.,  0.],
        [ 0.,  4., 11.,  0.,  1., 12.,  7.,  0.],
        [ 0.,  2., 14.,  5., 10., 12.,  0.,  0.],
-       [ 0.,  0.,  6., 13., 10.,  0.,  0.,  0.]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 reshape 전처리 : 특징벡터 저장 위함</span></span><br><span class="line"><span class="comment"># &#x27;d&#x27;라는 리스트 타입에 64,1 이미지 데이터 저장</span></span><br><span class="line"></span><br><span class="line">d = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    d.append(digit.images[i].reshape(<span class="number">64</span>,<span class="number">-1</span>))</span><br><span class="line"><span class="built_in">len</span>(d[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>64</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 8 by 8 이미지 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">10</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(digit.images[i],cmap=plt.cm.bone_r)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;image &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/img/output_28_0(1).png" alt="png"></p>
+       [ 0.,  0.,  6., 13., 10.,  0.,  0.,  0.]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 reshape 전처리 : 특징벡터 저장 위함</span></span><br><span class="line"><span class="comment"># &#x27;d&#x27;라는 리스트 타입에 64,1 이미지 데이터 저장</span></span><br><span class="line"></span><br><span class="line">d = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    d.append(digit.images[i].reshape(<span class="number">64</span>,<span class="number">-1</span>))</span><br><span class="line"><span class="built_in">len</span>(d[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 8 by 8 이미지 데이터 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">10</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(digit.images[i],cmap=plt.cm.bone_r)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;image &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/img/output_28_0(1" alt="png">.png)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 64 by 1 특징벡터 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">10</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(d[i],cmap=plt.cm.bone_r)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;image &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/img/output_29_0(1).png" alt="png"></p>
-<ol start="3">
+<p><img src="/img/output_29_0(1" alt="png">.png)</p>
+<ol>
 <li><p>3차원 텐서의 이미지 데이터 표현 </p>
 <ul>
 <li>2차원 행렬의 이미지 + 컬러 데이터(채널) 추가 = 3차원 데이터</li>
@@ -723,37 +635,29 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> misc</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img_rgb = misc.face()  <span class="comment"># 컬러 이미지 로드</span></span><br><span class="line">img_rgb.shape  <span class="comment"># 데이터의 모양 : 각 이미지 당 3개의 채널(컬러) + 2차원 이미지 데이터(768 by 1024)</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(768, 1024, 3)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1채널의 이미지 데이터</span></span><br><span class="line"></span><br><span class="line">img_rgb[:,:,<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
+<pre><code>(768, 1024, 3)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1채널의 이미지 데이터</span></span><br><span class="line"></span><br><span class="line">img_rgb[:,:,<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <pre><code>array([[121, 138, 153, ..., 119, 131, 139],
        [ 89, 110, 130, ..., 118, 134, 146],
        [ 73,  94, 115, ..., 117, 133, 144],
        ...,
        [ 87,  94, 107, ..., 120, 119, 119],
        [ 85,  95, 112, ..., 121, 120, 120],
-       [ 85,  97, 111, ..., 120, 119, 118]], dtype=uint8)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># original 이미지 시각화</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">4</span>))</span><br><span class="line">plt.imshow(img_rgb,cmap=plt.cm.gray)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([])</span><br><span class="line">plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;original image data&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/img/output_34_0(1).png" alt="png"></p>
+       [ 85,  97, 111, ..., 120, 119, 118]], dtype=uint8)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># original 이미지 시각화</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">4</span>))</span><br><span class="line">plt.imshow(img_rgb,cmap=plt.cm.gray)</span><br><span class="line">plt.grid(<span class="literal">False</span>)</span><br><span class="line">plt.xticks([])</span><br><span class="line">plt.yticks([])</span><br><span class="line">plt.title(<span class="string">&quot;original image data&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/img/output_34_0(1" alt="png">.png)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각 채널 별(RGB값, 컬러) 이미지 시각화</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    plt.subplot(<span class="number">1</span>,<span class="number">3</span>,i+<span class="number">1</span>)</span><br><span class="line">    plt.imshow(img_rgb[:,:,i],cmap=plt.cm.gray)</span><br><span class="line">    plt.grid(<span class="literal">False</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.title(<span class="string">&quot;&#123;&#125; channel&quot;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/img/output_35_0(1).png" alt="png"></p>
+<p><img src="/img/output_35_0(1" alt="png">.png)</p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -766,11 +670,11 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -812,7 +716,7 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -821,11 +725,11 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -888,6 +792,35 @@ L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

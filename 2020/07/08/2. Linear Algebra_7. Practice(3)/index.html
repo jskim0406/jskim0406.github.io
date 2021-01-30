@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]])  1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.">
+    <meta name="description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]]) 1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_7. Practice(3)">
 <meta property="og:url" content="http://example.com/2020/07/08/2.%20Linear%20Algebra_7.%20Practice(3)/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]])  1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.">
+<meta property="og:description" content="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리123a &#x3D; np.array([[4],[5],[2],[2]])b &#x3D; np.array([[4],[0],[2],[0]])c &#x3D; np.array([[2],[2],[0],[1]]) 1-1) 유클리드 거리 피타고라스 정리에 따른 벡터 간 기하학적 거리  123456789# 유클리드 거리# a-ba_b &#x3D; np.l">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/output_11_0_1.png">
 <meta property="article:published_time" content="2020-07-08T04:10:40.000Z">
@@ -57,8 +57,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -69,11 +68,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -162,31 +161,22 @@
 
   <div class="content" itemprop="articleBody">
     <h3 id="1-벡터-간-거리-유클리드-거리-vs-코사인-거리"><a href="#1-벡터-간-거리-유클리드-거리-vs-코사인-거리" class="headerlink" title="1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리"></a>1. 벡터 간 거리 : 유클리드 거리 vs 코사인 거리</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">4</span>],[<span class="number">5</span>],[<span class="number">2</span>],[<span class="number">2</span>]])</span><br><span class="line">b = np.array([[<span class="number">4</span>],[<span class="number">0</span>],[<span class="number">2</span>],[<span class="number">0</span>]])</span><br><span class="line">c = np.array([[<span class="number">2</span>],[<span class="number">2</span>],[<span class="number">0</span>],[<span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
-
 <h3 id="1-1-유클리드-거리"><a href="#1-1-유클리드-거리" class="headerlink" title="1-1) 유클리드 거리"></a>1-1) 유클리드 거리</h3><ul>
 <li>피타고라스 정리에 따른 벡터 간 기하학적 거리</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 유클리드 거리</span></span><br><span class="line"><span class="comment"># a-b</span></span><br><span class="line">a_b = np.linalg.norm(a)**<span class="number">2</span> + np.linalg.norm(b)**<span class="number">2</span> - <span class="number">2</span>*a.T@b</span><br><span class="line"></span><br><span class="line"><span class="comment"># b-c</span></span><br><span class="line">b_c = np.linalg.norm(b)**<span class="number">2</span> + np.linalg.norm(c)**<span class="number">2</span> - <span class="number">2</span>*b.T@c</span><br><span class="line"></span><br><span class="line"><span class="comment"># a-c</span></span><br><span class="line">a_c = np.linalg.norm(a)**<span class="number">2</span> + np.linalg.norm(c)**<span class="number">2</span> - <span class="number">2</span>*a.T@c</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;a와 b 사이 : &#123;&#125;, b와 c 상 : &#123;&#125;, c와 a 사이 : &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a_b[<span class="number">0</span>][<span class="number">0</span>],b_c[<span class="number">0</span>][<span class="number">0</span>],a_c[<span class="number">0</span>][<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>a와 b 사이 : 29.0, b와 c 상 : 13.000000000000004, c와 a 사이 : 18.0</code></pre>
-<h3 id="1-2-코사인-거리"><a href="#1-2-코사인-거리" class="headerlink" title="1-2) 코사인 거리"></a>1-2) 코사인 거리</h3><ul>
+<pre><code>a와 b 사이 : 29.0, b와 c 상 : 13.000000000000004, c와 a 사이 : 18.0
+</code></pre><h3 id="1-2-코사인-거리"><a href="#1-2-코사인-거리" class="headerlink" title="1-2) 코사인 거리"></a>1-2) 코사인 거리</h3><ul>
 <li>방향이 유사한 벡터의 코사인 거리가 작음</li>
 <li>코사인 거리 = 1 - 코사인 유사도</li>
 <li>코사인 유사도 최대값 : 1</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 코사인 거리</span></span><br><span class="line">a_b_simil = (a.T@b) / (np.linalg.norm(a)*np.linalg.norm(b))</span><br><span class="line">b_c_simil = (b.T@c) / (np.linalg.norm(b)*np.linalg.norm(c))</span><br><span class="line">c_a_simil = (c.T@a) / (np.linalg.norm(c)*np.linalg.norm(a))</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a_b = <span class="number">1</span> - a_b_simil</span><br><span class="line">b_c = <span class="number">1</span> - b_c_simil</span><br><span class="line">c_a = <span class="number">1</span> - c_a_simil</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;a와 b 사이 : &#123;&#125;, b와 c 상 : &#123;&#125;, c와 a 사이 : &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(a_b[<span class="number">0</span>][<span class="number">0</span>],b_c[<span class="number">0</span>][<span class="number">0</span>],c_a[<span class="number">0</span>][<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>a와 b 사이 : 0.36112343500006017, b와 c 상 : 0.40371520600005606, c와 a 사이 : 0.04761904761904767</code></pre>
-<h3 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h3><ul>
+<pre><code>a와 b 사이 : 0.36112343500006017, b와 c 상 : 0.40371520600005606, c와 a 사이 : 0.04761904761904767
+</code></pre><h3 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h3><ul>
 <li>유클리드 거리 기준 가장 가까운 벡터 : b 와 c</li>
 <li>코사인 거리 기준 가장 가까운 벡터 : a 와 c</li>
 </ul>
@@ -195,12 +185,16 @@
 <li><strong>이미지 픽셀 값을 새로운 좌표로 이동시킴</strong></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">import</span> scipy.misc</span><br><span class="line"><span class="keyword">import</span> scipy.ndimage</span><br><span class="line"></span><br><span class="line">f = sp.misc.face(gray=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">e1 = np.array([<span class="number">0</span>, <span class="number">1</span>]) <span class="comment"># matplotlib의 이미지 좌표규약으로 부호변경 </span></span><br><span class="line">e2 = np.array([<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">E = np.vstack([e1, e2]).T</span><br><span class="line">g1 = np.array([<span class="number">1</span>, <span class="number">1</span>]) / np.sqrt(<span class="number">2</span>)</span><br><span class="line">g2 = np.array([<span class="number">-1</span>, <span class="number">1</span>]) / np.sqrt(<span class="number">2</span>)</span><br><span class="line">A = np.vstack([g1, g2]).T</span><br><span class="line">gc1 = E @ g1</span><br><span class="line">gc2 = E @ g2</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.imshow(f, cmap=mpl.cm.bone, alpha=<span class="number">0.9</span>)</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;black&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$e_1$&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=<span class="number">500</span>*e1 + [<span class="number">-100</span>,<span class="number">0</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;black&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$e_2$&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=<span class="number">500</span>*e2 + [<span class="number">0</span>, <span class="number">-50</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*gc1, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_1$&#x27;</span>, xy=<span class="number">500</span>*gc1, xytext=<span class="number">500</span>*gc1 + [<span class="number">50</span>, <span class="number">-50</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*gc2, xytext=(<span class="number">0</span>, <span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_2$&#x27;</span>, xy=<span class="number">500</span>*gc2, xytext=<span class="number">500</span>*gc2 + [<span class="number">50</span>, <span class="number">0</span>])</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.xlim(<span class="number">-200</span>, <span class="number">1000</span>)</span><br><span class="line">plt.ylim(<span class="number">800</span>, <span class="number">-500</span>)</span><br><span class="line">plt.title(<span class="string">&quot;before transformation&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 기존 이미지(표준기저벡터 E 기준)를 A기준으로 기저변환해 저장하는 메서드 sp.ndimage.affine_transform()</span></span><br><span class="line">f1 = sp.ndimage.affine_transform(f, A) </span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.imshow(f1, cmap=mpl.cm.bone, alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_1$&#x27;</span>, xy=<span class="number">500</span>*e1, xytext=<span class="number">500</span>*e1 + [<span class="number">-100</span>,<span class="number">0</span>])</span><br><span class="line">plt.annotate(<span class="string">&#x27;&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=(<span class="number">0</span>,<span class="number">0</span>),arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;red&#x27;</span>))</span><br><span class="line">plt.annotate(<span class="string">&#x27;$g_2$&#x27;</span>, xy=<span class="number">500</span>*e2, xytext=<span class="number">500</span>*e2 + [<span class="number">0</span>, <span class="number">-50</span>])</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.xlim(<span class="number">-200</span>, <span class="number">1000</span>)</span><br><span class="line">plt.ylim(<span class="number">800</span>, <span class="number">-500</span>)</span><br><span class="line">plt.title(<span class="string">&quot;after transformation&quot;</span>,fontsize=<span class="number">30</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
 <p><img src="/img/output_11_0_1.png" alt="png"></p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -213,11 +207,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -259,7 +253,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -268,11 +262,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -335,6 +329,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

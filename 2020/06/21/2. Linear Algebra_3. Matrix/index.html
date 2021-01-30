@@ -55,8 +55,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -67,11 +66,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -163,35 +162,19 @@
 <p>Matrix는 연산 시, element-wise 연산을 기본적으로 수행한다. vector와 matrix간 연산도 마찬가지이다.</p>
 <p>단, 연산 시 행과 열의 갯수에 주의해야 한다. 벡터 혹은 행렬의 연산은 서로 행과 열의 갯수가 서로 맞물려야 연산이 가능하기 때문이다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]])</span><br><span class="line">v = np.array([[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">3</span>]])</span><br><span class="line">B = np.array([[<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],[<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>],[<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>]])</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>array([[220, 280, 340],
        [400, 520, 640],
-       [580, 760, 940]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [580, 760, 940]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[220, 280, 340],
        [400, 520, 640],
-       [580, 760, 940]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@v</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [580, 760, 940]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@v</span><br></pre></td></tr></table></figure>
 <pre><code>array([[14],
        [26],
-       [38]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 연산 시, 행과 열의 숫자가 맞지 않아 오류가 난 경우이다.</span></span><br><span class="line"><span class="comment"># v = (3,1), A = (3,3) 이므로 v@A는 연산수행이 불가능하다.</span></span><br><span class="line"></span><br><span class="line">v@A</span><br></pre></td></tr></table></figure>
-
-
+       [38]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 연산 시, 행과 열의 숫자가 맞지 않아 오류가 난 경우이다.</span></span><br><span class="line"><span class="comment"># v = (3,1), A = (3,3) 이므로 v@A는 연산수행이 불가능하다.</span></span><br><span class="line"></span><br><span class="line">v@A</span><br></pre></td></tr></table></figure>
 <pre><code>---------------------------------------------------------------------------
 
 ValueError                                Traceback (most recent call last)
@@ -202,85 +185,69 @@ ValueError                                Traceback (most recent call last)
 ----&gt; 4 v@A
 
 
-ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 3 is different from 1)</code></pre>
-<p>Matrix는 Associativity(결합법칙), Distributivity(분배법칙)이 성립한다. 단, <strong>교환법칙은 성립하지 않는다.</strong></p>
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 3 is different from 1)
+</code></pre><p>Matrix는 Associativity(결합법칙), Distributivity(분배법칙)이 성립한다. 단, <strong>교환법칙은 성립하지 않는다.</strong></p>
 <p>행렬의 곱셈은 곱하는 행렬의 순서를 바꾸는 교환 법칙이 성립하지 않는다. 그러나 덧셈에 대한 분배 법칙은 성립한다. </p>
-<p>$$<br>\begin{align}<br>AB \neq BA<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>A(B + C) = AB + AC<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>(A + B)C = AC + BC<br>\end{align}<br>$$</p>
-<p>$A$, $B$, $C$가 다음과 같을 때 위 법칙을 넘파이로 살펴보자.</p>
-<p>$$<br>\begin{align}<br>A = \begin{bmatrix} 1 &amp; 2 \ 3 &amp; 4 \end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>B = \begin{bmatrix} 5 &amp; 6 \ 7 &amp; 8 \end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>C = \begin{bmatrix} 9 &amp; 8 \ 7 &amp; 6 \end{bmatrix}<br>\end{align}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">B = np.array([[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line">C = np.array([[<span class="number">9</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">
+\begin{align}
+AB \neq BA  
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+A(B + C) = AB + AC  
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+(A + B)C = AC + BC  
+\end{align}</script><p>$A$, $B$, $C$가 다음과 같을 때 위 법칙을 넘파이로 살펴보자.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+C = \begin{bmatrix} 9 & 8 \\ 7 & 6 \end{bmatrix}
+\end{align}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">B = np.array([[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line">C = np.array([[<span class="number">9</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
 <p>$AB$ 와 $BA$의 값은 다음처럼 다른 값이 나오므로 교환법칙이 성립하지 않음을 알 수 있다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>array([[19, 22],
-       [43, 50]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [43, 50]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B@A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[23, 34],
-       [31, 46]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B == B@A</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [31, 46]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@B == B@A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[False, False],
-       [False, False]])</code></pre>
-<p>분배법칙은 다음과 같이 성립한다.</p>
+       [False, False]])
+</code></pre><p>분배법칙은 다음과 같이 성립한다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A @ (B + C) == A@B + A@C</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>array([[ True,  True],
-       [ True,  True]])</code></pre>
-<p>Identity Matrix(항등행렬)도 존재한다. Identity Matrix는 “N x N matrix which contains ‘1’ on the diagonal and ‘0’ everywhere else” 로 정의된다.</p>
+       [ True,  True]])
+</code></pre><p>Identity Matrix(항등행렬)도 존재한다. Identity Matrix는 “N x N matrix which contains ‘1’ on the diagonal and ‘0’ everywhere else” 로 정의된다.</p>
 <p>Numpy의 eye 메소드를 통해 구현 가능하다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.eye(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <pre><code>array([[1., 0., 0.],
        [0., 1., 0.],
-       [0., 0., 1.]])</code></pre>
-<p>이러한 identity matrix는 역행렬을 정의하는 데 활용된다.</p>
-<p>$$ AB = BA = I, B = A^{-1}$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [0., 0., 1.]])
+</code></pre><p>이러한 identity matrix는 역행렬을 정의하는 데 활용된다.</p>
+<script type="math/tex; mode=display">AB = BA = I, B = A^{-1}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A</span><br></pre></td></tr></table></figure>
 <pre><code>array([[1, 2],
-       [3, 4]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A_inverse = np.linalg.inv(A)</span><br><span class="line">A_inverse</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [3, 4]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A_inverse = np.linalg.inv(A)</span><br><span class="line">A_inverse</span><br></pre></td></tr></table></figure>
 <pre><code>array([[-2. ,  1. ],
-       [ 1.5, -0.5]])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@A_inverse</span><br></pre></td></tr></table></figure>
-
-
-
-
+       [ 1.5, -0.5]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A@A_inverse</span><br></pre></td></tr></table></figure>
 <pre><code>array([[1.00000000e+00, 1.11022302e-16],
-       [0.00000000e+00, 1.00000000e+00]])</code></pre>
-<p>이 밖에도 대칭행렬 등 다양한 행렬이 존재하며, 이후 행렬연산을 통한 Linear Equation problem 해결 및 problem solving 을 수행할 수 있다.</p>
+       [0.00000000e+00, 1.00000000e+00]])
+</code></pre><p>이 밖에도 대칭행렬 등 다양한 행렬이 존재하며, 이후 행렬연산을 통한 Linear Equation problem 해결 및 problem solving 을 수행할 수 있다.</p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -293,11 +260,11 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -339,7 +306,7 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -348,11 +315,11 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -415,6 +382,35 @@ ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

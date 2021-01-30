@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="2. 가장 큰 수문제 1) 1차 입력1234def solution(numbers):    a &#x3D; [str(digit) for digit in numbers]    answer &#x3D; &amp;#x27;&amp;#x27;.join(sorted(a, key&#x3D;lambda x:x[0], reverse&#x3D;True))    return answer   1solution([6,10,2])">
+    <meta name="description" content="2. 가장 큰 수문제 1) 1차 입력1234def solution(numbers):    a &#x3D; [str(digit) for digit in numbers]    answer &#x3D; &amp;#x27;&amp;#x27;.join(sorted(a, key&#x3D;lambda x:x[0], reverse&#x3D;True))    return answer 1solution([6,10,2]) &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. [프로그래머스 문제풀이] 2. 가장 큰 수">
 <meta property="og:url" content="http://example.com/2020/11/04/[programmers]%20sort_2/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="2. 가장 큰 수문제 1) 1차 입력1234def solution(numbers):    a &#x3D; [str(digit) for digit in numbers]    answer &#x3D; &amp;#x27;&amp;#x27;.join(sorted(a, key&#x3D;lambda x:x[0], reverse&#x3D;True))    return answer   1solution([6,10,2])">
+<meta property="og:description" content="2. 가장 큰 수문제 1) 1차 입력1234def solution(numbers):    a &#x3D; [str(digit) for digit in numbers]    answer &#x3D; &amp;#x27;&amp;#x27;.join(sorted(a, key&#x3D;lambda x:x[0], reverse&#x3D;True))    return answer 1solution([6,10,2]) &amp;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/output_24_0_1.jpeg">
 <meta property="og:image" content="http://example.com/img/output_25_0_2.png">
@@ -58,8 +58,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -70,11 +69,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -164,31 +163,20 @@
   <div class="content" itemprop="articleBody">
     <h1 id="2-가장-큰-수"><a href="#2-가장-큰-수" class="headerlink" title="2. 가장 큰 수"></a>2. 가장 큰 수</h1><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42746">문제</a></p>
 <h3 id="1-1차-입력"><a href="#1-1차-입력" class="headerlink" title="1) 1차 입력"></a>1) 1차 입력</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>], reverse=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">6</span>,<span class="number">10</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;6210&#39;</code></pre>
-<h4 id="입력결과-fail"><a href="#입력결과-fail" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">기댓값 &gt; <span class="string">&quot;9534330&quot;</span></span><br><span class="line">실행 결과 &gt; 실행한 결괏값 <span class="string">&quot;9533034&quot;</span>이(가) 기댓값 <span class="string">&quot;9534330&quot;</span>와(과) 다릅니다.</span><br></pre></td></tr></table></figure>
-
+<pre><code>&#39;6210&#39;
+</code></pre><h4 id="입력결과-fail"><a href="#입력결과-fail" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">기댓값 &gt; <span class="string">&quot;9534330&quot;</span></span><br><span class="line">실행 결과 &gt; 실행한 결괏값 <span class="string">&quot;9533034&quot;</span>이(가) 기댓값 <span class="string">&quot;9534330&quot;</span>와(과) 다릅니다.</span><br></pre></td></tr></table></figure>
 <h4 id="틀린-이유"><a href="#틀린-이유" class="headerlink" title="틀린 이유"></a>틀린 이유</h4><p>일의 자리 외의 자릿수가 같은 경우 등을 고려하지 못함</p>
 <h3 id="2-2차-입력"><a href="#2-2차-입력" class="headerlink" title="2) 2차 입력"></a>2) 2차 입력</h3><p>다중조건을 적용해,</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 가장 앞자리 비교해 내림차순 ex) 10 20 -&gt; 20 10</span><br><span class="line">    - key ==&gt;&gt; lambda x: int(x[0])</span><br><span class="line"></span><br><span class="line">2. 가장 앞자리가 같은데 단위가 다르다면, 낮은 단위의 숫자 먼저 ex) 60 6 -&gt; 6 60 / 120 12 -&gt; 12 120</span><br><span class="line">    - key ==&gt;&gt; lambda x: -len(x)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 가장 앞자리가 같은데 단위가 같다면, 숫자 그대로 비교</span><br><span class="line">    - key ==&gt;&gt; lambda x: x</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p><strong>참고</strong></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://dailyheumsi.tistory.com/67">lambda 다중조건</a></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    b = <span class="built_in">sorted</span>(a, key=<span class="keyword">lambda</span> x: (<span class="built_in">int</span>(x[<span class="number">0</span>]), -<span class="built_in">len</span>(x), x), reverse=<span class="literal">True</span>)</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>[&#39;9&#39;, &#39;5&#39;, &#39;3&#39;, &#39;34&#39;, &#39;30&#39;]</code></pre>
-<h4 id="입력결과-fail-1"><a href="#입력결과-fail-1" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p><strong>solution([3, 30, 34, 5, 9]) 케이스 통과 X</strong></p>
+<pre><code>[&#39;9&#39;, &#39;5&#39;, &#39;3&#39;, &#39;34&#39;, &#39;30&#39;]
+</code></pre><h4 id="입력결과-fail-1"><a href="#입력결과-fail-1" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p><strong>solution([3, 30, 34, 5, 9]) 케이스 통과 X</strong></p>
 <ul>
 <li>출력값 : 9 5 3 34 30 </li>
 <li>기대값 : 9 5 34 3 30</li>
@@ -197,58 +185,32 @@
 <h3 id="3-3차-입력"><a href="#3-3차-입력" class="headerlink" title="3) 3차 입력"></a>3) 3차 입력</h3><p>결국엔.. 다른 풀이 및 다른 라이브러리 참고해 다시 시도</p>
 <h5 id="변경사항"><a href="#변경사항" class="headerlink" title="[변경사항]"></a>[변경사항]</h5><h5 id="1-from-functools-import-cmp-to-key"><a href="#1-from-functools-import-cmp-to-key" class="headerlink" title="1. from functools import cmp_to_key"></a>1. from functools import cmp_to_key</h5><h5 id="2-새로운-비교함수를-커스터마이징해-sorted-의-key-로-적용"><a href="#2-새로운-비교함수를-커스터마이징해-sorted-의-key-로-적용" class="headerlink" title="2. 새로운 비교함수를 커스터마이징해 sorted 의 key 로 적용"></a>2. 새로운 비교함수를 커스터마이징해 sorted 의 key 로 적용</h5><h5 id="참고한-블로그"><a href="#참고한-블로그" class="headerlink" title="[참고한 블로그]"></a>[참고한 블로그]</h5><p>​    <a target="_blank" rel="noopener" href="https://eda-ai-lab.tistory.com/467">참고한 블로그</a>          <a target="_blank" rel="noopener" href="https://blackinkgj.github.io/python-custom-comparator/">참고한 블로그 2</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_func</span>(<span class="params">num1,num2</span>):</span></span><br><span class="line">    a = num1 + num2</span><br><span class="line">    b = num2 + num1</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>(a) &gt; <span class="built_in">int</span>(b):  <span class="comment"># 원래 순서대로 정렬</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">int</span>(a) == <span class="built_in">int</span>(b):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=functools.cmp_to_key(compare_func), reverse=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;9534330&#39;</code></pre>
-<h4 id="입력결과-fail-2"><a href="#입력결과-fail-2" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p>test case 11 실패</p>
+<pre><code>&#39;9534330&#39;
+</code></pre><h4 id="입력결과-fail-2"><a href="#입력결과-fail-2" class="headerlink" title="입력결과 : fail"></a>입력결과 : fail</h4><p>test case 11 실패</p>
 <h3 id="4-4차-입력"><a href="#4-4차-입력" class="headerlink" title="4) 4차 입력"></a>4) 4차 입력</h3><p><a target="_blank" rel="noopener" href="https://programmers.co.kr/questions/7482">테스트 케이스 질문 글 참고</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[test case <span class="number">11</span>]</span><br><span class="line">0, 0, 0, 0 -&gt; 0 이 되어야 함 (하지만, &#x27;0000&#x27;이 출력됨)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[test case <span class="number">11</span>을 통해 알아낸 <span class="string">&#x27;틀린 원인&#x27;</span>]</span><br><span class="line">숫자를 string으로 변환하는 이유는 정답(출력)크기 때문.</span><br><span class="line">결국 형식은 string이지만, 숫자를 출력해야하는 것.</span><br><span class="line">따라서,</span><br><span class="line"></span><br><span class="line">1. 정렬 -&gt; string 상태에서 진행 # str( ) &lt;- line 15</span><br><span class="line">2. 정답 -&gt; 정렬 결과를 int로 변환 # int( ) &lt;- line 16</span><br><span class="line">3. 출력 -&gt; 다시 string으로 변환 # str( ) &lt;- line 16</span><br><span class="line"></span><br><span class="line">을 거쳐야 하는 것</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_func</span>(<span class="params">num1,num2</span>):</span></span><br><span class="line">    a = num1 + num2</span><br><span class="line">    b = num2 + num1</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>(a) &gt; <span class="built_in">int</span>(b): </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>   <span class="comment"># 1 : sorted 시, num1이 더 큰 것임을 sorted에 전달 (먼저 전달 받은 것이 큼)</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">int</span>(a) == <span class="built_in">int</span>(b):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>   <span class="comment"># 0 : sorted 시, num1 과 num2 가 같음을 sorted에 전달</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>   <span class="comment"># -1 : sorted 시, num2가 더 큰 것임을 sorted에 전달</span></span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span>(<span class="params">numbers</span>):</span></span><br><span class="line">    a = [<span class="built_in">str</span>(digit) <span class="keyword">for</span> digit <span class="keyword">in</span> numbers]</span><br><span class="line">    answer = <span class="built_in">str</span>(<span class="built_in">int</span>(<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">sorted</span>(a, key=functools.cmp_to_key(compare_func), reverse=<span class="literal">True</span>))))</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;0&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;9534330&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">6</span>,<span class="number">60</span>,<span class="number">67</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;67660&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>&#39;0&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">3</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">5</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;9534330&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solution([<span class="number">6</span>,<span class="number">60</span>,<span class="number">67</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;67660&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key_ex.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_24_0_1.jpeg" alt="jpeg"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_25_0_2.png" alt="png"></p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -261,11 +223,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -307,7 +269,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -316,11 +278,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -383,6 +345,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

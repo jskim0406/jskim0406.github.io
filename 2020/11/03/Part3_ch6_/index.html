@@ -55,8 +55,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -67,11 +66,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -163,7 +162,7 @@
 <li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/">https://leetcode.com/problems/valid-palindrome/</a></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</span><br><span class="line"></span><br><span class="line">Note: For the purpose of this problem, we define empty string as valid palindrome.</span><br><span class="line"></span><br><span class="line">&lt;Example 1&gt;</span><br><span class="line"></span><br><span class="line">Input: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">Output: true</span><br><span class="line"></span><br><span class="line">&lt;Example 2&gt;</span><br><span class="line"></span><br><span class="line">Input: &quot;race a car&quot;</span><br><span class="line">Output: false</span><br><span class="line"> </span><br><span class="line">Constraints: s consists only of printable ASCII characters.</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -172,42 +171,32 @@
 <th>슬라이싱(isalnum())</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>284ms</td>
 <td>36ms</td>
 <td>48ms</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>[참고사항]</p>
 <ol>
 <li><p><strong>문자열을 변환해 리스트에 저장하는 시간이 많이 걸림.</strong></p>
-<pre><code> 따라서, 문자열을 리스트에 넣지 않고, 그대로 slicing해 비교하는 방법이 시간단축에 좋음( a == a[::-1] )</code></pre>
-</li>
+<pre><code> 따라서, 문자열을 리스트에 넣지 않고, 그대로 slicing해 비교하는 방법이 시간단축에 좋음( a == a[::-1] )
+</code></pre></li>
 <li><p><strong>그 외, 필터링 및 전처리에 ‘re, char.isalnum(), char.lower() 등 활용’</strong></p>
 </li>
 </ol>
 <h4 id="1-1-char-isalnum-문자열-중-숫자-문자인-경우만-True로-반환하는-함수"><a href="#1-1-char-isalnum-문자열-중-숫자-문자인-경우만-True로-반환하는-함수" class="headerlink" title="1-1) char.isalnum() : 문자열 중 숫자 + 문자인 경우만 True로 반환하는 함수"></a>1-1) char.isalnum() : 문자열 중 숫자 + 문자인 경우만 True로 반환하는 함수</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot; A 23n&quot;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">    print(char.isalnum(),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>False True False True True True </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        strs = []</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 제약조건 상, 문자만 판단하니, 모두 문자인 경우만 선별(True)</span></span><br><span class="line">            <span class="keyword">if</span> char.isalnum():</span><br><span class="line">                <span class="comment"># 제약조건 상, 대/소문자 구분이 없으므로, 모두 소문자로 전처리</span></span><br><span class="line">                <span class="comment">## 여기서 시간이 많이 걸림!</span></span><br><span class="line">                strs.append(char.lower())</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(strs) &gt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> strs.pop(<span class="number">0</span>) != strs.pop():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code>False True False True True True 
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        strs = []</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 제약조건 상, 문자만 판단하니, 모두 문자인 경우만 선별(True)</span></span><br><span class="line">            <span class="keyword">if</span> char.isalnum():</span><br><span class="line">                <span class="comment"># 제약조건 상, 대/소문자 구분이 없으므로, 모두 소문자로 전처리</span></span><br><span class="line">                <span class="comment">## 여기서 시간이 많이 걸림!</span></span><br><span class="line">                strs.append(char.lower())</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(strs) &gt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> strs.pop(<span class="number">0</span>) != strs.pop():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;cac&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h2 id="2-슬라이싱-활용"><a href="#2-슬라이싱-활용" class="headerlink" title="2) 슬라이싱 활용"></a>2) 슬라이싱 활용</h2><ul>
+<pre><code>True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><h2 id="2-슬라이싱-활용"><a href="#2-슬라이싱-활용" class="headerlink" title="2) 슬라이싱 활용"></a>2) 슬라이싱 활용</h2><ul>
 <li>슬라이싱 : 매우 속도가 빠름</li>
 <li>문자열을 리스트 등으로 변환하면, 연산 시간이 많이 소요되므로, 문자열 그대로 슬라이싱 해 푸는 것이 바람직</li>
 </ul>
@@ -216,36 +205,21 @@
 <li>36ms</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        <span class="comment"># 소문자로 전처리</span></span><br><span class="line">        s = s.lower()</span><br><span class="line">        <span class="comment"># 정규식으로 불필요한 문자 필터링</span></span><br><span class="line">        s = re.sub(<span class="string">&#x27;[^a-z0-9]&#x27;</span>,<span class="string">&#x27;&#x27;</span>,s)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> s == s[::<span class="number">-1</span>] <span class="comment"># 슬라이싱</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.isPalindrome(<span class="string">&quot;cac&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h4 id="2-2-isalnum-lower-전처리-슬라이싱"><a href="#2-2-isalnum-lower-전처리-슬라이싱" class="headerlink" title="2-2) isalnum(), lower() 전처리 + 슬라이싱"></a>2-2) isalnum(), lower() 전처리 + 슬라이싱</h4><ul>
+<pre><code>True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><h4 id="2-2-isalnum-lower-전처리-슬라이싱"><a href="#2-2-isalnum-lower-전처리-슬라이싱" class="headerlink" title="2-2) isalnum(), lower() 전처리 + 슬라이싱"></a>2-2) isalnum(), lower() 전처리 + 슬라이싱</h4><ul>
 <li>leetcode의 기본 라이브러리로 import re 있음(다른 플랫폼에선 확인해봐야함)</li>
 <li>48ms</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        strs = []</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            <span class="comment"># 제약조건 상, 문자만 판단하니, 모두 문자인 경우만 선별(True)</span></span><br><span class="line">            <span class="keyword">if</span> char.isalnum():</span><br><span class="line">                <span class="comment"># 제약조건 상, 대/소문자 구분이 없으므로, 모두 소문자로 전처리</span></span><br><span class="line">                strs.append(char.lower())</span><br><span class="line">        <span class="keyword">if</span> strs != strs[::<span class="number">-1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.isPalindrome(<span class="string">&quot;car&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>False</code></pre>
-<h1 id="문제-2-문자열-뒤집기"><a href="#문제-2-문자열-뒤집기" class="headerlink" title="문제 2. 문자열 뒤집기"></a>문제 2. 문자열 뒤집기</h1><ul>
+<pre><code>False
+</code></pre><h1 id="문제-2-문자열-뒤집기"><a href="#문제-2-문자열-뒤집기" class="headerlink" title="문제 2. 문자열 뒤집기"></a>문제 2. 문자열 뒤집기</h1><ul>
 <li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-string/">https://leetcode.com/problems/reverse-string/</a></li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -254,12 +228,15 @@
 <th>슬라이싱(새 변수 할당X)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>208ms</td>
 <td>196ms</td>
 <td>208ms</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>[참고사항]</p>
 <ol>
 <li><p><strong>리스트 자료형 내장함수(list.reverse()등)가 역시나 가장 시간복잡도가 낮다</strong></p>
@@ -268,29 +245,16 @@
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Write a function that reverses a string. The input string is given as an array of characters char[].</span><br><span class="line"></span><br><span class="line">Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</span><br><span class="line"></span><br><span class="line">You may assume all the characters consist of printable ascii characters.</span><br><span class="line"> </span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input: [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">Output: [&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br><span class="line"></span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input: [&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">Output: [&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure>
-
 <h3 id="1-투-포인터를-이용한-스왑"><a href="#1-투-포인터를-이용한-스왑" class="headerlink" title="1) 투 포인터를 이용한 스왑"></a>1) 투 포인터를 이용한 스왑</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    </span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(list_string)<span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        list_string[left], list_string[right] = list_string[right], list_string[left]</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</code></pre>
-<h3 id="2-pythonic"><a href="#2-pythonic" class="headerlink" title="2) pythonic"></a>2) pythonic</h3><ul>
+<pre><code>[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
+</code></pre><h3 id="2-pythonic"><a href="#2-pythonic" class="headerlink" title="2) pythonic"></a>2) pythonic</h3><ul>
 <li>list.reverse()</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    list_string.reverse()</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]</code></pre>
-<h3 id="3-slicing"><a href="#3-slicing" class="headerlink" title="3) slicing"></a>3) slicing</h3><ul>
+<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]
+</code></pre><h3 id="3-slicing"><a href="#3-slicing" class="headerlink" title="3) slicing"></a>3) slicing</h3><ul>
 <li>문제에서, 공간복잡도를 O(1)로 주어 변수 할당에 제약이 있음<ul>
 <li>즉, 주어진 리스트 s를 새로운 변수로 할당해 공간을 만들지 말라는 말!<ul>
 <li>이러면, 다음과 같은 슬라이싱은 할 수 없음 (새로운 변수가 할당되기 때문)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = s[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure></li>
@@ -305,15 +269,9 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;l&#x27;</span>,<span class="string">&#x27;o&#x27;</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_string</span>(<span class="params">list_string</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    list_string[:] = list_string[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reverse_string(a)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]</code></pre>
-<h1 id="문제-3-가장-흔한-단어"><a href="#문제-3-가장-흔한-단어" class="headerlink" title="문제 3. 가장 흔한 단어"></a>문제 3. 가장 흔한 단어</h1><ul>
+<pre><code>[&#39;o&#39;, &#39;l&#39;, &#39;l&#39;, &#39;e&#39;, &#39;h&#39;]
+</code></pre><h1 id="문제-3-가장-흔한-단어"><a href="#문제-3-가장-흔한-단어" class="headerlink" title="문제 3. 가장 흔한 단어"></a>문제 3. 가장 흔한 단어</h1><ul>
 <li>leetcode : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/most-common-word">https://leetcode.com/problems/most-common-word</a></li>
 </ul>
 <p>Given a paragraph and a list of banned words, return the most frequent word that is not in the list of banned words.  It is guaranteed there is at least one word that isn’t banned, and that the answer is unique.</p>
@@ -327,17 +285,17 @@
 <li>Counter().most_common(1)[0][0] 으로 가장 빈도수 높은 string(key)를 얻어낼 것</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mostCommonWord</span>(<span class="params">self, paragraph: <span class="built_in">str</span>, banned</span>):</span></span><br><span class="line">        <span class="comment"># words는 banned아닌 단어들을 split해서 element가 string인 list로 만들 것</span></span><br><span class="line">        <span class="comment"># 데이터 클렌징(전처리) 실시</span></span><br><span class="line">            <span class="comment"># 1. paragraph에서 단어만 뽑아내기 위해, &#x27;,&#x27;등은 공백으로 치환</span></span><br><span class="line">            <span class="comment"># 2. 공백 기준으로 단어 split</span></span><br><span class="line">            <span class="comment"># 3. 대소문자 구분 없으므로 모두 소문자로 통일</span></span><br><span class="line">        words = [word <span class="keyword">for</span> word <span class="keyword">in</span> re.sub(<span class="string">r&#x27;[^a-zA-Z0-9]+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,paragraph).lower().split() <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> banned]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># words에서 Counter를 활용해 빈도 수 체크할 것</span></span><br><span class="line">        counts = Counter(words)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 가장 높은 빈도수의 단어 뽑아낼 것</span></span><br><span class="line">        <span class="keyword">return</span> counts.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sol = Solution()</span><br><span class="line">sol.mostCommonWord(<span class="string">&quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;</span>,[<span class="string">&quot;hit&quot;</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;ball&#39;</code></pre>
-
+<pre><code>&#39;ball&#39;
+</code></pre>
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -350,11 +308,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -396,7 +354,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -405,11 +363,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -472,6 +430,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

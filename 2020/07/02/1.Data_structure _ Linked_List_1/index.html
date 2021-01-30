@@ -56,8 +56,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -68,11 +67,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -172,12 +171,11 @@
 </ul>
 </li>
 </ul>
-<br>
-* 일반적인 링크드 리스트 형태
-
-<img src="https://www.fun-coding.org/00_Images/linkedlist.png" />
-(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
-
+<p><br></p>
+<ul>
+<li>일반적인 링크드 리스트 형태</li>
+</ul>
+<p><img src="https://www.fun-coding.org/00_Images/linkedlist.png" /><br>(출처: wikipedia, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</p>
 <ul>
 <li>장점<ul>
 <li>미리 데이터 공간을 미리 할당하지 않아도 됨<ul>
@@ -197,53 +195,38 @@
 <li>class 사용</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">print(node1.data,node1.<span class="built_in">next</span>,sep=<span class="string">&#x27;\n\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>1
 
-None</code></pre>
-<h1 id="2-Linked-list-객체-간-연결"><a href="#2-Linked-list-객체-간-연결" class="headerlink" title="2. Linked list 객체 간 연결"></a>2. Linked list 객체 간 연결</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">node2 = Node(<span class="number">2</span>)</span><br><span class="line">node1.<span class="built_in">next</span> = node2</span><br><span class="line"></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    print(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">print(node.data)</span><br></pre></td></tr></table></figure>
-
+None
+</code></pre><h1 id="2-Linked-list-객체-간-연결"><a href="#2-Linked-list-객체-간-연결" class="headerlink" title="2. Linked list 객체 간 연결"></a>2. Linked list 객체 간 연결</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">node2 = Node(<span class="number">2</span>)</span><br><span class="line">node1.<span class="built_in">next</span> = node2</span><br><span class="line"></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    print(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">print(node.data)</span><br></pre></td></tr></table></figure>
 <pre><code>1
-2</code></pre>
-<h1 id="3-Linked-list-객체-추가"><a href="#3-Linked-list-객체-추가" class="headerlink" title="3. Linked list 객체 추가"></a>3. Linked list 객체 추가</h1><ul>
+2
+</code></pre><h1 id="3-Linked-list-객체-추가"><a href="#3-Linked-list-객체-추가" class="headerlink" title="3. Linked list 객체 추가"></a>3. Linked list 객체 추가</h1><ul>
 <li>마지막 node에 추가</li>
 <li>add 함수 구현</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 마지막 node 탐색</span></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 2. 마지막node.next = 새로운 객체</span></span><br><span class="line">node.<span class="built_in">next</span> = Node(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 순회출력으로 추가된 것 확인</span></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    print(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">print(node.data)</span><br></pre></td></tr></table></figure>
-
 <pre><code>1
 2
-3</code></pre>
-<h1 id="4-node와-node-사이-객체-추가"><a href="#4-node와-node-사이-객체-추가" class="headerlink" title="4. node와 node 사이 객체 추가"></a>4. node와 node 사이 객체 추가</h1><ul>
+3
+</code></pre><h1 id="4-node와-node-사이-객체-추가"><a href="#4-node와-node-사이-객체-추가" class="headerlink" title="4. node와 node 사이 객체 추가"></a>4. node와 node 사이 객체 추가</h1><ul>
 <li>2.5를 2와 3사이 추가</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    print(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">print(node.data)</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_between = Node(<span class="number">2.5</span>)</span><br><span class="line">node_between.data</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># node 추가 및 경로 조정</span></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"></span><br><span class="line">search = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> search:</span><br><span class="line">    <span class="keyword">if</span> node.data == <span class="number">2</span>:</span><br><span class="line">        search = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node = node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">keep = node.<span class="built_in">next</span> <span class="comment">#3을 가리키는 주소를 keep -&gt; 2.5의 next로 지정할 것</span></span><br><span class="line">node.<span class="built_in">next</span> = node_between</span><br><span class="line">node_between.<span class="built_in">next</span> = keep</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 순회출력으로 확인</span></span><br><span class="line">head = node1</span><br><span class="line">node = head</span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    print(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line">print(node.data)</span><br></pre></td></tr></table></figure>
-
 <pre><code>1
 2
 2.5
-3</code></pre>
-<h1 id="5-종합"><a href="#5-종합" class="headerlink" title="5. 종합"></a>5. 종합</h1><ul>
+3
+</code></pre><h1 id="5-종합"><a href="#5-종합" class="headerlink" title="5. 종합"></a>5. 종합</h1><ul>
 <li>클래스 1 : 객체 생성</li>
 <li>클래스 2 : 추가, 순회출력 기능</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line"><span class="comment"># 객체 추가, 순회출력 기능</span></span><br><span class="line"><span class="comment"># 자체적으로 첫 노드를 설정하도록 해야함. 이를 위해 Node 클래스를 활용</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manage</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.head = Node(data)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">desc</span>(<span class="params">self</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            print(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        print(node.data)</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">testnode = Manage(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10</span>+<span class="number">2</span>):</span><br><span class="line">    testnode.add(i)</span><br><span class="line"></span><br><span class="line">testnode.desc()</span><br></pre></td></tr></table></figure>
-
 <pre><code>1
 2
 3
@@ -254,10 +237,16 @@ None</code></pre>
 8
 9
 10
-11</code></pre>
-
+11
+</code></pre>
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -270,11 +259,11 @@ None</code></pre>
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -316,7 +305,7 @@ None</code></pre>
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -325,11 +314,11 @@ None</code></pre>
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -392,6 +381,35 @@ None</code></pre>
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

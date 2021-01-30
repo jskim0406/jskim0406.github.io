@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if  복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1">
+    <meta name="description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if 복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1  참">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6. Part3_ch6 보충6_list comprehension">
 <meta property="og:url" content="http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if  복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1">
+<meta property="og:description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if 복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1  참">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-05T07:27:30.851Z">
 <meta property="article:modified_time" content="2020-11-05T07:28:21.159Z">
@@ -55,8 +55,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -67,11 +66,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -169,48 +168,32 @@
 </ul>
 <p>[조건]</p>
 <ul>
-<li><p>단일 조건 : 표현1 for loop if</p>
-</li>
+<li>단일 조건 : 표현1 for loop if</li>
 <li><p>복수 조건 : 표현1 if 조건1 else 표현2 for loop</p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay08_ListComprehension.md">참고 1</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://wikidocs.net/46742">참고 2</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://wikidocs.net/46742">참고 2</a></li>
 </ul>
 <h3 id="1-단일-반복-for-loop"><a href="#1-단일-반복-for-loop" class="headerlink" title="1) 단일 반복 : for loop"></a>1) 단일 반복 : for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x+<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[11, 12, 13]</code></pre>
-<h3 id="2-다중-반복-multi-for-loop"><a href="#2-다중-반복-multi-for-loop" class="headerlink" title="2) 다중 반복 :  multi for loop"></a>2) 다중 반복 :  multi for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>]]</span><br><span class="line">array</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 8]]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [1,2,3,4,5,6,7,8,9] 로 만들기</span></span><br><span class="line"><span class="comment"># [ for문1 for문2 ]처럼, 다중 for문일 때, 순서는 for문1 -&gt; for문2 로 간다. </span></span><br><span class="line">a = [x <span class="keyword">for</span> row <span class="keyword">in</span> array <span class="keyword">for</span> x <span class="keyword">in</span> row]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 8]</code></pre>
-<h3 id="3-단일-조건-표현1-for-loop-if"><a href="#3-단일-조건-표현1-for-loop-if" class="headerlink" title="3) 단일 조건 : 표현1 for loop if"></a>3) 단일 조건 : 표현1 for loop if</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> x%<span class="number">2</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 9, 25, 49, 81]</code></pre>
-<h3 id="4-복수-조건-표현1-if-조건1-else-표현2-for-loop"><a href="#4-복수-조건-표현1-if-조건1-else-표현2-for-loop" class="headerlink" title="4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop"></a>4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">if</span> x%<span class="number">2</span> <span class="keyword">else</span> x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 9, 4, 25, 6, 49, 8, 81, 10]</code></pre>
-
+<pre><code>[11, 12, 13]
+</code></pre><h3 id="2-다중-반복-multi-for-loop"><a href="#2-다중-반복-multi-for-loop" class="headerlink" title="2) 다중 반복 :  multi for loop"></a>2) 다중 반복 :  multi for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">8</span>]]</span><br><span class="line">array</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 8]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># [1,2,3,4,5,6,7,8,9] 로 만들기</span></span><br><span class="line"><span class="comment"># [ for문1 for문2 ]처럼, 다중 for문일 때, 순서는 for문1 -&gt; for문2 로 간다. </span></span><br><span class="line">a = [x <span class="keyword">for</span> row <span class="keyword">in</span> array <span class="keyword">for</span> x <span class="keyword">in</span> row]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 8]
+</code></pre><h3 id="3-단일-조건-표현1-for-loop-if"><a href="#3-단일-조건-표현1-for-loop-if" class="headerlink" title="3) 단일 조건 : 표현1 for loop if"></a>3) 단일 조건 : 표현1 for loop if</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> x%<span class="number">2</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 9, 25, 49, 81]
+</code></pre><h3 id="4-복수-조건-표현1-if-조건1-else-표현2-for-loop"><a href="#4-복수-조건-표현1-if-조건1-else-표현2-for-loop" class="headerlink" title="4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop"></a>4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x**<span class="number">2</span> <span class="keyword">if</span> x%<span class="number">2</span> <span class="keyword">else</span> x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 9, 4, 25, 6, 49, 8, 81, 10]
+</code></pre>
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -223,11 +206,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -269,7 +252,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -278,11 +261,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -345,6 +328,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

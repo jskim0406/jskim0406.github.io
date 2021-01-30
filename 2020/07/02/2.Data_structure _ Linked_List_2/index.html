@@ -61,8 +61,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -73,11 +72,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -177,12 +176,11 @@
 </ul>
 </li>
 </ul>
-<br>
-* 일반적인 링크드 리스트 형태
-
-<img src="https://www.fun-coding.org/00_Images/linkedlist.png" />
-(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
-
+<p><br></p>
+<ul>
+<li>일반적인 링크드 리스트 형태</li>
+</ul>
+<p><img src="https://www.fun-coding.org/00_Images/linkedlist.png" /><br>(출처: wikipedia, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</p>
 <ul>
 <li>장점<ul>
 <li>미리 데이터 공간을 미리 할당하지 않아도 됨<ul>
@@ -204,25 +202,14 @@
 <li>중간노드 삭제 (경우 3)</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/Github upload/0.Algorithms_daily/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;Linked_List 필기1.PNG&quot;</span>, width=<span class="number">500</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_2_0_2-1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data,<span class="built_in">next</span>=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">        </span><br><span class="line"><span class="comment"># 객체 추가, 순회출력 기능</span></span><br><span class="line"><span class="comment"># 자체적으로 첫 노드를 설정하도록 해야함. 이를 위해 Node 클래스를 활용</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manage</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        self.head = Node(data)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">desc</span>(<span class="params">self</span>):</span></span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">            print(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        print(node.data)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span>(<span class="params">self,data</span>):</span></span><br><span class="line">        <span class="comment"># 헤드가 삭제할 노드라면</span></span><br><span class="line">        <span class="keyword">if</span> self.head.data == data:</span><br><span class="line">            <span class="comment"># 1) 헤드 변경</span></span><br><span class="line">            temp = self.head</span><br><span class="line">            self.head = self.head.<span class="built_in">next</span>  <span class="comment">#헤드 = 다음노드로 지정</span></span><br><span class="line">            <span class="comment"># 2) 노드 삭제</span></span><br><span class="line">            <span class="keyword">del</span> temp</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 중간, 마지막 노드가 삭제할 노드라면</span></span><br><span class="line">        <span class="comment"># 중간 노드 삭제 시 : 삭제할 노드의 앞 노드 next가 다음 노드를 가리키고</span></span><br><span class="line">        <span class="comment"># 마지막 노드 삭제 시 : 앞 노드의 next가 None값이 되어야함</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = self.head</span><br><span class="line">            <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">                <span class="comment"># 중간, 마지막 노드가 삭제할 노드라면,</span></span><br><span class="line">                <span class="keyword">if</span> node.<span class="built_in">next</span>.data == data:</span><br><span class="line">                    <span class="comment"># 1) 연결 변환</span></span><br><span class="line">                    temp = node.<span class="built_in">next</span></span><br><span class="line">                    node.<span class="built_in">next</span> = node.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">                    <span class="comment"># 2) 노드 삭제</span></span><br><span class="line">                    <span class="keyword">del</span> temp</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 헤드노드 생성해 확인</span></span><br><span class="line"></span><br><span class="line">testnode_1 = Manage(<span class="number">0</span>)</span><br><span class="line">testnode_1.desc()</span><br></pre></td></tr></table></figure>
-
-<pre><code>0</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># head를 삭제 (경우 1)</span></span><br><span class="line"></span><br><span class="line">testnode_1.delete(<span class="number">0</span>)</span><br><span class="line">testnode_1.head</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># head를 삭제 (경우 1)</span></span><br><span class="line"></span><br><span class="line">testnode_1.delete(<span class="number">0</span>)</span><br><span class="line">testnode_1.head</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 다시 노드 생성</span></span><br><span class="line"></span><br><span class="line">testnode_2 = Manage(<span class="number">0</span>)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
-
-<pre><code>0</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 여러개의 노드 생성</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    testnode_2.add(i)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
-
+<pre><code>0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 여러개의 노드 생성</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    testnode_2.add(i)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
 <pre><code>0
 1
 2
@@ -232,12 +219,9 @@
 6
 7
 8
-9</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 중간 노드를 삭제 (경우 2)</span></span><br><span class="line">testnode_2.delete(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-
-
+9
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 중간 노드를 삭제 (경우 2)</span></span><br><span class="line">testnode_2.delete(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
-
 <pre><code>0
 1
 2
@@ -246,9 +230,8 @@
 6
 7
 8
-9</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 마지막 노드를 삭제 (경우 3)</span></span><br><span class="line">testnode_2.delete(<span class="number">9</span>)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
-
+9
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 마지막 노드를 삭제 (경우 3)</span></span><br><span class="line">testnode_2.delete(<span class="number">9</span>)</span><br><span class="line">testnode_2.desc()</span><br></pre></td></tr></table></figure>
 <pre><code>0
 1
 2
@@ -256,34 +239,27 @@
 5
 6
 7
-8</code></pre>
-<h1 id="7-Double-Linked-List"><a href="#7-Double-Linked-List" class="headerlink" title="7. Double Linked List"></a>7. Double Linked List</h1><ul>
+8
+</code></pre><h1 id="7-Double-Linked-List"><a href="#7-Double-Linked-List" class="headerlink" title="7. Double Linked List"></a>7. Double Linked List</h1><ul>
 <li>더블 링크드 리스트(Doubly linked list) 기본 구조 <ul>
 <li>이중 연결 리스트라고도 함</li>
-<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<br>
-<img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" />
-(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
-
-
-</li>
+<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<br><br><br><img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" /><br>(출처: wikipedia, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/0. 데이터사이언스 스쿨/Study/0.Algorithms/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;DoubleLL_1.PNG&quot;</span>, width=<span class="number">500</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_12_0_2-2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML </span><br><span class="line">PATH = <span class="string">&quot;/Users/kimjeongseob/Desktop/0. 데이터사이언스 스쿨/Study/0.Algorithms/기타 이미지/&quot;</span></span><br><span class="line">Image(filename = PATH + <span class="string">&quot;DoubleLL_2.PNG&quot;</span>, width=<span class="number">1000</span>, height=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
 <p><img src="/img/output_13_0_2-3.png" alt="png"></p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -296,11 +272,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -342,7 +318,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -351,11 +327,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -418,6 +394,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

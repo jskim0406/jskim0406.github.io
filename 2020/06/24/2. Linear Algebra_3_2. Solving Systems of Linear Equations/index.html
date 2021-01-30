@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. 선형 연립방정식을 활용한 예측모델선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다. $$\begin{align}\begin{matrix}x_{11} w_1 &amp; + ;&amp; x_{12} w_2   &amp;; + \cdots + ;&amp; x_{1N} w_N &amp;; &#x3D; ;&amp; y_1 \x_">
+    <meta name="description" content="1. 선형 연립방정식을 활용한 예측모델선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다.  \begin{align} \begin{matrix} x_{11} w_1 &amp; + \;&amp; x_{12} w_2   &amp;\; + \cdots + \;&amp; x_{1N} w_N &amp;\; &#x3D; \;&amp; y_1 \\ x_{21} w_1 &amp; + \;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_3_2. Solving Systems of Linear Equations">
 <meta property="og:url" content="http://example.com/2020/06/24/2.%20Linear%20Algebra_3_2.%20Solving%20Systems%20of%20Linear%20Equations/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. 선형 연립방정식을 활용한 예측모델선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다. $$\begin{align}\begin{matrix}x_{11} w_1 &amp; + ;&amp; x_{12} w_2   &amp;; + \cdots + ;&amp; x_{1N} w_N &amp;; &#x3D; ;&amp; y_1 \x_">
+<meta property="og:description" content="1. 선형 연립방정식을 활용한 예측모델선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다.  \begin{align} \begin{matrix} x_{11} w_1 &amp; + \;&amp; x_{12} w_2   &amp;\; + \cdots + \;&amp; x_{1N} w_N &amp;\; &#x3D; \;&amp; y_1 \\ x_{21} w_1 &amp; + \;&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-24T14:26:08.577Z">
 <meta property="article:modified_time" content="2020-06-25T02:38:59.723Z">
@@ -55,8 +55,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -67,11 +66,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -160,20 +159,30 @@
 
   <div class="content" itemprop="articleBody">
     <h2 id="1-선형-연립방정식을-활용한-예측모델"><a href="#1-선형-연립방정식을-활용한-예측모델" class="headerlink" title="1. 선형 연립방정식을 활용한 예측모델"></a>1. 선형 연립방정식을 활용한 예측모델</h2><p>선형 연립방정식의 문제를 해결하는 것은 선형 예측모델의 가중치 벡터를 구하는 것과 같습니다.</p>
-<p>$$<br>\begin{align}<br>\begin{matrix}<br>x_{11} w_1 &amp; + ;&amp; x_{12} w_2   &amp;; + \cdots + ;&amp; x_{1N} w_N &amp;; = ;&amp; y_1 \<br>x_{21} w_1 &amp; + ;&amp; x_{22} w_2   &amp;; + \cdots + ;&amp; x_{2N} w_N &amp;; = ;&amp; y_2 \<br>\vdots;;; &amp;   &amp; \vdots;;; &amp;                &amp; \vdots;;; &amp;     &amp; ;\vdots \<br>x_{N1} w_1 &amp; + ;&amp; x_{N2} w_2   &amp;; + \cdots + ;&amp; x_{NN} w_N &amp;; = ;&amp; y_N \<br>\end{matrix}<br>\end{align}<br>$$</p>
-<p>위의 식은 선형 연립방정식입니다. 이는 N개의 목표값(y)을 출력하는 함수의 집합으로도 볼 수 있습니다. </p>
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{matrix}
+x_{11} w_1 & + \;& x_{12} w_2   &\; + \cdots + \;& x_{1N} w_N &\; = \;& y_1 \\
+x_{21} w_1 & + \;& x_{22} w_2   &\; + \cdots + \;& x_{2N} w_N &\; = \;& y_2 \\
+\vdots\;\;\; &   & \vdots\;\;\; &                & \vdots\;\;\; &     & \;\vdots \\
+x_{N1} w_1 & + \;& x_{N2} w_2   &\; + \cdots + \;& x_{NN} w_N &\; = \;& y_N \\
+\end{matrix}
+\end{align}</script><p>위의 식은 선형 연립방정식입니다. 이는 N개의 목표값(y)을 출력하는 함수의 집합으로도 볼 수 있습니다. </p>
 <p>여기서 x는 목표값을 예측하는 데 활용될 데이터를 나타냅니다. 여기서 필요한 것은, x라는 데이터(input)을 받으면 합리적인 목표값(y)를 출력해내는 함수를 만들어내는 것입니다. </p>
 <p>그리고 결국, 이 함수는 아래와 같은 행렬과 벡터의 연산으로 나타낼 수 있습니다.</p>
-<p>$$<br>\begin{align}<br>Xw = y<br>\end{align}<br>$$</p>
-<p>input(x, 데이터)과 output(y, 예측값)을 이어주는 관계를 나타내는 모델을 찾아야 합니다. 이를 위해 우리가 찾아야 하는 것은 최적의 $w$ 입니다.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+Xw = y
+\end{align}</script><p>input(x, 데이터)과 output(y, 예측값)을 이어주는 관계를 나타내는 모델을 찾아야 합니다. 이를 위해 우리가 찾아야 하는 것은 최적의 $w$ 입니다.</p>
 <p>$w$는 특징행렬(X)의 역행렬을 통해 다음과 같이 구할 수 있습니다.</p>
-<p>$$<br>\begin{align}<br>w = X^{-1} y<br>\end{align}<br>$$</p>
-<h2 id="2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성"><a href="#2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성" class="headerlink" title="2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)"></a>2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)</h2><p>Python의 패키지 중 하나인 scikit-learn 패키지는 머신러닝을 공부하다보면 적어도 한 번쯤은 들어보셨을만큼, 유명하고, 또 그 만큼 유용한 패키지입니다. scikit-learn은 다양한 데이터셋을 제공하기도 하는 데, 그 중 보스턴 집값과 다양한 feature를 묶어놓은 데이터셋을 제공합니다.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+w = X^{-1} y  
+\end{align}</script><h2 id="2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성"><a href="#2-선형-연립방정식을-활용한-예측모델-예제-보스턴-집값-예측모델-생성" class="headerlink" title="2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)"></a>2. 선형 연립방정식을 활용한 예측모델 : 예제 (보스턴 집값 예측모델 생성)</h2><p>Python의 패키지 중 하나인 scikit-learn 패키지는 머신러닝을 공부하다보면 적어도 한 번쯤은 들어보셨을만큼, 유명하고, 또 그 만큼 유용한 패키지입니다. scikit-learn은 다양한 데이터셋을 제공하기도 하는 데, 그 중 보스턴 집값과 다양한 feature를 묶어놓은 데이터셋을 제공합니다.</p>
 <p>앞에서 간단히 살펴본 선형 연립방정식을 활용해, 보스턴 집값을 예측하는 모델을 만들어보려 합니다.</p>
 <p>보스턴 집값 문제를 선형 예측모델 $Ax=\hat{b}$ 로 놓고, 가중치 벡터 $x$ 를 구해, 예측모델을 완성해보겠습니다.</p>
 <p>문제를 간단히 하기 위해, 입력 데이터를 범죄율(CRIM), 공기 오염도(NOX), 방의 개수(RM), 오래된 정도(AGE)의 4종류로 제한해서 진행해보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line">boston = load_boston()</span><br><span class="line">X = boston.data</span><br><span class="line">y = boston.target</span><br><span class="line">print(boston.DESCR)</span><br></pre></td></tr></table></figure>
-
 <pre><code>.. _boston_dataset:
 
 Boston house prices dataset
@@ -223,40 +232,30 @@ problems.
 .. topic:: References
 
    - Belsley, Kuh &amp; Welsch, &#39;Regression diagnostics: Identifying Influential Data and Sources of Collinearity&#39;, Wiley, 1980. 244-261.
-   - Quinlan,R. (1993). Combining Instance-Based and Model-Based Learning. In Proceedings on the Tenth International Conference of Machine Learning, 236-243, University of Massachusetts, Amherst. Morgan Kaufmann.</code></pre>
-<p>보스턴 집값 데이터의 간략한 소개입니다. 카네기 멜론 대학교로부터 데이터가 수집되었다고 하네요. </p>
+   - Quinlan,R. (1993). Combining Instance-Based and Model-Based Learning. In Proceedings on the Tenth International Conference of Machine Learning, 236-243, University of Massachusetts, Amherst. Morgan Kaufmann.
+</code></pre><p>보스턴 집값 데이터의 간략한 소개입니다. 카네기 멜론 대학교로부터 데이터가 수집되었다고 하네요. </p>
 <p>데이터는 실수형 / 범주형(categorical) 데이터가 섞여있습니다. 데이터의 index는 506개라고 하네요. Missing value는 없다고 합니다. :)</p>
 <p>그럼 데이터를 실제로 출력해서 살펴보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506, 13)</code></pre>
-<p>역시, 데이터는 13개의 feature를 대상으로 506개의 index를 갖고 있습니다. 저희는 이 중 4개의 feature만을 대상으로 간략히 조사해보려 하기에, 이를 따로 추출해내야 합니다.</p>
+<pre><code>(506, 13)
+</code></pre><p>역시, 데이터는 13개의 feature를 대상으로 506개의 index를 갖고 있습니다. 저희는 이 중 4개의 feature만을 대상으로 간략히 조사해보려 하기에, 이를 따로 추출해내야 합니다.</p>
 <p>“범죄율(CRIM) : 0, 공기 오염도(NOX) : 4, 방의 개수(RM) : 5, 오래된 정도(AGE) : 6” 이 4가지를 추출해서 특징행렬 $A$ 를 구성하겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = X[:,[<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특징행렬 A를 시각적으로 표현하기 위해 A_라는 별도의 객체를 만들어 데이터프레임으로 나타낸 것입니다.</span></span><br><span class="line"></span><br><span class="line">A_ = pd.DataFrame(A,columns = [<span class="string">&#x27;crim&#x27;</span>,<span class="string">&#x27;nox&#x27;</span>,<span class="string">&#x27;rm&#x27;</span>,<span class="string">&#x27;age&#x27;</span>])</span><br><span class="line">A_.describe()</span><br></pre></td></tr></table></figure>
-
-
-
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
 
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-.dataframe thead th &#123;
-    text-align: right;
-&#125;</code></pre>
-<p></style></p>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -332,73 +331,56 @@ problems.
 
 <p>다음은 저희의 목표값인 집값 데이터를 벡터 b로 구성하겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = boston.target</span><br><span class="line">b.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506,)</code></pre>
-<p>그럼 이제 $Ax=\hat{b}$ 의 x(가중치 벡터)를 구하기 위해, 선형 연립방정식을 풀어보겠습니다. 저희는 $A$ 와 $b$를 구했으니까요!</p>
+<pre><code>(506,)
+</code></pre><p>그럼 이제 $Ax=\hat{b}$ 의 x(가중치 벡터)를 구하기 위해, 선형 연립방정식을 풀어보겠습니다. 저희는 $A$ 와 $b$를 구했으니까요!</p>
 <p>다만,,, 저희는 지금 sqaure matrix가 아닌 A를 보고 있습니다. 따라서, <strong>A의 역행렬을 구할 수 없습니다.</strong><br>역행렬은 기본적으로 square matrix인 경우에만 정확히 구할 수 있기 때문이죠! (물론, approximate approach로 psuedo inverse 가 있기는 하지만, 이후에 다시 살펴보겠습니다.)</p>
 <p>따라서, 아직 살펴보진 않았지만, 최소자승문제를 활용한 풀이를 먼저 진행하고 다시 역행렬을 활용해 가중치 벡터($x$)를 찾는 연습을 다시 해보겠습니다.</p>
 <p>아직 살펴보진 않았지만, 최소자승문제(Least square problem)의 해결은 지금과 같이 정확한 solution(가중치 벡터 $x$)을 찾을 수 없을 때 활용하는 가장 대표적인 방법입니다. 가장 $x$와 <strong>가까운</strong> solution set을 찾아보자는 접근입니다. 보다 자세히는 추후에 다시 살펴보기로 하겠습니다! : )</p>
 <h3 id="2-1-Least-square-problem"><a href="#2-1-Least-square-problem" class="headerlink" title="2_1. Least square problem"></a>2_1. Least square problem</h3><p>Least square problem 해결은 Numpy에서 제공하는 메서드를 활용하겠습니다.</p>
 <p><code>lstsq()</code> 메서드는 Least square problem 해결을 위한 코드입니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x, resid, rank, s = np.linalg.lstsq(A, b)</span><br></pre></td></tr></table></figure>
-
 <p>자 그럼, 우리가 찾고자 했던 solution(x, 가중치벡터)가 어떻게 나왔는지 살펴보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">&quot;&#123;&#125;의 가중치 : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(A_.columns[i],x[i]))</span><br></pre></td></tr></table></figure>
-
 <pre><code>crim의 가중치 : -0.1839836056341421
 nox의 가중치 : -19.396230746735444
 rm의 가중치 : 5.673593152217298
-age의 가중치 : -0.022788798368235375</code></pre>
-<p>음… 간단히 해석해보자면,</p>
+age의 가중치 : -0.022788798368235375
+</code></pre><p>음… 간단히 해석해보자면,</p>
 <p>범죄율, 공기오염도, 연식이 높을 수록 집값은 떨어지는 반비례 관계를 갖는 다는 것을 확인할 수 있습니다. 반면, 방의 갯수는 많을 수록 집값이 높다는 것 을 볼 수 있네요!</p>
 <p>보통의 상식과 부합하는 결과입니다! :) 아마도 Least square method가 문제를 어느정도 맞게 해결해낸 것 같습니다!</p>
 <h3 id="2-2-Solve-the-systems-of-linear-equations-using-inverse-matrix"><a href="#2-2-Solve-the-systems-of-linear-equations-using-inverse-matrix" class="headerlink" title="2_2. Solve the systems of linear equations using inverse matrix"></a>2_2. Solve the systems of linear equations using inverse matrix</h3><p>이번에는 역행렬을 통해 solution(x, 가중치벡터)를 구해보겠습니다!<br>저희가 정의했던 문제는 바로 $Ax=\hat{b}$ 였었죠.</p>
 <p>그런데, 문제가 있습니다. 역행렬은 square matrix에서만 존재합니다. 따라서, 저희는 A를 바꿔줘야 합니다. 바로, 정방행렬(square matrix)로 말이죠!</p>
 <p>앞에서 최소자승법으로 풀때의 행렬 A는 row가 column에 비해 매우 긴 skinny matrix였죠!</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(506, 4)</code></pre>
-<p>이제 저희는 A를 다시 square matrix로 변환해주겠습니다 !</p>
+<pre><code>(506, 4)
+</code></pre><p>이제 저희는 A를 다시 square matrix로 변환해주겠습니다 !</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = A[:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(4, 4)</code></pre>
-<p>그리고 b도 마찬가지로 4개의 component로 변환하겠습니다. 그래야 $(4 by 4) @ (4 by 1) = (4 by 1)$ 이 될테니까요!</p>
+<pre><code>(4, 4)
+</code></pre><p>그리고 b도 마찬가지로 4개의 component로 변환하겠습니다. 그래야 $(4 by 4) @ (4 by 1) = (4 by 1)$ 이 될테니까요!</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = b[:<span class="number">4</span>]</span><br><span class="line">b.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(4,)</code></pre>
-<p>그리고 이제 $x = A^{-1}b$ 를 풀기 위해, A의 역행렬을 구하고 x를 구해보겠습니다.</p>
+<pre><code>(4,)
+</code></pre><p>그리고 이제 $x = A^{-1}b$ 를 풀기 위해, A의 역행렬을 구하고 x를 구해보겠습니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A_inv = np.linalg.inv(A)</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = A_inv@b</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">&quot;&#123;&#125;의 가중치 : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(A_.columns[i],x[i]))</span><br></pre></td></tr></table></figure>
-
 <pre><code>crim의 가중치 : -312.710043270391
 nox의 가중치 : -115.19394234554954
 rm의 가중치 : 14.4996465318047
-age의 가중치 : -0.1132593173503273</code></pre>
-<p>음.. 앞에서 506개의 데이터를 대상으로 찾아낸 가중치와 조금 다릅니다.<br>물론 비례/반비례 관계는 같지만… 가중치의 값이 매우 큽니다. 아무래도 506개의 데이터를 대상으로 찾은 모델보다는 다소 부정확하고, 매우 경직된(?)것이라 생각해볼 수 있을 것 같습니다!</p>
-<p>[506개 데이터 대상 예측 모델]<br>$$ y = -0.18CRIM + (-19.4)NOX + 5.67RM + (-0.02)AGE $$</p>
-<p>[4개 데이터 대상 예측 모델]<br>$$ y = -312CRIM + (-115)NOX + 14RM + (-0.11)AGE $$</p>
-<p>상수항도 없는 다소 부정확한 예측모델이지만, 개념 상 이해를 돕기 위해 한번 시도해보았습니다! :)</p>
+age의 가중치 : -0.1132593173503273
+</code></pre><p>음.. 앞에서 506개의 데이터를 대상으로 찾아낸 가중치와 조금 다릅니다.<br>물론 비례/반비례 관계는 같지만… 가중치의 값이 매우 큽니다. 아무래도 506개의 데이터를 대상으로 찾은 모델보다는 다소 부정확하고, 매우 경직된(?)것이라 생각해볼 수 있을 것 같습니다!</p>
+<p>[506개 데이터 대상 예측 모델]</p>
+<script type="math/tex; mode=display">y = -0.18CRIM + (-19.4)NOX + 5.67RM + (-0.02)AGE</script><p>[4개 데이터 대상 예측 모델]</p>
+<script type="math/tex; mode=display">y = -312CRIM + (-115)NOX + 14RM + (-0.11)AGE</script><p>상수항도 없는 다소 부정확한 예측모델이지만, 개념 상 이해를 돕기 위해 한번 시도해보았습니다! :)</p>
 <p>저희는 Least square method, inverse matrix를 통해 가중치벡터를 찾아보았습니다. 머신러닝과 딥러닝은 이러한 연립방정식의 가중치를 찾는 다양한 방법들의 집합입니다. 앞으로 기회가 된다면, 이러한 다양한 방법들을 함께 본다면 좋겠네요! :)</p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -411,11 +393,11 @@ age의 가중치 : -0.1132593173503273</code></pre>
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -457,7 +439,7 @@ age의 가중치 : -0.1132593173503273</code></pre>
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -466,11 +448,11 @@ age의 가중치 : -0.1132593173503273</code></pre>
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -533,6 +515,35 @@ age의 가중치 : -0.1132593173503273</code></pre>
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

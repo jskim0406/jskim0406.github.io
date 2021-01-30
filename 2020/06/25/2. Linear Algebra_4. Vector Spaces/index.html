@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. Vector SpacesMML textbook에서는, Vector spaces를 다음과 같이 정의하고 있습니다. “A real-valued vector space $V &#x3D; (v,+, \cdot)$ is a set $v$ with two operations”$$ + : V x V &#x3D; V $$$$ \cdot : R x V &#x3D; V $$ Space(공간)에">
+    <meta name="description" content="1. Vector SpacesMML textbook에서는, Vector spaces를 다음과 같이 정의하고 있습니다. “A real-valued vector space $V &#x3D; (v,+, \cdot)$ is a set $v$ with two operations” + : V x V &#x3D; V\cdot : R x V &#x3D; VSpace(공간)에 대한 정의를 Group">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_4. Vector Spaces">
 <meta property="og:url" content="http://example.com/2020/06/25/2.%20Linear%20Algebra_4.%20Vector%20Spaces/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. Vector SpacesMML textbook에서는, Vector spaces를 다음과 같이 정의하고 있습니다. “A real-valued vector space $V &#x3D; (v,+, \cdot)$ is a set $v$ with two operations”$$ + : V x V &#x3D; V $$$$ \cdot : R x V &#x3D; V $$ Space(공간)에">
+<meta property="og:description" content="1. Vector SpacesMML textbook에서는, Vector spaces를 다음과 같이 정의하고 있습니다. “A real-valued vector space $V &#x3D; (v,+, \cdot)$ is a set $v$ with two operations” + : V x V &#x3D; V\cdot : R x V &#x3D; VSpace(공간)에 대한 정의를 Group">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/output_3_0_4.png">
 <meta property="article:published_time" content="2020-06-25T11:19:32.000Z">
@@ -57,8 +57,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -69,11 +68,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -162,8 +161,8 @@
 
   <div class="content" itemprop="articleBody">
     <h3 id="1-Vector-Spaces"><a href="#1-Vector-Spaces" class="headerlink" title="1. Vector Spaces"></a>1. Vector Spaces</h3><p>MML textbook에서는, Vector spaces를 다음과 같이 정의하고 있습니다.</p>
-<p>“A real-valued vector space $V = (v,+, \cdot)$ is a set $v$ with two operations”<br>$$ + : V x V = V $$<br>$$ \cdot : R x V = V $$</p>
-<p>Space(공간)에 대한 정의를 Group(군)으로 나타냈습니다.</p>
+<p>“A real-valued vector space $V = (v,+, \cdot)$ is a set $v$ with two operations”</p>
+<script type="math/tex; mode=display">+ : V x V = V</script><script type="math/tex; mode=display">\cdot : R x V = V</script><p>Space(공간)에 대한 정의를 Group(군)으로 나타냈습니다.</p>
 <p>Group은 <strong>‘closure’, ‘associativity’, ‘neutral element’, ‘inverse’</strong> 4가지 성질을 만족해야 하므로<br>벡터 공간 내의 벡터들도 이러한 성질을 만족해야 합니다!</p>
 <p>조금 더 쉽게 풀어보자면,</p>
 <p><strong>Vector spaces</strong> : N차원 내 존재하는 벡터들의 선형결합연산( $+$ : Addition, $\cdot$ : Multiplication by scalar )으로 만들어낼 수 있는 조합들의 Group으로 이해할 수 있을 것 같네요!</p>
@@ -181,8 +180,6 @@
 <p>이 Vector subspace가될 수 있습니다. <strong>주의할 것은 원점은 모든 부분공간의 부분집합이 됩니다. 원점이 포함되지 않는 부분공간(subspace)란 존재하지 않습니다.</strong> 원점이 존재하지 않는다면, 그 부분공간은 원점에 대해 닫혀있지 않아 Group이 될 수 없기 때문입니다.(Group의 “Closure” 성질 위반, 부분공간이 되기 위해선, $+$, $\cdot$ 연산의 결과가 그 부분공간 내에 포함되어 있어야 하는 데, zero-vector가 없다면, 그 부분공간이 zero-vector가 연산의 결과가 되는 경우를 품지 못하는 경우가 발생하기 때문입니다.)</p>
 <p>다음과 같은 직선은 부분공간이 아닙니다. 물론 2차원 공간 내 존재하는 벡터의 선형결합으로 이루어진 ‘공간(space)’이지만, zero-vector를 지나지 않기(포함하지 않기) 때문에, 모든 선형결합 연산의 결과에 닫혀(closed)있지 않아 Vector subspace로 볼 수 없습니다!</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">plt.xlim(<span class="number">-1.4</span>, <span class="number">4.4</span>)</span><br><span class="line">plt.ylim(<span class="number">-0.6</span>, <span class="number">5.2</span>)</span><br><span class="line">plt.plot([<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">plt.plot(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;ro&#x27;</span>, ms=<span class="number">10</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Not Subspace&quot;</span>,fontsize=<span class="number">15</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
 <p><img src="/img/output_3_0_4.png" alt="png"></p>
 <p>또 다른 예로, 3차원 실좌표공간($R^{3})을 생각해보자면,</p>
 <ol>
@@ -196,12 +193,45 @@
 <p>벡터처럼, 선형결합 연산(Addition, Multiplication by scalar)으로 조합해낼 수 있는 공간입니다. 단지, 행렬의 column Vector가 만들어낸다는 차이점이 있을 뿐입니다.</p>
 <p>행렬 내 column들의 선형결합으로 만들 수 있는 subspace가 바로 “column space”이자 Matrix의 subspace입니다!</p>
 <p>예를 들면, 아래와 같은 행렬의 경우</p>
-<p>$$<br>\begin{align}<br>\begin{bmatrix}<br>10 &amp; 11 &amp; 12\<br>11 &amp; 12 &amp; 13\<br>12 &amp; 13 &amp; 14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>c_{1}<br>\begin{bmatrix}<br>10\<br>11\<br>12\<br>\end{bmatrix}<br>+<br>c_{2}<br>\begin{bmatrix}<br>11\<br>12\<br>13\<br>\end{bmatrix}<br>+<br>c_{3}<br>\begin{bmatrix}<br>12\<br>13\<br>14\<br>\end{bmatrix}<br>\end{align}<br>$$</p>
-<p>와 같이 각 열벡터들의 선형결합으로 나타낼 수 있고, 이것이 곧 column space, subspace of Matrix를 이루게 된다.</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\begin{bmatrix}
+10 & 11 & 12\\
+11 & 12 & 13\\
+12 & 13 & 14\\
+\end{bmatrix}
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+c_{1}
+\begin{bmatrix}
+10\\
+11\\
+12\\
+\end{bmatrix}
++
+c_{2}
+\begin{bmatrix}
+11\\
+12\\
+13\\
+\end{bmatrix}
++
+c_{3}
+\begin{bmatrix}
+12\\
+13\\
+14\\
+\end{bmatrix}
+\end{align}</script><p>와 같이 각 열벡터들의 선형결합으로 나타낼 수 있고, 이것이 곧 column space, subspace of Matrix를 이루게 된다.</p>
 
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -214,11 +244,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -260,7 +290,7 @@
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -269,11 +299,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -336,6 +366,35 @@
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>

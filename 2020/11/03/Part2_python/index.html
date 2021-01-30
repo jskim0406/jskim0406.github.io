@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1. type hint12a: str &#x3D; &quot;1&quot;b: int &#x3D; 1   1a     &#39;1&#39; 1b     1 12345# 입력은 int type# return은 bool typedef fn(a: int) -&gt; bool:    print(a)    return True   1fn(1)  1      True 2. List c">
+    <meta name="description" content="1. type hint12a: str &#x3D; &quot;1&quot;b: int &#x3D; 1 1a &#39;1&#39; 1b 1 12345# 입력은 int type# return은 bool typedef fn(a: int) -&gt; bool:    print(a)    return True 1fn(1) 1      True 2. List comprehensionm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Part2_python">
 <meta property="og:url" content="http://example.com/2020/11/03/Part2_python/index.html">
 <meta property="og:site_name" content="jskim_blog">
-<meta property="og:description" content="1. type hint12a: str &#x3D; &quot;1&quot;b: int &#x3D; 1   1a     &#39;1&#39; 1b     1 12345# 입력은 int type# return은 bool typedef fn(a: int) -&gt; bool:    print(a)    return True   1fn(1)  1      True 2. List c">
+<meta property="og:description" content="1. type hint12a: str &#x3D; &quot;1&quot;b: int &#x3D; 1 1a &#39;1&#39; 1b 1 12345# 입력은 int type# return은 bool typedef fn(a: int) -&gt; bool:    print(a)    return True 1fn(1) 1      True 2. List comprehensionm">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-03T06:26:50.715Z">
 <meta property="article:modified_time" content="2020-11-04T04:21:35.725Z">
@@ -54,8 +54,7 @@
     
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body class="max-width mx-auto px3 ltr">
-    
+<body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -66,11 +65,11 @@
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </span>
@@ -159,121 +158,64 @@
 
   <div class="content" itemprop="articleBody">
     <h3 id="1-type-hint"><a href="#1-type-hint" class="headerlink" title="1. type hint"></a>1. type hint</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a: <span class="built_in">str</span> = <span class="string">&quot;1&quot;</span></span><br><span class="line">b: <span class="built_in">int</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;1&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>1</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력은 int type</span></span><br><span class="line"><span class="comment"># return은 bool type</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code>&#39;1&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b</span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력은 int type</span></span><br><span class="line"><span class="comment"># return은 bool type</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
 <pre><code>1
 
 
 
 
 
-True</code></pre>
-<h3 id="2-List-comprehension"><a href="#2-List-comprehension" class="headerlink" title="2. List comprehension"></a>2. List comprehension</h3><h4 id="map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic"><a href="#map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic" class="headerlink" title="map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic"></a>map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> data : data+<span class="number">10</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[11, 12, 13]</code></pre>
-<h4 id="list-comprehension을-활용"><a href="#list-comprehension을-활용" class="headerlink" title="list-comprehension을 활용"></a>list-comprehension을 활용</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = [data + <span class="number">10</span> <span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[11, 12, 13]</code></pre>
-<h4 id="list-comprehension-연습-홀수만-2를-곱해-출력"><a href="#list-comprehension-연습-홀수만-2를-곱해-출력" class="headerlink" title="list-comprehension 연습 : 홀수만 2를 곱해 출력"></a>list-comprehension 연습 : 홀수만 2를 곱해 출력</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = [num*<span class="number">2</span> <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> num%<span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[2, 6, 10, 14, 18]</code></pre>
-<h4 id="dictionary-타입도-list-comprehension-가능"><a href="#dictionary-타입도-list-comprehension-가능" class="headerlink" title="dictionary 타입도 list-comprehension 가능"></a>dictionary 타입도 list-comprehension 가능</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin = &#123;<span class="string">&#x27;first&#x27;</span> : <span class="number">1</span>,<span class="string">&#x27;sec&#x27;</span> : <span class="number">2</span>,<span class="string">&#x27;third&#x27;</span> : <span class="number">3</span>&#125;</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.items()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_items([(&#39;first&#39;, 1), (&#39;sec&#39;, 2), (&#39;third&#39;, 3)])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.values()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_values([1, 2, 3])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.keys()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>dict_keys([&#39;first&#39;, &#39;sec&#39;, &#39;third&#39;])</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;key: value <span class="keyword">for</span> key, value <span class="keyword">in</span> origin.items()&#125;</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;</code></pre>
-<h3 id="3-generator"><a href="#3-generator" class="headerlink" title="3. generator"></a>3. generator</h3><pre><code>- 기존의 함수는 return에서 값 리턴 후 함수 종료
-- yield는 generator가 여기까지 실행 중이던 값을 내보낸다는 의미(함수는 종료되지 않고, 맨 끝에 도달할 때까지 실행됨)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_number</span>():</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        <span class="keyword">yield</span> n</span><br></pre></td></tr></table></figure>
-
-
+True
+</code></pre><h3 id="2-List-comprehension"><a href="#2-List-comprehension" class="headerlink" title="2. List comprehension"></a>2. List comprehension</h3><h4 id="map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic"><a href="#map이나-filter함수를-사용하기보단-list-comprehension을-사용하는-것이-더-pythonic" class="headerlink" title="map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic"></a>map이나 filter함수를 사용하기보단, list-comprehension을 사용하는 것이 더 pythonic</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> data : data+<span class="number">10</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[11, 12, 13]
+</code></pre><h4 id="list-comprehension을-활용"><a href="#list-comprehension을-활용" class="headerlink" title="list-comprehension을 활용"></a>list-comprehension을 활용</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = [data + <span class="number">10</span> <span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<pre><code>[11, 12, 13]
+</code></pre><h4 id="list-comprehension-연습-홀수만-2를-곱해-출력"><a href="#list-comprehension-연습-홀수만-2를-곱해-출력" class="headerlink" title="list-comprehension 연습 : 홀수만 2를 곱해 출력"></a>list-comprehension 연습 : 홀수만 2를 곱해 출력</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = [num*<span class="number">2</span> <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>) <span class="keyword">if</span> num%<span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<pre><code>[2, 6, 10, 14, 18]
+</code></pre><h4 id="dictionary-타입도-list-comprehension-가능"><a href="#dictionary-타입도-list-comprehension-가능" class="headerlink" title="dictionary 타입도 list-comprehension 가능"></a>dictionary 타입도 list-comprehension 가능</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin = &#123;<span class="string">&#x27;first&#x27;</span> : <span class="number">1</span>,<span class="string">&#x27;sec&#x27;</span> : <span class="number">2</span>,<span class="string">&#x27;third&#x27;</span> : <span class="number">3</span>&#125;</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
+<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.items()</span><br></pre></td></tr></table></figure>
+<pre><code>dict_items([(&#39;first&#39;, 1), (&#39;sec&#39;, 2), (&#39;third&#39;, 3)])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.values()</span><br></pre></td></tr></table></figure>
+<pre><code>dict_values([1, 2, 3])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">origin.keys()</span><br></pre></td></tr></table></figure>
+<pre><code>dict_keys([&#39;first&#39;, &#39;sec&#39;, &#39;third&#39;])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;key: value <span class="keyword">for</span> key, value <span class="keyword">in</span> origin.items()&#125;</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+<pre><code>&#123;&#39;first&#39;: 1, &#39;sec&#39;: 2, &#39;third&#39;: 3&#125;
+</code></pre><h3 id="3-generator"><a href="#3-generator" class="headerlink" title="3. generator"></a>3. generator</h3><pre><code>- 기존의 함수는 return에서 값 리턴 후 함수 종료
+- yield는 generator가 여기까지 실행 중이던 값을 내보낸다는 의미(함수는 종료되지 않고, 맨 끝에 도달할 때까지 실행됨)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_number</span>():</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        <span class="keyword">yield</span> n</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gen = get_number()</span><br><span class="line">gen</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&lt;generator object get_number at 0x1a22432ad0&gt;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>1 2 3 4 5 6 7 8 9 10 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>11 12 13 14 15 16 17 18 19 20 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>21 22 23 24 25 26 27 28 29 30 </code></pre>
-<h3 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4. enumerate"></a>4. enumerate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>&lt;generator object get_number at 0x1a22432ad0&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>1 2 3 4 5 6 7 8 9 10 
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>11 12 13 14 15 16 17 18 19 20 
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>+<span class="number">1</span>):</span><br><span class="line">    print(<span class="built_in">next</span>(gen),end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>21 22 23 24 25 26 27 28 29 30 
+</code></pre><h3 id="4-enumerate"><a href="#4-enumerate" class="headerlink" title="4. enumerate"></a>4. enumerate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> <span class="built_in">enumerate</span>(a):</span><br><span class="line">    print(index, value)</span><br></pre></td></tr></table></figure>
-
 <pre><code>0 11
 1 12
 2 13
 3 14
-4 15</code></pre>
-<h3 id="5-divmod"><a href="#5-divmod" class="headerlink" title="5. divmod"></a>5. divmod</h3><ul>
+4 15
+</code></pre><h3 id="5-divmod"><a href="#5-divmod" class="headerlink" title="5. divmod"></a>5. divmod</h3><ul>
 <li>몫, 나머지를 튜플로 함께 반환</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">divmod</span>(<span class="number">10</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(3, 1)</code></pre>
-<h3 id="6-f-string"><a href="#6-f-string" class="headerlink" title="6. f-string"></a>6. f-string</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line">fruit = <span class="string">&#x27;apple&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code>(3, 1)
+</code></pre><h3 id="6-f-string"><a href="#6-f-string" class="headerlink" title="6. f-string"></a>6. f-string</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line">fruit = <span class="string">&#x27;apple&#x27;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;idx+<span class="number">1</span>&#125;</span> : <span class="subst">&#123;fruit&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>2 : apple</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;&#123;&#125; : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span>,fruit))</span><br></pre></td></tr></table></figure>
-
-<pre><code>2 : apple</code></pre>
-<h3 id="7-pythonic-way"><a href="#7-pythonic-way" class="headerlink" title="7. pythonic way"></a>7. pythonic way</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
-
+<pre><code>2 : apple
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;&#123;&#125; : &#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span>,fruit))</span><br></pre></td></tr></table></figure>
+<pre><code>2 : apple
+</code></pre><h3 id="7-pythonic-way"><a href="#7-pythonic-way" class="headerlink" title="7. pythonic way"></a>7. pythonic way</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
 <pre><code>The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
@@ -294,129 +236,63 @@ Now is better than never.
 Although never is often better than *right* now.
 If the implementation is hard to explain, it&#39;s a bad idea.
 If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre>
-<h3 id="8-big-O-표기법"><a href="#8-big-O-표기법" class="headerlink" title="8. big-O 표기법"></a>8. big-O 표기법</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">big-O는 주어진(최선&#x2F;최악&#x2F;평균) 경우의 수행 시간의 상한을 나타낸다.</span><br></pre></td></tr></table></figure>
-
-
-
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</code></pre><h3 id="8-big-O-표기법"><a href="#8-big-O-표기법" class="headerlink" title="8. big-O 표기법"></a>8. big-O 표기법</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">big-O는 주어진(최선&#x2F;최악&#x2F;평균) 경우의 수행 시간의 상한을 나타낸다.</span><br></pre></td></tr></table></figure>
 <h3 id="9-List-자료형-이해"><a href="#9-List-자료형-이해" class="headerlink" title="9. List 자료형 이해"></a>9. List 자료형 이해</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">list</span>()</span><br></pre></td></tr></table></figure>
-
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 3, 4, 5]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="number">6</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 3, 4, 5, 6]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.insert(<span class="number">2</span>,<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="string">&#x27;안녕&#x27;</span>)</span><br><span class="line">a.append(<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>[1, 2, 3, 4, 5]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="number">6</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 3, 4, 5, 6]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.insert(<span class="number">2</span>,<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 2.5, 3, 4, 5, 6]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.append(<span class="string">&#x27;안녕&#x27;</span>)</span><br><span class="line">a.append(<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a[<span class="number">2</span>],a[<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>2.5 True</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> a[<span class="number">1</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.remove(<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 3, 4, 5, 6, &#39;안녕&#39;, True]</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.pop(<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>&#39;안녕&#39;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[1, 3, 4, 5, 6, True]</code></pre>
-<h3 id="10-Dictionary-자료형-이해"><a href="#10-Dictionary-자료형-이해" class="headerlink" title="10. Dictionary 자료형 이해"></a>10. Dictionary 자료형 이해</h3><h4 id="Dictionary-module-1-defaultdict-객체"><a href="#Dictionary-module-1-defaultdict-객체" class="headerlink" title="Dictionary module 1) defaultdict 객체"></a>Dictionary module 1) defaultdict 객체</h4><ul>
+<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a[<span class="number">2</span>],a[<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>2.5 True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> a[<span class="number">1</span>]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 2.5, 3, 4, 5, 6, &#39;안녕&#39;, True]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.remove(<span class="number">2.5</span>)</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 3, 4, 5, 6, &#39;안녕&#39;, True]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.pop(<span class="number">-2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;안녕&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[1, 3, 4, 5, 6, True]
+</code></pre><h3 id="10-Dictionary-자료형-이해"><a href="#10-Dictionary-자료형-이해" class="headerlink" title="10. Dictionary 자료형 이해"></a>10. Dictionary 자료형 이해</h3><h4 id="Dictionary-module-1-defaultdict-객체"><a href="#Dictionary-module-1-defaultdict-객체" class="headerlink" title="Dictionary module 1) defaultdict 객체"></a>Dictionary module 1) defaultdict 객체</h4><ul>
 <li>없는 key값을 조회 시, 에러메시지 출력 대신 디폴트값을 기준으로 해당 키에 아이템 할당해줌</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line">a = collections.defaultdict(<span class="built_in">int</span>)</span><br><span class="line">a[<span class="string">&#x27;A&#x27;</span>] = <span class="number">5</span></span><br><span class="line">a[<span class="string">&#x27;B&#x27;</span>] = <span class="number">4</span></span><br><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4&#125;)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="string">&#x27;C&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4, &#39;C&#39;: 0&#125;)</code></pre>
-<h4 id="Dictionary-module-2-Counter-객체"><a href="#Dictionary-module-2-Counter-객체" class="headerlink" title="Dictionary module 2) Counter 객체"></a>Dictionary module 2) Counter 객체</h4><ul>
+<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4&#125;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="string">&#x27;C&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>defaultdict(int, &#123;&#39;A&#39;: 5, &#39;B&#39;: 4, &#39;C&#39;: 0&#125;)
+</code></pre><h4 id="Dictionary-module-2-Counter-객체"><a href="#Dictionary-module-2-Counter-객체" class="headerlink" title="Dictionary module 2) Counter 객체"></a>Dictionary module 2) Counter 객체</h4><ul>
 <li>아이템 갯수를 계산 -&gt; 딕셔너리로 리턴함</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>]</span><br><span class="line">b = collections.Counter(a)</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>Counter(&#123;1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 2&#125;)</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(b)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>collections.Counter</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b.most_common(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>[(5, 2), (6, 2)]</code></pre>
-<h4 id="Dictionary-module-2-OrderedDict-객체"><a href="#Dictionary-module-2-OrderedDict-객체" class="headerlink" title="Dictionary module 2) OrderedDict 객체"></a>Dictionary module 2) OrderedDict 객체</h4><ul>
+<pre><code>Counter(&#123;1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 2&#125;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(b)</span><br></pre></td></tr></table></figure>
+<pre><code>collections.Counter
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b.most_common(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[(5, 2), (6, 2)]
+</code></pre><h4 id="Dictionary-module-2-OrderedDict-객체"><a href="#Dictionary-module-2-OrderedDict-객체" class="headerlink" title="Dictionary module 2) OrderedDict 객체"></a>Dictionary module 2) OrderedDict 객체</h4><ul>
 <li>입력순서가 유지되는 자료형</li>
 <li>3.7 이상에선 자동으로 지원하지만, 그 이전에는 dictionary자체에서 입력순서 유지 X. OrderedDict 객체에서만 입력순서 유지되었음</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">collections.OrderedDict(&#123;<span class="string">&#x27;banana&#x27;</span>:<span class="number">1</span>,<span class="string">&#x27;apple&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;pear&#x27;</span>:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>OrderedDict([(&#39;banana&#39;, 1), (&#39;apple&#39;, 2), (&#39;pear&#39;, 1)])</code></pre>
-
+<pre><code>OrderedDict([(&#39;banana&#39;, 1), (&#39;apple&#39;, 2), (&#39;pear&#39;, 1)])
+</code></pre>
   </div>
 </article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
 
 
 
@@ -429,11 +305,11 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </div>
@@ -475,7 +351,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
     Copyright &copy;
     
     
-    2016-2021
+    2020-2021
     js Kim
   </div>
   <div class="footer-right">
@@ -484,11 +360,11 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
          
           <li><a href="/">Home</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/null">// about</a></li>
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/projects_url">// projects</a></li>
         
       </ul>
     </nav>
@@ -551,6 +427,35 @@ Namespaces are one honking great idea -- let&#39;s do more of those!</code></pre
 
 <!-- Disqus Comments -->
 
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </body>
 </html>
