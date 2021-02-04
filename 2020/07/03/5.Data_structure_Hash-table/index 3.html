@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="5. 해쉬 테이블해쉬 구조 Hash Table: 키(Key)에 데이터(Value)를 저장하는 데이터 구조 Key를 통해 바로 데이터를 받아올 수 있으므로, 속도가 획기적으로 빨라짐 파이썬 딕셔너리(Dictionary) 타입이 해쉬 테이블의 예: Key를 가지고 바로 데이터(Value)를 꺼냄 보통 배열로 미리 Hash Table 사이즈만큼 생성 후에 사용">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3. Hash-table">
+<meta property="og:url" content="http://example.com/2020/07/03/5.Data_structure_Hash-table/index.html">
+<meta property="og:site_name" content="jskim_blog">
+<meta property="og:description" content="5. 해쉬 테이블해쉬 구조 Hash Table: 키(Key)에 데이터(Value)를 저장하는 데이터 구조 Key를 통해 바로 데이터를 받아올 수 있으므로, 속도가 획기적으로 빨라짐 파이썬 딕셔너리(Dictionary) 타입이 해쉬 테이블의 예: Key를 가지고 바로 데이터(Value)를 꺼냄 보통 배열로 미리 Hash Table 사이즈만큼 생성 후에 사용">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.fun-coding.org/00_Images/hash.png">
+<meta property="article:published_time" content="2020-07-03T06:07:33.097Z">
+<meta property="article:modified_time" content="2020-07-03T06:08:55.331Z">
+<meta property="article:author" content="js Kim">
+<meta property="article:tag" content="datastructure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.fun-coding.org/00_Images/hash.png">
+    
+    <link rel="canonical" href="http://example.com/2020/07/03/5.data_structure_hash-table/">
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>3. Hash-table</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/07/2.%20Linear%20Algebra_7.%20Practice(1)/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/03/5.Data_structure_Hash-table/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&text=3. Hash-table"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&is_video=false&description=3. Hash-table"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3. Hash-table&body=Check out this article: http://example.com/2020/07/03/5.Data_structure_Hash-table/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&name=3. Hash-table&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/03/5.Data_structure_Hash-table/&t=3. Hash-table"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%ED%95%B4%EC%89%AC-%ED%85%8C%EC%9D%B4%EB%B8%94"><span class="toc-number">1.</span> <span class="toc-text">5. 해쉬 테이블</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%B4%EC%89%AC-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.0.1.</span> <span class="toc-text">해쉬 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">1.0.2.</span> <span class="toc-text">알아둘 용어</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%89%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90%EA%B3%BC-%EC%A3%BC%EC%9A%94-%EC%9A%A9%EB%8F%84"><span class="toc-number">1.0.3.</span> <span class="toc-text">자료 구조 해쉬 테이블의 장단점과 주요 용도</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hash-table-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.0.4.</span> <span class="toc-text">1) hash table 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hash-function-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.0.5.</span> <span class="toc-text">2) hash function 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-hash-table%EC%97%90-%EA%B0%92-%EC%A0%80%EC%9E%A5-%EB%B0%8F-%ED%98%B8%EC%B6%9C"><span class="toc-number">1.0.6.</span> <span class="toc-text">3) hash table에 값 저장 및 호출</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-key-%EC%83%9D%EC%84%B1-key-generating-function-%ED%99%9C%EC%9A%A9"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">3-1) key 생성 : key-generating function 활용</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5-data-gt-key-gt-function-gt-hash-value-address-%EC%83%9D%EC%84%B1-gt-address%EC%97%90-value%EB%A5%BC-%EC%A0%80%EC%9E%A5"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%B8%EC%B6%9C"><span class="toc-number">1.0.6.3.</span> <span class="toc-text">3-3) 데이터 호출</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Practice"><span class="toc-number">1.0.7.</span> <span class="toc-text">4) Practice</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-key-%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98-%EB%B0%8F-hash-function-%EC%A0%95%EC%9D%98"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">4-1) key 생성함수 및 hash_function 정의</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%EC%A0%80%EC%9E%A5-%EB%B0%8F-%ED%98%B8%EC%B6%9C-%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">4-2) 저장 및 호출 함수 구현</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-Test"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">4-3) Test</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%B6%A9%EB%8F%8C-collision-%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-%ED%95%B4%EC%89%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><span class="toc-number">1.0.8.</span> <span class="toc-text">5) 충돌(collision)을 고려한 해쉬 알고리즘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-Chaining-%EA%B8%B0%EB%B2%95"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">5-1) Chaining 기법</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-Linear-probing-%EA%B8%B0%EB%B2%95"><span class="toc-number">1.0.8.2.</span> <span class="toc-text">5-2) Linear probing 기법</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        3. Hash-table
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">js Kim</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-07-03T06:07:33.097Z" itemprop="datePublished">2020-07-03</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Data-structure/">Data_structure</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/datastructure/" rel="tag">datastructure</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="5-해쉬-테이블"><a href="#5-해쉬-테이블" class="headerlink" title="5. 해쉬 테이블"></a>5. 해쉬 테이블</h1><h3 id="해쉬-구조"><a href="#해쉬-구조" class="headerlink" title="해쉬 구조"></a>해쉬 구조</h3><ul>
+<li>Hash Table: 키(Key)에 데이터(Value)를 저장하는 데이터 구조<ul>
+<li>Key를 통해 바로 데이터를 받아올 수 있으므로, 속도가 획기적으로 빨라짐</li>
+<li>파이썬 딕셔너리(Dictionary) 타입이 해쉬 테이블의 예: Key를 가지고 바로 데이터(Value)를 꺼냄</li>
+<li>보통 배열로 미리 Hash Table 사이즈만큼 생성 후에 사용 (공간과 탐색 시간을 맞바꾸는 기법)</li>
+<li><font color="#BF360C">단, 파이썬에서는 해쉬를 별도 구현할 이유가 없음 - 딕셔너리 타입을 사용하면 됨</font>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="알아둘-용어"><a href="#알아둘-용어" class="headerlink" title="알아둘 용어"></a>알아둘 용어</h3><ul>
+<li>해쉬(Hash): 임의 값을 고정 길이로 변환하는 것</li>
+<li>해쉬 테이블(Hash Table): 키 값의 연산에 의해 직접 접근이 가능한 데이터 구조</li>
+<li>해싱 함수(Hashing Function): Key에 대해 산술 연산을 이용해 데이터 위치를 찾을 수 있는 함수</li>
+<li>해쉬 값(Hash Value) 또는 해쉬 주소(Hash Address): Key를 해싱 함수로 연산해서, 해쉬 값을 알아내고, 이를 기반으로 해쉬 테이블에서 해당 Key에 대한 데이터 위치를 일관성있게 찾을 수 있음</li>
+<li>슬롯(Slot): 한 개의 데이터를 저장할 수 있는 공간</li>
+<li>저장할 데이터에 대해 Key를 추출할 수 있는 별도 함수도 존재할 수 있음<br><img src="https://www.fun-coding.org/00_Images/hash.png" width="400"></li>
+</ul>
+<h3 id="자료-구조-해쉬-테이블의-장단점과-주요-용도"><a href="#자료-구조-해쉬-테이블의-장단점과-주요-용도" class="headerlink" title="자료 구조 해쉬 테이블의 장단점과 주요 용도"></a>자료 구조 해쉬 테이블의 장단점과 주요 용도</h3><ul>
+<li>장점<ul>
+<li>데이터 저장/읽기 속도가 빠르다. (검색 속도가 빠르다.)</li>
+<li>해쉬는 키에 대한 데이터가 있는지(중복) 확인이 쉬움</li>
+</ul>
+</li>
+<li>단점 <ul>
+<li>일반적으로 저장공간이 좀더 많이 필요하다.</li>
+<li><strong>여러 키에 해당하는 주소가 동일할 경우 충돌을 해결하기 위한 별도 자료구조가 필요함</strong></li>
+</ul>
+</li>
+<li>주요 용도<ul>
+<li>검색이 많이 필요한 경우</li>
+<li>저장, 삭제, 읽기가 빈번한 경우</li>
+<li>캐쉬 구현시 (중복 확인이 쉽기 때문)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-hash-table-만들기"><a href="#1-hash-table-만들기" class="headerlink" title="1) hash table 만들기"></a>1) hash table 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</code></pre><h3 id="2-hash-function-만들기"><a href="#2-hash-function-만들기" class="headerlink" title="2) hash function 만들기"></a>2) hash function 만들기</h3><ul>
+<li>다양한 해쉬 함수 고안 기법이 있음 </li>
+<li>가장 간단한 방식이 Division 법 (나누기를 통한 나머지 값을 사용하는 기법)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hash function 역할 : key -&gt; hash value(address = key%5)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-hash-table에-값-저장-및-호출"><a href="#3-hash-table에-값-저장-및-호출" class="headerlink" title="3) hash table에 값 저장 및 호출"></a>3) hash table에 값 저장 및 호출</h3><h4 id="3-1-key-생성-key-generating-function-활용"><a href="#3-1-key-생성-key-generating-function-활용" class="headerlink" title="3-1) key 생성 : key-generating function 활용"></a>3-1) key 생성 : key-generating function 활용</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data1 = <span class="string">&#x27;Andy&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;Dave&#x27;</span></span><br><span class="line">data3 = <span class="string">&#x27;Trumph&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각 data(문자)자체를 key로 쓰지 않고, 각각을 특정한 함수를 적용, 변환해 key로 생성</span></span><br><span class="line"><span class="comment"># 문자이기 때문에, ASCII코드로 변환해 key로 사용할 것</span></span><br><span class="line"></span><br><span class="line">key1 = <span class="built_in">ord</span>(data1[<span class="number">0</span>])</span><br><span class="line">key1</span><br></pre></td></tr></table></figure>
+<pre><code>65
+</code></pre><h4 id="3-2-데이터-저장-data-gt-key-gt-function-gt-hash-value-address-생성-gt-address에-value를-저장"><a href="#3-2-데이터-저장-data-gt-key-gt-function-gt-hash-value-address-생성-gt-address에-value를-저장" class="headerlink" title="3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장"></a>3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">    address = hash_function(key)</span><br><span class="line">    hash_table[address] = value</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">store_data(<span class="string">&#x27;Andy&#x27;</span>, <span class="string">&#x27;01055553333&#x27;</span>)</span><br><span class="line">store_data(<span class="string">&#x27;Dave&#x27;</span>, <span class="string">&#x27;01044443333&#x27;</span>)</span><br><span class="line">store_data(<span class="string">&#x27;Trump&#x27;</span>, <span class="string">&#x27;01022223333&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-데이터-호출"><a href="#3-3-데이터-호출" class="headerlink" title="3-3) 데이터 호출"></a>3-3) 데이터 호출</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_value</span>(<span class="params">data</span>):</span></span><br><span class="line">    key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">    address = hash_function(key)</span><br><span class="line">    print(hash_table[address])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call_value(<span class="string">&#x27;Andy&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>01055553333
+</code></pre><h3 id="4-Practice"><a href="#4-Practice" class="headerlink" title="4) Practice"></a>4) Practice</h3><ol>
+<li>해쉬 키 생성: hash(data)</li>
+<li>해쉬 함수: key % 8</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</code></pre><h4 id="4-1-key-생성함수-및-hash-function-정의"><a href="#4-1-key-생성함수-및-hash-function-정의" class="headerlink" title="4-1) key 생성함수 및 hash_function 정의"></a>4-1) key 생성함수 및 hash_function 정의</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get_key(<span class="string">&#x27;dave&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>5265506647170875031
+</code></pre><h4 id="4-2-저장-및-호출-함수-구현"><a href="#4-2-저장-및-호출-함수-구현" class="headerlink" title="4-2) 저장 및 호출 함수 구현"></a>4-2) 저장 및 호출 함수 구현</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_to_slot</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    address = hash_function(get_key(data))</span><br><span class="line">    hash_table[address] = value</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_slot</span>(<span class="params">data</span>):</span></span><br><span class="line">    address = hash_function(get_key(data))</span><br><span class="line">    <span class="keyword">return</span> hash_table[address]</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-Test"><a href="#4-3-Test" class="headerlink" title="4-3) Test"></a>4-3) Test</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">store_to_slot(<span class="string">&#x27;dave&#x27;</span>,<span class="number">12345</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;spring&#x27;</span>,<span class="number">21053</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;fall&#x27;</span>,<span class="number">32345</span>)</span><br><span class="line">store_to_slot(<span class="string">&#x27;summer&#x27;</span>,<span class="number">42345</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_from_slot(<span class="string">&#x27;dave&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>12345
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash_table</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 21053, 42345, 0, 0, 32345, 0, 12345, 0, 0]
+</code></pre><h3 id="5-충돌-collision-을-고려한-해쉬-알고리즘"><a href="#5-충돌-collision-을-고려한-해쉬-알고리즘" class="headerlink" title="5) 충돌(collision)을 고려한 해쉬 알고리즘"></a>5) 충돌(collision)을 고려한 해쉬 알고리즘</h3><ul>
+<li>충돌(collision) : address가 같아 저장 내용이 서로 ‘충돌’하는 것</li>
+</ul>
+<ul>
+<li><strong>다른 저장 공간을 찾아줘야 함</strong></li>
+</ul>
+<pre><code>    1. 수평적 방향 (chaining 기법, open hasing) : hash_table의 뒤에 추가로 리스트(링크드 리스트) 연결시켜 공간 창출
+    2. 수직적 방향 (linear probing 기법, close hasing) : 기존 hash_table 내 빈 공간에 저장
+</code></pre><h4 id="5-1-Chaining-기법"><a href="#5-1-Chaining-기법" class="headerlink" title="5-1) Chaining 기법"></a>5-1) Chaining 기법</h4><ul>
+<li>수평적 방향 (chaining 기법, open hasing) : hash_table의 뒤에 추가로 리스트(링크드 리스트) 연결시켜 공간 창출</li>
+</ul>
+<p><strong>hash_table생성, key생성, hash_function 정의, 저장 def, read def</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 충돌 방지를 위해 수평적 공간 추가해주기</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 만약 같은 key인 slot이 있다면, update해주기</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(hash_table[address])):</span><br><span class="line">            <span class="keyword">if</span> hash_table[address][i][<span class="number">0</span>] == index_key:</span><br><span class="line">                hash_table[address][i][<span class="number">1</span>] = value</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 같은 키 slot이 없다면, 추가로 공간 할당 + 저장해주기</span></span><br><span class="line">            hash_table[address].append([index_key,value])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 바로 채우기</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hash_table[address] = [[index_key,value]]</span><br><span class="line">         </span><br><span class="line">            </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 수평적 탐색하며 key가 같으면 value반환, 없다면 none 반환</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(hash_table[address])):</span><br><span class="line">            <span class="keyword">if</span> hash_table[address][i][<span class="number">0</span>] == index_key:</span><br><span class="line">                <span class="keyword">return</span> hash_table[address][i][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 없다는 것이니까 none 반환</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;dk&#x27;</span>) % <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;ddf&#x27;</span>) % <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>6
+6
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_data(<span class="string">&#x27;dk&#x27;</span>, <span class="string">&#x27;01200123123&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;3333333333&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;ddf&#x27;</span>, <span class="string">&#x27;4333433334&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;dk&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;01200123123&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;ddf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;4333433334&#39;
+</code></pre><p><strong>‘dk’와 ‘ddf’는 address가 같아, 충돌이 예상되지만, chaining 기법으로 이를 해결해냈음을 확인할 수 있다</strong></p>
+<h4 id="5-2-Linear-probing-기법"><a href="#5-2-Linear-probing-기법" class="headerlink" title="5-2) Linear probing 기법"></a>5-2) Linear probing 기법</h4><ul>
+<li>수직적 방향 (linear probing 기법, close hasing) : 기존 hash_table 내 빈 공간에 저장</li>
+</ul>
+<p><strong>hash_table생성, key생성, hash_function 정의, 저장 def, read def</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">hash_table = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_key</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_function</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="keyword">return</span> key%<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_data</span>(<span class="params">data,value</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 충돌 방지를 위해 수직적 탐색하며 빈 slot에 저장하기</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 만약 같은 key인 slot이 있다면, update해주기</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(address,<span class="built_in">len</span>(hash_table)):</span><br><span class="line">            <span class="keyword">if</span> hash_table[i] != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> hash_table[i][<span class="number">0</span>] == index_key:</span><br><span class="line">                    hash_table[i][<span class="number">1</span>] = value</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                </span><br><span class="line">        <span class="comment"># 같은 키 slot이 없다면, 기존의 공간 중 빈 공간에 저장해주기</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                hash_table[i] = [index_key,value]</span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 그대로 저장</span></span><br><span class="line">    <span class="keyword">else</span>:            </span><br><span class="line">        hash_table[address] = [index_key,value]</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span>(<span class="params">data</span>):</span></span><br><span class="line">    index_key = get_key(data)</span><br><span class="line">    address = hash_function(index_key)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 만약, slot이 차있다면, 수직적 탐색하며 key가 같으면 value반환, 없다면 none 반환</span></span><br><span class="line">    <span class="keyword">if</span> hash_table[address] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(address,<span class="built_in">len</span>(hash_table)):</span><br><span class="line">            <span class="keyword">if</span> hash_table[i][<span class="number">0</span>] == index_key:</span><br><span class="line">                <span class="keyword">return</span> hash_table[i][<span class="number">1</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">elif</span> hash_table[i][<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 만약, slot이 비어있다면, 없다는 것이니까 none 반환</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;dk&#x27;</span>) % <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="built_in">hash</span>(<span class="string">&#x27;ddf&#x27;</span>) % <span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>6
+6
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_data(<span class="string">&#x27;dk&#x27;</span>, <span class="string">&#x27;01200123123&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;da&#x27;</span>, <span class="string">&#x27;3333333333&#x27;</span>)</span><br><span class="line">save_data(<span class="string">&#x27;ddf&#x27;</span>, <span class="string">&#x27;4333433334&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;dk&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;01200123123&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data(<span class="string">&#x27;ddf&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;4333433334&#39;
+</code></pre><p><strong>‘dk’와 ‘ddf’는 address가 같아, 충돌이 예상되지만, linear probing 기법으로 이를 해결해냈음을 확인할 수 있다</strong></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%ED%95%B4%EC%89%AC-%ED%85%8C%EC%9D%B4%EB%B8%94"><span class="toc-number">1.</span> <span class="toc-text">5. 해쉬 테이블</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%B4%EC%89%AC-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.0.1.</span> <span class="toc-text">해쉬 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">1.0.2.</span> <span class="toc-text">알아둘 용어</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%89%AC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90%EA%B3%BC-%EC%A3%BC%EC%9A%94-%EC%9A%A9%EB%8F%84"><span class="toc-number">1.0.3.</span> <span class="toc-text">자료 구조 해쉬 테이블의 장단점과 주요 용도</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-hash-table-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.0.4.</span> <span class="toc-text">1) hash table 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hash-function-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.0.5.</span> <span class="toc-text">2) hash function 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-hash-table%EC%97%90-%EA%B0%92-%EC%A0%80%EC%9E%A5-%EB%B0%8F-%ED%98%B8%EC%B6%9C"><span class="toc-number">1.0.6.</span> <span class="toc-text">3) hash table에 값 저장 및 호출</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-key-%EC%83%9D%EC%84%B1-key-generating-function-%ED%99%9C%EC%9A%A9"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">3-1) key 생성 : key-generating function 활용</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%80%EC%9E%A5-data-gt-key-gt-function-gt-hash-value-address-%EC%83%9D%EC%84%B1-gt-address%EC%97%90-value%EB%A5%BC-%EC%A0%80%EC%9E%A5"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">3-2) 데이터 저장 : data -&gt; key -&gt; function -&gt; hash value(address)생성 -&gt; address에 value를 저장</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%B8%EC%B6%9C"><span class="toc-number">1.0.6.3.</span> <span class="toc-text">3-3) 데이터 호출</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Practice"><span class="toc-number">1.0.7.</span> <span class="toc-text">4) Practice</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-key-%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98-%EB%B0%8F-hash-function-%EC%A0%95%EC%9D%98"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">4-1) key 생성함수 및 hash_function 정의</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%EC%A0%80%EC%9E%A5-%EB%B0%8F-%ED%98%B8%EC%B6%9C-%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">4-2) 저장 및 호출 함수 구현</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-Test"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">4-3) Test</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%B6%A9%EB%8F%8C-collision-%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-%ED%95%B4%EC%89%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><span class="toc-number">1.0.8.</span> <span class="toc-text">5) 충돌(collision)을 고려한 해쉬 알고리즘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-Chaining-%EA%B8%B0%EB%B2%95"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">5-1) Chaining 기법</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-Linear-probing-%EA%B8%B0%EB%B2%95"><span class="toc-number">1.0.8.2.</span> <span class="toc-text">5-2) Linear probing 기법</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/03/5.Data_structure_Hash-table/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&text=3. Hash-table"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&is_video=false&description=3. Hash-table"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3. Hash-table&body=Check out this article: http://example.com/2020/07/03/5.Data_structure_Hash-table/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&title=3. Hash-table"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/03/5.Data_structure_Hash-table/&name=3. Hash-table&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/03/5.Data_structure_Hash-table/&t=3. Hash-table"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2021
+    js Kim
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'jskim-0406';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
