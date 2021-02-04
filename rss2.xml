@@ -408,34 +408,6 @@
     </item>
     
     <item>
-      <title>6. Part3_ch6 보충4_최대빈도 값 찾기(Counter, most_common())</title>
-      <link>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/</link>
-      <guid>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/</guid>
-      <pubDate>Tue, 03 Nov 2020 06:51:42 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;&lt;a href=&quot;https://nbviewer.jupyter.org/github/jskim0406/Study/blob/master/1.Study/2.%20with%20computer/4.Programming/1.Algorithms/3.Algori</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p><a href="https://nbviewer.jupyter.org/github/jskim0406/Study/blob/master/1.Study/2.%20with%20computer/4.Programming/1.Algorithms/3.Algorithms_study/0.%20기타%20정리%28%22파이썬%20알고리즘%20인터뷰%28박상길%29%22%29/Part3_ch6_보충4_최대빈도%20값%20찾기%28max%2C%20Coutner클래스%29.ipynb">github url</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://example.com/categories/Algorithms-python-algorithms-interview/">Algorithms(&quot;python_algorithms_interview&quot;)</category>
-      
-      
-      <category domain="http://example.com/tags/python/">python</category>
-      
-      <category domain="http://example.com/tags/Algorithms/">Algorithms</category>
-      
-      
-      <comments>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>5. Part3_ch6 보충3_갯수 셀 때(Collections모듈-Counter클래스)</title>
       <link>http://example.com/2020/11/03/Part3_ch6_3_Counter%20class/</link>
       <guid>http://example.com/2020/11/03/Part3_ch6_3_Counter%20class/</guid>
@@ -460,6 +432,34 @@
       
       
       <comments>http://example.com/2020/11/03/Part3_ch6_3_Counter%20class/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>6. Part3_ch6 보충4_최대빈도 값 찾기(Counter, most_common())</title>
+      <link>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/</link>
+      <guid>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/</guid>
+      <pubDate>Tue, 03 Nov 2020 06:51:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;a href=&quot;https://nbviewer.jupyter.org/github/jskim0406/Study/blob/master/1.Study/2.%20with%20computer/4.Programming/1.Algorithms/3.Algori</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><a href="https://nbviewer.jupyter.org/github/jskim0406/Study/blob/master/1.Study/2.%20with%20computer/4.Programming/1.Algorithms/3.Algorithms_study/0.%20기타%20정리%28%22파이썬%20알고리즘%20인터뷰%28박상길%29%22%29/Part3_ch6_보충4_최대빈도%20값%20찾기%28max%2C%20Coutner클래스%29.ipynb">github url</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/Algorithms-python-algorithms-interview/">Algorithms(&quot;python_algorithms_interview&quot;)</category>
+      
+      
+      <category domain="http://example.com/tags/python/">python</category>
+      
+      <category domain="http://example.com/tags/Algorithms/">Algorithms</category>
+      
+      
+      <comments>http://example.com/2020/11/03/Part3_ch6_4_Counter,%20most_common()/#disqus_thread</comments>
       
     </item>
     
