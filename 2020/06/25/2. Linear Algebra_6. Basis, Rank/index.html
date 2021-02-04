@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="오늘은 Basis와 Rank라는 개념에 대해 살펴보겠습니다. 처음 접했을 때는 무언가 복잡하고 어려워보이던 Rank… 이름만으로도 무언가 되게 본질적이고 어려워 보였습니다.하지만, 찬찬히 곱씹어보면, 그리 어렵지 않은 개념이더라구요! 오늘 간단하게 개념을 살펴보겠습니다.  basis라는 개념을 살펴보기 전에, Span과 Generating sets라는 개념">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_6. Basis and Rank">
@@ -21,6 +21,7 @@
 <meta property="article:tag" content="linear algebra">
 <meta name="twitter:card" content="summary">
     
+    <link rel="canonical" href="http://example.com/2020/06/25/2. linear algebra_6. basis, rank/">
     
       
         
@@ -53,7 +54,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -70,7 +72,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -87,20 +89,20 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&text=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&is_video=false&description=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&text=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&is_video=false&description=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=2. Linear Algebra_6. Basis and Rank&body=Check out this article: http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&name=2. Linear Algebra_6. Basis and Rank&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&t=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&name=2. Linear Algebra_6. Basis and Rank&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&t=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -259,17 +261,17 @@ c_{3}
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&text=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&is_video=false&description=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&text=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&is_video=false&description=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=2. Linear Algebra_6. Basis and Rank&body=Check out this article: http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&name=2. Linear Algebra_6. Basis and Rank&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&t=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&title=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&name=2. Linear Algebra_6. Basis and Rank&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_6.%20Basis,%20Rank/&t=2. Linear Algebra_6. Basis and Rank"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -354,6 +356,14 @@ c_{3}
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -390,7 +400,7 @@ c_{3}
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

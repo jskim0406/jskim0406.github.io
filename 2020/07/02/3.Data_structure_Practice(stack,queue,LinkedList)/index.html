@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="1. 배열123# 2차원 배열: 리스트로 구현시data_list &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]data_list [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  연습1: 위의 2차원 배열에서 9, 8, 7 을 순서대로 출력해보기    1data_list[2][::-1] [9, 8, 7] 1234567891011">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Practice">
@@ -24,6 +24,7 @@
 <meta property="article:tag" content="queue">
 <meta name="twitter:card" content="summary">
     
+    <link rel="canonical" href="http://example.com/2020/07/02/3.data_structure_practice(stack,queue,linkedlist)/">
     
       
         
@@ -56,7 +57,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -73,7 +75,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -90,25 +92,25 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&text=1. Practice"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&is_video=false&description=1. Practice"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&text=1. Practice"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&is_video=false&description=1. Practice"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=1. Practice&body=Check out this article: http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&name=1. Practice&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&t=1. Practice"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&name=1. Practice&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&t=1. Practice"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EB%B0%B0%EC%97%B4"><span class="toc-number">1.</span> <span class="toc-text">1. 배열</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%ED%81%90"><span class="toc-number">2.</span> <span class="toc-text">2. 큐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%81%90-Lifo%ED%81%90-Prority%ED%81%90-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%ED%98%84"><span class="toc-number">2.0.1.</span> <span class="toc-text">1) 큐, Lifo큐, Prority큐 객체 구현</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%8A%A4%ED%83%9D"><span class="toc-number">3.</span> <span class="toc-text">3. 스택</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="toc-number">4.</span> <span class="toc-text">4. 링크드리스트</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="toc-number">4.0.1.</span> <span class="toc-text">1) Linked List 객체 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Linked-List-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%EC%97%B0%EA%B2%B0"><span class="toc-number">4.0.2.</span> <span class="toc-text">2) Linked List 객체 간 연결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%B6%94%EA%B0%80"><span class="toc-number">4.0.3.</span> <span class="toc-text">3) Linked List 객체 추가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%A2%85%ED%95%A9"><span class="toc-number">4.0.4.</span> <span class="toc-text">5) 종합</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Double-Linked-List"><span class="toc-number">4.0.5.</span> <span class="toc-text">7) Double Linked List</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EB%B0%B0%EC%97%B4"><span class="toc-number">1.</span> <span class="toc-text">1. 배열</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%ED%81%90"><span class="toc-number">2.</span> <span class="toc-text">2. 큐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%81%90-Lifo%ED%81%90-Prority%ED%81%90-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%ED%98%84"><span class="toc-number">2.0.1.</span> <span class="toc-text">1) 큐, Lifo큐, Prority큐 객체 구현</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%8A%A4%ED%83%9D"><span class="toc-number">3.</span> <span class="toc-text">3. 스택</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="toc-number">4.</span> <span class="toc-text">4. 링크드리스트</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="toc-number">4.0.1.</span> <span class="toc-text">1) Linked List 객체 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Linked-List-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%EC%97%B0%EA%B2%B0"><span class="toc-number">4.0.2.</span> <span class="toc-text">2) Linked List 객체 간 연결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%B6%94%EA%B0%80"><span class="toc-number">4.0.3.</span> <span class="toc-text">3) Linked List 객체 추가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%A2%85%ED%95%A9"><span class="toc-number">4.0.4.</span> <span class="toc-text">5) 종합</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Double-Linked-List"><span class="toc-number">4.0.5.</span> <span class="toc-text">7) Double Linked List</span></a></li></ol></li>
     </div>
   </span>
 </div>
@@ -168,7 +170,7 @@
 <pre><code>[9, 8, 7]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">dataset = [<span class="string">&#x27;Braund, Mr. Owen Harris&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Cumings, Mrs. John Bradley (Florence Briggs Thayer)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Heikkinen, Miss. Laina&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Futrelle, Mrs. Jacques Heath (Lily May Peel)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Allen, Mr. William Henry&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Moran, Mr. James&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;McCarthy, Mr. Timothy J&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Palsson, Master. Gosta Leonard&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Nasser, Mrs. Nicholas (Adele Achem)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Sandstrom, Miss. Marguerite Rut&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Bonnell, Miss. Elizabeth&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Saundercock, Mr. William Henry&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Andersson, Mr. Anders Johan&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Vestrom, Miss. Hulda Amanda Adolfina&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Hewlett, Mrs. (Mary D Kingcome) &#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Rice, Master. Eugene&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Williams, Mr. Charles Eugene&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Masselmani, Mrs. Fatima&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Fynney, Mr. Joseph J&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Beesley, Mr. Lawrence&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;McGowan, Miss. Anna &quot;Annie&quot;&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Sloper, Mr. William Thompson&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Palsson, Miss. Torborg Danira&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Emir, Mr. Farred Chehab&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Fortune, Mr. Charles Alexander&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Dwyer, Miss. Ellen &quot;Nellie&quot;&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;Todoroff, Mr. Lalio&#x27;</span>]</span><br></pre></td></tr></table></figure>
 <div class="alert alert-block alert-warning">
-<strong><font color="blue" size="3em">연습2: 위의 dataset 리스트에서 전체 이름 안에 M 은 몇 번 나왔는지 빈도수 출력하기</font></div>
+<strong><font color="blue" size="3em">연습2: 위의 dataset 리스트에서 전체 이름 안에 M 은 몇 번 나왔는지 빈도수 출력하기</font></strong></div>
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> dataset:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">        <span class="keyword">if</span> data[i] == <span class="string">&#x27;M&#x27;</span>:</span><br><span class="line">            cnt+=<span class="number">1</span></span><br><span class="line">print(cnt)</span><br></pre></td></tr></table></figure>
@@ -393,22 +395,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EB%B0%B0%EC%97%B4"><span class="toc-number">1.</span> <span class="toc-text">1. 배열</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%ED%81%90"><span class="toc-number">2.</span> <span class="toc-text">2. 큐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%81%90-Lifo%ED%81%90-Prority%ED%81%90-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%ED%98%84"><span class="toc-number">2.0.1.</span> <span class="toc-text">1) 큐, Lifo큐, Prority큐 객체 구현</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%8A%A4%ED%83%9D"><span class="toc-number">3.</span> <span class="toc-text">3. 스택</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="toc-number">4.</span> <span class="toc-text">4. 링크드리스트</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="toc-number">4.0.1.</span> <span class="toc-text">1) Linked List 객체 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Linked-List-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%EC%97%B0%EA%B2%B0"><span class="toc-number">4.0.2.</span> <span class="toc-text">2) Linked List 객체 간 연결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%B6%94%EA%B0%80"><span class="toc-number">4.0.3.</span> <span class="toc-text">3) Linked List 객체 추가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%A2%85%ED%95%A9"><span class="toc-number">4.0.4.</span> <span class="toc-text">5) 종합</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Double-Linked-List"><span class="toc-number">4.0.5.</span> <span class="toc-text">7) Double Linked List</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EB%B0%B0%EC%97%B4"><span class="toc-number">1.</span> <span class="toc-text">1. 배열</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%ED%81%90"><span class="toc-number">2.</span> <span class="toc-text">2. 큐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%81%90-Lifo%ED%81%90-Prority%ED%81%90-%EA%B0%9D%EC%B2%B4-%EA%B5%AC%ED%98%84"><span class="toc-number">2.0.1.</span> <span class="toc-text">1) 큐, Lifo큐, Prority큐 객체 구현</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%8A%A4%ED%83%9D"><span class="toc-number">3.</span> <span class="toc-text">3. 스택</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EB%A7%81%ED%81%AC%EB%93%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="toc-number">4.</span> <span class="toc-text">4. 링크드리스트</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1"><span class="toc-number">4.0.1.</span> <span class="toc-text">1) Linked List 객체 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Linked-List-%EA%B0%9D%EC%B2%B4-%EA%B0%84-%EC%97%B0%EA%B2%B0"><span class="toc-number">4.0.2.</span> <span class="toc-text">2) Linked List 객체 간 연결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linked-List-%EA%B0%9D%EC%B2%B4-%EC%B6%94%EA%B0%80"><span class="toc-number">4.0.3.</span> <span class="toc-text">3) Linked List 객체 추가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EC%A2%85%ED%95%A9"><span class="toc-number">4.0.4.</span> <span class="toc-text">5) 종합</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Double-Linked-List"><span class="toc-number">4.0.5.</span> <span class="toc-text">7) Double Linked List</span></a></li></ol></li>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&text=1. Practice"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&is_video=false&description=1. Practice"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&text=1. Practice"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&is_video=false&description=1. Practice"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=1. Practice&body=Check out this article: http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&name=1. Practice&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&t=1. Practice"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&title=1. Practice"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&name=1. Practice&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/3.Data_structure_Practice(stack,queue,LinkedList)/&t=1. Practice"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -493,6 +495,14 @@
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -529,7 +539,7 @@
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

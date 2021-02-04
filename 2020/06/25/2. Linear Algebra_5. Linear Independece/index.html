@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="이번에는 선형대수에서 매우 중요한 개념인 “Linear Indepencence(선형독립)” 개념에 대해 살펴보겠습니다. 1. Linear Combination먼저, Linear combination(선형조합) 개념에 대해 알아야 합니다. 선형독립의 정의가 선형조합을 바탕으로 하고 있기 때문이죠! 선형조합은 말그대로 Linear하게 조합한 것 입니다. MML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. Linear Algebra_5. Linear Independence">
@@ -23,6 +23,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/output_13_0_5.png">
     
+    <link rel="canonical" href="http://example.com/2020/06/25/2. linear algebra_5. linear independece/">
     
       
         
@@ -55,7 +56,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -72,7 +74,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -89,20 +91,20 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&text=2. Linear Algebra_5. Linear Independence"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&is_video=false&description=2. Linear Algebra_5. Linear Independence"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&text=2. Linear Algebra_5. Linear Independence"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&is_video=false&description=2. Linear Algebra_5. Linear Independence"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=2. Linear Algebra_5. Linear Independence&body=Check out this article: http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&name=2. Linear Algebra_5. Linear Independence&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&t=2. Linear Algebra_5. Linear Independence"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&name=2. Linear Algebra_5. Linear Independence&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&t=2. Linear Algebra_5. Linear Independence"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -243,17 +245,17 @@ v = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&text=2. Linear Algebra_5. Linear Independence"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&is_video=false&description=2. Linear Algebra_5. Linear Independence"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&text=2. Linear Algebra_5. Linear Independence"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&is_video=false&description=2. Linear Algebra_5. Linear Independence"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=2. Linear Algebra_5. Linear Independence&body=Check out this article: http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&name=2. Linear Algebra_5. Linear Independence&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&t=2. Linear Algebra_5. Linear Independence"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&title=2. Linear Algebra_5. Linear Independence"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&name=2. Linear Algebra_5. Linear Independence&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/06/25/2.%20Linear%20Algebra_5.%20Linear%20Independece/&t=2. Linear Algebra_5. Linear Independence"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -338,6 +340,14 @@ v = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -374,7 +384,7 @@ v = c_1 x_1 + c_2 x_2 + \cdots + c_N x_N
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

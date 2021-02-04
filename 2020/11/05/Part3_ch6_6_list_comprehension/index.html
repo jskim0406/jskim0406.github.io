@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="1. list comprehension map, filter + lambda보단 list-comprehension이 더욱 pythonic  [반복]  단일 반복 : for loop 다중 반복 : milti for loop  [조건]  단일 조건 : 표현1 for loop if 복수 조건 : 표현1 if 조건1 else 표현2 for loop  참고 1  참">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6. Part3_ch6 보충6_list comprehension">
@@ -21,6 +21,7 @@
 <meta property="article:tag" content="list comprehension">
 <meta name="twitter:card" content="summary">
     
+    <link rel="canonical" href="http://example.com/2020/11/05/part3_ch6_6_list_comprehension/">
     
       
         
@@ -53,7 +54,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -70,7 +72,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -87,25 +89,25 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&text=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&is_video=false&description=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&text=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&is_video=false&description=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=6. Part3_ch6 보충6_list comprehension&body=Check out this article: http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&name=6. Part3_ch6 보충6_list comprehension&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&t=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&name=6. Part3_ch6 보충6_list comprehension&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&t=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-list-comprehension"><span class="toc-number">1.</span> <span class="toc-text">1. list comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EB%8B%A8%EC%9D%BC-%EB%B0%98%EB%B3%B5-for-loop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1) 단일 반복 : for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EB%8B%A4%EC%A4%91-%EB%B0%98%EB%B3%B5-multi-for-loop"><span class="toc-number">1.0.2.</span> <span class="toc-text">2) 다중 반복 :  multi for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EB%8B%A8%EC%9D%BC-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-for-loop-if"><span class="toc-number">1.0.3.</span> <span class="toc-text">3) 단일 조건 : 표현1 for loop if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%EB%B3%B5%EC%88%98-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-if-%EC%A1%B0%EA%B1%B41-else-%ED%91%9C%ED%98%842-for-loop"><span class="toc-number">1.0.4.</span> <span class="toc-text">4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-list-comprehension"><span class="toc-number">1.</span> <span class="toc-text">1. list comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EB%8B%A8%EC%9D%BC-%EB%B0%98%EB%B3%B5-for-loop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1) 단일 반복 : for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EB%8B%A4%EC%A4%91-%EB%B0%98%EB%B3%B5-multi-for-loop"><span class="toc-number">1.0.2.</span> <span class="toc-text">2) 다중 반복 :  multi for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EB%8B%A8%EC%9D%BC-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-for-loop-if"><span class="toc-number">1.0.3.</span> <span class="toc-text">3) 단일 조건 : 표현1 for loop if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%EB%B3%B5%EC%88%98-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-if-%EC%A1%B0%EA%B1%B41-else-%ED%91%9C%ED%98%842-for-loop"><span class="toc-number">1.0.4.</span> <span class="toc-text">4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -167,9 +169,9 @@
 <li>단일 조건 : 표현1 for loop if</li>
 <li><p>복수 조건 : 표현1 if 조건1 else 표현2 for loop</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay08_ListComprehension.md">참고 1</a></p>
+<li><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/shoark7/Effective-Python/blob/master/files/BetterWay08_ListComprehension.md">참고 1</a></p>
 </li>
-<li><a target="_blank" rel="noopener" href="https://wikidocs.net/46742">참고 2</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://wikidocs.net/46742">참고 2</a></li>
 </ul>
 <h3 id="1-단일-반복-for-loop"><a href="#1-단일-반복-for-loop" class="headerlink" title="1) 단일 반복 : for loop"></a>1) 단일 반복 : for loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [x+<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>+<span class="number">1</span>)]</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
 <pre><code>[11, 12, 13]
@@ -208,22 +210,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-list-comprehension"><span class="toc-number">1.</span> <span class="toc-text">1. list comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EB%8B%A8%EC%9D%BC-%EB%B0%98%EB%B3%B5-for-loop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1) 단일 반복 : for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EB%8B%A4%EC%A4%91-%EB%B0%98%EB%B3%B5-multi-for-loop"><span class="toc-number">1.0.2.</span> <span class="toc-text">2) 다중 반복 :  multi for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EB%8B%A8%EC%9D%BC-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-for-loop-if"><span class="toc-number">1.0.3.</span> <span class="toc-text">3) 단일 조건 : 표현1 for loop if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%EB%B3%B5%EC%88%98-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-if-%EC%A1%B0%EA%B1%B41-else-%ED%91%9C%ED%98%842-for-loop"><span class="toc-number">1.0.4.</span> <span class="toc-text">4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-list-comprehension"><span class="toc-number">1.</span> <span class="toc-text">1. list comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EB%8B%A8%EC%9D%BC-%EB%B0%98%EB%B3%B5-for-loop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1) 단일 반복 : for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EB%8B%A4%EC%A4%91-%EB%B0%98%EB%B3%B5-multi-for-loop"><span class="toc-number">1.0.2.</span> <span class="toc-text">2) 다중 반복 :  multi for loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EB%8B%A8%EC%9D%BC-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-for-loop-if"><span class="toc-number">1.0.3.</span> <span class="toc-text">3) 단일 조건 : 표현1 for loop if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%EB%B3%B5%EC%88%98-%EC%A1%B0%EA%B1%B4-%ED%91%9C%ED%98%841-if-%EC%A1%B0%EA%B1%B41-else-%ED%91%9C%ED%98%842-for-loop"><span class="toc-number">1.0.4.</span> <span class="toc-text">4) 복수 조건 : 표현1 if 조건1 else 표현2 for loop</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&text=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&is_video=false&description=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&text=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&is_video=false&description=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=6. Part3_ch6 보충6_list comprehension&body=Check out this article: http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&name=6. Part3_ch6 보충6_list comprehension&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&t=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&title=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&name=6. Part3_ch6 보충6_list comprehension&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/05/Part3_ch6_6_list_comprehension/&t=6. Part3_ch6 보충6_list comprehension"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -308,6 +310,14 @@
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -344,7 +354,7 @@
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

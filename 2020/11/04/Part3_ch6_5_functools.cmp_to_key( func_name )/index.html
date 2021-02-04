@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="1from IPython.display import Image 1. from functools import cmp_to_key정렬(sorted)시, 비교함수의 커스터마이징( key &#x3D; functools.cmp_to_key( 커스텀비교함수 ) ) 참고 1Image(&amp;#x27;&#x2F;Users&#x2F;kimjeongseob&#x2F;Desktop&#x2F;Study&#x2F;1.Study&#x2F;2. wi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)">
@@ -23,6 +23,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/output_3_0_5_2.png">
     
+    <link rel="canonical" href="http://example.com/2020/11/04/part3_ch6_5_functools.cmp_to_key( func_name )/">
     
       
         
@@ -55,7 +56,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -72,7 +74,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -89,20 +91,20 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&text=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&is_video=false&description=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&text=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&is_video=false&description=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&body=Check out this article: http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&name=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&t=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&name=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&t=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -158,7 +160,7 @@
   <div class="content" itemprop="articleBody">
     <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image</span><br></pre></td></tr></table></figure>
 <h1 id="1-from-functools-import-cmp-to-key"><a href="#1-from-functools-import-cmp-to-key" class="headerlink" title="1. from functools import cmp_to_key"></a>1. from functools import cmp_to_key</h1><p><strong>정렬(sorted)시, 비교함수의 커스터마이징( key = functools.cmp_to_key( 커스텀비교함수 ) )</strong></p>
-<p><a target="_blank" rel="noopener" href="https://velog.io/@sparkbosing/python-내-마음대로-정렬sort">참고</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://velog.io/@sparkbosing/python-내-마음대로-정렬sort">참고</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/img/output_3_0_5_2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Image(<span class="string">&#x27;/Users/kimjeongseob/Desktop/Study/1.Study/2. with computer/4.Programming/1.Algorithms/3.Algorithms_study/0. 기타 정리(&quot;파이썬 알고리즘 인터뷰(박상길)&quot;)/참고자료/python_cmp_to_key_ex.jpeg&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -195,17 +197,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&text=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&is_video=false&description=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&text=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&is_video=false&description=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&body=Check out this article: http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&name=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&t=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&title=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&name=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/04/Part3_ch6_5_functools.cmp_to_key(%20func_name%20)/&t=6. Part3_ch6 보충5_sorted_key_CustomFunction(functools.cmp_to_key)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -290,6 +292,14 @@
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -326,7 +336,7 @@
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

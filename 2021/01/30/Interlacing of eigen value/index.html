@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="행렬 A가 변하면, 그 고유값은 어떻게 될까?이에 대한 답을 엿볼 수 있는 개념이 ‘고유값의 interlacing’이다. 고유값의 interlacing정의[‘고유값의 interlacing’ 정의] $S + uu^{T}$의 각 고유값 $z_{i}$는 $\lambda_{i}$이상이고 $\lambda_{i-1}$이하이다. 따라서, $\lambda$들과 $z$들이">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Interlacing of eigen-value">
@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/img/output_28_0_eig.png">
 <meta property="og:image" content="http://example.com/img/output_30_0_eig.png">
 <meta property="article:published_time" content="2021-01-30T08:26:30.000Z">
-<meta property="article:modified_time" content="2021-02-01T02:29:47.637Z">
+<meta property="article:modified_time" content="2021-02-01T08:50:33.409Z">
 <meta property="article:author" content="js Kim">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="math">
@@ -26,6 +26,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/output_14_0_eig.png">
     
+    <link rel="canonical" href="http://example.com/2021/01/30/interlacing of eigen value/">
     
       
         
@@ -58,7 +59,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -75,9 +77,11 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2021/02/05/googleb2cd7ddbd0bb87fe/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2020/11/18/%5Bprogrammers%5D%20stack,queue_3/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -90,20 +94,20 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&text=Interlacing of eigen-value"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&is_video=false&description=Interlacing of eigen-value"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&text=Interlacing of eigen-value"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&is_video=false&description=Interlacing of eigen-value"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=Interlacing of eigen-value&body=Check out this article: http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&name=Interlacing of eigen-value&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&t=Interlacing of eigen-value"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&name=Interlacing of eigen-value&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&t=Interlacing of eigen-value"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -171,7 +175,7 @@
 <p><strong>2. “왜 ‘rank-1 행렬’이 더해졌는 가?</strong></p>
 <p>처음 공부하며 가장 의아했던 부분이다. 생각해보면 간단하다. 행렬의 각 요소에 특정한 값을 가감해주려면, ‘변화’는 당연하게도 같은 shape의 행렬이 되어야 하고, 가장 간단하고 심플한 rank-1 행렬이 가감되는 상황을 이야기하고 있다.</p>
 <p><strong>3. rank-1 행렬 = 양의 준정부호</strong></p>
-<p>rank-1 행렬은 양의 준정부호를 갖는다. 이 부분에서 가장 중요한 점을 볼 수 있다. 행렬 $S$에 <strong>주어진 변화가 바로 ‘양의 준정부호’</strong>라는 점이다. 즉, <strong>기존의 행렬에 0 혹은 + 의 변화를 준 것이다. 그렇다면 기존 행렬의 고유값은 늘어날까? 줄어들까?</strong></p>
+<p>rank-1 행렬은 양의 준정부호를 갖는다. 주어진 변화(rank-1행렬)의 부호를 주목할 필요가 있다. 행렬 $S$에 <strong>주어진 변화가 바로 ‘양의 준정부호’</strong>라는 점은 <strong>기존의 행렬에 0 혹은 + 의 변화를 준 것과 같다.</strong> 그리고 그 결과, <strong>“행렬의 고유값에는 어떠한 변화가 나타나는 지”가 우리가 결국 알아내고자 하는 것</strong>이다.</p>
 <p>rank-1 행렬이 양의 준정부호를 갖는 것은 아래와 같은 증명으로 확인할 수 있다.</p>
 <p>$A_{i}=uu^{T}$ 로, 랭크-1 행렬 $A_{i}$가 있을 때,</p>
 <script type="math/tex; mode=display">x^{T}Ax=x^{T}\left( uu^{T}\right) x=\left( u^{T}x\right) ^{T}\left( u^{T}x\right) = \left\| u^{T}x\right\| ^{2} \geq 0</script><p>따라서, rank-1 행렬은 양의 준정부호이다.</p>
@@ -192,7 +196,7 @@
 <h2 id="행렬-linear-mapping-function"><a href="#행렬-linear-mapping-function" class="headerlink" title="행렬 = linear mapping = function"></a>행렬 = linear mapping = function</h2><p>행렬이란 linear mapping의 과정이다. 그리고 이는 function이다.<br>linear mapping 이란 다음과 같이 이해할 수 있다.</p>
 <script type="math/tex; mode=display">\forall x,y \in V, \forall a,b \in \mathbb{R}, f : V \rightarrow W</script><script type="math/tex; mode=display">f(ax+by) = af(x) + bf(y)</script><p>위를 만족할 경우, $f$ 는 linear mapping이고, 이는 자연스럽게 function의 역할을 하게 된다.<br>그리고 이 <strong>funciton $f$는 벡터공간 V와 W사이의 transformation이고, 이는 행렬의 역할과 동일</strong>하다. 즉, 행렬은 linear mapping의 역할을 하는 일종의 function인 것이다.</p>
 <h2 id="‘양의-준정부호’-변화의-의미-행렬-mapping-효과의-scaling"><a href="#‘양의-준정부호’-변화의-의미-행렬-mapping-효과의-scaling" class="headerlink" title="‘양의 준정부호’ 변화의 의미 = 행렬 mapping 효과의 scaling"></a>‘양의 준정부호’ 변화의 의미 = 행렬 mapping 효과의 scaling</h2><p>함수에서 살펴본 변화가 행렬에도 동일하게 적용된다. </p>
-<p><strong>함수에서는 function값이 늘어났다면, 행렬에선 mapping의 scaler인 ‘고유값’이 변하게 되는 것이다.</strong></p>
+<p><strong>함수에서는 function값이 늘어났다면, 행렬에선 mapping의 scaler인 ‘고유값’이 변해 행렬의 function(mapping)값을 늘어나게 하는 것이다.</strong></p>
 <p>이를 데카르트 좌표계에서 직접 확인해보자</p>
 <p>아래와 같이, 가장 간단한 행렬 A를 놓고 살펴보자.</p>
 <p>$A = \left[ \begin{array}{cc} 2&amp;0 \\ 0&amp;2 \end{array} \right]$<br>(identity matrix, 대칭행렬)</p>
@@ -217,7 +221,7 @@ eigen vector of A :
 <p><img src="/img/output_25_0_eig.png" alt="png"></p>
 <p>만약, A에 다음과 같은 변화가 생긴다면?</p>
 <script type="math/tex; mode=display">A + uu^{t} = \tilde{A}</script><script type="math/tex; mode=display">A+uu^{T}=\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}+\begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}=\begin{bmatrix} 3 & 0 \\ 0 & 2 \end{bmatrix} = \tilde{A}</script><p>기존의 행렬 $A$에 랭크-1행렬을 추가해주었다. 이로써 새로운 행렬 $\tilde{A}$를 얻었다. 랭크-1행렬은 positive semidefinite이다. 즉, 랭크-1행렬의 고유값은 모두 0보다 크거나 같다.</p>
-<p>*랭크-1행렬과 같은 positive semidefinite행렬의 고유값이 모두 0보다 크거나 같다는 점은 아래의 블로그 글을 참고해서 이해할 수 있다. ( 참고 블로그 : [ <a target="_blank" rel="noopener" href="https://blueskyvision.tistory.com/205">https://blueskyvision.tistory.com/205</a> ] )</p>
+<p>*랭크-1행렬과 같은 positive semidefinite행렬의 고유값이 모두 0보다 크거나 같다는 점은 아래의 블로그 글을 참고해서 이해할 수 있다. ( 참고 블로그 : [ <a target="_blank" rel="external nofollow noopener noreferrer" href="https://blueskyvision.tistory.com/205">https://blueskyvision.tistory.com/205</a> ] )</p>
 <p>기존의 행렬에 0 혹은 +의 변화를 주었다. 그렇다면, 기존 행렬의 고유값은 늘어났을까 줄어들었을까?</p>
 <p>직관적으로 생각해보면, 새로운 행렬 $\tilde{A}$의 고유값이 기존보다 늘어났을 것 같다.<br>왜냐하면 기존 행렬에 양부호의 값을 더해주었으니, scaler인 고유값도 더 늘어났을 것 같기 때문이다.<br>실제로 그런지 살펴보자.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">y_tilde = np.matmul(A_tilde,x)</span><br><span class="line"></span><br><span class="line">eig_val, eig_vec = np.linalg.eig(A_tilde)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f&quot;x : \n<span class="subst">&#123;x&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;A_tilde : \n<span class="subst">&#123;A_tilde&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;y_tilde : \n<span class="subst">&#123;y_tilde&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen value of A_tilde : \n<span class="subst">&#123;[eig_val[<span class="number">0</span>], eig_val[<span class="number">1</span>]]&#125;</span>&quot;</span>)</span><br><span class="line">print(<span class="string">f&quot;eigen vector of A_tildes : \n<span class="subst">&#123;eig_vec&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -281,17 +285,17 @@ eigen vector of A_tildes :
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&text=Interlacing of eigen-value"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&is_video=false&description=Interlacing of eigen-value"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&text=Interlacing of eigen-value"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&is_video=false&description=Interlacing of eigen-value"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=Interlacing of eigen-value&body=Check out this article: http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&name=Interlacing of eigen-value&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&t=Interlacing of eigen-value"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&title=Interlacing of eigen-value"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&name=Interlacing of eigen-value&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2021/01/30/Interlacing%20of%20eigen%20value/&t=Interlacing of eigen-value"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -376,6 +380,14 @@ eigen vector of A_tildes :
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -412,7 +424,7 @@ eigen vector of A_tildes :
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

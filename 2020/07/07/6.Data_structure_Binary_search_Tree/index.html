@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="1. 트리 (Tree) 구조 트리: Node와 Branch를 이용해서, 사이클을 이루지 않도록 구성한 데이터 구조 실제로 어디에 많이 사용되나?  트리 중 이진 트리 (Binary Tree) 형태의 구조로, 탐색(검색) 알고리즘 구현을 위해 많이 사용됨    2. 알아둘 용어 Node: 트리에서 데이터를 저장하는 기본 요소 (데이터와 다른 연결된 노드에 대">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4. Binary_search_Tree">
@@ -21,6 +21,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.fun-coding.org/00_Images/tree.png">
     
+    <link rel="canonical" href="http://example.com/2020/07/07/6.data_structure_binary_search_tree/">
     
       
         
@@ -53,7 +54,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -70,7 +72,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -87,25 +89,25 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&text=4. Binary_search_Tree"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&is_video=false&description=4. Binary_search_Tree"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&text=4. Binary_search_Tree"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&is_video=false&description=4. Binary_search_Tree"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=4. Binary_search_Tree&body=Check out this article: http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&name=4. Binary_search_Tree&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&t=4. Binary_search_Tree"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&name=4. Binary_search_Tree&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&t=4. Binary_search_Tree"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC-Tree-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 트리 (Tree) 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">2.</span> <span class="toc-text">2. 알아둘 용어</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC"><span class="toc-number"></span> <span class="toc-text">1. 트리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%EB%85%B8%EB%93%9C-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">0.1.</span> <span class="toc-text">5.1. 노드 클래스 만들기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%84%A3%EA%B8%B0"><span class="toc-number">0.2.</span> <span class="toc-text">5.2. 이진 탐색 트리에 데이터 넣기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC-%ED%83%90%EC%83%89"><span class="toc-number">0.3.</span> <span class="toc-text">5.3. 이진 탐색 트리 탐색</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%ED%8A%B8%EB%A6%AC-%EC%82%AD%EC%A0%9C"><span class="toc-number">0.4.</span> <span class="toc-text">5.4 트리 삭제</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%EC%A2%85%ED%95%A9"><span class="toc-number">0.5.</span> <span class="toc-text">5.5 종합</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC-Tree-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 트리 (Tree) 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">2.</span> <span class="toc-text">2. 알아둘 용어</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC"><span class="toc-number"></span> <span class="toc-text">1. 트리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%EB%85%B8%EB%93%9C-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">0.1.</span> <span class="toc-text">5.1. 노드 클래스 만들기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%84%A3%EA%B8%B0"><span class="toc-number">0.2.</span> <span class="toc-text">5.2. 이진 탐색 트리에 데이터 넣기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC-%ED%83%90%EC%83%89"><span class="toc-number">0.3.</span> <span class="toc-text">5.3. 이진 탐색 트리 탐색</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%ED%8A%B8%EB%A6%AC-%EC%82%AD%EC%A0%9C"><span class="toc-number">0.4.</span> <span class="toc-text">5.4 트리 삭제</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%EC%A2%85%ED%95%A9"><span class="toc-number">0.5.</span> <span class="toc-text">5.5 종합</span></a></li></ol></li>
     </div>
   </span>
 </div>
@@ -169,7 +171,7 @@
 <li>Child Node: 어떤 노드의 상위 레벨에 연결된 노드</li>
 <li>Leaf Node (Terminal Node): Child Node가 하나도 없는 노드</li>
 <li>Sibling (Brother Node): 동일한 Parent Node를 가진 노드</li>
-<li>Depth: 트리에서 Node가 가질 수 있는 최대 Level<br><img src="http://www.fun-coding.org/00_Images/tree.png" width="600" /></li>
+<li>Depth: 트리에서 Node가 가질 수 있는 최대 Level<br><img src="http://www.fun-coding.org/00_Images/tree.png" width="600"></li>
 </ul>
 <h1 id="1-트리"><a href="#1-트리" class="headerlink" title="1. 트리"></a>1. 트리</h1><ul>
 <li>링크드리스트를 구현해 활용</li>
@@ -246,22 +248,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC-Tree-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 트리 (Tree) 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">2.</span> <span class="toc-text">2. 알아둘 용어</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC"><span class="toc-number"></span> <span class="toc-text">1. 트리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%EB%85%B8%EB%93%9C-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">0.1.</span> <span class="toc-text">5.1. 노드 클래스 만들기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%84%A3%EA%B8%B0"><span class="toc-number">0.2.</span> <span class="toc-text">5.2. 이진 탐색 트리에 데이터 넣기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC-%ED%83%90%EC%83%89"><span class="toc-number">0.3.</span> <span class="toc-text">5.3. 이진 탐색 트리 탐색</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%ED%8A%B8%EB%A6%AC-%EC%82%AD%EC%A0%9C"><span class="toc-number">0.4.</span> <span class="toc-text">5.4 트리 삭제</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%EC%A2%85%ED%95%A9"><span class="toc-number">0.5.</span> <span class="toc-text">5.5 종합</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC-Tree-%EA%B5%AC%EC%A1%B0"><span class="toc-number">1.</span> <span class="toc-text">1. 트리 (Tree) 구조</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EC%95%8C%EC%95%84%EB%91%98-%EC%9A%A9%EC%96%B4"><span class="toc-number">2.</span> <span class="toc-text">2. 알아둘 용어</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%ED%8A%B8%EB%A6%AC"><span class="toc-number"></span> <span class="toc-text">1. 트리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%EB%85%B8%EB%93%9C-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">0.1.</span> <span class="toc-text">5.1. 노드 클래스 만들기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%84%A3%EA%B8%B0"><span class="toc-number">0.2.</span> <span class="toc-text">5.2. 이진 탐색 트리에 데이터 넣기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%EC%9D%B4%EC%A7%84-%ED%83%90%EC%83%89-%ED%8A%B8%EB%A6%AC-%ED%83%90%EC%83%89"><span class="toc-number">0.3.</span> <span class="toc-text">5.3. 이진 탐색 트리 탐색</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%ED%8A%B8%EB%A6%AC-%EC%82%AD%EC%A0%9C"><span class="toc-number">0.4.</span> <span class="toc-text">5.4 트리 삭제</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%EC%A2%85%ED%95%A9"><span class="toc-number">0.5.</span> <span class="toc-text">5.5 종합</span></a></li></ol></li>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&text=4. Binary_search_Tree"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&is_video=false&description=4. Binary_search_Tree"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&text=4. Binary_search_Tree"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&is_video=false&description=4. Binary_search_Tree"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=4. Binary_search_Tree&body=Check out this article: http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&name=4. Binary_search_Tree&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&t=4. Binary_search_Tree"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&title=4. Binary_search_Tree"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&name=4. Binary_search_Tree&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/07/6.Data_structure_Binary_search_Tree/&t=4. Binary_search_Tree"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -346,6 +348,14 @@
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -382,7 +392,7 @@
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

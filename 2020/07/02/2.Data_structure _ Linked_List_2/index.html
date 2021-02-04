@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Linked list 배열의 단점을 보완 배열의 단점 : 미리 연결된 공간을 예약해놓고 거기서 데이터 쓰고 읽음(추가&#x2F;제거가 어려움) 링크드 리스트 : 미리 예약x. 필요할 때마다 데이터를 추가 제거 할 수 있는 구조   링크드 리스트 기본 구조와 용어 노드(Node): 데이터 저장 단위 (데이터값, 포인터) 로 구성 포인터(pointer): 각 노드 안에">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Linked_List(2)">
@@ -27,6 +27,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.fun-coding.org/00_Images/linkedlist.png">
     
+    <link rel="canonical" href="http://example.com/2020/07/02/2.data_structure _ linked_list_2/">
     
       
         
@@ -59,7 +60,8 @@
     <!-- rss -->
     
     
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/rss2.xml" title="jskim_blog" type="application/rss+xml">
+</head>
 
 <body class="max-width mx-auto px3 ltr">    
       <div id="header-post">
@@ -76,7 +78,7 @@
         
       </ul>
     </span>
-    <br/>
+    <br>
     <span id="actions">
       <ul>
         
@@ -93,20 +95,20 @@
       <span id="i-top" class="info" style="display:none;">Back to top</span>
       <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
-    <br/>
+    <br>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&text=1. Linked_List(2)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&is_video=false&description=1. Linked_List(2)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&text=1. Linked_List(2)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&is_video=false&description=1. Linked_List(2)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=1. Linked_List(2)&body=Check out this article: http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&name=1. Linked_List(2)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&t=1. Linked_List(2)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&name=1. Linked_List(2)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&t=1. Linked_List(2)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -176,7 +178,7 @@
 <ul>
 <li>일반적인 링크드 리스트 형태</li>
 </ul>
-<p><img src="https://www.fun-coding.org/00_Images/linkedlist.png" /><br>(출처: wikipedia, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</p>
+<p><img src="https://www.fun-coding.org/00_Images/linkedlist.png"><br>(출처: wikipedia, <a target="_blank" rel="external nofollow noopener noreferrer" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</p>
 <ul>
 <li>장점<ul>
 <li>미리 데이터 공간을 미리 할당하지 않아도 됨<ul>
@@ -239,7 +241,7 @@
 </code></pre><h1 id="7-Double-Linked-List"><a href="#7-Double-Linked-List" class="headerlink" title="7. Double Linked List"></a>7. Double Linked List</h1><ul>
 <li>더블 링크드 리스트(Doubly linked list) 기본 구조 <ul>
 <li>이중 연결 리스트라고도 함</li>
-<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<br><br><br><img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" /><br>(출처: wikipedia, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</li>
+<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<br><br><br><img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png"><br>(출처: wikipedia, <a target="_blank" rel="external nofollow noopener noreferrer" href="https://en.wikipedia.org/wiki/Linked_list">https://en.wikipedia.org/wiki/Linked_list</a>)</li>
 </ul>
 </li>
 </ul>
@@ -279,17 +281,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&text=1. Linked_List(2)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&is_video=false&description=1. Linked_List(2)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://twitter.com/share?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&text=1. Linked_List(2)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&is_video=false&description=1. Linked_List(2)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="mailto:?subject=1. Linked_List(2)&body=Check out this article: http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&name=1. Linked_List(2)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&t=1. Linked_List(2)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://getpocket.com/save?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://reddit.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://digg.com/submit?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&title=1. Linked_List(2)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="http://www.tumblr.com/share/link?url=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&name=1. Linked_List(2)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="external nofollow noopener noreferrer" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/07/02/2.Data_structure%20_%20Linked_List_2/&t=1. Linked_List(2)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -374,6 +376,14 @@
 
 <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZDHFG46TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZDHFG46TS');
+    </script>
+
 <!-- Baidu Analytics -->
 
 <!-- Cloudflare Analytics -->
@@ -410,7 +420,7 @@
     });
 </script>
 <!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>
