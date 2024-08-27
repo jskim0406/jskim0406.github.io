@@ -22,3 +22,5 @@ package-lock.json
 assets/js/dist
 .DS_Store
 temp
+
+_posts/*_ignore.md
