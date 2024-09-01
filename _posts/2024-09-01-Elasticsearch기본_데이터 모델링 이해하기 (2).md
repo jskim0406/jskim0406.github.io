@@ -396,6 +396,7 @@ GET car-master.v2/_search
 #### 인덱스 Refresh 수행
 1. `car-master.v3` 인덱스 생성(refresh_interval을 -1로 주어, refresh를 수행하지 않도록 생성)
 2. `car-master.v3`인덱스에 데이터 추가
+
 ```plaintext
 PUT car-master.v3
 {
@@ -415,6 +416,7 @@ PUT car-master.v3/_doc/1
 
 3. `car_master.v3`인덱스에서 데이터 조회
 - 데이터가 조회되지 않아야 정상(데이터 추가 후 refresh를 수행하지 않았기 때문)
+
 ```plaintext
 GET car-master.v3/_search
 
@@ -438,6 +440,7 @@ GET car-master.v3/_search
   }
 }
 ```
+
 위 조회 결과, `hits`필드에 조회된 데이터가 없는 것을 알 수 있습니다.
 즉 데이터를 추가해주었지만, refresh를 하지 않았기 때문에 반영되지 않았고, 결과적으로 검색되지 않는 것입니다.
 이번엔 refresh를 수행하고, 그 결과를 살펴보겠습니다.
@@ -457,7 +460,9 @@ POST car-master.v3/_refresh
   }
 }
 ```
+
 refresh 이후, 다시 조회해보겠습니다.
+
 ```plaintext
 GET car-master.v3/_search
 
@@ -490,4 +495,5 @@ GET car-master.v3/_search
   }
 }
 ```
+
 이번에는 제대로 refresh되어 데이터가 조회되는 것을 확인할 수 있습니다.
