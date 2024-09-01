@@ -139,7 +139,7 @@ POST _reindex
 `POST` 결과는 아래와 같습니다.
 결과갸 이상합니다. 'created' 필드의 값이 0입니다.
 이는 reindex 과정에서 car-master.v2에 제대로 데이터가 재색인되지 않았음을 의미합니다.
-```
+```json
 {
   "took": 2,
   "timed_out": false,

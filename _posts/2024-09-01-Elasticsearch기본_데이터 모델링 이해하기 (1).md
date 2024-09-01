@@ -15,7 +15,7 @@ date: '2024-09-01 00:25:00 +0900'
 - https://github.com/kkdeok/fastcampus-elasticsearch
 
 #### 오늘의 API
-```json
+```http
 # index 생성 - settings
 PUT /car-master
 {
@@ -67,7 +67,7 @@ POST car-master/_close
 - 인덱스 : RDB(SQL)의 테이블과 같은 개념
 	- 데이터를 담을 수 있는 그릇 생성
 
-```json
+```http
 PUT /car-master
 {
 	"settings":{
@@ -104,7 +104,7 @@ PUT /car-master
 | index.max_result_window | 검색 결과로 반환할 문서의 최대 수 설정   
                         |
 ##### 인덱스 생성 - Settings
-```json
+```http
 PUT /car-master.settings
 {
 	"settings":{
@@ -133,7 +133,7 @@ PUT /car-master.settings
 			3. 신규 인덱스 데이터 확인
 			4. 기존 인덱스 삭제
 
-```json
+```http
 PUT car-master.v2
 {
 	"settings":{
@@ -183,11 +183,11 @@ PUT car-master.v2
 이 중에서 `car-master` index의 mapping정보를 추가해보겠습니다.
 
 **mapping 정보 추가 전 index 상태**
-```json
+```http
 GET /car-master
 ```
 
-```json
+```http
 {
   "car-master": {
     "aliases": {},
@@ -216,7 +216,7 @@ GET /car-master
 ```
 
 **mapping 정보 추가**
-```json
+```http
 PUT car-master/_mapping
 {
   "properties":{
@@ -246,18 +246,18 @@ PUT car-master/_mapping
 
 ```
 
-```HTTP
+```http
 {
   "acknowledged": true
 }
 ```
 
 **mapping 정보 추가 결과**
-```HTTP
+```http
 GET /car-master
 ```
 
-```HTTP
+```http
 {
   "car-master": {
     "aliases": {},
@@ -309,11 +309,11 @@ GET /car-master
 }
 ```
 
-```HTTP
+```http
 GET car-master/_mapping
 ```
 
-```HTTP
+```http
 {
   "car-master": {
     "mappings": {
@@ -348,7 +348,7 @@ GET car-master/_mapping
 ### 인덱스 삭제
 - 인덱스를 삭제한다는 것은 샤드, 설정, 매핑, 데이터를 삭제한다는 것을 의미
 
-```HTTP
+```http
 DELETE car-master
 DELETE car-master.settings
 DELETE car-master.v2
@@ -364,12 +364,12 @@ DELETE car-master.*
 - 나중에 다시 열 수 있음
 - **`CLOSE`상태에서 조회(`GET`)를 수행하면 400 ERROR 발생**
 
-```HTTP
+```http
 POST car-magrer.v2/_close
 ```
 
 ### 인덱스 OPEN
 - 인덱스를 다시 사용할 수 있는 상태로 만들기 위해 사용
-```HTTP
+```http
 POST car-master.v2/_open
 ```
