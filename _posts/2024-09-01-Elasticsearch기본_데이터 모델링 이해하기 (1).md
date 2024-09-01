@@ -15,7 +15,7 @@ date: '2024-09-01 00:25:00 +0900'
 - https://github.com/kkdeok/fastcampus-elasticsearch
 
 #### 오늘의 API
-```HTTP
+```json
 # index 생성 - settings
 PUT /car-master
 {
@@ -42,9 +42,10 @@ PUT car-master.v2
 			"brand":{
 				"type": "keyword"
 			},
-			"model":{
-				"type": "keyword"
-...
+      ...
+    }
+  }
+}
 
 # index 조회
 GET car-master
@@ -65,7 +66,8 @@ POST car-master/_close
 ### 인덱스 생성
 - 인덱스 : RDB(SQL)의 테이블과 같은 개념
 	- 데이터를 담을 수 있는 그릇 생성
-```HTTP
+
+```json
 PUT /car-master
 {
 	"settings":{
@@ -99,9 +101,10 @@ PUT /car-master
 | index.refresh_interval  | 인덱스 새로고침 간격 설정<br>색인된 문서의 검색 가능 시간 설정            |
 | index.store.type        | 인덱스 저장 타입 지정                                     |
 | index.codec             | 데이터 압축에 사용되는 코덱 설정                               |
-| index.max_result_window | 검색 결과로 반환할 문서의 최대 수 설정                           |
+| index.max_result_window | 검색 결과로 반환할 문서의 최대 수 설정   
+                        |
 ##### 인덱스 생성 - Settings
-```HTTP
+```json
 PUT /car-master.settings
 {
 	"settings":{
@@ -109,13 +112,14 @@ PUT /car-master.settings
 			"number_of_shards": 3,
 			"number_of_replicas": 2,
 			"refresh_interval": "30s",
-			"store": {"type": "fs},
+			"store": {"type": "fs"},
 			"codec": "best_compression",
 			"routing": {"allocation" : {"include" : {"_tier_preference" : "data_content"}}}
 		}
 	}
 }
 ```
+
 ##### 인덱스 생성 - Mappings
 - Mappings
 	- 데이터 구조, 저장 및 검색 방식 정의
@@ -128,7 +132,8 @@ PUT /car-master.settings
 				- 기존 인덱스에서 신규 인덱스로 문서 이관
 			3. 신규 인덱스 데이터 확인
 			4. 기존 인덱스 삭제
-```HTTP
+
+```json
 PUT car-master.v2
 {
 	"settings":{
@@ -178,11 +183,11 @@ PUT car-master.v2
 이 중에서 `car-master` index의 mapping정보를 추가해보겠습니다.
 
 **mapping 정보 추가 전 index 상태**
-```HTTP
+```json
 GET /car-master
 ```
 
-```HTTP
+```json
 {
   "car-master": {
     "aliases": {},
@@ -211,7 +216,7 @@ GET /car-master
 ```
 
 **mapping 정보 추가**
-```HTTP
+```json
 PUT car-master/_mapping
 {
   "properties":{
@@ -342,6 +347,7 @@ GET car-master/_mapping
 
 ### 인덱스 삭제
 - 인덱스를 삭제한다는 것은 샤드, 설정, 매핑, 데이터를 삭제한다는 것을 의미
+
 ```HTTP
 DELETE car-master
 DELETE car-master.settings
@@ -357,6 +363,7 @@ DELETE car-master.*
 	- 인덱스 `DELETE`의 대안으로 사용하기도 함
 - 나중에 다시 열 수 있음
 - **`CLOSE`상태에서 조회(`GET`)를 수행하면 400 ERROR 발생**
+
 ```HTTP
 POST car-magrer.v2/_close
 ```
