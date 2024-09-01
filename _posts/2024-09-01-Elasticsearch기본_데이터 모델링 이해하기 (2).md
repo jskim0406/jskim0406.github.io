@@ -14,6 +14,56 @@ date: '2024-09-01 00:25:00 +0900'
 - https://github.com/munkyu/fastcampus-es
 - https://github.com/kkdeok/fastcampus-elasticsearch
 
+#### 오늘의 API
+```HTTP
+# index 데이터 삽입
+PUT car-master/_doc/1
+{
+  "id":1,
+  "brand":"hyundai"
+}
+
+# index 재생성
+POST _reindex
+{
+  "source":{
+    "index":"car-master",
+    "query":{
+      "term":{
+        "brand":{
+          "value":"hyundai"
+        }
+      }
+    }
+  },
+  "dest":{
+    "index":"car-master.v2"
+  }
+}
+
+# index 내 데이터 조회
+GET car-master.v2/_search
+{
+  "query":{
+    "term":{
+      "brand":"hyundai"
+    }
+  }
+}
+
+GET car-master/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET car-master.v2/_search
+
+# index Refresh
+POST car-master.v2/_refresh
+```
+
 ### 인덱스 재색인(`_reindex`)
 - 새로운 인덱스에 데이터를 다시 색인
 	- 분석기를 변경하는 경우

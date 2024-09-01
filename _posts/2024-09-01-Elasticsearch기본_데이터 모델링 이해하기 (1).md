@@ -14,6 +14,54 @@ date: '2024-09-01 00:25:00 +0900'
 - https://github.com/munkyu/fastcampus-es
 - https://github.com/kkdeok/fastcampus-elasticsearch
 
+#### 오늘의 API
+```HTTP
+# index 생성 - settings
+PUT /car-master
+{
+	"settings":{
+		"index": {
+			"number_of_shards": 2,
+			"number_of_replicas": 1
+		}
+	}
+}
+
+# index 생성 - mappings
+PUT car-master.v2
+{
+	"settings":{
+		"number_of_shards":2,
+		"number_of_replicas":1
+	},
+	"mappings":{
+		"properties":{
+			"id":{
+				"type": "keyword"
+			},
+			"brand":{
+				"type": "keyword"
+			},
+			"model":{
+				"type": "keyword"
+...
+
+# index 조회
+GET car-master
+GET car-master/_mapping
+GET car-master/_setting
+
+# 인덱스 삭제
+DELETE car-master
+DELETE car-master.*
+
+# 인덱스 OPEN
+POST car-master/_open
+
+# 인덱스 CLOSE
+POST car-master/_close
+```
+
 ### 인덱스 생성
 - 인덱스 : RDB(SQL)의 테이블과 같은 개념
 	- 데이터를 담을 수 있는 그릇 생성
