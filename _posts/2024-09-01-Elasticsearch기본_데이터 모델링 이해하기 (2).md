@@ -393,6 +393,7 @@ GET car-master.v2/_search
 4. `car-master.v3`인덱스에 대한 refresh API 실행
 	- 데이터가 조회되어야 정상(refresh를 수행했기 때문)
 
+#### 인덱스 Refresh 수행
 1. `car-master.v3` 인덱스 생성(refresh_interval을 -1로 주어, refresh를 수행하지 않도록 생성)
 2. `car-master.v3`인덱스에 데이터 추가
 ```plaintext
@@ -411,8 +412,9 @@ PUT car-master.v3/_doc/1
   "brand":"hyundai"
 }
 ```
+
 3. `car_master.v3`인덱스에서 데이터 조회
-	- 데이터가 조회되지 않아야 정상(데이터 추가 후 refresh를 수행하지 않았기 때문)
+- 데이터가 조회되지 않아야 정상(데이터 추가 후 refresh를 수행하지 않았기 때문)
 ```plaintext
 GET car-master.v3/_search
 
@@ -441,7 +443,8 @@ GET car-master.v3/_search
 이번엔 refresh를 수행하고, 그 결과를 살펴보겠습니다.
 
 4. `car-master.v3`인덱스에 대한 refresh API 실행
-	- 데이터가 조회되어야 정상(refresh를 수행했기 때문)
+- 데이터가 조회되어야 정상(refresh를 수행했기 때문)
+
 ```plaintext
 POST car-master.v3/_refresh
 
