@@ -15,7 +15,7 @@ date: '2024-09-01 00:25:00 +0900'
 - https://github.com/kkdeok/fastcampus-elasticsearch
 
 #### 오늘의 API
-```http
+```plaintext
 # index 데이터 삽입
 PUT car-master/_doc/1
 {
@@ -83,7 +83,7 @@ POST car-master.v2/_refresh
 
 ##### `car-master` 인덱스 생성
 아래와 같이 `car-master` index 생성합니다.
-```http
+```plaintext
 PUT car-master
 {
 	"settings":{
@@ -107,7 +107,7 @@ PUT car-master
 
 ##### `car-master` 인덱스 데이터 생성
 그리고 `car-master` index에 새로운 데이터(doc)을 생성해줍니다.
-```http
+```plaintext
 PUT car-master/_doc/1
 {
   "id":1,
@@ -118,7 +118,7 @@ PUT car-master/_doc/1
 ##### `car-master` 인덱스 재생성(`_reindex`)
 이제 `_reindex`를 수행합니다.
 `car-master`를 `car-master.v2`라는 곳으로 reindex 합니다.
-```http
+```plaintext
 POST _reindex
 {
   "source":{
@@ -139,7 +139,7 @@ POST _reindex
 `POST` 결과는 아래와 같습니다.
 결과갸 이상합니다. 'created' 필드의 값이 0입니다.
 이는 reindex 과정에서 car-master.v2에 제대로 데이터가 재색인되지 않았음을 의미합니다.
-```http
+```plaintext
 {
   "took": 2,
   "timed_out": false,
@@ -166,7 +166,7 @@ POST _reindex
 ###### 데이터 존재 여부 확인(`GET index/_search`)
 원인으로 먼저 `car-master` 인덱스 자체에 "brand"가 "hyundai"인 값을 갖는 데이터가 없었고, `_reindex`의 query 조건에 해당하는 데이터가 없어 실패한 것 일수도 있습니다.
 따라서 `car-master` 인덱스에 "brand"가 "hyundai"인 데이터가 있는 지 찾아보겠습니다.
-```http
+```plaintext
 GET car-master/_search
 {
   "query": {
@@ -178,7 +178,7 @@ GET car-master/_search
 ```
 그 결과, 아래와 같이 `"hits"`에 `"value"`필드의 값이 0인 것을 볼 수 있습니다.
 즉 해당하는 값이 없었다는 의미입니다.
-```http
+```plaintext
 {
   "took": 0,
   "timed_out": false,
@@ -199,7 +199,7 @@ GET car-master/_search
 }
 ```
 아래와 같이 `match_all`을 통해 인덱스에 어떤 데이터가 있는지 전체적으로 살펴봐도
-```http
+```plaintext
 GET car-master/_search
 {
   "query": {
@@ -208,7 +208,7 @@ GET car-master/_search
 }
 ```
 현재 `car-master` 인덱스 안애 데이터가 없는(`hits`의 total value가 0) 것을 볼 수 있습니다.
-```http
+```plaintext
 {
   "took": 0,
   "timed_out": false,
@@ -231,7 +231,7 @@ GET car-master/_search
 
 ###### 데이터 삽입(`PUT car-master/_doc/1`)
 다시 데이터(doc)를 `car-master`인덱스에 넣어줍니다.
-```http
+```plaintext
 PUT car-master/_doc/1
 {
   "id":1,
@@ -254,7 +254,7 @@ PUT car-master/_doc/1
 }
 ```
 그리고 다시 `car-master` 내 데이터를 조회해봅니다.
-```http
+```plaintext
 GET car-master/_search
 {
   "query": {
@@ -296,7 +296,7 @@ GET car-master/_search
 
 ###### 인덱스 재생성(`POST _reindex`)
 그럼 다시 `_reindex`를 수행합니다.
-```http
+```plaintext
 POST _reindex
 {
   "source":{
@@ -337,7 +337,7 @@ POST _reindex
 ```
 이번에는 `created`의 필드 값이 1로, 제대로 reindex된 것을 볼 수 있습니다.
 그럼 query로 직접 다시 확인해보겠습니다.
-```http
+```plaintext
 GET car-master.v2/_search
 {
   "query":{
@@ -395,7 +395,7 @@ GET car-master.v2/_search
 
 1. `car-master.v3` 인덱스 생성(refresh_interval을 -1로 주어, refresh를 수행하지 않도록 생성)
 2. `car-master.v3`인덱스에 데이터 추가
-```http
+```plaintext
 PUT car-master.v3
 {
   "settings": {
@@ -405,7 +405,7 @@ PUT car-master.v3
   }
 }
 ```
-```http
+```plaintext
 PUT car-master.v3/_doc/1
 {
   "brand":"hyundai"
@@ -413,7 +413,7 @@ PUT car-master.v3/_doc/1
 ```
 3. `car_master.v3`인덱스에서 데이터 조회
 	- 데이터가 조회되지 않아야 정상(데이터 추가 후 refresh를 수행하지 않았기 때문)
-```http
+```plaintext
 GET car-master.v3/_search
 
 # 결과
@@ -442,7 +442,7 @@ GET car-master.v3/_search
 
 4. `car-master.v3`인덱스에 대한 refresh API 실행
 	- 데이터가 조회되어야 정상(refresh를 수행했기 때문)
-```http
+```plaintext
 POST car-master.v3/_refresh
 
 # 결과
@@ -455,7 +455,7 @@ POST car-master.v3/_refresh
 }
 ```
 refresh 이후, 다시 조회해보겠습니다.
-```http
+```plaintext
 GET car-master.v3/_search
 
 # 결과
