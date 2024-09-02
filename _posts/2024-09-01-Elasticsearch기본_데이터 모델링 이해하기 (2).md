@@ -397,49 +397,49 @@ GET car-master.v2/_search
 1. `car-master.v3` 인덱스 생성(refresh_interval을 -1로 주어, refresh를 수행하지 않도록 생성)
 2. `car-master.v3`인덱스에 데이터 추가
 
-```plaintext
-PUT car-master.v3
-{
-  "settings": {
-    "index":{
-      "refresh_interval":"-1"
+  ```plaintext
+  PUT car-master.v3
+  {
+    "settings": {
+      "index":{
+        "refresh_interval":"-1"
+      }
     }
   }
-}
-```
-```plaintext
-PUT car-master.v3/_doc/1
-{
-  "brand":"hyundai"
-}
-```
+  ```
+  ```plaintext
+  PUT car-master.v3/_doc/1
+  {
+    "brand":"hyundai"
+  }
+  ```
 
 3. `car_master.v3`인덱스에서 데이터 조회
 - 데이터가 조회되지 않아야 정상(데이터 추가 후 refresh를 수행하지 않았기 때문)
 
-```plaintext
-GET car-master.v3/_search
+  ```plaintext
+  GET car-master.v3/_search
 
-# 결과
-{
-  "took": 0,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "skipped": 0,
-    "failed": 0
-  },
-  "hits": {
-    "total": {
-      "value": 0,
-      "relation": "eq"
+  # 결과
+  {
+    "took": 0,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
     },
-    "max_score": null,
-    "hits": []
+    "hits": {
+      "total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": []
+    }
   }
-}
-```
+  ```
 
 위 조회 결과, `hits`필드에 조회된 데이터가 없는 것을 알 수 있습니다.
 즉 데이터를 추가해주었지만, refresh를 하지 않았기 때문에 반영되지 않았고, 결과적으로 검색되지 않는 것입니다.
@@ -448,52 +448,52 @@ GET car-master.v3/_search
 4. `car-master.v3`인덱스에 대한 refresh API 실행
 - 데이터가 조회되어야 정상(refresh를 수행했기 때문)
 
-```plaintext
-POST car-master.v3/_refresh
+  ```plaintext
+  POST car-master.v3/_refresh
 
-# 결과
-{
-  "_shards": {
-    "total": 2,
-    "successful": 1,
-    "failed": 0
+  # 결과
+  {
+    "_shards": {
+      "total": 2,
+      "successful": 1,
+      "failed": 0
+    }
   }
-}
-```
+  ```
 
 refresh 이후, 다시 조회해보겠습니다.
 
-```plaintext
-GET car-master.v3/_search
+  ```plaintext
+  GET car-master.v3/_search
 
-# 결과
-{
-  "took": 0,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "skipped": 0,
-    "failed": 0
-  },
-  "hits": {
-    "total": {
-      "value": 1,
-      "relation": "eq"
+  # 결과
+  {
+    "took": 0,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
     },
-    "max_score": 1,
-    "hits": [
-      {
-        "_index": "car-master.v3",
-        "_id": "1",
-        "_score": 1,
-        "_source": {
-          "brand": "hyundai"
+    "hits": {
+      "total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "max_score": 1,
+      "hits": [
+        {
+          "_index": "car-master.v3",
+          "_id": "1",
+          "_score": 1,
+          "_source": {
+            "brand": "hyundai"
+          }
         }
-      }
-    ]
+      ]
+    }
   }
-}
-```
+  ```
 
 이번에는 제대로 refresh되어 데이터가 조회되는 것을 확인할 수 있습니다.
