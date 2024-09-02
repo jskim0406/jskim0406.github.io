@@ -153,7 +153,7 @@ curl -XPOST "https://{elasticsearch endpoint url}/_bulk" -k \
 
 #### Trouble Shooting
 ##### Elasticsearch endpoint URL 확인
-![[ES_06.png]]
+<img src="../assets/img/retrieval/ES_06.png" alt="Wrong Path">
 키바나 > 좌상단 햄버거 버튼 클릭 > "Manage this deployment" 클릭 후 나오는 위와 같은 화면에서 `Elasticsearch`의 'copy endpoint'를 클릭하면 해당 elasticsearch endpoint URL을 확인할 수 있습니다.
 
 ##### ELASTIC_USERNAME 확인
