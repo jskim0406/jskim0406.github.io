@@ -6,7 +6,7 @@ featuredImage: null
 img: null
 tags: Elasticsearch, Retrieval
 categories: Retrieval
-date: '2024-09-07 00:25:00 +0900'
+date: '2024-09-07 01:25:00 +0900'
 ---
 
 #### Reference
