@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elasticsearch - 필드 데이터 타입 알아보기 - `match_only_text`, `search_as_you_type`
+title: Elasticsearch - 필드 데이터 타입 알아보기 - (3) `match_only_text`, `search_as_you_type`
 author: jskim
 featuredImage: null
 img: null
@@ -114,7 +114,8 @@ Elasticsearch에 사용되는 필드 데이터 타입은 크게 3가지로 나�
 
 ## 문자열 데이터 타입 유형
 - 문자열은 `keyword`, `text` 타입으로 보통 매핑됩니다. 색인 전에 각 데이터 별로 이러한 매핑 타입을 사전에 정의해놓고, 정적 매핑으로 색인을 진행하는 것이 필요합니다.
-	- 정적 매핑이 색인 과정에서 쓰기 작업에 필요한 공간을 절약하고, 쓰기 속도를 높일 수 있기 때문입니다.
+- 정적 매핑이 색인 과정에서 쓰기 작업에 필요한 공간을 절약하고, 쓰기 속도를 높일 수 있기 때문입니다.
+
 ### 문자열 데이터 타입 유형 (5) `match_only_text`
 ```plaintext
 PUT car-master.static.match_only_text
@@ -128,6 +129,7 @@ PUT car-master.static.match_only_text
 	}
 }
 ```
+
 ##### `match_only_text` 필드 타입
 Elasticsearch에서 데이터를 효율적으로 색인하고 검색하는 방법에는 여러 가지가 있습니다. 특히 로그 분석과 같이 대량의 텍스트 데이터를 처리할 때, 리소스 효율성은 매우 중요한 요소입니다. 이런 상황에서 `match_only_text` 필드 타입은 매우 유용한 선택지가 될 수 있습니다. 이 필드 타입은 일반 `text` 필드와 `keyword` 필드 사이의 중간 단계로서, 디스크 공간을 절약하면서도 효과적인 검색 기능을 제공합니다.
 

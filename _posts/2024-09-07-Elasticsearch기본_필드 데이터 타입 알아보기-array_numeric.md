@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elasticsearch - 필드 데이터 타입 알아보기 - `array`, `numeric`
+title: Elasticsearch - 필드 데이터 타입 알아보기 - (4) `array`, `numeric`
 author: jskim
 featuredImage: null
 img: null

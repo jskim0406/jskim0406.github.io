@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elasticsearch - 필드 데이터 타입 알아보기 - `date`, `range`
+title: Elasticsearch - 필드 데이터 타입 알아보기 - (5) `date`, `range`
 author: jskim
 featuredImage: null
 img: null
@@ -134,7 +134,6 @@ Elasticsearch의 기본 날짜 포맷은 `yyyy-MM-ddTHH:mm:ssZ` 입니다. 이 �
 
 Elasticsearch의 `date` 필드 타입은 데이터의 정확한 시간 정보를 저장하고 쿼리하는 데 필수적인 도구입니다. UTC로의 자동 변환, 다양한 날짜 포맷의 지원 등은 Elasticsearch를 강력한 시간 기반 데이터 분석 툴로 만들어 줍니다. 올바른 날짜 포맷 설정은 데이터의 일관성을 유지하고, 시간에 따른 분석과 검색 작업을 효과적으로 수행할 수 있게 합니다. 이러한 설정을 통해 사용자는 전 세계 어디서나 일관된 데이터 처리와 분석 경험을 할 수 있습니다.
 
-
 Elasticsearch에서 날짜 필드를 설정할 때, 다양한 날짜 형식을 지원하도록 `format` 매개변수를 사용하는 것은 매우 유용합니다. 여기에서는 사용자가 "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd", 그리고 "epoch_millis" 형식의 날짜 데이터를 입력할 수 있도록 `date` 필드를 설정하는 방법을 설명합니다. 이는 특히 다양한 소스에서 오는 데이터를 통합할 때 효과적입니다.
 
 ### Elasticsearch에 `date` 필드 설정 예시
@@ -190,26 +189,26 @@ PUT /sample-index/_doc/3
 
 #### 주요 사용 사례
 1. **게시물의 게시 기간**: 웹사이트나 앱에서 특정 기간 동안만 게시되어야 하는 컨텐츠의 관리에 유용합니다.
-   ```json
+  ```json
    "publish_period": {
      "type": "date_range",
      "format": "yyyy-MM-dd"
    }
-   ```
+  ```
 
 2. **허용 IP 범위**: 네트워크 관리 및 보안 시스템에서 특정 IP 범위를 설정하여 접근을 제한하거나 허용합니다.
-   ```json
+  ```json
    "ip_range": {
      "type": "ip_range"
    }
-   ```
+  ```
 
 3. **가격 필터**: 전자 상거래 플랫폼에서 사용자가 설정한 가격 범위 내의 제품만을 보여줄 때 사용됩니다.
-   ```json
+  ```json
    "price_range": {
      "type": "double_range"
    }
-   ```
+  ```
 
 #### `range` 타입 종류 및 표기
 Elasticsearch에서 `range` 필드 타입을 사용할 때는 다양한 유형의 데이터에 대한 범위 지정을 지원하기 위해 특별히 설계된 여러 범위 데이터 타입이 있습니다. 각각은 특정 데이터 유형에 최적화되어 있어, 보다 정확하고 효율적인 데이터 처리를 가능하게 합니다. 여기에는 `date_range`, `ip_range`, `integer_range`, `float_range`, `long_range`, `double_range` 등이 포함됩니다.
@@ -244,7 +243,7 @@ PUT /example_index
 ### 검색 시 Range 필드 활용 방법
 Elasticsearch에서 `range` 필드를 사용한 검색 쿼리는 `relation` 매개변수를 사용하여 범위와의 관계를 명시할 수 있습니다. `relation` 필드는 `within`, `contains`, `intersects` 등의 값을 사용하여 검색 조건을 세밀하게 조정할 수 있습니다.
 #### 예시
-위 `range`필드에 새로운 문서를 삽입하는 과정은 아래와 같습니다.
+위 `range`필드에 새로운 문서를 삽입하는 과정은 아래와 같습니다.
 ```plaintext
 PUT /example_index/_doc/1
 {
