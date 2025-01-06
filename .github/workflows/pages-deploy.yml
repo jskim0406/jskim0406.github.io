@@ -24,25 +24,21 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # submodules: true
-          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
-          # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
-
+          
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-
+        
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3
+          ruby-version: '3.3.0'  # 명시적으로 3.3.0 버전 지정
           bundler-cache: true
 
       - name: Build site
@@ -65,7 +61,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # ubuntu-latest 대신 22.04로 변경
     needs: build
     steps:
       - name: Deploy to GitHub Pages
