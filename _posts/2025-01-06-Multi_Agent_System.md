@@ -25,7 +25,7 @@ Sequence to Sequence NLP 모델인 만큼, 가장 대표적으로 질문/답변(
 다만, 여기에 External knowledge를 연결할 수 있도록 구조를 열어준 것이 바로 `RAG(Retrieval Augmented Generation)`입니다.
 
 예를 들어 **"최신 AI 트렌드 보고서 써줘"** 와 같은 TASK를 수행해야 한다면, 아래와 같은 구조로 처리할 것입니다.
-<img src="../assets/img/llm/single_llm.png" alt="Wrong Path">
+<img src="../assets/img/llm/simple_llm.png" alt="Wrong Path">
 
 특징을 요약하면 아래와 같습니다.
 - **Q&A** 위주의 대화형 응답
