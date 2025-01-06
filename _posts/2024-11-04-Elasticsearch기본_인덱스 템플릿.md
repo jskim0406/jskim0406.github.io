@@ -16,7 +16,7 @@ date: '2024-11-04 00:25:00 +0900'
 
 ## 오늘의 API
 ### Component Template 관리
-```json
+```bash
 # settings component template 생성
 PUT _component_template/settings-template
 {
@@ -70,7 +70,7 @@ DELETE _component_template/settings-template
 ```
 
 ### Index Template 관리
-```json
+```bash
 # index template 생성 (단일)
 PUT _index_template/logs-template
 {
@@ -120,7 +120,7 @@ DELETE _index_template/logs-template
 ```
 
 ### Template이 적용된 새 인덱스 생성
-```json
+```bash
 # template 패턴과 일치하는 인덱스 생성
 PUT logs-2024-01-01
 {
@@ -137,7 +137,7 @@ GET logs-2024-01-01/_mapping
 ```
 
 ### Template 우선순위 확인
-```json
+```bash
 # 우선순위가 다른 여러 template 생성
 PUT _index_template/logs-base
 {
@@ -175,7 +175,7 @@ Index Template은 새로운 인덱스가 생성될 때 자동으로 적용될 �
 - 검색과 집계에 필요한 필드 설정
 - 분석기 설정 등
 
-```json
+```bash
 {
   "mappings": {
     "properties": {
@@ -200,7 +200,7 @@ Index Template은 새로운 인덱스가 생성될 때 자동으로 적용될 �
 - 리프레시 주기
 - 기타 인덱스 관련 설정
 
-```json
+```bash
 {
   "settings": {
     "number_of_shards": 1,
@@ -214,7 +214,7 @@ Index Template은 새로운 인덱스가 생성될 때 자동으로 적용될 �
 - 인덱스의 별칭 지정
 - 여러 인덱스를 하나의 별칭으로 관리 가능
 
-```json
+```bash
 {
   "aliases": {
     "logs_alias": {}
@@ -229,7 +229,7 @@ Index Template은 새로운 인덱스가 생성될 때 자동으로 적용될 �
 - 특정 패턴의 인덱스에 대해 기본 설정 제공
 - 예: `logs-*`, `metrics-*` 등의 패턴 매칭
 
-```json
+```bash
 PUT _index_template/logs_template
 {
   "index_patterns": ["logs-*"],
@@ -249,7 +249,7 @@ PUT _index_template/logs_template
 - 여러 Index Template에서 공통으로 사용 가능
 - 모듈화된 설정 관리 가능
 
-```json
+```bash
 PUT _component_template/logging_settings
 {
   "template": {
@@ -274,7 +274,7 @@ PUT _component_template/logging_settings
 
 ### 로그 데이터 관리
 
-```json
+```bash
 PUT _index_template/daily_logs
 {
   "index_patterns": ["logs-*"],
