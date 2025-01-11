@@ -27,7 +27,8 @@ date: '2025-01-07 00:25:00 +0900'
 
 결과적으로 운영 조직에 대해 총 18% 업무 향상을 가져왔다고 합니다.
 
-<img src="../assets/img/llm/uber1.png" alt="Wrong Path">
+<img src="../assets/img/llm/uber1_1.png" alt="Wrong Path">
+<img src="../assets/img/llm/uber1_2.png" alt="Wrong Path">
 
 출처: [Uber Blog "QueryGPT – Natural Language to SQL Using Generative AI"](https://www.uber.com/en-TW/blog/query-gpt/)
 
