@@ -12,14 +12,14 @@ date: '2025-01-12 00:25:00 +0900'
 ### Reference
 - [Turing Post, "What is HtmlRAG, Multimodal RAG and Agentic RAG?"](https://www.turingpost.com/p/html-multimodal-agentic-rag)
 - [MuRAG: Multimodal Retrieval-Augmented Generator for Open Question Answering over Images and Text](https://arxiv.org/pdf/2210.02928)
-- [Beyond Text: Optimizing RAG with Multimodal Inputs for Industrial Applications](https://arxiv.org/pdf/2410.21943)
+- [Beyond Text: Optimizing RAG with Multimodal Inputs for Industrial Applications](https://arxiv.org/abs/2410.21943)
 
 ### Multi-Modal Source에 어떻게 접근하는 게 좋을까?
 Multi-modal RAG의 가장 큰 차이점은 데이터의 modality가 복수개 라는 점입니다. 대표적으로 이미지와 텍스트, 2개의 modality인 경우가 많다. 문서는 보통 이미지 혹은 텍스트의 조합으로 이루어지기 때문입니다.
 
 **"다양한 modality에 어떻게 접근하는 것이 좋을까?"** 이것이 'Multi-Modal RAG'의 핵심 질문이 될 것입니다.
 
-[Monica Riedler, Stefan Langer(2024)](https://arxiv.org/html/2410.21943v1)는 이러한 질문에 답하기 위해 아래 방법에 대해 실험을 진행했습니다. 
+[Monica Riedler, Stefan Langer(2024)](https://arxiv.org/abs/2410.21943)는 이러한 질문에 답하기 위해 아래 방법에 대해 실험을 진행했습니다. 
 
 1. Multi-Modal Embedding 활용
 2. Text summaries from images 활용
@@ -30,14 +30,14 @@ Multi-modal RAG의 가장 큰 차이점은 데이터의 modality가 복수개 �
 
 <img src="../assets/img/llm/multimodalrag1.png" alt="Wrong Path">
 
-출처: [Beyond Text: Optimizing RAG with Multimodal Inputs for Industrial Applications](https://arxiv.org/pdf/2410.21943)
+출처: [Beyond Text: Optimizing RAG with Multimodal Inputs for Industrial Applications](https://arxiv.org/abs/2410.21943)
 
 위 2가지 접근은 구조적으로 보면, Vector Store(DB)를 각 modal 별로 분리할 것이냐, 통합할 것이냐의 문제로 귀결됩니다.
 그리고 이는 각 Modal 별로 Vetor Embedding을 분리해 유지할 것이냐라는 문제와 귀결됩니다.
 
-[Monica Riedler, Stefan Langer(2024)](https://arxiv.org/html/2410.21943v1)는 이에 대한 답을 내리기 위해, 2가지 구조에 대해 각각 실험을 진행해 성능을 확인하고자 했습니다.
+[Monica Riedler, Stefan Langer(2024)](https://arxiv.org/abs/2410.21943)는 이에 대한 답을 내리기 위해, 2가지 구조에 대해 각각 실험을 진행해 성능을 확인하고자 했습니다.
 
-아래는 이를 위한 [실험 개요와 결과]((https://arxiv.org/pdf/2410.21943))를 요약한 내용입니다(w/ `OpenAI o1`).
+아래는 이를 위한 [실험 개요와 결과]((https://arxiv.org/abs/2410.21943))를 요약한 내용입니다(w/ `OpenAI o1`).
 
 ### 실험 결과
 
