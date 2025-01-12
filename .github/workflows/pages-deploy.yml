@@ -38,7 +38,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4'  # 안정적인 버전으로 설정
+          ruby-version: '3.3.0'  # 명시적으로 3.3.0 버전 지정
           bundler-cache: true
 
       - name: Build site
@@ -49,8 +49,8 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
-            --disable-external \
-            --ignore-urls "^http://127.0.0.1|^http://0.0.0.0|^http://localhost"
+            \-\-disable-external=true \
+            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
@@ -61,7 +61,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04  # ubuntu-latest 대신 22.04로 변경
     needs: build
     steps:
       - name: Deploy to GitHub Pages
