@@ -6,7 +6,7 @@ featuredImage: null
 img: null
 tags: Agent, LLM, Text-to-SQL
 categories: LLM
-date: '2025-01-07 00:25:00 +0900'
+date: '2025-01-11 00:25:00 +0900'
 ---
 
 ### Reference

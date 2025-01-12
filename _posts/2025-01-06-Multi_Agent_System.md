@@ -4,7 +4,7 @@ title: Multi-Agent system 개념
 author: jskim
 featuredImage: null
 img: null
-tags: Agent, LLM
+tags: Agent, LLM, RAG
 categories: LLM
 date: '2025-01-06 00:25:00 +0900'
 ---
