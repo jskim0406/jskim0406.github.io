@@ -252,3 +252,27 @@ A: State messages의 timeline 분석 (Tool 미사용 케이스)
        │   └── output: 207
        └── model: gpt-4o-mini-2024-07-18
 ```
+
+### `tools_condition`
+```python
+from langgraph.prebuilt import tools_condition
+
+graph_builder.add_conditional_edges("chatbot", tools_condition)
+```
+
+위 코드에서 tools_condition은 아래와 같이 `tools`(ToolNode)로 갈 것인지, `END`로 갈 것인지 분기하는 심플한 함수이다.
+tools로 갈 지의 여부는 last message가 tool_calls라는 attribute를 갖고 있는 지 여부로 판단한다.
+LLM이 인지 추론으로 tool로 갈지를 결정하는 게 아니라, 이미 LLM이 앞서 결정해 뱉은 response를 기준으로 심플하게 tool로 보내거나 하는 거수기 역할 같은 것이다.
+
+
+```python
+def tools_condition(
+    state: Union[list[AnyMessage], dict[str, Any], BaseModel],
+    messages_key: str = "messages",
+) -> Literal["tools", "__end__"]:
+```
+
+LLM은 tool을 사용해야 한다는 판단을 했다면 last message가 tool_calls 정보를 담고있었을 것이고,
+tools_condition은 이 경우, llm이 필요하다고 판단한(호출한, "calls") tool function을 
+`Toolnode`로 연결하는 역할을 한다(`return "tools"`).
+`ToolMessage` 객체로 담아 다시 Chatbot에게 전달하는 `ToolNode`로 연결한다.
