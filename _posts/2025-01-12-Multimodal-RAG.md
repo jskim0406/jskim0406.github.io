@@ -1,6 +1,6 @@
 ---
 layout: post
-title: (RAG) Multi-modal RAG
+title: Multi-modal RAG
 author: jskim
 featuredImage: null
 img: null
