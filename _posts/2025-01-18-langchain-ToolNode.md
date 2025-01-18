@@ -134,7 +134,7 @@ with open("output_toolnode.png", "wb") as f:
 	f.write(img.data)
 ```
 
-![[output_toolnode.png]]
+<img src="../assets/img/llm/output_toolnode.png" alt="Wrong Path">
 
 `chatbot` 노드는 tool 사용 여부를 결정해 `tools_condition`이라는 `conditional_edge` 구조를 바탕으로 `ToolNode`(`tools`)와 interaction을 수행하는 모습을 볼 수 있다.
 
