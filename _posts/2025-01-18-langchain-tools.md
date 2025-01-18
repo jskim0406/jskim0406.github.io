@@ -1,10 +1,10 @@
 ---
 layout: post
-title: langchain - `@tool`
+title: langchain - (1) @tool
 author: jskim
 featuredImage: null
 img: null
-tags: LLM, langchain, tool_calling
+tags: LLM, langchain, tool_calling, @tool
 categories: LLM
 date: '2025-01-18 00:25:00 +0900'
 ---
@@ -15,6 +15,7 @@ date: '2025-01-18 00:25:00 +0900'
 - [`ToolNode` doc](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.tool_node.ToolNode)
 
 ### `@tool`
+
 ```python
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
@@ -22,6 +23,7 @@ from langgraph.prebuilt import ToolNode
 
 @tool
 def get_weather(location:str):
+
 	"""Call to get the weather"""
 	if location in ["서울", "인천"]:
 		return "수도권은 13도이며, 안개가 짙습니다."
@@ -50,14 +52,18 @@ result_toolcall = llm_with_tools.invoke("부산 날씨는 어때?").tool_calls
 
 ### `@tool`
 `@tool` 데코레이터는 무슨 역할을 할까?
-간단히 말하면 **python 함수**를 **langchain의 tool 객체**로 변환하는 것이다.
+간단히 말하면 **python 함수**를 **langchain의 `Tool` 객체**로 변환하는 것이다.
 
-크게 2가지가 이 객체에 저장되는 데, **1) Pydantic schema**, **2) Function tool**, **3) function description** 이 객체에 담기게 된다.
+크게 3가지가 이 langchain `Tool` 객체에 담기게 된다.
+
+1. **`Pydantic` schema**
+2. **function(tool)** 
+3. **function description**
 
 이를 통해 추후 LLM은 이 3가지 정보를 바탕으로 아래와 같은 내용을 판단해 **tool_calling**을 수행하게 된다.
 
-- 언제 사용해야 하는지 (description을 통해)
 - 어떤 입력이 필요한지 (schema를 통해)
+- 언제 사용해야 하는지 (description을 통해)
 - 어떤 결과를 기대할 수 있는지 (function을 통해)
 
 본질적인 기능은 '함수'라는 점에서 본질적인 기능 변화는 없다. 다만 langchain 라이브러리의 객체로 정의함으로써, LLM이 **tool_calling** 을 수행하기 위해 필요한 정보를 하나의 객체에 담아놓는 integration 과정 정도로 이해할 수 있다.

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: langchain - `llm.bind_tools()`
+title: langchain - (2) llm.bind_tools()
 author: jskim
 featuredImage: null
 img: null
-tags: LLM, langchain, tool_calling
+tags: LLM, langchain, tool_calling, bind_tools
 categories: LLM
 date: '2025-01-18 01:25:00 +0900'
 ---
@@ -15,6 +15,7 @@ date: '2025-01-18 01:25:00 +0900'
 - [`ToolNode` doc](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.tool_node.ToolNode)
 
 ### `llm.bind_tools()`
+
 ```python
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
@@ -22,6 +23,7 @@ from langgraph.prebuilt import ToolNode
 
 @tool
 def get_weather(location:str):
+
 	"""Call to get the weather"""
 	if location in ["서울", "인천"]:
 		return "수도권은 13도이며, 안개가 짙습니다."
