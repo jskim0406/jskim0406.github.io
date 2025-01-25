@@ -6,7 +6,7 @@ featuredImage: null
 img: null
 tags: LLM, langchain, langgraph, MapReduce, Send, MoA
 categories: LLM
-date: '2025-01-18 00:25:00 +0900'
+date: '2025-01-25 00:25:00 +0900'
 ---
 
 ### Reference
@@ -94,16 +94,16 @@ initial_state = {
 
 ### `SEND` API in `langgraph` for `map_reduce`
 
-`Langgraph`는 위와 같은 `map_reduce`를 손쉽게 구현할 수 있도록 `Send` API를 제공한다.
-`MAP` '이전' 노드와 '이후' 노드를 `Send` API를 활용해 `conditional_edge`로 연결해주면 된다.
-그러면 'parallel'하게 map_reduce 처리를 진행할 수 있다.
+`Langgraph`는 위와 같은 `map_reduce`를 손쉽게 구현할 수 있도록 `Send` API를 제공합니다.
+`MAP` '이전' 노드와 '이후' 노드를 `Send` API를 활용해 `conditional_edge`로 연결해주면 됩니다.
+그러면 'parallel'하게 map_reduce 처리를 진행할 수 있습니다.
 
 <img src="../assets/img/llm/langgraph_mapreduce.png" alt="Wrong Path">
 
 [출처: langgraph doc](https://langchain-ai.github.io/langgraph/how-tos/map-reduce/)
 
-위 그림은 `langgraph`의 `map-reduce` 과정을 처리하는 예시 구조도이다.
-아래와 같은 과정을 담고 있다.
+위 그림은 `langgraph`의 `map-reduce` 과정을 처리하는 예시 구조도입니다.
+아래와 같은 과정을 담고 있습니다.
 
 1. `topic`을 하나 정해서 시작한다(예: "동물")
 2. 해당 `topic`에 대해 여러개(예시에서는 2~5개 사이)의 `subjects`를 생성한다(예: ['사자','코끼리','타조','기린'])
@@ -112,7 +112,7 @@ initial_state = {
 4. 각각 생성된 'joke'들 중에 `best_joke`를 선정한다(`best_joke`).
     - **`REDUCE` process**
 
-위 과정에서 3번 과정이 `MAP`에 해당한다. `langgraph`에서는 이 `MAP` 과정을 **`Send`** 라는 API로 간단하게 해결하도록 지원한다.
+위 과정에서 3번 과정이 `MAP`에 해당한다. `langgraph`에서는 이 `MAP` 과정을 **`Send`** 라는 API로 간단하게 해결하도록 지원합니다.
 
 ```python
 from langgraph.types import Send
@@ -124,10 +124,10 @@ def continue_to_jokes(state: OverallState):
     return [Send("generate_joke", {"subject": s}) for s in state["subjects"]]
 ```
 
-위와 같이 list comprehension으로 생성된 여러개의 `subjects` 별로 각각 Send를 통해 앞서 정의한 Node(`generate_joke`)로 edge가 연결된다.
-graph build 과정에서는 `add_conditional_edges` 함수를 통해 `generate_topics`와 `generate_joke` 사이를 이어준다.
+위와 같이 list comprehension으로 생성된 여러개의 `subjects` 별로 각각 Send를 통해 앞서 정의한 Node(`generate_joke`)로 edge가 연결됩니다.
+graph build 과정에서는 `add_conditional_edges` 함수를 통해 `generate_topics`와 `generate_joke` 사이를 이어줍니다.
 
-`Send` API는 아래 2개의 arguments를 받는다.
+`Send` API는 아래 2개의 arguments를 받습니다.
 
 1. Node 이름(`generate_joke`)
 2. 보낼 State(`{"subject": s}`)
@@ -136,6 +136,6 @@ graph build 과정에서는 `add_conditional_edges` 함수를 통해 `generate_t
 
 <img src="../assets/img/llm/moa_architecture.png" alt="Wrong Path">
 
-["Mixture-of-Agents Enhances Large Language ModelCapabilities(Junlin Wang, 2024)"](https://arxiv.org/pdf/2406.04692)은 위와 같은 "Mixture of Agents"라는 구조를 제안했다. 사실 위 그림과 같이 매우 간단한 구조이다. 여러개의 LLM을 독립적으로 사용한 뒤, 각각의 결과를 aggregation해 최종 답변을 생성해내겠다는 것이다.
+["Mixture-of-Agents Enhances Large Language ModelCapabilities(Junlin Wang, 2024)"](https://arxiv.org/pdf/2406.04692)은 위와 같은 "Mixture of Agents"라는 구조를 제안했다. 사실 위 그림과 같이 매우 간단한 구조입니다. 여러개의 LLM을 독립적으로 사용한 뒤, 각각의 결과를 aggregation해 최종 답변을 생성해내겠다는 것입니다.
 
-이 MoA 구조를 구현할 때, `langgraph`의 `Send` API를 사용하면 매우 손쉽게 이를 구현할 수 있을 것이다.
+이 MoA 구조를 구현할 때, `langgraph`의 `Send` API를 사용하면 매우 손쉽게 이를 구현할 수 있을 것입니다.
