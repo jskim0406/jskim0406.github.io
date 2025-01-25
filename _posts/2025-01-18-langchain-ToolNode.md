@@ -14,7 +14,7 @@ date: '2025-01-18 02:25:00 +0900'
 - [`StructuredTool` doc](https://api.python.langchain.com/en/latest/tools/langchain_core.tools.StructuredTool.html#langchain_community.agent_toolkits.nla.tool.StructuredTool)
 - [`ToolNode` doc](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.tool_node.ToolNode)
 
-### `ToolNode`
+### `@tool`, `llm.bind_tools()`, `ToolNode`
 ```python
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
