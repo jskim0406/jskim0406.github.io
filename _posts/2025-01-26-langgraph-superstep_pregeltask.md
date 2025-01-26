@@ -6,7 +6,7 @@ featuredImage: null
 img: null
 tags: LLM, langchain, langgraph, Persistence, Super-step, PregelTask
 categories: LLM
-date: '2025-01-26 01:25:00 +0900'
+date: '2025-01-26 00:15:00 +0900'
 ---
 
 ### Reference

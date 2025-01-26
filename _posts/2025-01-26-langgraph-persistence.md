@@ -1,6 +1,6 @@
 ---
 layout: post
-title: langgraph - Persistence(checkpoint, update state)
+title: langgraph - Persistence (1) checkpoint, update state
 author: jskim
 featuredImage: null
 img: null
@@ -15,7 +15,7 @@ date: '2025-01-26 00:25:00 +0900'
 
 ### Langgraph Persistence
 
-`langgraph`는 '체크포인팅'으로 grpah 실행에 대한 persistence(영속성)을 제공합니다. 위 그림과 같이 그래프의 실행 과정을 `Super-step`과 `PregelTask`로 구분하고, 각 `Super-step` 단계를 체크포인트로 저장하도록 제공합니다.
+`langgraph`는 '체크포인팅'으로 grpah 실행에 대한 persistence(지속성, 영속성)을 제공합니다. 위 그림과 같이 그래프의 실행 과정을 `Super-step`과 `PregelTask`로 구분하고, 각 `Super-step` 단계를 체크포인트로 저장하도록 제공합니다.
 - [*post "langgraph - Super-step, PregelTask"*](https://jskim0406.github.io/posts/langgraph-superstep_pregeltask/)
 
 Graph를 관리함에 있어서 `thread_id`와 `checkpoint_id`를 graph의 config 정보로 활용해 
