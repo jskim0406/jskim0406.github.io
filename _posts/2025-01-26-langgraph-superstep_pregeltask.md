@@ -14,7 +14,7 @@ date: '2025-01-26 01:25:00 +0900'
 - with `claude`
 
 langgraph의 `Persistence`를 살펴보던 중, `Super-step`과 `PregelTask`라는 개념이 등장합니다.
-- [*post "langgraph - Persistence"*](https://langchain-ai.github.io/langgraph/concepts/persistence/)
+- [*post "langgraph - Persistence"*](https://jskim0406.github.io/posts/langgraph-persistence/)
 
 이 2가지 개념은 langgraph 구성의 기본적인 실행 단위들로, 확실하게 이해하고 넘어가는 것이 좋을 것 같아 정리를 해보고자 합니다.
 
