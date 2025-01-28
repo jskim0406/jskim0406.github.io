@@ -15,7 +15,7 @@ LangGraph는 LLM 기반 에이전트가 `tool`를 효과적으로 활용하도�
 
 **`tool` 호출 흐름**
 
-<img src="../assets/img/llm/langgraph_tools.png">
+<img src="../assets/img/llm/langgraph_tools.png" alt="Wrong Path">
 
 1. **HumanMessage**: 사용자가 에이전트에게 질문을 던집니다.
 2. **LLM**: LLM은 질문을 분석하고 `tool` 사용이 필요하다고 판단합니다.
