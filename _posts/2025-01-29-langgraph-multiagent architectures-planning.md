@@ -99,7 +99,7 @@ Plan: Once the winner's name is identified, Search for his hometown to gather de
 
 출처: [An LLM Compiler for Parallel Function Calling(2024)](https://github.com/SqueezeAILab/LLMCompiler)
 
-[`LLMCompiler(2024)`]((https://github.com/SqueezeAILab/LLMCompiler))는 Plan 이후 tool exectution을 parallel하게 수행할 수 있도록 열어둠으로써 전체적인 Latency 감소효과를 가져오고, ReWOO의 철학(ReWOO, Resoning WithOut Observation)을 일부 차용함으로써 부차적인 token 소비를 절감하도록 한 아키텍쳐를 제안합니다.
+[`LLMCompiler(2024)`](https://github.com/SqueezeAILab/LLMCompiler)는 Plan 이후 tool exectution을 parallel하게 수행할 수 있도록 열어둠으로써 전체적인 Latency 감소효과를 가져오고, ReWOO의 철학(ReWOO, Resoning WithOut Observation)을 일부 차용함으로써 부차적인 token 소비를 절감하도록 한 아키텍쳐를 제안합니다.
 
 <img src="../assets/img/llm/langgraph_pe9.png" alt="Wrong Path">
 
