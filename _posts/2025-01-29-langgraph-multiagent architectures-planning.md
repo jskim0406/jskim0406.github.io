@@ -4,7 +4,7 @@ title: langgraph - multi-agents 구조 (Planning)
 author: jskim
 featuredImage: null
 img: null
-tags: LLM, langchain, langgraph, multi-agents, graph, plan-and-execute, babyagi
+tags: LLM, langchain, langgraph, multi-agents, graph, plan-and-execute, babyagi, LLMCompiler
 categories: LLM
 date: '2025-01-30 02:15:00 +0900'
 ---
