@@ -107,7 +107,7 @@ Plan: Once the winner's name is identified, Search for his hometown to gather de
 
 전체적인 흐름은 [`ReWOO`](https://arxiv.org/pdf/2305.18323)와 유사하지만, Task를 Reschedule & Execute하는 작업이 보다 유동적으로 무엇보다 'parallel'하게 이뤄진다는 점이 특징입니다. 무엇보다 `Joiner`를 두어서 second plan을 수립할 수 있도록 열어두어서, plan에서 문제가 있을 경우 이를 보정할 수 있는 과정도 두었다는 점이 인상적입니다.
 
-[langgraph의 guide문서](https://langchain-ai.github.io/langgraph/tutorials/llm-compiler/LLMCompiler/)를 따라 [`LLMCompiler(2024)`]((https://github.com/SqueezeAILab/LLMCompiler))를 실행해본 결과, `LLMCompiler`는 `ReWOO`와 다르게 이번엔 동일한 질문에 대해 더 낮은 latency로 정답을 추출해내는 것을 확인할 수 있었습니다.
+[langgraph의 guide문서](https://langchain-ai.github.io/langgraph/tutorials/llm-compiler/LLMCompiler/)를 따라 [`LLMCompiler(2024)`](https://github.com/SqueezeAILab/LLMCompiler)를 실행해본 결과, `LLMCompiler`는 `ReWOO`와 다르게 이번엔 동일한 질문에 대해 더 낮은 latency로 정답을 추출해내는 것을 확인할 수 있었습니다.
 
 <img src="../assets/img/llm/langgraph_pe91.png" alt="Wrong Path">
 
