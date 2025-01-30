@@ -11,7 +11,7 @@ date: '2025-01-28 01:15:00 +0900'
 
 ### LangGraph에서 `tool` 호출과 응답 처리 (tool_calls, ToolMessage 포함)
 
-LangGraph는 LLM 기반 에이전트가 `tool`를 효과적으로 활용하도록 설계되었습니다. 핵심적인 메커니즘은 LLM의 `tool` 사용 요청(`tool_calls`)과 `tool` 실행 결과(`ToolMessage`)를 명확히 구분하여 처리하는 것입니다.  **`ToolNode`**는 LangGraph에서 `tool` 실행을 담당하는 핵심적인 **pre-built component**입니다.
+LangGraph는 LLM 기반 에이전트가 `tool`를 효과적으로 활용하도록 설계되었습니다. 핵심적인 메커니즘은 LLM의 `tool` 사용 요청(`tool_calls`)과 `tool` 실행 결과(`ToolMessage`)를 명확히 구분하여 처리하는 것입니다.  **`ToolNode`**는 LangGraph에서 `tool` 실행을 담당하는 핵심적인 [**pre-built component**](https://langchain-ai.github.io/langgraph/reference/prebuilt/)입니다.
 
 **`tool` 호출 흐름**
 
@@ -44,7 +44,7 @@ LangGraph는 LLM 기반 에이전트가 `tool`를 효과적으로 활용하도�
 
 `tool_calls`는 `AIMessage` 내에 배열 형태로 포함되며, 각 요소는 `tool` 호출 요청을 나타내는 객체입니다.
 
-```json
+```bash
 [
   {
     "type": "tool_call",
@@ -70,7 +70,7 @@ LangGraph는 LLM 기반 에이전트가 `tool`를 효과적으로 활용하도�
 
 `ToolMessage`는 `tool` 실행 결과를 담는 독립적인 메시지 타입입니다.
 
-```json
+```bash
 {
   "role": "tool",                      // 필수: 메시지 역할 (항상 "tool")
   "content": "tool_execution_result",    // 필수: `tool` 실행 결과 (문자열)
