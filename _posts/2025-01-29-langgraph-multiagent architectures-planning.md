@@ -9,7 +9,7 @@ categories: LLM
 date: '2025-01-30 02:15:00 +0900'
 ---
 
-앞선 [post 'langgraph - multi-agents 구조 스터디'](https://jskim0406.github.io/posts/langgraph-toolcalls/)에서 `langgraph` document를 바탕으로 Basic한 대표적 아키텍쳐 구성을 살펴보았습니다.
+앞선 [post 'langgraph - multi-agents 구조'](https://jskim0406.github.io/posts/langgraph-multiagent-architectures/)에서 `langgraph` document를 바탕으로 Basic한 대표적 아키텍쳐 구성을 살펴보았습니다.
 
 이번에는 `Planning`에 초점을 둔 여러 아키텍쳐들을 살펴보겠습니다. 이번에도 역시 `langgraph` document를 중심으로 살펴봅니다.
 

@@ -83,7 +83,7 @@ date: '2025-01-30 01:15:00 +0900'
 
 이 경우 각 Supervisor로 routing되는 경우들이 다소 명확하게 구분될 수 있어야만 그 유효성이 높을 수 있을 것입니다.
 
-다음 [post 'langgraph - multi-agents 구조 스터디(Planning)'](https://jskim0406.github.io/posts/langgraph-toolcalls/)에서 **Planning**에 초점을 둔 아키텍쳐 구성을 살펴보겠습니다.
+다음 [post 'langgraph - multi-agents 구조 (Planning)'](https://jskim0406.github.io/posts/langgraph-multiagent-architectures-planning/)에서 **Planning**에 초점을 둔 아키텍쳐 구성을 살펴보겠습니다.
 
 
 ### Reference
