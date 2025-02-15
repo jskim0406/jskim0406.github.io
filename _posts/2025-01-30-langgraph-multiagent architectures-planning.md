@@ -111,6 +111,8 @@ Plan: Once the winner's name is identified, Search for his hometown to gather de
 
 <img src="../assets/img/llm/langgraph_pe91.png" alt="Wrong Path">
 
+다음 [post 'langgraph - multi-agents 구조 (Reflection)'](https://jskim0406.github.io/posts/langgraph-multiagent-architectures-reflection/)에서 **Reflection**에 초점을 둔 아키텍쳐 구성을 살펴보겠습니다.
+
 
 ### Reference
 - [`langgraph` Multi-agent Systems](https://langchain-ai.github.io/langgraph/concepts/multi_agent/)

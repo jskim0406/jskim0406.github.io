@@ -6,7 +6,7 @@ featuredImage: null
 img: null
 tags: LLM, langchain, langgraph, multi-agents, graph, reflection, reflexion, 
 categories: LLM
-date: '2025-01-30 02:15:00 +0900'
+date: '2025-01-30 03:15:00 +0900'
 ---
 
 앞선 [post 'langgraph - multi-agents 구조 (Planning)'](https://jskim0406.github.io/posts/langgraph-multiagent-architectures-planning/)에서 `langgraph` document를 바탕으로 Planning을 중심으로 하는 대표적 아키텍쳐 구성을 살펴보았습니다.
