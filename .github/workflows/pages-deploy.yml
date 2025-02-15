@@ -34,6 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
+          path: _site    # 이 줄을 추가했습니다
   deploy:
     needs: build
     runs-on: ubuntu-22.04
