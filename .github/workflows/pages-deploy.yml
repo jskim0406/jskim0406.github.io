@@ -10,7 +10,7 @@ on:
       - README.md
       - LICENSE
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Actions 탭에서 수동으로 이 워크플로우를 실행할 수 있도록 설정
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# 한 번에 하나의 배포만 진행되도록 설정
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -32,15 +32,14 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-        
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3.0'  # 명시적으로 3.3.0 버전 지정
           bundler-cache: true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Build site
         run: bundle exec jekyll build -d "_site"
@@ -53,19 +52,28 @@ jobs:
             --disable-external=true \
             --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
-      # 업로드 시 사용되는 액션이 'v4'가 아니라 'v1'임에 주의
+      # 여기서 pages용이 아닌 일반 actions/upload-artifact@v4를 사용
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
+          # 아래 deploy 단계의 artifact_name과 일치해야 함
+          name: github-pages
           path: "_site"
 
   deploy:
+    needs: build
+    runs-on: ubuntu-22.04
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
-    needs: build
+      # 배포 후에만 URL 출력이 가능. 필요하면 아래처럼 사용 가능.
+      # url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          # build 단계에서 업로드한 아티팩트 이름과 일치
+          artifact_name: github-pages
+          # ephemeral을 false로 설정해 표준 아티팩트에서 배포하도록 지정
+          ephemeral: false
