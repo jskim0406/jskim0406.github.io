@@ -11,6 +11,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,17 +31,17 @@ jobs:
           JEKYLL_ENV: production
       - name: Test site
         run: bundle exec htmlproofer --disable-external --ignore-scripts _site
-        
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: _site    # 이 줄을 추가했습니다
+          path: _site
   deploy:
     needs: build
     runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
-        with:
-          artifact_name: github-pages
+        id: deployment
+        uses: actions/deploy-pages@v4
