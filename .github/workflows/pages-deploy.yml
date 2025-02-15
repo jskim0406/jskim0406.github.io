@@ -1,26 +1,15 @@
-name: "Build and Deploy"
+name: Build and Deploy
 
 on:
   push:
     branches:
       - main
       - master
-    paths-ignore:
-      - .gitignore
-      - README.md
-      - LICENSE
-
-  # Actions 탭에서 수동으로 이 워크플로우 실행 가능
-  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -30,47 +19,41 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.0'  # 필요에 따라 다른 버전을 지정
+          ruby-version: '3.3.0'
           bundler-cache: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Build site
+      - name: Install & Build site
         run: |
           bundle install
-          bundle exec jekyll build -d "_site"
+          bundle exec jekyll build -d _site
         env:
-          JEKYLL_ENV: "production"
+          JEKYLL_ENV: production
 
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
-            --disable-external=true \
+            --disable-external \
             --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages    # ↓ 아래서도 동일한 이름 사용
-          path: "_site"
+          name: github-pages     # 바로 아래 'deploy' job과 똑같이 써야 함
+          path: _site
 
   deploy:
     needs: build
     runs-on: ubuntu-22.04
-    environment:
-      name: github-pages
-      # url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v2
         with:
-          # 위 build job에서 업로드한 아티팩트 이름과 동일해야 함
+          # ↑ build job에서 설정한 name: github-pages 와 동일해야 함
           artifact_name: github-pages
-          # ephemeral: false (이 부분은 지원되지 않으므로 제거)
