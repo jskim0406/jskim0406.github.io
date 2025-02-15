@@ -53,8 +53,9 @@ jobs:
             --disable-external=true \
             --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
+      # 업로드 시 사용되는 액션이 'v4'가 아니라 'v1'임에 주의
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v1
         with:
           path: "_site"
 
