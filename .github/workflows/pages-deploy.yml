@@ -34,20 +34,20 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      # htmlproofer 실행 시, "--disable-external"을 먼저 적고 _site를 뒤에 쓰면 해결되는 경우가 많습니다
       - name: Test site
-        run: bundle exec htmlproofer _site --disable-external
+        run: bundle exec htmlproofer --disable-external _site
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages   # 아티팩트 이름
+          name: github-pages
 
   deploy:
-    # build 잡이 끝나야만 실행
     needs: build
     runs-on: ubuntu-22.04
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: github-pages  # build에서 업로드한 이름과 동일
+          artifact_name: github-pages
