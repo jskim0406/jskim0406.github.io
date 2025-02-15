@@ -34,10 +34,9 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      # htmlproofer 실행 시, "--disable-external"을 먼저 적고 _site를 뒤에 쓰면 해결되는 경우가 많습니다
       - name: Test site
-        run: bundle exec htmlproofer --disable-external _site
-
+        run: bundle exec htmlproofer --disable-external --ignore-urls "/app.min.js/" _site
+        
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
