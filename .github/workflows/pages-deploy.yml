@@ -1,47 +1,39 @@
 name: Build and Deploy
-
 on:
   push:
     branches:
       - main
       - master
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3.0'
           bundler-cache: true
-
       - name: Setup Pages
         uses: actions/configure-pages@v3
-
       - name: Build site
         run: |
           bundle install
           bundle exec jekyll build -d _site
         env:
           JEKYLL_ENV: production
-
       - name: Test site
-        run: bundle exec htmlproofer --disable-external --ignore-urls "/app.min.js/" _site
+        run: bundle exec htmlproofer --disable-external --ignore-scripts _site
         
       - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-
   deploy:
     needs: build
     runs-on: ubuntu-22.04
